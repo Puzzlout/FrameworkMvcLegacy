@@ -16,10 +16,6 @@ use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
 use WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
 use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class LinkControl extends HtmlControlBase{
 
   public function __construct() {
