@@ -30,6 +30,16 @@ class LinkControl extends HtmlControlBase{
   }
   
   public function Simple($linkUrl, $linkText) {
+    if(is_null($linkUrl) || empty($linkUrl)) {
+      throw new \InvalidArgumentException('$linkUrl must be provided.', 0, NULL);
+    }
+    if(is_null($linkText) || empty($linkText)) {
+      throw new \InvalidArgumentException('$linkText must be provided.', 0, NULL);
+    }
+    if (!\WebDevJL\Framework\Helpers\RegexHelper::Init($linkUrl)->IsMatch("`\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]`")) {
+      throw new \InvalidArgumentException('$linkUrl ' . $linkUrl .' is not valid.', 0, NULL);
+    }
+    
     array_push($this->Attributes, HtmlAttribute::Instanciate(HtmlAttributeConstants::Href, $linkUrl));
     array_push($this->Attributes, HtmlAttribute::Instanciate(LinkAttributeConstants::Target, "_BLANK"));
     $this->HtmlOutput = '<a {0} {1}>'. $linkText . '</a>';

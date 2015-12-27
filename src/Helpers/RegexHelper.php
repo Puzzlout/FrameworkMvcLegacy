@@ -20,9 +20,8 @@ if (!FrameworkConstants_ExecutionAccessRestriction) {
 
 class RegexHelper {
   
-  public $List;
-  public $valueToTest;
-
+  private $List;
+  private $valueToTest;
 
   public function __construct() {
     $this->List = array();
