@@ -12,11 +12,8 @@
  */
 
 namespace WebDevJL\Framework\Helpers;
-use WebDevJL\Framework\Enums\CommonRegexes;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
+use WebDevJL\Framework\Enums\CommonRegexes;
 
 class RegexHelper {
   
