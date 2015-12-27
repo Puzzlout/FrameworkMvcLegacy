@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Enums\HtmlAttributes;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class HtmlAttributeConstants {
   const DataRootAttr = "data-";
   const Src = "src";

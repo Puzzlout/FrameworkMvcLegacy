@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\UC;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class HtmlControlBase {
   public $Attributes;
   public $HtmlOutput;
