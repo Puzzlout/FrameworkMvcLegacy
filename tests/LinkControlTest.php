@@ -50,23 +50,6 @@ class LinkControlTest extends PHPUnit_Framework_TestCase {
       $result = $exc;      
     }
     $this->assertInstanceOf('\InvalidArgumentException', $result);
-  }
-  
-  public function testLinkWithListOfInvalidLinkUrls() {
-    //url invalid => htttp://google.fr
-    $invalidUrls = [
-        "htttp://google.fr/","htp://google.fr/","hhttp://google.fr/",
-        "http://","fpt:://this.com","tjt<zùej","123456789","       "
-        ];
-    try {
-      foreach ($invalidUrls as $$url) {
-        LinkControl::Init()->Simple("htttp://google.fr/", "Google FR");
-      }
-    } catch (\Exception $exc) {
-      $result = $exc;      
-    }
-    $this->assertInstanceOf('\InvalidArgumentException', $result);
-  }
-  
+  }  
 }
 
