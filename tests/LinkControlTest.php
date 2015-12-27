@@ -13,9 +13,9 @@
 
 use WebDevJL\Framework\UC\LinkControl;
 
-class LinkControlTest extends \PHPUnit_Framework_TestCase {
+class LinkControlTest extends PHPUnit_Framework_TestCase {
 
-  public function testInitMethod() {
+  public function testInstanceIsCorrect() {
     $result = LinkControl::Init();
     $this->assertInstanceOf('WebDevJL\Framework\UC\LinkControl', $result);
   }
