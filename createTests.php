@@ -24,13 +24,13 @@
             return;
         }
         $templateContents = file_get_contents(ROOT_DIR."TestClass.tt");
-        $testClassName = str_replace(".php", "Test.php", $file);
-        $testClassFullPath = $targetDir . "/" . $file;
+        $testClassName = str_replace(".php", "Test", $file);
+        $testClassFullPath = $targetDir . "/" . $testClassName . ".php";
         $placeholders = array(
             CLASS_NAME => $file . "Test",
-            CLASS_NAME_TO_TEST => $file
+            CLASS_NAME_TO_TEST => $testClassName
             );
-        $newTestClass = "";
+        $newTestClass = strtr($templateContents, $placeholders);
         return $testClassFullPath;
     }
     
