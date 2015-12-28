@@ -24,7 +24,7 @@ function CreateDirectoryInTestsFolder($dirWithFiles) {
   $dirExists = file_exists($targetDir);
   if (!$dirExists) {
     echo $targetDir . "</ br>";
-    mkdir($targetDir, 0777);
+    //mkdir($targetDir, 0777);
   }
   return $targetDir;
 }
@@ -45,16 +45,16 @@ function CreateTestClass($sourceDir, $targetDir, $file) {
   );
   $newTestClass = strtr($templateContents, $placeholders);
   //write the file
-  $writer = fopen($testClassFullPath, 'w') or die("can't open file $testClassFullPath.");
-  fwrite($writer, $newTestClass);
-  fclose($writer);
+  //$writer = fopen($testClassFullPath, 'w') or die("can't open file $testClassFullPath.");
+  //fwrite($writer, $newTestClass);
+  //fclose($writer);
   //end writing file
   return $testClassFullPath;
 }
 
 $listOfDir = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::InitWithoutApp()->RecursiveFileTreeScanOf(
         ROOT_DIR . "src/", WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
-echo "<b>Starting...</b>";
+echo "<b>Starting...</b></ br>";
 foreach ($listOfDir as $directory => $files) {
   //create the directory if it doesn't exist...
   $targetDir = CreateDirectoryInTestsFolder($directory);
@@ -63,4 +63,4 @@ foreach ($listOfDir as $directory => $files) {
   }
 }
 
-echo "<b>Finished!</b>";
+echo "<b>Finished!\n";
