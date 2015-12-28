@@ -56,9 +56,26 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
         $this->RecursiveFileTreeScanOf($directory . $value, $algorithmFilter);
         continue;
       }
-      array_push($this->FileList, $directory . $value);
+      $this->AddFileToResult($directory, $value);
     }
     return $this->FileList;
+  }
+  
+  /**
+   * Add a file to the result list in the proper subarray using the directory.
+   * 
+   * @param string $directory The directory where resides the file
+   * @param string $file The file name
+   */
+  private function AddFileToResult($directory, $file)
+  {
+      if(array_key_exists($directory, $this->FileList))
+      {
+        array_push($this->FileList[$directory], $file);
+        return;
+      }
+      //array_push($this->FileList, $directory);
+      $this->FileList[$directory] = [$value];
   }
   
   private function DoIncludeInResult($valueToCheck, $algorithmFilter) {

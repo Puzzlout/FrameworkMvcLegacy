@@ -1,0 +1,18 @@
+<?php
+
+use {{class_name_to_test}};
+
+class {{class_name}} extends \PHPUnit_Framework_TestCase {
+
+  /**
+   * This method is generated.
+   */
+  public function testInstanceIsCorrect()
+  {
+    $result = \{{class_name_to_test}}::Init();
+    $this->assertInstanceOf('{{class_name_to_test}}', $result);
+  }
+  
+  //Write the next tests below...
+  
+}
