@@ -3,8 +3,8 @@
     define(ROOT_DIR, dirname(dirname(__FILE__)) . "/FrameworkMvc/");
     define(VENDOR, "WebDevJL");
     
-    const CLASS_NAME_TO_TEST = "class_name_to_test";
-    const CLASS_NAME = "class_name";
+    const CLASS_NAME_TO_TEST = "{{class_name_to_test}}";
+    const CLASS_NAME = "{{class_name}}";
 
     function CreateDirectoryInTestsFolder($dirWithFiles)
     {
@@ -23,10 +23,9 @@
         {
             return;
         }
-        //create the test class...
-        $template = file_get_contents(ROOT_DIR."TestClass.tt");
-        $testClassName = $file . 'Test';
-        $testClassFullPath = $targetDir . $file;
+        $templateContents = file_get_contents(ROOT_DIR."TestClass.tt");
+        $testClassName = str_replace(".php", "Test.php", $file);
+        $testClassFullPath = $targetDir . "/" . $file;
         $placeholders = array(
             CLASS_NAME => $file . "Test",
             CLASS_NAME_TO_TEST => $file
