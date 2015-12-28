@@ -30,22 +30,35 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
     $instance->ContextApp = $app;
     return $instance;
   }
+  
+    /**
+   * Builds the instance of class
+   * 
+   * @return \WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch
+   */
+  public static function InitWithoutApp() {
+    $instance = new ArrayFilterFileSearch();
+    $instance->FileList = array();
+    return $instance;
+  }
+
 
   public function RecursiveFileTreeScanOf($directory, $algorithmFilter) {
     $scanResult = scandir($directory);
     foreach ($scanResult as $key => $value) {
       $includeValueInResult = $this->DoIncludeInResult($value, $algorithmFilter);
-      $isValueADirectory = is_file($directory . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR . $value);
+      $isValueADirectory = is_dir($directory . $value);
       
       if (!$includeValueInResult) {
         continue;
       }
       if ($isValueADirectory) {
-        $this->RecursiveScanOf($directory . $value . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR, $algorithmFilter);
+        $this->RecursiveFileTreeScanOf($directory . $value, $algorithmFilter);
+        continue;
       }
-      array_push($this->FileList, $directory . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR . $value);
+      array_push($this->FileList, $directory . $value);
     }
-    return $this->DirectoryList;
+    return $this->FileList;
   }
   
   private function DoIncludeInResult($valueToCheck, $algorithmFilter) {
@@ -53,7 +66,7 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
       if(strcmp($valueToCheck, $filter) === 0) {
         return FALSE;
       }
-      if(\WebDevJL\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`'.$filter.'`')) {
+      if(\WebDevJL\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`^'.$filter.'$`')) {
         return FALSE;
       }
     }

@@ -31,12 +31,12 @@ class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJ
   }
   
   /**
-   * @see \WebDevJL\Framework\Interfaces\IObjectInitialization
-   * @param mixed $value
-   * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+   * 
    */
-  public static function InitWith($value) {
-    throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+  public static function InitWithoutApp() {
+    $instance = new ArrayFilterDirectorySearch();
+    $instance->DirectoryList = array();
+    return $instance;
   }
 
   public function RecursiveScanOf($directory, $algorithmFilter) {
