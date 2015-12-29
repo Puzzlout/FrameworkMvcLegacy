@@ -9,7 +9,8 @@ define(VENDOR, "WebDevJL");
         const NAMESPACE_PREFIX = "WebDevJL\\Framework\\";
 
 function GetDir($sourceDir) {
-  $result = substr($sourceDir, strrpos($sourceDir, '/') + 1);
+  $result = str_replace(ROOT_DIR . "src/", "", $sourceDir);
+  $result = str_replace("/", "\\", $result);
   return $result;
 }
 
@@ -19,7 +20,16 @@ function GetSourceClass($file) {
   return $result;
 }
 
-function CreateDirectoryInTestsFolder($dirWithFiles) {
+function GetSourceClassFullName($sourceDir, $file)
+{
+    $dir = GetDir($sourceDir);
+    $className = GetSourceClass($file);
+    $result = NAMESPACE_PREFIX . $dir . "\\" . $className;
+    return $result;
+}
+
+function CreateDirectoryInTestsFolder($dirWithFiles)
+{
   $targetDir = str_replace("src", "tests", $dirWithFiles);
   $dirExists = file_exists($targetDir);
   if (!$dirExists) {
@@ -35,12 +45,13 @@ function CreateTestClass($sourceDir, $targetDir, $file) {
   }
   $templateContents = file_get_contents(ROOT_DIR . "TestClass.tt");
   $testClassName = str_replace(".php", "Test", $file);
+  $sourceClassName = GetSourceClassFullName($sourceDir, $file);
   $testClassFullPath = $targetDir . "/" . $testClassName . ".php";
   if (!GetDir($sourceDir)) {
     return;
   }
   $placeholders = array(
-      CLASS_NAME_TO_TEST => NAMESPACE_PREFIX . GetDir($sourceDir) . "\\" . GetSourceClass($file),
+      CLASS_NAME_TO_TEST => $sourceClassName,
       CLASS_NAME => $testClassName
   );
   $newTestClass = strtr($templateContents, $placeholders);
@@ -53,7 +64,7 @@ function CreateTestClass($sourceDir, $targetDir, $file) {
 }
 
 $listOfDir = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::InitWithoutApp()->RecursiveFileTreeScanOf(
-        ROOT_DIR . "src/", WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+        ROOT_DIR . "src", WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
 echo "<b>Starting...</b></ br>";
 foreach ($listOfDir as $directory => $files) {
   //create the directory if it doesn't exist...

@@ -47,13 +47,13 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
     $scanResult = scandir($directory);
     foreach ($scanResult as $key => $value) {
       $includeValueInResult = $this->DoIncludeInResult($value, $algorithmFilter);
-      $isValueADirectory = is_dir($directory . $value);
+      $isValueADirectory = is_dir($directory . "/" . $value);
       
       if (!$includeValueInResult) {
         continue;
       }
       if ($isValueADirectory) {
-        $this->RecursiveFileTreeScanOf($directory . $value, $algorithmFilter);
+        $this->RecursiveFileTreeScanOf($directory . "/" . $value, $algorithmFilter);
         continue;
       }
       $this->AddFileToResult($directory, $value);
