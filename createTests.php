@@ -7,9 +7,12 @@ define(VENDOR, "WebDevJL");
         const CLASS_NAME_TO_TEST = "{{class_name_to_test}}";
         const CLASS_NAME = "{{class_name}}";
         const NAMESPACE_PREFIX = "WebDevJL\\Framework\\";
-
+        const SOURCE_FOLDER_NAME = "src";
+        const TESTS_FOLDER_NAME = "tests";
+        const DIR_SEPARATOR = "/";
+        
 function GetDir($sourceDir) {
-  $result = str_replace(ROOT_DIR . "src/", "", $sourceDir);
+  $result = str_replace(ROOT_DIR . SOURCE_FOLDER_NAME . DIR_SEPARATOR, "", $sourceDir);
   $result = str_replace("/", "\\", $result);
   return $result;
 }
@@ -28,15 +31,26 @@ function GetSourceClassFullName($sourceDir, $file)
     return $result;
 }
 
-function CreateDirectoryInTestsFolder($dirWithFiles)
+function CreateDirectories($fullDirectory)
 {
-  $targetDir = str_replace("src", "tests", $dirWithFiles);
-  $dirExists = file_exists($targetDir);
-  if (!$dirExists) {
-    echo "<p>Directory created => " . $targetDir . "</p>";
-    mkdir($targetDir, 0777);
+  $targetDirRoot = ROOT_DIR . TESTS_FOLDER_NAME;
+  $shortDirectory = str_replace($targetDirRoot . DIR_SEPARATOR, "", $fullDirectory);
+  $directoryParts = explode('/', $shortDirectory);
+  $dirToCheck = $targetDirRoot;
+  foreach ($directoryParts as $part) {
+    $dirToCheck .= DIR_SEPARATOR . $part;
+    $dirExists = file_exists($dirToCheck);
+    if (!$dirExists) {
+      echo "<h2>Directory created => " . $dirToCheck . "</h2>";
+      mkdir($dirToCheck . DIR_SEPARATOR, 0777);
+    }
   }
-  return $targetDir;
+}
+function GetFullDirectoryValue($dirWithFiles)
+{
+  $targetDirFull = str_replace(SOURCE_FOLDER_NAME, TESTS_FOLDER_NAME, $dirWithFiles);
+  CreateDirectories($targetDirFull);
+  return $targetDirFull;
 }
 
 function CreateTestClass($sourceDir, $targetDir, $file) {
@@ -64,13 +78,14 @@ function CreateTestClass($sourceDir, $targetDir, $file) {
 }
 
 $listOfDir = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::InitWithoutApp()->RecursiveFileTreeScanOf(
-        ROOT_DIR . "src", WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+        ROOT_DIR . SOURCE_FOLDER_NAME, 
+        WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
 echo "<h1>Starting...</h1>";
-foreach ($listOfDir as $directory => $files) {
+foreach ($listOfDir as $sourceDirectory => $files) {
   //create the directory if it doesn't exist...
-  $targetDir = CreateDirectoryInTestsFolder($directory);
+  $targetDir = GetFullDirectoryValue($sourceDirectory);
   foreach ($files as $file) {
-    echo "<p>Test class " . CreateTestClass($directory, $targetDir, $file) . " was created.</p>";
+    echo "<p>Test class " . CreateTestClass($sourceDirectory, $targetDir, $file) . " was created.</p>";
   }
 }
 
