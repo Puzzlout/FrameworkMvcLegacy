@@ -36,10 +36,10 @@ class InitializeTestSuite {
         echo "<h1>Starting...</h1>";
         foreach ($listOfDir as $sourceDirectory => $files)
         {
-            $targetDir = GetFullDirectoryValue($sourceDirectory);
+            $targetDir = $this->GetFullDirectoryValue($sourceDirectory);
             foreach ($files as $file)
             {
-                echo "<p>Test class " . CreateTestClass($sourceDirectory, $targetDir, $file) . " was created.</p>";
+                echo "<p>Test class " . $this->CreateTestClass($sourceDirectory, $targetDir, $file) . " was created.</p>";
             }
         }
     }
@@ -71,7 +71,6 @@ class InitializeTestSuite {
         $targetDirRoot = ROOT_DIR . TESTS_FOLDER_NAME;
         $shortDirectory = str_replace($targetDirRoot . DIR_SEPARATOR, "", $fullDirectory);
         $directoryParts = explode('/', $shortDirectory);
-        $dirToCheck = $targetDirRoot;
         foreach ($directoryParts as $part)
         {
             $this->CreateDirectory($part);
