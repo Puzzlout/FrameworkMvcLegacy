@@ -18,10 +18,27 @@ if (!FrameworkConstants_ExecutionAccessRestriction) {
 }
 
 class ArrayListAlgorithm {
+
+  public static function Init() {
+    $instance = new ArrayListAlgorithm();
+    return $instance;
+  }
+
   public static function ExcludeList() {
     return array(
         "\\.",
         "\\.\\.",
     );
+  }
+
+  public function ExcludeListForTestSuite() {
+    $specific = array(
+        "Views",
+        "Generator",
+        ".DS_Store",
+        "FrameworkConstants",
+    );
+    $list = array_merge($specific, self::ExcludeList());
+    return $list;
   }
 }
