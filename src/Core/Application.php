@@ -5,10 +5,6 @@ namespace WebDevJL\Framework\Core;
 use WebDevJL\Framework\Enums;
 use WebDevJL\Framework\Enums\NameSpaceName;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class Application extends ApplicationBase {
 
   public function __construct(ErrorManager $errorManager) {

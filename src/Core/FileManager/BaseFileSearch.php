@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\FileManager;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class BaseFileSearch {
   protected $FileList;
   protected $ContextApp;

@@ -14,10 +14,6 @@
 
 namespace WebDevJL\Framework\Interfaces;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 interface IRecursiveFileTreeSearch {
   /**
    * Scan a directory recursively applying an algorithm and return the filtered 

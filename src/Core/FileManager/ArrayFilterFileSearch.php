@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\FileManager;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framework\Interfaces\IRecursiveFileTreeSearch {
 
   /**
@@ -75,10 +71,13 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
         return;
       }
       //array_push($this->FileList, $directory);
-      $this->FileList[$directory] = [$value];
+      $this->FileList[$directory] = [$file];
   }
   
   private function DoIncludeInResult($valueToCheck, $algorithmFilter) {
+    if(is_null($valueToCheck)) {
+      return FALSE;
+    }
     foreach ($algorithmFilter as $filter) {
       if(strcmp($valueToCheck, $filter) === 0) {
         return FALSE;
