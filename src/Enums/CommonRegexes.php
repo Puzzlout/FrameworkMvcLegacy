@@ -20,4 +20,5 @@ class CommonRegexes {
   const DIRECTORY_EXCLUDE_PATTERN = "`^([^\.0-9])+([\.\w_-])+$`";
   const IS_CLASS_ABSCTRACT = "`(abstract class )`";
   const IS_FILE_INTERFACE = "`(interface )`";
+  const CONTAINS_LOCKED_FLAG = "`(@locked)`";
 }

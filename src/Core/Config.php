@@ -19,7 +19,7 @@ class Config extends ApplicationComponent {
    */
   private function AssignSettingsToArray() {
     try {
-      $SettingsClass = "\\Applications\\" . FrameworkConstants_AppName . "\\Config\\AppSettings";
+      $SettingsClass = "\\Applications\\" . $this->app->name . "\\Config\\AppSettings";
       $this->settings[$this->app->name] = $SettingsClass::Init()->GetSettings();
     } catch (\ErrorException $exc) {
       throw new \RuntimeException("Couldn't execute the method $GetMethod in $SettingsClass", 0, $exc);

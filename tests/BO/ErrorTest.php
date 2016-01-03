@@ -1,4 +1,8 @@
 <?php
+/**
+ * @locked 
+ * @since Test Suite v.1.0.0
+ */
 
 namespace WebDevJL\Framework\Tests\BO;
 
@@ -11,7 +15,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
-    $result = new Error();
+    $result = new Error(0,"","","","");
     $this->assertInstanceOf('WebDevJL\Framework\BO\Error', $result);
   }
   

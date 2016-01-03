@@ -4,7 +4,8 @@ define("ROOT_DIR", dirname(dirname(__FILE__)) . "/FrameworkMvc/");
 define("VENDOR", "WebDevJL");
 define("TESTING_FILE_TREE", FALSE);
 define("SKIP_TEST_CLASSES_GENERATION", FALSE);
-define("OVERWRITE_EXISTING_TEST_CLASS", TRUE);
+define("OVERWRITE_TEST_SUITE", TRUE);
+define("TEST_SUITE_VERSION", "v1.0.0");
 
 echo "<h1>Starting...</h1>";
 $TestSuite = WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite::Init()->ProcessSourceFolder();
