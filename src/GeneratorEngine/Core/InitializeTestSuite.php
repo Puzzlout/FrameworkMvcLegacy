@@ -13,6 +13,9 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
+use WebDevJL\Framework\Helpers\RegexHelper;
+use WebDevJL\Framework\Enums\CommonRegexes;
+
 class InitializeTestSuite {
 
   const CLASS_NAME_TO_TEST = "{{class_name_to_test}}";
@@ -26,6 +29,7 @@ class InitializeTestSuite {
   const DIR_SEPARATOR = "/";
   const CLASS_CREATION_STATE = "test_class_state";
   const CLASS_CREATION_FINAL_PATH = "test_class_filepath";
+  const TEST_SUITE_VERSION = "{{test_suite_version}}";
 
   public $output;
 
@@ -114,31 +118,78 @@ class InitializeTestSuite {
         $this->output .= "<p class=\"test-class-not-created\">Test class was not created => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
         continue;
       }
-      $this->output .= "<p class=\"test-class-created\">Test class was created => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
+      $this->output .= "<p class=\"test-class-created\">Test class was generated => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
     }
   }
 
   private function CreateTestClass($sourceDir, $targetDir, $file) {
-    if (is_null($file) || file_exists($targetDir . "/" . $file)) {
-      return;
+    $resultCheckForTest = $this->CheckTestFile($targetDir, $file);
+    if (!$resultCheckForTest[self::CLASS_CREATION_STATE]) {
+      return $resultCheckForTest;
     }
-    $templateContents = file_get_contents(ROOT_DIR . "TestClass.tt");
+    $resultCheckForSource = $this->CheckSourceFile($sourceDir, $file);
+    if (!$resultCheckForSource[self::CLASS_CREATION_STATE]) {
+      return $resultCheckForSource;
+    }
     $testClassName = str_replace(".php", "Test", $file);
-    $sourceClassName = str_replace(".php", "", $file);
     $testClassFullPath = $targetDir . "/" . $testClassName . ".php";
-    $placeholders = array(
+    $placeholders = $this->GetPlaceholders($sourceDir, $targetDir, $file, $testClassName);
+    if (SKIP_TEST_CLASSES_GENERATION) {
+      var_dump($placeholders);
+      return array(self::CLASS_CREATION_STATE => $result, self::CLASS_CREATION_FINAL_PATH => $testClassFullPath);
+      ;
+    }
+    $newTestClassContents = $this->GenerateTestClassContents($placeholders);
+    $result = $this->WriteTestClassFile($testClassFullPath, $newTestClassContents);
+    return array(self::CLASS_CREATION_STATE => $result, self::CLASS_CREATION_FINAL_PATH => $testClassFullPath);
+  }
+
+  private function GenerateTestClassContents($placeholders) {
+    $templateContents = file_get_contents(ROOT_DIR . "TestClass.tt");
+    $newTestClassContents = strtr($templateContents, $placeholders);
+    return $newTestClassContents;
+  }
+
+  private function GetPlaceholders($sourceDir, $targetDir, $file, $testClassName) {
+    $sourceClassName = str_replace(".php", "", $file);
+    return array(
         self::FULL_CLASS_NAME_TO_TEST => $this->GetSourceClassFullName($sourceDir, $file),
         self::CLASS_NAME_TO_TEST => $sourceClassName,
         self::TEST_CLASS_NAME => $testClassName,
         self::TEST_CLASS_NAMESPACE => $this->GetTestClassNamespace($targetDir),
+        self::TEST_SUITE_VERSION => TEST_SUITE_VERSION,
     );
-    $newTestClassContents = strtr($templateContents, $placeholders);
-    if (SKIP_TEST_CLASSES_GENERATION) {
-      var_dump($placeholders);
-      return;
+    ;
+  }
+
+  private function CheckTestFile($targetDir, $file) {
+    if (is_null($file)) {
+      return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => 'Variable $file is null!');
     }
-    $result = $this->WriteTestClassFile($testClassFullPath, $newTestClassContents);
-    return array(self::CLASS_CREATION_STATE => $result, self::CLASS_CREATION_FINAL_PATH => $testClassFullPath);
+    $testfilePath = $targetDir . self::DIR_SEPARATOR . str_replace(".php", "Test.php", $file);
+    $testClassExists = file_exists($testfilePath);
+    if ($testClassExists) {
+      $testClassContents = file_get_contents($testfilePath);
+    }
+    if (is_string($testClassContents) && RegexHelper::Init($testClassContents)->IsMatch(CommonRegexes::CONTAINS_LOCKED_FLAG)) {
+      return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => "Test class is locked => $testfilePath");
+    }
+    if (!OVERWRITE_EXISTING_TEST_CLASS && $testClassExists) {
+      return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => "Test class already exists => $testfilePath");
+    }
+    return array(self::CLASS_CREATION_STATE => TRUE);
+  }
+
+  private function CheckSourceFile($sourceDir, $file) {
+    $sourcefilePath = $sourceDir . self::DIR_SEPARATOR . $file;
+    $sourceClassContents = file_get_contents($sourcefilePath);
+    if (RegexHelper::Init($sourceClassContents)->IsMatch(CommonRegexes::IS_CLASS_ABSCTRACT)) {
+      return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => "Source class is abstract => $sourcefilePath");
+    }
+    if (RegexHelper::Init($sourceClassContents)->IsMatch(CommonRegexes::IS_FILE_INTERFACE)) {
+      return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => "Source file is an interface => $sourcefilePath");
+    }
+    return array(self::CLASS_CREATION_STATE => TRUE);
   }
 
   private function WriteTestClassFile($classPath, $classContents) {
