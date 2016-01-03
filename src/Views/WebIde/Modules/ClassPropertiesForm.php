@@ -1,7 +1,4 @@
 <?php
-
-
-}
 $ViewModel = new WebDevJL\Framework\ViewModels\WebIdeVm($this->app);
 if (!($ControllerVm instanceof WebDevJL\Framework\ViewModels\WebIdeVm)) {
   throw new WebDevJL\Framework\Exceptions\InvalidViewModelTypeException();

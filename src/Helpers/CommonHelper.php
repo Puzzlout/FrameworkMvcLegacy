@@ -1,27 +1,5 @@
 <?php
 
-/**
- *
- * @package		Easy MVC Framework
- * @author		Jeremie Litzler
- * @copyright	Copyright (c) 2015
- * @license		
- * @link		
- * @since		
- * @filesource
- */
-// ------------------------------------------------------------------------
-
-/**
- * CommonHelper Class
- *
- * @package		Library
- * @category	Utility
- * @category	
- * @author		Jeremie Litzler
- * @link		
- */
-
 namespace WebDevJL\Framework\Helpers;
 
 class CommonHelper {

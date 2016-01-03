@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace \Applications\EasyMvc\Helpers;
+namespace WebDevJL\Framework\Helpers;
 
 class MapHelper {
 

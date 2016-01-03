@@ -34,7 +34,7 @@ class ArrayListAlgorithm {
         "Generator",
         ".DS_Store",
         "FrameworkConstants.php",
-        "Mailer"
+        "Mailer",
     );
     $list = array_merge($specific, self::ExcludeList());
     return $list;

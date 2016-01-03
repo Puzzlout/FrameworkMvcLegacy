@@ -1,30 +1,8 @@
 <?php
 
-/**
- *
- * @package		Basic MVC framework
- * @author		Jeremie Litzler
- * @copyright	Copyright (c) 2015
- * @license		
- * @link		
- * @since		
- * @filesource
- */
-// ------------------------------------------------------------------------
+namespace WebDevJL\Framework\Helpers;
 
-/**
- * CommonHelper Class
- *
- * @package		Application/PMTool
- * @category	Helpers
- * @category	CommonHelper
- * @author		FWM DEV Team
- * @link		
- */
-
-namespace \Applications\EasyMvc\Helpers;
-
-class CommonHelper {
+class CommonHelper_1 {
 
   public static function StringToArray($delimiter, $string) {
     $arrayRaw = explode($delimiter, $string);

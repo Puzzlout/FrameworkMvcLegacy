@@ -18,5 +18,6 @@ class CommonRegexes {
   const SEARCH_PHP_EXTENSION = "`^.*php$`";
   const RESOURCE_KEY_VALIDATION = "`^[a-zA-Z0-9_]+$`";
   const DIRECTORY_EXCLUDE_PATTERN = "`^([^\.0-9])+([\.\w_-])+$`";
-  const IS_CLASS_ABSCTRACT = "`(abstract class)`";
+  const IS_CLASS_ABSCTRACT = "`(abstract class )`";
+  const IS_FILE_INTERFACE = "`(interface )`";
 }
