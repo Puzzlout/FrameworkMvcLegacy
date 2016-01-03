@@ -13,14 +13,11 @@
 
 namespace WebDevJL\Framework\Tests;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class TestApplication extends \WebDevJL\Framework\Core\Application {
   public function __construct() {
     $errorManager = new \WebDevJL\Framework\Core\ErrorManager();
     $this->name = "TestSuiteAppInstance";
+    $this->UnitTestingEnabled = true;
     parent::__construct($errorManager);
   }
 }

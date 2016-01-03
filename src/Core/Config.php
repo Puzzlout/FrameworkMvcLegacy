@@ -19,6 +19,11 @@ class Config extends ApplicationComponent {
    */
   private function AssignSettingsToArray() {
     try {
+      if($this->app->UnitTestingEnabled) {
+        $SettingsClass = "\\WebDevJL\\Framework\\Tests\\AppSettings";
+        $this->settings[$this->app->name] = $SettingsClass::Init()->GetSettings();
+        return;
+      }
       $SettingsClass = "\\Applications\\" . $this->app->name . "\\Config\\AppSettings";
       $this->settings[$this->app->name] = $SettingsClass::Init()->GetSettings();
     } catch (\ErrorException $exc) {

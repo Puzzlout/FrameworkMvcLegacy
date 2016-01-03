@@ -41,7 +41,8 @@ abstract class ApplicationBase {
   public $cultures = array();
   public $ResourceManager;
   public $controller;
-
+  public $UnitTestingEnabled;
+  
   public function HttpRequest() {
     return $this->httpRequest;
   }

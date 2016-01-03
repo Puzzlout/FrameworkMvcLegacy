@@ -8,22 +8,24 @@ use WebDevJL\Framework\Enums\NameSpaceName;
 abstract class Application extends ApplicationBase {
 
   public function __construct(ErrorManager $errorManager) {
-    $this->ResourceManager = new ResourceManagers\ResourceBase($this);
-    $this->error = $errorManager;
-    $this->httpRequest = new HttpRequest($this);
-    $this->httpResponse = new HttpResponse($this);
-    $this->user = new User($this);
-    $this->config = new Config($this);
-    $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
-    $this->context = new Context($this);
-    $this->cultures = $this->GetCultureArray();
-    $this->i8n = new Globalization($this);
-    $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
-    $this->router = new Router($this);
-    $this->locale = $this->httpRequest->initLanguage($this, "browser");
-    $this->auth = new \WebDevJL\Framework\Security\AuthenticationManager($this);
-    $this->toolTip = new PopUpResourceManager($this);
-    $this->security = new \WebDevJL\Framework\Security\Protect($this->config);
+    if (!$this->UnitTestingEnabled) {
+      $this->ResourceManager = new ResourceManagers\ResourceBase($this);
+      $this->error = $errorManager;
+      $this->httpRequest = new HttpRequest($this);
+      $this->httpResponse = new HttpResponse($this);
+      $this->user = new User($this);
+      $this->config = new Config($this);
+      $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
+      $this->context = new Context($this);
+      $this->cultures = $this->GetCultureArray();
+      $this->i8n = new Globalization($this);
+      $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
+      $this->router = new Router($this);
+      $this->locale = $this->httpRequest->initLanguage($this, "browser");
+      $this->auth = new \WebDevJL\Framework\Security\AuthenticationManager($this);
+      $this->toolTip = new PopUpResourceManager($this);
+      $this->security = new \WebDevJL\Framework\Security\Protect($this->config);
+    }
   }
 
   /**
