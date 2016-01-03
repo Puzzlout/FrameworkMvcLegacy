@@ -24,10 +24,6 @@
 
 namespace WebDevJL\Framework\Dal;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class DalFilters {
 
   protected

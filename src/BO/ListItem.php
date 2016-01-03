@@ -13,9 +13,6 @@
 
 namespace WebDevJL\Framework\BO;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 class ListItem {
 
   public $value;

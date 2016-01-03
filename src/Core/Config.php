@@ -2,12 +2,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-use WebDevJL\Framework\FrameworkConstants;
-
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class Config extends ApplicationComponent {
 
   protected $settings = array();

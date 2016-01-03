@@ -12,12 +12,9 @@
  */
 
 namespace WebDevJL\Framework\UC;
-use \WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
-use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
+use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
+use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 
 class ScriptControl extends HtmlControlBase implements \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder{
 

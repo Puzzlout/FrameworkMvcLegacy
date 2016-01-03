@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class GeneratorManager extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   /**

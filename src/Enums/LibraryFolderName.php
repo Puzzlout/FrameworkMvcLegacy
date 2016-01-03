@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Enums;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class LibraryFolderName {
 
   const Library = "Library/";

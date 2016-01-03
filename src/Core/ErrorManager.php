@@ -25,9 +25,6 @@ namespace WebDevJL\Framework\Core;
 
 use WebDevJL\Framework\Enums\ErrorLoggingMethod;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 
 class ErrorManager {
 

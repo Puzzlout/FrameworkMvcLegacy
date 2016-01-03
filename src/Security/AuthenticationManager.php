@@ -1,13 +1,4 @@
 <?php
-namespace WebDevJL\Framework\Security;
-
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
-use WebDevJL\Framework\Interfaces\IUser;
-use WebDevJL\Framework\Enums\SessionKeys;
-
 /**
  * Provides the methods to manage user authentication. 
  * 
@@ -18,6 +9,11 @@ use WebDevJL\Framework\Enums\SessionKeys;
  * @since Version 1.0.0
  * @package AuthenticationManager
  */
+namespace WebDevJL\Framework\Security;
+
+use WebDevJL\Framework\Interfaces\IUser;
+use WebDevJL\Framework\Enums\SessionKeys;
+
 class AuthenticationManager {
 
   private $app;

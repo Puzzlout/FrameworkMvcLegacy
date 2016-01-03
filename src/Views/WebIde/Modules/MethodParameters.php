@@ -1,7 +1,4 @@
 <?php
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 $ViewModel = new WebDevJL\Framework\ViewModels\WebIdeVm($this->app);
 if (!($ControllerVm instanceof WebDevJL\Framework\ViewModels\WebIdeVm)) {
   throw new WebDevJL\Framework\Exceptions\InvalidViewModelTypeException();

@@ -11,9 +11,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Placeholders;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class PhpDocPlaceholders {
   const AUTHOR = "{{phpdoc_author}}";
   const PACKAGE = "{{phpdoc_package}}";

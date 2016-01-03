@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class ApplicationComponent {
 
   protected $app;

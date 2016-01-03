@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Dal\Modules;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * Provides methods to query the database for some generic queries that have
  * nothing to with the database tables.

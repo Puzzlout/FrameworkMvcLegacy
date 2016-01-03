@@ -1,10 +1,5 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
-
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 /**
  * Read xml files and return contents.
  * 
@@ -15,6 +10,9 @@ if (!FrameworkConstants_ExecutionAccessRestriction)
  * @since Version 1.0.0
  * @package XmlReader
  */
+
+namespace WebDevJL\Framework\Core;
+
 class XmlReader {
 
   private $filePath;

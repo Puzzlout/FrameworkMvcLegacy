@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\ViewModels;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
 
   /**

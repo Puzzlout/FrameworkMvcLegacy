@@ -25,10 +25,6 @@
 
 namespace WebDevJL\Framework\Dal\Modules;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class LogDal extends \WebDevJL\Framework\Dal\BaseManager {
   //Common implementation is done WebDevJL\Framework\Dal\BaseManager
 }

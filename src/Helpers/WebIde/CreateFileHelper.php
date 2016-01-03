@@ -16,10 +16,6 @@ namespace WebDevJL\Framework\Helpers\WebIde;
 use WebDevJL\Framework\BO\NewFileItem;
 use WebDevJL\Framework\BO\JsonResult;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
 
   /**

@@ -13,11 +13,7 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
-class BaseClass {
+abstract class BaseClass {
 
   const NameSpaceKey = "NameSpaceKey";
   const ClassNameKey = "ClassNameKey";

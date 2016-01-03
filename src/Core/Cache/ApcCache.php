@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\Cache;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ApcCache implements \WebDevJL\Framework\Interfaces\ICache {
   protected $config;
 

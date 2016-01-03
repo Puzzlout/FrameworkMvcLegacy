@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Utility;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceConstantsClassEngine {
 
   const CommonClassDerivationNamespace = "\WebDevJL\Framework\Core\ResourceManagers\CommonResxBase";

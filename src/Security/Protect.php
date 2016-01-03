@@ -1,11 +1,4 @@
 <?php
-
-namespace WebDevJL\Framework\Security;
-
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * Provides the methods to hash, encrypt and decrypt a value. 
  * 
@@ -16,6 +9,9 @@ if (!FrameworkConstants_ExecutionAccessRestriction) {
  * @since Version 1.0.0
  * @package Protect 
  */
+
+namespace WebDevJL\Framework\Security;
+
 class Protect  {
 
   private $hashSalt = null;

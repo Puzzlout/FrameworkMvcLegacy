@@ -1,5 +1,5 @@
 <?php
-namespace WebDevJL\Framework\BO;if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+namespace WebDevJL\Framework\BO;
 /*** @author Jeremie Litzler* @copyright Copyright (c) 2015* @licence http://opensource.org/licenses/gpl-license.php GNU Public License* @link https://github.com/WebDevJL/* @since Version 1.0.2.1* @package F_controller_resource*/
 class F_controller_resource extends \WebDevJL\Framework\Core\Entity {  const F_CONTROLLER_RESOURCE_KEY = "f_controller_resource_key";  const F_CONTROLLER_RESOURCE_MODULE = "f_controller_resource_module";  const F_CONTROLLER_RESOURCE_ACTION = "f_controller_resource_action";  const F_CONTROLLER_RESOURCE_VALUE = "f_controller_resource_value";  const F_CONTROLLER_RESOURCE_COMMENT = "f_controller_resource_comment";  const F_CULTURE_ID = "f_culture_id";
   protected     $f_controller_resource_key,    $f_controller_resource_module,    $f_controller_resource_action,    $f_controller_resource_value,    $f_controller_resource_comment,    $f_culture_id;

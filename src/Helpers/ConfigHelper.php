@@ -24,10 +24,6 @@
 
 namespace WebDevJL\Framework\Helpers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ConfigHelper {
 
   public static function GetValue($caller, $rq, $result) {

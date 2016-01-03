@@ -15,10 +15,6 @@
 
 namespace WebDevJL\Framework\Enums\ResourceKeys;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class GlobalAppKeys {
 
   const log_http_request = "log_http_request";

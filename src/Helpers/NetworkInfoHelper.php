@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Helpers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
-
 /**
  * Retrieve the network info from the $_ENV and $_SERVER global variables. 
  * 

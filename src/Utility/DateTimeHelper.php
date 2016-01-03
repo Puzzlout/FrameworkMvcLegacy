@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Utility;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class DateTimeHelper {
 
   public static function GetDateTimeWithMs($time) {

@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 interface IClassGenerator {
   public function BuildClass();
   public function WriteAssociativeArrayValueAsNewArray($value, $tabAmount = 0);

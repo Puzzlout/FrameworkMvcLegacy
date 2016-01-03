@@ -10,9 +10,7 @@
  * @package IObjectInitialization
  */
 namespace WebDevJL\Framework\Interfaces;
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
+
 interface IObjectInitialization {
   /**
    * Method that creates the instance of a class.

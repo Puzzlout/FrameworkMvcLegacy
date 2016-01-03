@@ -11,9 +11,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Placeholders;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class ClassFilePlaceholders {
   const NAMESPACE_FRAMEWORK = "{{namespace_framework}}";
   const NAMESPACE_APP = "{{namespace_app}}";

@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Controllers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   /**

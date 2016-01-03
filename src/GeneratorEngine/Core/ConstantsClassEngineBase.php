@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class ConstantsClassEngineBase {
   /**
    * Holds the static values to build the class, like the namespace, the description, etc.

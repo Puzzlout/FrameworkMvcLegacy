@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Controllers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class DebugController extends \WebDevJL\Framework\Controllers\BaseController {
 
   public function ViewSessionArrays() {

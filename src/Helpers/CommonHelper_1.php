@@ -24,10 +24,6 @@
 
 namespace \Applications\EasyMvc\Helpers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class CommonHelper {
 
   public static function StringToArray($delimiter, $string) {

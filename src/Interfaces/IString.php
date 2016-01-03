@@ -10,9 +10,7 @@
  * @package IString
  */
 namespace WebDevJL\Framework\Interfaces;
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
+
 interface IString {
   /**
    * Method that retrieve the string value of the instance.

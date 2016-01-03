@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Enums\ErrorCodes;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class FrameworkDalConstants {
   const GenericValue = 0;
   const Generic = "ErrorCodes_FrameworkDal_GENERIC_KEY";

@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\ResourceManagers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class CommonResxBase extends ResourceBase implements \WebDevJL\Framework\Interfaces\IResource {
 
   /**

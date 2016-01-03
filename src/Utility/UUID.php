@@ -24,10 +24,6 @@
 
 namespace WebDevJL\Framework\Utility;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class UUID {
 
   public static function v3($namespace, $name) {

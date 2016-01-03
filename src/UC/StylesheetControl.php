@@ -13,12 +13,8 @@
 
 namespace WebDevJL\Framework\UC;
 
-use \WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
+use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
 use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
-
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 
 class StylesheetControl extends HtmlControlBase implements \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder {
 

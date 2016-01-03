@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\DirectoryManager;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJL\Framework\Interfaces\IRecursiveDirectorySearch {
 
   /**

@@ -1,11 +1,8 @@
 <?php
 
 namespace WebDevJL\Framework\Dal;
-use WebDevJL\Framework\FrameworkConstants;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
+use WebDevJL\Framework\FrameworkConstants;
 
 class Managers {
 

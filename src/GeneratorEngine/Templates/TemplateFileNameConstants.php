@@ -13,9 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Templates;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class TemplateFileNameConstants {
   const RootLocation = "CodeGenerators/templates/";
   const TemplateExtension = ".tt";

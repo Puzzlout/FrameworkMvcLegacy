@@ -12,7 +12,7 @@
  */
 
 namespace WebDevJL\Framework\BO;
-if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+
 
 class F_log_extension extends \WebDevJL\Framework\BO\F_log {
   const LEVEL_INFO = "LEVEL_INFO";

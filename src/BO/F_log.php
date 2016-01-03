@@ -1,5 +1,5 @@
 <?php
-namespace WebDevJL\Framework\BO;if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+namespace WebDevJL\Framework\BO;
 /*** @author Jeremie Litzler* @copyright Copyright (c) 2015* @licence http://opensource.org/licenses/gpl-license.php GNU Public License* @link https://github.com/WebDevJL/* @since Version 1.0.2.1* @package F_log*/
 class F_log extends \WebDevJL\Framework\Core\Entity {  const F_LOG_ID = "f_log_id";  const F_LOG_GUID = "f_log_guid";
   const F_LOG_REQUEST_ID = "f_log_request_id";  const F_LOG_LEVEL = "f_log_level";  const F_LOG_START = "f_log_start";  const F_LOG_END = "f_log_end";  const F_LOG_EXECUTION_TIME = "f_log_execution_time";  const F_LOG_SOURCE = "f_log_source";  const F_LOG_CONTEXT = "f_log_context";

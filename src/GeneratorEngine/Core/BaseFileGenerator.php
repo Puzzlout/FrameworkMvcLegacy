@@ -14,10 +14,8 @@
  * @package BaseFileGenerator
  */
 namespace WebDevJL\Framework\GeneratorEngine\Core;
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-class BaseFileGenerator {
+
+abstract class BaseFileGenerator {
   protected $newFileItem;
           
 }

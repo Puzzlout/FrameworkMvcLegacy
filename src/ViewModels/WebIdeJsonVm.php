@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\ViewModels;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class WebIdeJsonVm extends BaseJsonVm implements \WebDevJL\Framework\Interfaces\IJsonViewModel {
   
   public static function Init(\WebDevJL\Framework\Core\Application $app) {

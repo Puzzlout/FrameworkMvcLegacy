@@ -14,10 +14,6 @@
 
 namespace WebDevJL\Framework\Enums;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class AppSettingKeys {
   /**
    * Application mode defines DEV or LIVE mode. 

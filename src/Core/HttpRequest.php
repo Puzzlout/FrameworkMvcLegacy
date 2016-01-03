@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class HttpRequest {
 
   public $requestId;

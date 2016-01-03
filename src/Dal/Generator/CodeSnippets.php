@@ -12,9 +12,6 @@
 
 namespace WebDevJL\Framework\Dal\Generator;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class CodeSnippets {
 
   const SNIPPET_NAMESPACE_FRAMEWORK = "namespace {{namespace_framework}};";

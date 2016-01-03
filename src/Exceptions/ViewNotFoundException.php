@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Exceptions;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ViewNotFoundException extends \Exception {
 
   public function __construct($message = "View not found", $code = 0, $previous = null) {

@@ -13,9 +13,6 @@
 
 namespace WebDevJL\Framework\Dal;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class DbExecutionType {
   const SELECT = "SELECT";
   const UPDATE = "UPDATE";

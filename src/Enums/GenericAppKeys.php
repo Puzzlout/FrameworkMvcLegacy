@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Enums;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * Lists all the SessionKeys used throughout the applications so that we don't use hard-coded strings.
  */

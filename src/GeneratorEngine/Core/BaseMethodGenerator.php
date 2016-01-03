@@ -11,9 +11,7 @@
  * @see BaseMethod
  */
 namespace WebDevJL\Framework\GeneratorEngine\Core;
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-class BaseMethodGenerator extends BaseMethod {
+
+abstract class BaseMethodGenerator extends BaseMethod {
 
 }

@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\DirectoryManager;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class RegexFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJL\Framework\Interfaces\IRecursiveDirectorySearch {
 
   public static function Init(\WebDevJL\Framework\Core\Application $app) {

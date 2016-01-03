@@ -24,10 +24,6 @@
 
 namespace WebDevJL\Framework\Enums;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class UrlKeys {
 
   const LoginUrl = "login";

@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Interfaces;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * Objects implementing JsonSerializable
  * can customize their JSON representation when encoded with

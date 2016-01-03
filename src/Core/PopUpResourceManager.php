@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   private $xmlContent = null;

@@ -16,10 +16,6 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 use WebDevJL\Framework\Core\DirectoryManager;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
 
   /**

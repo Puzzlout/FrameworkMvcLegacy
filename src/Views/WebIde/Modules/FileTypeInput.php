@@ -1,8 +1,3 @@
-<?php
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-?>
 <div class="form-group">
   <label for="fileType">Select the file type</label>
   <select id="fileType" name="fileType" class="form-control">

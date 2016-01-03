@@ -13,9 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Placeholders;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class PlaceholdersManager {
 
   public static function InitPlaceholdersForPhpDoc($params) {

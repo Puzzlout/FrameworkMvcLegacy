@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Constants;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class FileTypes {
   
   /***

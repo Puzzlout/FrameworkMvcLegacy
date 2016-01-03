@@ -16,10 +16,6 @@ namespace WebDevJL\Framework\Helpers;
 use WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch;
 use WebDevJL\Framework\Enums\CacheKeys;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class WebIdeAjaxHelper {
 
   private $ListItemArray;

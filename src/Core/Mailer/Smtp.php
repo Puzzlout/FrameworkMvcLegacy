@@ -34,10 +34,6 @@
 
 namespace WebDevJL\Framework\Core\Mailer;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class Smtp {
 
   /**

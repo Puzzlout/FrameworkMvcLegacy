@@ -1,5 +1,5 @@
 <?php
-namespace WebDevJL\Framework\BO;if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+namespace WebDevJL\Framework\BO;
 /*** @author Jeremie Litzler* @copyright Copyright (c) 2015* @licence http://opensource.org/licenses/gpl-license.php GNU Public License* @link https://github.com/WebDevJL/* @since Version 1.0.2* @package F_culture*/
 class F_culture extends \WebDevJL\Framework\Core\Entity {  const F_CULTURE_ID = "f_culture_id";  const F_CULTURE_LANGUAGE = "f_culture_language";
   const F_CULTURE_REGION = "f_culture_region";

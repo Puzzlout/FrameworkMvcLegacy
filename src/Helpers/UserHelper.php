@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Helpers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class UserHelper {
 
   public static function SaveRoutes($user, $routes) {

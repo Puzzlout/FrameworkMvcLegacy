@@ -45,10 +45,6 @@ namespace WebDevJL\Framework\Core;
 use WebDevJL\Framework\BO\F_common_resource;
 use WebDevJL\Framework\BO\F_controller_resource;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class Globalization extends ApplicationComponent {
 
   const COMMON_RESX_OBJ_LIST = "COMMON_RESX_OBJ_LIST";

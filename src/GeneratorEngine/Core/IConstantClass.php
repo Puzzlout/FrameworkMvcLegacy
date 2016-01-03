@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 interface IConstantClass {
   public function CloseArray($tabAmount = 0);
   public function WriteConstants($valueToTrim = ".php");

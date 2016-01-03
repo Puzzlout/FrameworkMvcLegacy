@@ -181,7 +181,7 @@ class DaoClassGenerator {
    * Writes the line to prevent direct execution of the PHP class.
    */
   public function AddScriptNotAllowedLine() {
-    fwrite($this->writer, $this->_LF . "if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }" . $this->_CRLF);
+    fwrite($this->writer, $this->_LF . "" . $this->_CRLF);
   }
 
   /**

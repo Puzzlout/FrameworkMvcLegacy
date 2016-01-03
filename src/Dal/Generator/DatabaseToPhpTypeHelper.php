@@ -11,9 +11,6 @@
 
 namespace WebDevJL\Framework\Dal\Generator;
 
-if (!FrameworkConstants_ExecutionAccessRestriction)
-  exit('No direct script access allowed');
-
 class DatabaseToPhpTypeHelper {
   public static function GetPhpTypeFromDatabaseColumnType($columnType) {
     var_dump($columnType);

@@ -1,8 +1,3 @@
-<?php
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->app->locale; ?>">
   <head>

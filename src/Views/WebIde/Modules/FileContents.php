@@ -1,7 +1,4 @@
 <?php
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/webide.solution.templates.js");
 ?>
 <div class="form-group">

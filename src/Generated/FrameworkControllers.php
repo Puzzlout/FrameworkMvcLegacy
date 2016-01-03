@@ -12,9 +12,24 @@
 
 namespace WebDevJL\Framework\Generated;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class FrameworkControllers {
-  const CONFIGCONTROLLER = 'ConfigController';  const DEBUGCONTROLLER = 'DebugController';  const ERRORCONTROLLER = 'ErrorController';  const FILECONTROLLER = 'FileController';  const GENERATORCONTROLLER = 'GeneratorController';  const WEBIDEAJAXCONTROLLER = 'WebIdeAjaxController';  const WEBIDECONTROLLER = 'WebIdeController';  public static function GetList() {    return array(      self::CONFIGCONTROLLER => 'ConfigController',      self::DEBUGCONTROLLER => 'DebugController',      self::ERRORCONTROLLER => 'ErrorController',      self::FILECONTROLLER => 'FileController',      self::GENERATORCONTROLLER => 'GeneratorController',      self::WEBIDEAJAXCONTROLLER => 'WebIdeAjaxController',      self::WEBIDECONTROLLER => 'WebIdeController',    );  }}
+  const CONFIGCONTROLLER = 'ConfigController';
+  const DEBUGCONTROLLER = 'DebugController';
+  const ERRORCONTROLLER = 'ErrorController';
+  const FILECONTROLLER = 'FileController';
+  const GENERATORCONTROLLER = 'GeneratorController';
+  const WEBIDEAJAXCONTROLLER = 'WebIdeAjaxController';
+  const WEBIDECONTROLLER = 'WebIdeController';
+
+  public static function GetList() {
+    return array(
+      self::CONFIGCONTROLLER => 'ConfigController',
+      self::DEBUGCONTROLLER => 'DebugController',
+      self::ERRORCONTROLLER => 'ErrorController',
+      self::FILECONTROLLER => 'FileController',
+      self::GENERATORCONTROLLER => 'GeneratorController',
+      self::WEBIDEAJAXCONTROLLER => 'WebIdeAjaxController',
+      self::WEBIDECONTROLLER => 'WebIdeController',
+    );
+  }
+}

@@ -13,12 +13,8 @@
 
 namespace WebDevJL\Framework\Enums\ErrorCodes;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class Http {
-  const PageNotFound = 404;
-  const ServerError = 500;
+  const PAGE_NOT_FOUND = 404;
+  const SERVER_ERROR = 500;
 
 }

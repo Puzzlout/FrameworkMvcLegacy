@@ -15,10 +15,6 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implements IClassGenerator, IConstantClass {
 
   public function __construct($params, $data) {

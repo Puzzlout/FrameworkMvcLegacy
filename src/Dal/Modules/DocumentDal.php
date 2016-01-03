@@ -25,10 +25,6 @@
 
 namespace WebDevJL\Framework\Dal\Modules;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
 
   public $rootDirectory, $webDirectory;

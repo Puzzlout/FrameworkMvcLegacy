@@ -1,7 +1,7 @@
 <?php
 
 namespace WebDevJL\Framework\BO;
-if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+
 
 /**
 * @author Jeremie Litzler

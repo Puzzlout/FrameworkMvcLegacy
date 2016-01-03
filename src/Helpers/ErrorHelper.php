@@ -23,10 +23,6 @@
 
 namespace WebDevJL\Framework\Helpers;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ErrorHelper {
 
   public static function EchoError(\Exception $ex) {

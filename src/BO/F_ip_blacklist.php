@@ -1,6 +1,6 @@
 <?php
 namespace WebDevJL\Framework\BO;
-if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+
 
 /*** @author Jeremie Litzler* @copyright Copyright (c) 2015* @licence http://opensource.org/licenses/gpl-license.php GNU Public License* @link https://github.com/WebDevJL/* @since Version 1.0.0* @package F_ip_blacklist*/
 class F_ip_blacklist extends \WebDevJL\Framework\Core\Entity {  const F_IP_BLACKLIST_ID = "f_ip_blacklist_id";

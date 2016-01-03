@@ -24,10 +24,6 @@
 
 namespace WebDevJL\Framework\UC;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class LeftMenu {
 
   protected $app = null;

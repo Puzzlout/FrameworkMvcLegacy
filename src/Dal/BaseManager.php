@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Dal;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * Handles the database queries.
  * 

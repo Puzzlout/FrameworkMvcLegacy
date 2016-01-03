@@ -1,8 +1,4 @@
 <?php
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 use WebDevJL\Framework\Generated\FrameworkViewnames;
 
 $ViewModel = new WebDevJL\Framework\ViewModels\WebIdeVm($this->app);

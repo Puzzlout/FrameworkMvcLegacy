@@ -2,10 +2,6 @@
 
 namespace WebDevJL\Framework\Interfaces;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 interface IDocument {
 
   //set webpath which is created in DAL

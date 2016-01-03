@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core\FileManager\Algorithms;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class ArrayListAlgorithm {
 
   public static function Init() {
@@ -37,7 +33,8 @@ class ArrayListAlgorithm {
         "Views",
         "Generator",
         ".DS_Store",
-        "FrameworkConstants",
+        "FrameworkConstants.php",
+        "Mailer"
     );
     $list = array_merge($specific, self::ExcludeList());
     return $list;

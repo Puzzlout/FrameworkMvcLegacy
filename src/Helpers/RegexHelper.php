@@ -36,17 +36,17 @@ class RegexHelper {
     if (is_array($this->valueToTest)) {
       return FALSE;
     }
-    $result = preg_match(CommonRegexes::SearchWhiteSpace, $this->valueToTest);
+    $result = preg_match(CommonRegexes::SEARCH_WHITE_SPACE, $this->valueToTest);
     return $result;
   }
 
   public function IsResoureKeyValid() {
-    $result = preg_match_all(CommonRegexes::ResourceKeyValidation, $this->valueToTest);
+    $result = preg_match_all(CommonRegexes::RESOURCE_KEY_VALIDATION, $this->valueToTest);
     return $result;
   }
 
   public function IsAPhpFilename() {
-    $result = preg_match(CommonRegexes::SearchPhpExtension, $this->valueToTest);
+    $result = preg_match(CommonRegexes::SEARCH_PHP_EXTENSION, $this->valueToTest);
     return $result;
   }
   

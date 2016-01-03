@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\ViewModels;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 /**
  * @see \WebDevJL\Framework\ViewModels\BaseVm for the guidelines to create a View Models.
  */

@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 class Page extends ApplicationComponent {
 
   /**

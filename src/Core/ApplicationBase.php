@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 abstract class ApplicationBase {
 
   const CONTROLLER_NAME_PREFIX = "F_";

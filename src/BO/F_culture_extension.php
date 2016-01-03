@@ -12,7 +12,7 @@
  */
 
 namespace WebDevJL\Framework\BO;
-if (!FrameworkConstants_ExecutionAccessRestriction) { exit('No direct script access allowed'); }
+
 
 class F_culture_extension extends \WebDevJL\Framework\BO\F_culture {
   const FullArrayCultureKey = "application_cultures";

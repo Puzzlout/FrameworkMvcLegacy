@@ -11,9 +11,6 @@
  */
 namespace WebDevJL\Framework\Interfaces;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
 interface IObject {
   /**
    * Method that retrieve the instance type.

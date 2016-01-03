@@ -13,10 +13,6 @@
 
 namespace WebDevJL\Framework\Interfaces;
 
-if (!FrameworkConstants_ExecutionAccessRestriction) {
-  exit('No direct script access allowed');
-}
-
 interface IResource {
   /**
    * Method that retrieve the array of resources.

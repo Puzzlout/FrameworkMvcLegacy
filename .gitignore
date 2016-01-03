@@ -9,3 +9,4 @@ nb-configuration.xml
 .nb-gradle/
 /vendor
 composer.lock
+/src/Dal/Generator/output/
