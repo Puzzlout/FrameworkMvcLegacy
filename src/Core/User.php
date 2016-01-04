@@ -12,7 +12,7 @@ class User extends ApplicationComponent {
    */
   public function __construct(Application $app) {
     parent::__construct($app);
-    $this->appPrefix = strtolower(FrameworkConstants_AppName);
+    $this->appPrefix = strtolower($app->name());
   }
 
   /**

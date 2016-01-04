@@ -11,7 +11,7 @@ class Context extends ApplicationComponent {
   }
 
   public function setLanguage() {
-    $this->defaultLang = $this->app->cultures[$this->app->config()->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultCulture)];
+    $this->defaultLang = $this->app->cultures[Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultCulture)];
   }
 
 }

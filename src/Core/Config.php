@@ -5,11 +5,25 @@ namespace WebDevJL\Framework\Core;
 class Config extends ApplicationComponent {
 
   protected $settings = array();
-  private $xmlReader;
 
+  /**
+   * Initialize the class instance.
+   * 
+   * @param \WebDevJL\Framework\Core\Application $app
+   * @return \WebDevJL\Framework\Core\Config
+   */
+  public static function Init(Application $app) {
+    $instance = new Config($app);
+    $instance->AssignSettingsToArray();
+    return $instance;
+  }
+  
+  /**
+   * Constructor stores the current application instance in class object.
+   * @param \WebDevJL\Framework\Core\Application $app
+   */
   public function __construct(Application $app) {
     parent::__construct($app);
-    $this->AssignSettingsToArray();
   }
 
   /**

@@ -28,8 +28,6 @@ abstract class ApplicationBase {
   public $globalResources;
   public $relative_path;
   public $user;
-  public $config;
-  public $i8n;
   public $imageUtil;
   public $jsManager;
   public $cssManager;
@@ -55,20 +53,8 @@ abstract class ApplicationBase {
     return $this->user;
   }
 
-  public function config() {
-    return $this->config;
-  }
-
   public function context() {
     return $this->context;
-  }
-
-  public function i8n() {
-    return $this->i8n;
-  }
-
-  public function router() {
-    return $this->router;
   }
 
   public function name() {

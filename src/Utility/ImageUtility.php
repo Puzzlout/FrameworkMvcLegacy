@@ -8,7 +8,7 @@ class ImageUtility extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   public function getImageUrl($image_name) {
     if (isset($image_name) || $image_name === "") {
-      $imageFolderPath = $this->app->config()->get("RootImageFolderPath");
+      $imageFolderPath = \WebDevJL\Framework\Core\Config::Init($this->app)->Get("RootImageFolderPath");
 
       return $imageFolderPath . $image_name;
     }

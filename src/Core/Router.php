@@ -5,17 +5,23 @@ use WebDevJL\Framework\FrameworkConstants;
 
 class Router extends ApplicationComponent {
 
+  public $request;
   public $pageUrls = array();
   public $isWsCall = false;
-  public $routesXmlPath;
   protected $routes = array();
-  protected $lastModified = 0; //of the routes xml file
   protected $currentRoute;
 
   const NO_ROUTE = 1;
   const CurrentRouteVarKey = "CurrentRoute";
+  
+  public static function Init(Application $app) {
+    $instance= new Router($app);
+    return $instance;
+  }
+  
   public function __construct(Application $app) {
     parent::__construct($app);
+    $this->request = $app->HttpRequest;
   }
 
   /**
@@ -68,8 +74,8 @@ class Router extends ApplicationComponent {
    */  
   private function FindRouteMatch() {
     $route = new Route();
-    $route->setDefaultUrl($this->app->config->get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl));
-    $this->getRoute($route, $this->app->httpRequest->requestURI());
+    $route->setDefaultUrl(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl));
+    $this->getRoute($route, $this->request->requestURI());
     return $route;
   }
 

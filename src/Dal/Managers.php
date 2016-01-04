@@ -67,7 +67,7 @@ class Managers {
   public function __construct($api, \WebDevJL\Framework\Core\Application $app) {
     $this->databaseApi = $api;
     $this->databaseConnection = PDOFactory::getMysqlConnexion($app);
-    $this->dalApplicationFolderPath = $app->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath);
+    $this->dalApplicationFolderPath = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath);
     $this->dalApplicationsNamespace = $this->GetDalApplicationNamespace();
     $this->dalFrameworkNameSpace = "\WebDevJL\Framework\Dal\Modules\\";
   }

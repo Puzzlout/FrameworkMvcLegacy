@@ -14,17 +14,13 @@ abstract class Application extends ApplicationBase {
       $this->httpRequest = new HttpRequest($this);
       $this->httpResponse = new HttpResponse($this);
       $this->user = new User($this);
-      $this->config = new Config($this);
       $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
       $this->context = new Context($this);
       $this->cultures = $this->GetCultureArray();
-      $this->i8n = new Globalization($this);
       $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
-      $this->router = new Router($this);
       $this->locale = $this->httpRequest->initLanguage($this, "browser");
       $this->auth = new \WebDevJL\Framework\Security\AuthenticationManager($this);
       $this->toolTip = new PopUpResourceManager($this);
-      $this->security = new \WebDevJL\Framework\Security\Protect($this->config);
     }
   }
 
@@ -61,8 +57,9 @@ abstract class Application extends ApplicationBase {
    * @return \WebDevJL\Framework\Controllers\BaseController the Controller object
    */
   public function getController() {
-    $this->router->setCurrentRoute();
-    $controllerObject = $this->GetControllerObject($this->router->currentRoute());
+    $router = Router::Init($this);
+    $router->setCurrentRoute();
+    $controllerObject = $this->GetControllerObject($router);
     $this->controller = $controllerObject;
     return $controllerObject;
   }
@@ -73,8 +70,8 @@ abstract class Application extends ApplicationBase {
    * @param \WebDevJL\Framework\Core\Route $route : the current route
    * @return \WebDevJL\Framework\Controllers\BaseController
    */
-  private function GetControllerObject(\WebDevJL\Framework\Core\Route $route) {
-    $controllerName = $this->BuildControllerName($route);
+  private function GetControllerObject(\WebDevJL\Framework\Core\Router $router) {
+    $controllerName = $this->BuildControllerName($router->currentRoute());
     $FrameworkControllersListClass = "\WebDevJL\Framework\Generated\FrameworkControllers";
     $ApplicationControllersListClass = "\Applications\\" .
             FrameworkConstants_AppName .
@@ -82,7 +79,7 @@ abstract class Application extends ApplicationBase {
             FrameworkConstants_AppName . "Controllers";
 
     $controllerClassName = $this->FindControllerClassName(
-            $controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, $route
+            $controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, $router
     );
     return $this->InstanciateController($controllerClassName, $route);
   }
@@ -95,21 +92,21 @@ abstract class Application extends ApplicationBase {
    * @param string $ApplicationControllersListClass : class name to the list of current application controllers list
    * @param \WebDevJL\Framework\Core\Route $route : the current route
    */
-  public function FindControllerClassName($controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, \WebDevJL\Framework\Core\Route $route) {
+  public function FindControllerClassName($controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, \WebDevJL\Framework\Core\Router $router) {
     $FrameworkControllers = $FrameworkControllersListClass::GetList();
     $ApplicationControllers = $ApplicationControllersListClass::GetList();
     $controllerClass = "\WebDevJL\Framework\Controllers\ErrorController";
     if (array_key_exists($controllerName, $FrameworkControllers)) {
       $frameworkControllerFolderPath = NameSpaceName::LibFolderName . NameSpaceName::LibControllersFolderName;
       $controllerClass = $frameworkControllerFolderPath . $controllerName;
-      $this->router()->isWsCall = TRUE;
+      $router->isWsCall = TRUE;
     } else if (array_key_exists($controllerName, $ApplicationControllers)) {
       $applicationControllerFolderPath = NameSpaceName::AppsFolderName . "\\" . $this->name . NameSpaceName::AppsControllersFolderName;
       $controllerClass = $applicationControllerFolderPath . $controllerName;
     } else {
       error_log("The controller requested '$controllerClass' doesn't exist.");
-      $route->setModule("Error");
-      $route->setAction("ControllerNotFound");
+      $router->currentRoute()->setModule("Error");
+      $router->currentRoute()->setAction("ControllerNotFound");
     }
     return $controllerClass;
   }
