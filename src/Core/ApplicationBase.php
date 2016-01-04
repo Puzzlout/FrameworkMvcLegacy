@@ -53,10 +53,6 @@ abstract class ApplicationBase {
     return $this->user;
   }
 
-  public function context() {
-    return $this->context;
-  }
-
   public function name() {
     return $this->name;
   }

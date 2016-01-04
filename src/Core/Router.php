@@ -37,6 +37,9 @@ class Router extends ApplicationComponent {
    * @param \WebDevJL\Framework\Core\Route $route
    */
   public function currentRoute() {
+    if(is_null($this->currentRoute)) {
+      $this->setCurrentRoute();
+    }
     return $this->currentRoute;
   }
 

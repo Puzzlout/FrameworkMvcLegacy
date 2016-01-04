@@ -13,6 +13,8 @@
 
 namespace WebDevJL\Framework\Controllers;
 
+use WebDevJL\Framework\Core\Context;
+
 abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   /**
@@ -261,13 +263,12 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
    * Add the context the variables that are used to generated the output from the Views.
    */
   public function AddGlobalAppVariables() {
-    $culture = $this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_LANGUAGE] .
-            "_" .
-            $this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_REGION];
+    $context = Context::Init($this->app);
+    $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
     $this->page()->addVar('culture', $culture);
     $user = $this->app()->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected);
     $this->page()->addVar('user', $user[0]);
-    $this->page()->addVar(\WebDevJL\Framework\Core\Router::CurrentRouteVarKey, $this->app()->router()->currentRoute());
+    $this->page()->addVar(\WebDevJL\Framework\Core\Router::CurrentRouteVarKey, \WebDevJL\Framework\Core\Router::Init($this->app)->currentRoute());
   }
 
   /**

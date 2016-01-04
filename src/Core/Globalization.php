@@ -54,9 +54,11 @@ class Globalization extends ApplicationComponent {
 
   public $CommonResources = array();
   public $ControllerResources = array();
+  private $context;
 
   public function __construct(Application $app) {
     parent::__construct($app);
+    $this->context = Context::Init($app);
   }
 
   public function Init($source = \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
@@ -222,7 +224,7 @@ class Globalization extends ApplicationComponent {
    */
   public function getCommonResx($key) {
     $resource = $this->CommonResources
-        [$this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_ID]]
+        [$this->context->GetCultureId()]
         [$key]
         [F_common_resource::F_COMMON_RESOURCE_VALUE];
     return $resource;
@@ -234,10 +236,11 @@ class Globalization extends ApplicationComponent {
    * @return string
    */
   public function getControllerResx($key) {
+    $route = Router::Init($this->app)->currentRoute();
     $resource = $this->ControllerResources
-        [$this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_ID]]
-        [$this->app->router()->currentRoute()->module()]
-        [$this->app->router()->currentRoute()->action()]
+        [$this->context->GetCultureID()]
+        [$route->module()]
+        [$route->action()]
         [$key]
         [F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
     return $resource;

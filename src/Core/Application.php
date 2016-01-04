@@ -15,7 +15,6 @@ abstract class Application extends ApplicationBase {
       $this->httpResponse = new HttpResponse($this);
       $this->user = new User($this);
       $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
-      $this->context = new Context($this);
       $this->cultures = $this->GetCultureArray();
       $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
       $this->locale = $this->httpRequest->initLanguage($this, "browser");

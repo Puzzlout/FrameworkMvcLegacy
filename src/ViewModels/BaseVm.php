@@ -75,14 +75,14 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
   }
 
   public function GetResourceObject() {
-    $culture = $this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_LANGUAGE] .
-            "_" .
-            $this->app->context()->defaultLang[\WebDevJL\Framework\BO\F_culture::F_CULTURE_REGION];
+    $context = \WebDevJL\Framework\Core\Context::Init($this->app);
+    $route = \WebDevJL\Framework\Core\Router::Init($this->app)->currentRoute();
+    $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
 
     $resxController = new \WebDevJL\Framework\Core\ResourceManagers\ControllerResxBase($this->app);
     $resxController->Instantiate(array(
-        \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ModuleKey => $this->app->router()->currentRoute()->module(),
-        \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ActionKey => $this->app->router()->currentRoute()->action(),
+        \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ModuleKey => $route->module(),
+        \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ActionKey => $route->action(),
         \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::CultureKey => $culture));
     return $resxController;
   }
