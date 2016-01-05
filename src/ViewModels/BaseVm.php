@@ -75,7 +75,7 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
   }
 
   public function GetResourceObject() {
-    $context = \WebDevJL\Framework\Core\Context::Init($this->app);
+    $context = new \WebDevJL\Framework\Core\Context($this->app);
     $route = \WebDevJL\Framework\Core\Router::Init($this->app)->currentRoute();
     $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
 

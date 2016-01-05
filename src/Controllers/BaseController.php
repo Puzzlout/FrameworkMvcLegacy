@@ -263,7 +263,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
    * Add the context the variables that are used to generated the output from the Views.
    */
   public function AddGlobalAppVariables() {
-    $context = Context::Init($this->app);
+    $context = new Context($this->app);
     $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
     $this->page()->addVar('culture', $culture);
     $user = $this->app()->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected);

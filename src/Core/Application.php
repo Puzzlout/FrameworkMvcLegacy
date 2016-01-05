@@ -56,7 +56,7 @@ abstract class Application extends ApplicationBase {
    * @return \WebDevJL\Framework\Controllers\BaseController the Controller object
    */
   public function getController() {
-    $router = Router::Init($this);
+    $router = new Router($this);
     $router->setCurrentRoute();
     $controllerObject = $this->GetControllerObject($router);
     $this->controller = $controllerObject;
@@ -71,16 +71,16 @@ abstract class Application extends ApplicationBase {
    */
   private function GetControllerObject(\WebDevJL\Framework\Core\Router $router) {
     $controllerName = $this->BuildControllerName($router->currentRoute());
-    $FrameworkControllersListClass = "\WebDevJL\Framework\Generated\FrameworkControllers";
-    $ApplicationControllersListClass = "\Applications\\" .
+    $FrameworkControllers = "\WebDevJL\Framework\Generated\FrameworkControllers";
+    $ApplicationControllers = "\Applications\\" .
             FrameworkConstants_AppName .
             "\Generated\\" .
             FrameworkConstants_AppName . "Controllers";
 
     $controllerClassName = $this->FindControllerClassName(
-            $controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, $router
+            $controllerName, $FrameworkControllers, $ApplicationControllers, $router
     );
-    return $this->InstanciateController($controllerClassName, $route);
+    return $this->InstanciateController($controllerClassName, $router->currentRoute());
   }
 
   /**
@@ -91,17 +91,17 @@ abstract class Application extends ApplicationBase {
    * @param string $ApplicationControllersListClass : class name to the list of current application controllers list
    * @param \WebDevJL\Framework\Core\Route $route : the current route
    */
-  public function FindControllerClassName($controllerName, $FrameworkControllersListClass, $ApplicationControllersListClass, \WebDevJL\Framework\Core\Router $router) {
-    $FrameworkControllers = $FrameworkControllersListClass::GetList();
-    $ApplicationControllers = $ApplicationControllersListClass::GetList();
+  public function FindControllerClassName($controllerName, $FrameworkControllers, $ApplicationControllers, \WebDevJL\Framework\Core\Router $router) {
+    $FrameworkControllers = $FrameworkControllers::GetList();
+    $ApplicationControllers = $ApplicationControllers::GetList();
     $controllerClass = "\WebDevJL\Framework\Controllers\ErrorController";
     if (array_key_exists($controllerName, $FrameworkControllers)) {
-      $frameworkControllerFolderPath = NameSpaceName::LibFolderName . NameSpaceName::LibControllersFolderName;
-      $controllerClass = $frameworkControllerFolderPath . $controllerName;
+      $frameworkCtrlFolderPath = NameSpaceName::LibFolderName . NameSpaceName::LibControllersFolderName;
+      $controllerClass = $frameworkCtrlFolderPath . $controllerName;
       $router->isWsCall = TRUE;
     } else if (array_key_exists($controllerName, $ApplicationControllers)) {
-      $applicationControllerFolderPath = NameSpaceName::AppsFolderName . "\\" . $this->name . NameSpaceName::AppsControllersFolderName;
-      $controllerClass = $applicationControllerFolderPath . $controllerName;
+      $appCtrlFolderPath = NameSpaceName::AppsFolderName . "\\" . $this->name . NameSpaceName::AppsControllersFolderName;
+      $controllerClass = $appCtrlFolderPath . $controllerName;
     } else {
       error_log("The controller requested '$controllerClass' doesn't exist.");
       $router->currentRoute()->setModule("Error");

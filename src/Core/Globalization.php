@@ -58,7 +58,7 @@ class Globalization extends ApplicationComponent {
 
   public function __construct(Application $app) {
     parent::__construct($app);
-    $this->context = Context::Init($app);
+    $this->context = new Context($app);
   }
 
   public function Init($source = \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
