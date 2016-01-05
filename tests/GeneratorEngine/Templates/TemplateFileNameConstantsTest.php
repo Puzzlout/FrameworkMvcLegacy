@@ -26,6 +26,7 @@ class TemplateFileNameConstantsTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new TemplateFileNameConstants();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Templates\TemplateFileNameConstants', $result);
   }

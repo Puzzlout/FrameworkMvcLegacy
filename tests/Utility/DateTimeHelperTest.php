@@ -26,6 +26,7 @@ class DateTimeHelperTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new DateTimeHelper();
     $this->assertInstanceOf('WebDevJL\Framework\Utility\DateTimeHelper', $result);
   }

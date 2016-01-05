@@ -26,6 +26,7 @@ class FileManagerTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FileManager();
     $this->assertInstanceOf('WebDevJL\Framework\Core\FileManager', $result);
   }

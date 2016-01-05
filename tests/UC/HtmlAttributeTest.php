@@ -26,6 +26,7 @@ class HtmlAttributeTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new HtmlAttribute();
     $this->assertInstanceOf('WebDevJL\Framework\UC\HtmlAttribute', $result);
   }

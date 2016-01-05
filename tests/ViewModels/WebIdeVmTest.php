@@ -26,6 +26,7 @@ class WebIdeVmTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new WebIdeVm($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\ViewModels\WebIdeVm', $result);
   }

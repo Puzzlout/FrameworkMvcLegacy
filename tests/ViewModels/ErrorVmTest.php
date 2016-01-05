@@ -26,6 +26,7 @@ class ErrorVmTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ErrorVm();
     $this->assertInstanceOf('WebDevJL\Framework\ViewModels\ErrorVm', $result);
   }

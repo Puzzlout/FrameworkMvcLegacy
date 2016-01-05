@@ -26,6 +26,7 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FileLoader();
     $this->assertInstanceOf('WebDevJL\Framework\Utility\FileLoader', $result);
   }

@@ -26,6 +26,7 @@ class ClassFilePlaceholdersTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ClassFilePlaceholders();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Placeholders\ClassFilePlaceholders', $result);
   }

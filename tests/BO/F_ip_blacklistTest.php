@@ -26,6 +26,7 @@ class F_ip_blacklistTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_ip_blacklist();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_ip_blacklist', $result);
   }

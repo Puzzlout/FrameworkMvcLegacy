@@ -26,6 +26,7 @@ class ImageUtilityTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ImageUtility();
     $this->assertInstanceOf('WebDevJL\Framework\Utility\ImageUtility', $result);
   }

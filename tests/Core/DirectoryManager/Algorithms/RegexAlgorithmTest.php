@@ -26,6 +26,7 @@ class RegexAlgorithmTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new RegexAlgorithm();
     $this->assertInstanceOf('WebDevJL\Framework\Core\DirectoryManager\Algorithms\RegexAlgorithm', $result);
   }

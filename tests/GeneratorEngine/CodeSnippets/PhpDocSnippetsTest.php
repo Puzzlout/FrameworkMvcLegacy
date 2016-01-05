@@ -26,6 +26,7 @@ class PhpDocSnippetsTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new PhpDocSnippets();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpDocSnippets', $result);
   }

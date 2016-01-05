@@ -26,6 +26,7 @@ class ViewNotFoundExceptionTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ViewNotFoundException();
     $this->assertInstanceOf('WebDevJL\Framework\Exceptions\ViewNotFoundException', $result);
   }

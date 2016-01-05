@@ -26,6 +26,7 @@ class LinkAttributeConstantsTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new LinkAttributeConstants();
     $this->assertInstanceOf('WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants', $result);
   }

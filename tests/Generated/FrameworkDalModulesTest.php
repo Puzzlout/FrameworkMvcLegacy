@@ -26,6 +26,7 @@ class FrameworkDalModulesTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FrameworkDalModules();
     $this->assertInstanceOf('WebDevJL\Framework\Generated\FrameworkDalModules', $result);
   }

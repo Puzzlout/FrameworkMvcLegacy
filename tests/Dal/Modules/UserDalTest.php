@@ -26,6 +26,7 @@ class UserDalTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new UserDal();
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\UserDal', $result);
   }

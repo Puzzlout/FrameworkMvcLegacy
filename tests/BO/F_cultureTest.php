@@ -26,6 +26,7 @@ class F_cultureTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_culture();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_culture', $result);
   }

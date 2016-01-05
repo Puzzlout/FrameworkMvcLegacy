@@ -26,6 +26,7 @@ class F_controller_resourceTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_controller_resource();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_controller_resource', $result);
   }

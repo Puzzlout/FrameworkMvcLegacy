@@ -26,6 +26,7 @@ class ConstantsAndListClassGeneratorTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ConstantsAndListClassGenerator();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\ConstantsAndListClassGenerator', $result);
   }

@@ -26,6 +26,7 @@ class PDOFactoryTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new PDOFactory();
     $this->assertInstanceOf('WebDevJL\Framework\Dal\PDOFactory', $result);
   }

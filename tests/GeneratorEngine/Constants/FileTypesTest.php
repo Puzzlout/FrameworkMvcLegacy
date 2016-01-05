@@ -26,6 +26,7 @@ class FileTypesTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FileTypes();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Constants\FileTypes', $result);
   }

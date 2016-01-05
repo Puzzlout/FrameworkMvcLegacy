@@ -26,6 +26,7 @@ class FrameworkControllersTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FrameworkControllers();
     $this->assertInstanceOf('WebDevJL\Framework\Generated\FrameworkControllers', $result);
   }

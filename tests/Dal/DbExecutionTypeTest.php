@@ -26,6 +26,7 @@ class DbExecutionTypeTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new DbExecutionType();
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbExecutionType', $result);
   }

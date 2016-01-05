@@ -26,7 +26,8 @@ class BaseVmTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
-    $result = new BaseVm();
+    $this->assertNotNull($this->app);
+    $result = new BaseVm($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\ViewModels\BaseVm', $result);
   }
   

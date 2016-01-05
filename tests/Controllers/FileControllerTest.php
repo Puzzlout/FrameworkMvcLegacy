@@ -26,6 +26,7 @@ class FileControllerTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FileController();
     $this->assertInstanceOf('WebDevJL\Framework\Controllers\FileController', $result);
   }

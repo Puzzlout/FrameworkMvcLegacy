@@ -26,6 +26,7 @@ class CommonDalTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new CommonDal();
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\CommonDal', $result);
   }

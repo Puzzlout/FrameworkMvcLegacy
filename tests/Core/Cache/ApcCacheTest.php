@@ -26,6 +26,7 @@ class ApcCacheTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ApcCache();
     $this->assertInstanceOf('WebDevJL\Framework\Core\Cache\ApcCache', $result);
   }

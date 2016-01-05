@@ -26,6 +26,7 @@ class InvalidViewModelTypeExceptionTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new InvalidViewModelTypeException();
     $this->assertInstanceOf('WebDevJL\Framework\Exceptions\InvalidViewModelTypeException', $result);
   }

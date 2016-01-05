@@ -26,6 +26,7 @@ class DebugHelperTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new DebugHelper();
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\DebugHelper', $result);
   }

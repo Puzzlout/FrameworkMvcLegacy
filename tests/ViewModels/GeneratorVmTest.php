@@ -26,6 +26,7 @@ class GeneratorVmTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new GeneratorVm();
     $this->assertInstanceOf('WebDevJL\Framework\ViewModels\GeneratorVm', $result);
   }

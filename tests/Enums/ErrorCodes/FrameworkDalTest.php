@@ -26,6 +26,7 @@ class FrameworkDalTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FrameworkDal();
     $this->assertInstanceOf('WebDevJL\Framework\Enums\ErrorCodes\FrameworkDal', $result);
   }

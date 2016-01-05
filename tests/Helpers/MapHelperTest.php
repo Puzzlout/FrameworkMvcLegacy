@@ -26,6 +26,7 @@ class MapHelperTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new MapHelper();
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\MapHelper', $result);
   }

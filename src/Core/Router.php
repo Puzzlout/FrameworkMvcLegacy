@@ -1,6 +1,7 @@
 <?php
 
 namespace WebDevJL\Framework\Core;
+
 use WebDevJL\Framework\FrameworkConstants;
 
 class Router extends ApplicationComponent {
@@ -13,15 +14,18 @@ class Router extends ApplicationComponent {
 
   const NO_ROUTE = 1;
   const CurrentRouteVarKey = "CurrentRoute";
-  
+
   public static function Init(Application $app) {
-    $instance= new Router($app);
+    $instance = new Router($app);
     return $instance;
   }
-  
+
   public function __construct(Application $app) {
+    if (is_null($app)) {
+      throw new \Exception('$app cannot be null!', 0, NULL);
+    }
     parent::__construct($app);
-    $this->request = $app->HttpRequest;
+    $this->request = new HttpRequest($app);
   }
 
   /**
@@ -37,7 +41,7 @@ class Router extends ApplicationComponent {
    * @param \WebDevJL\Framework\Core\Route $route
    */
   public function currentRoute() {
-    if(is_null($this->currentRoute)) {
+    if (is_null($this->currentRoute)) {
       $this->setCurrentRoute();
     }
     return $this->currentRoute;
@@ -74,7 +78,7 @@ class Router extends ApplicationComponent {
    * Instanciate the Route object from the current request.
    * 
    * @return \WebDevJL\Framework\Core\Route the Route instance
-   */  
+   */
   private function FindRouteMatch() {
     $route = new Route();
     $route->setDefaultUrl(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl));
@@ -100,4 +104,5 @@ class Router extends ApplicationComponent {
       $route->Init($url);
     }
   }
+
 }

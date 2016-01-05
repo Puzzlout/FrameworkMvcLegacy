@@ -26,6 +26,7 @@ class F_documentTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_document();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_document', $result);
   }

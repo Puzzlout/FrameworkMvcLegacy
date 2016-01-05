@@ -90,8 +90,9 @@ class HttpRequest {
       $culture = substr(strtok($_SERVER['HTTP_ACCEPT_LANGUAGE'], '?'), 0, 5);
       //Check if the first culture is a short or long version, i.e. en ou en-US.
       //If it is the short version, we update the culture to return.
-      if (!strpos($culture, "-"))
+      if (!strpos($culture, "-")) {
         $culture = substr($culture, 0, 2);
+      }
       return $culture;
     }
   }
@@ -133,20 +134,20 @@ class HttpRequest {
     }
     return $postData;
   }
-  
+
   /**
    * Retrieve the POST data from $_POST super global
    * @return array The POST data (associative array if necessary)
    */
   private function ParseDataFromGlobalVar() {
     $postData = filter_input_array(INPUT_POST);
-    if(is_null($postData)) {
+    if (is_null($postData)) {
       return array();
     }
     $postDataCleaned = $this->FetchData($postData);
     return $postDataCleaned;
   }
-  
+
   private function FetchData($postDataRaw) {
     foreach (array_keys($postDataRaw) as $key) {
       $postDataCleaned[$key] = $this->ValidateData($postDataRaw, $key, TRUE);

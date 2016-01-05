@@ -26,6 +26,7 @@ class F_log_extensionTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_log_extension();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_log_extension', $result);
   }

@@ -26,6 +26,7 @@ class ConfigHelperTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new ConfigHelper();
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\ConfigHelper', $result);
   }

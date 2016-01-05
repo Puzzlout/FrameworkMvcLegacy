@@ -26,6 +26,7 @@ class NetworkInfoHelperTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new NetworkInfoHelper();
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\NetworkInfoHelper', $result);
   }

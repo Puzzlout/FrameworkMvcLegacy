@@ -26,6 +26,7 @@ class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new FileUploadResult();
     $this->assertInstanceOf('WebDevJL\Framework\BO\FileUploadResult', $result);
   }

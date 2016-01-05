@@ -26,6 +26,7 @@ class PlaceholdersManagerTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new PlaceholdersManager();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager', $result);
   }

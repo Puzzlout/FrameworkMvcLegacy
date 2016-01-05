@@ -26,6 +26,7 @@ class UserTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new User();
     $this->assertInstanceOf('WebDevJL\Framework\Core\User', $result);
   }

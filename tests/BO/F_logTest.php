@@ -26,6 +26,7 @@ class F_logTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new F_log();
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_log', $result);
   }

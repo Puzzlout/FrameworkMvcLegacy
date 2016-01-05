@@ -26,6 +26,7 @@ class DbResultTest extends \PHPUnit_Framework_TestCase {
    */
   public function testInstanceIsCorrect()
   {
+    $this->assertNotNull($this->app);
     $result = new DbResult();
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbResult', $result);
   }
