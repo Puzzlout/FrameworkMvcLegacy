@@ -27,7 +27,7 @@ class BaseClassGeneratorTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new BaseClassGenerator($this->app);
+    $result = new BaseClassGenerator([], []);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator', $result);
   }
   

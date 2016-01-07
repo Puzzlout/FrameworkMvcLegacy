@@ -8,7 +8,7 @@ class UserDal extends \WebDevJL\Framework\Dal\BaseManager {
 
   public function __construct($dao, $filters) {
     parent::__construct($dao, $filters);
-    $this->userClassName = get_class(new \WebDevJL\Framework\BO\User());
+    $this->userClassName = get_class(new \WebDevJL\Framework\BO\F_user());
   }
 
   public function selectAllUsers() {

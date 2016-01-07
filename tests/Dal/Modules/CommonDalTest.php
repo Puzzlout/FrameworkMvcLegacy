@@ -8,6 +8,7 @@
 namespace WebDevJL\Framework\Tests\Dal\Modules;
 
 use WebDevJL\Framework\Dal\Modules\CommonDal;
+use WebDevJL\Framework\Dal\DbQueryFilters;
 
 class CommonDalTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,7 +28,7 @@ class CommonDalTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new CommonDal($this->app);
+    $result = new CommonDal(null, new DbQueryFilters());
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\CommonDal', $result);
   }
   

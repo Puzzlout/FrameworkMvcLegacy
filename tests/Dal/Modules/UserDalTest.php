@@ -8,6 +8,7 @@
 namespace WebDevJL\Framework\Tests\Dal\Modules;
 
 use WebDevJL\Framework\Dal\Modules\UserDal;
+use WebDevJL\Framework\Dal\DbQueryFilters;
 
 class UserDalTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,7 +28,7 @@ class UserDalTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new UserDal($this->app);
+    $result = new UserDal(null, new DbQueryFilters());
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\UserDal', $result);
   }
   

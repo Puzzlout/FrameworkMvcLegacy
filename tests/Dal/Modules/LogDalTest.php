@@ -8,6 +8,7 @@
 namespace WebDevJL\Framework\Tests\Dal\Modules;
 
 use WebDevJL\Framework\Dal\Modules\LogDal;
+use WebDevJL\Framework\Dal\DbQueryFilters;
 
 class LogDalTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,7 +28,7 @@ class LogDalTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new LogDal($this->app);
+    $result = new LogDal(null, new DbQueryFilters());
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\LogDal', $result);
   }
   

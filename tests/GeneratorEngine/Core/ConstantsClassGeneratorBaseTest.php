@@ -27,7 +27,7 @@ class ConstantsClassGeneratorBaseTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ConstantsClassGeneratorBase($this->app);
+    $result = new ConstantsClassGeneratorBase([], []);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase', $result);
   }
   

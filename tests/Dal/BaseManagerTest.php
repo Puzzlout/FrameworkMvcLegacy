@@ -1,13 +1,14 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
 namespace WebDevJL\Framework\Tests\Dal;
 
 use WebDevJL\Framework\Dal\BaseManager;
+use WebDevJL\Framework\Dal\DbQueryFilters;
 
 class BaseManagerTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,7 +28,7 @@ class BaseManagerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new BaseManager($this->app);
+    $result = new BaseManager(null, new DbQueryFilters());
     $this->assertInstanceOf('WebDevJL\Framework\Dal\BaseManager', $result);
   }
   
