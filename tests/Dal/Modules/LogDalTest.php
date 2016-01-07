@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
