@@ -27,7 +27,7 @@ class CommonHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new CommonHelper();
+    $result = new CommonHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\CommonHelper', $result);
   }
   

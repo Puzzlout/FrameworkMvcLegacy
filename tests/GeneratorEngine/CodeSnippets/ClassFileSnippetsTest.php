@@ -27,7 +27,7 @@ class ClassFileSnippetsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ClassFileSnippets();
+    $result = new ClassFileSnippets($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\CodeSnippets\ClassFileSnippets', $result);
   }
   

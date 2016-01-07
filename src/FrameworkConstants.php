@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace WebDevJL\Framework;
 
 class FrameworkConstants {
 

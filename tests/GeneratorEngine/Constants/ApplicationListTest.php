@@ -27,7 +27,7 @@ class ApplicationListTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ApplicationList();
+    $result = new ApplicationList($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Constants\ApplicationList', $result);
   }
   

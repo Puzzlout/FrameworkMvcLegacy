@@ -27,7 +27,7 @@ class UserHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new UserHelper();
+    $result = new UserHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\UserHelper', $result);
   }
   

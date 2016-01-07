@@ -27,7 +27,7 @@ class ErrorControllerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ErrorController();
+    $result = new ErrorController($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Controllers\ErrorController', $result);
   }
   

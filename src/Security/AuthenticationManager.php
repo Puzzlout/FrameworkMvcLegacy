@@ -14,14 +14,7 @@ namespace WebDevJL\Framework\Security;
 use WebDevJL\Framework\Interfaces\IUser;
 use WebDevJL\Framework\Enums\SessionKeys;
 
-class AuthenticationManager {
-
-  private $app;
-
-  public function __construct($app) {
-    $this->app = $app;
-  }
-
+class AuthenticationManager extends \WebDevJL\Framework\Core\ApplicationComponent  {
   /**
    * Authenticates a user from the given object. 
    * @param \WebDevJL\Framework\Interfaces\IUser $user

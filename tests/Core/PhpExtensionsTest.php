@@ -27,7 +27,7 @@ class PhpExtensionsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new PhpExtensions();
+    $result = new PhpExtensions($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\PhpExtensions', $result);
   }
   

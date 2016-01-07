@@ -27,7 +27,7 @@ class UserRoleTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new UserRole();
+    $result = new UserRole($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\UserRole', $result);
   }
   

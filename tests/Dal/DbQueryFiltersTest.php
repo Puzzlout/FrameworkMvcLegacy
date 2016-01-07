@@ -27,7 +27,7 @@ class DbQueryFiltersTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DbQueryFilters();
+    $result = new DbQueryFilters($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbQueryFilters', $result);
   }
   

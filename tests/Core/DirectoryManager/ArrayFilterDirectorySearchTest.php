@@ -27,7 +27,7 @@ class ArrayFilterDirectorySearchTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ArrayFilterDirectorySearch();
+    $result = new ArrayFilterDirectorySearch($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch', $result);
   }
   

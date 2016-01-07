@@ -27,7 +27,7 @@ class DocumentDalTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DocumentDal();
+    $result = new DocumentDal($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\DocumentDal', $result);
   }
   

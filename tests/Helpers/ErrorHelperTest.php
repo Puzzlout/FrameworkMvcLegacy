@@ -27,7 +27,7 @@ class ErrorHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ErrorHelper();
+    $result = new ErrorHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\ErrorHelper', $result);
   }
   

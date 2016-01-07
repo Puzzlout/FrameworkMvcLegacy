@@ -27,7 +27,7 @@ class RegexHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new RegexHelper();
+    $result = new RegexHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\RegexHelper', $result);
   }
   

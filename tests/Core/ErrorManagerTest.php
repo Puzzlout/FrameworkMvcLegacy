@@ -27,7 +27,7 @@ class ErrorManagerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ErrorManager();
+    $result = new ErrorManager($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\ErrorManager', $result);
   }
   

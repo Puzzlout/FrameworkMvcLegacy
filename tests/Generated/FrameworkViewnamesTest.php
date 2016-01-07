@@ -27,7 +27,7 @@ class FrameworkViewnamesTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new FrameworkViewnames();
+    $result = new FrameworkViewnames($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Generated\FrameworkViewnames', $result);
   }
   

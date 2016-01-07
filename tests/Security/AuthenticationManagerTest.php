@@ -27,7 +27,7 @@ class AuthenticationManagerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new AuthenticationManager();
+    $result = new AuthenticationManager($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Security\AuthenticationManager', $result);
   }
   

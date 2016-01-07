@@ -27,7 +27,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new Config();
+    $result = new Config($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\Config', $result);
   }
   

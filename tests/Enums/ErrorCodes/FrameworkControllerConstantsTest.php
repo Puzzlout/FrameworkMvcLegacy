@@ -27,7 +27,7 @@ class FrameworkControllerConstantsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new FrameworkControllerConstants();
+    $result = new FrameworkControllerConstants($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\ErrorCodes\FrameworkControllerConstants', $result);
   }
   

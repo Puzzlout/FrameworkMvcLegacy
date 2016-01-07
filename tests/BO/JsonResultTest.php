@@ -27,7 +27,7 @@ class JsonResultTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new JsonResult();
+    $result = new JsonResult($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\JsonResult', $result);
   }
   

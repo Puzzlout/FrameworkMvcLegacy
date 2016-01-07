@@ -27,7 +27,7 @@ class F_accountTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_account();
+    $result = new F_account($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_account', $result);
   }
   

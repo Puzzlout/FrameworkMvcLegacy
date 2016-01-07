@@ -27,7 +27,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new Request();
+    $result = new Request($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\Request', $result);
   }
   

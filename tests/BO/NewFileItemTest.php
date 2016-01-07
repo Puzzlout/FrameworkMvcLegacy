@@ -27,7 +27,7 @@ class NewFileItemTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new NewFileItem();
+    $result = new NewFileItem($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\NewFileItem', $result);
   }
   

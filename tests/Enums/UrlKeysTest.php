@@ -27,7 +27,7 @@ class UrlKeysTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new UrlKeys();
+    $result = new UrlKeys($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\UrlKeys', $result);
   }
   

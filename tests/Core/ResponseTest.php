@@ -27,7 +27,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new Response();
+    $result = new Response($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\Response', $result);
   }
   

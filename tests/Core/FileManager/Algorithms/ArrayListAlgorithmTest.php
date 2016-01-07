@@ -27,7 +27,7 @@ class ArrayListAlgorithmTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ArrayListAlgorithm();
+    $result = new ArrayListAlgorithm($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm', $result);
   }
   

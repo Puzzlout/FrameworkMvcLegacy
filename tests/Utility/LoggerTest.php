@@ -27,7 +27,7 @@ class LoggerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new Logger();
+    $result = new Logger($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Utility\Logger', $result);
   }
   

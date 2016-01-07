@@ -27,7 +27,7 @@ class GenericViewVariablesKeysTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new GenericViewVariablesKeys();
+    $result = new GenericViewVariablesKeys($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\GenericViewVariablesKeys', $result);
   }
   

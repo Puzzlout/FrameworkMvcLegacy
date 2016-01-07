@@ -94,15 +94,15 @@ class InitializeTestSuite {
       $state = mkdir($dirToCheck . self::DIR_SEPARATOR, 0777);
     }
     if ($dirExists) {
-      $this->output .= "<p class=\"dir-exists\">Directory already exists => $dirToCheck</p>";
+      $this->output .= "<p class=\"dir exists\">Directory already exists => $dirToCheck</p>";
       return;
     }
     if (!$state) {
       error_log("Directory not created => " . $dirToCheck);
-      $this->output .= "<p class=\"dir-not-created\">Directory not created => $dirToCheck</p>";
+      $this->output .= "<p class=\"dir not-created\">Directory not created => $dirToCheck</p>";
       return;
     }
-    $this->output .= "<p class=\"dir-created\">Directory created => $dirToCheck</p>";
+    $this->output .= "<p class=\"dir created\">Directory created => $dirToCheck</p>";
   }
 
   private function GetFullDirectoryValue($dirWithFiles) {
@@ -115,10 +115,10 @@ class InitializeTestSuite {
     foreach ($files as $file) {
       $result = $this->CreateTestClass($sourceDirectory, $targetDir, $file);
       if (!$result[self::CLASS_CREATION_STATE]) {
-        $this->output .= "<p class=\"test-class-not-created\">Test class was not created => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
+        $this->output .= "<p class=\"test-class not-created\">Test class was not created => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
         continue;
       }
-      $this->output .= "<p class=\"test-class-created\">Test class was generated => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
+      $this->output .= "<p class=\"test-class created\">Test class was generated => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
     }
   }
 

@@ -27,7 +27,7 @@ class F_actionTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_action();
+    $result = new F_action($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_action', $result);
   }
   

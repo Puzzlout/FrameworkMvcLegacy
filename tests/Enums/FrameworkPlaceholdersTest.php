@@ -27,7 +27,7 @@ class FrameworkPlaceholdersTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new FrameworkPlaceholders();
+    $result = new FrameworkPlaceholders($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\FrameworkPlaceholders', $result);
   }
   

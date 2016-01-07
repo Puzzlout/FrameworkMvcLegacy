@@ -24,7 +24,7 @@
 
 namespace WebDevJL\Framework\UC;
 
-class LeftMenu {
+class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   protected $app = null;
   protected $base_url = "";
@@ -32,10 +32,12 @@ class LeftMenu {
   protected $NOSUBMENUS = "NOSUBMENUS";
   protected $NOHEADERMENU = "NOHEADERMENU";
 
-  public function __construct($app, $resx_left_menu) {
-    $this->app = $app;
-    $this->resx_left_menu = $resx_left_menu;
-    $this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_AppName, $this->app->config->get("base_url"));
+  public function __construct($app) {
+    parent::__construct($app);
+    //@todo: rethink how to setup the left menu: xml, php array or db table?
+    //$this->resx_left_menu = $resx_left_menu;
+    //@todo: move the following to a method that can be called at a later time. Not required in the constructor
+    //$this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_AppName, $this->app->config->get("base_url"));
   }
 
   /**

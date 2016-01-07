@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class HtmlAttributeTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new HtmlAttribute();
+    $result = new HtmlAttribute("","");
     $this->assertInstanceOf('WebDevJL\Framework\UC\HtmlAttribute', $result);
   }
   

@@ -27,7 +27,7 @@ class LinkControlTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new LinkControl();
+    $result = new LinkControl($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\UC\LinkControl', $result);
   }
   

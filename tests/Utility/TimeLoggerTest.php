@@ -27,7 +27,7 @@ class TimeLoggerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new TimeLogger();
+    $result = new TimeLogger($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Utility\TimeLogger', $result);
   }
   

@@ -27,7 +27,7 @@ class BaseCacheTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new BaseCache();
+    $result = new BaseCache($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Core\Cache\BaseCache', $result);
   }
   

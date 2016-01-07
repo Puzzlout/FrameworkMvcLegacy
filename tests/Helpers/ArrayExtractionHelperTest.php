@@ -27,7 +27,7 @@ class ArrayExtractionHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ArrayExtractionHelper();
+    $result = new ArrayExtractionHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\ArrayExtractionHelper', $result);
   }
   

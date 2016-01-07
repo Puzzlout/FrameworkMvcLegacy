@@ -29,7 +29,8 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
 
   public function __construct(Application $app) {
     parent::__construct($app);
-    $this->loadToolTipMessagefromXML();
+    //@todo: get the following outside of the constructor
+    //$this->loadToolTipMessagefromXML();
   }
 
   /**
@@ -124,6 +125,10 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
     return $msg_array;
   }
 
+/**
+ * @todo: load from the db first
+ * @todo: next generated php classes to access the data more easily.
+ */
   public function loadToolTipMessagefromXML() {
     $placeholders = array(
         "{{culture}}" => $this->app()->locale

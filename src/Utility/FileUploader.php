@@ -1,28 +1,8 @@
 <?php
 
-/**
- *
- * @package		Easy MVC Framework
- * @author		Jeremie Litzler
- * @copyright	Copyright (c) 2015
- * @license		
- * @link		
- * @since		
- * @filesource
- */
-// ------------------------------------------------------------------------
-
-/**
- * FileUploader Class
- *
- * @package		Library
- * @category	Core
- * @category	
- * @author		Jeremie Litzler
- * @link		
- */
-
 namespace WebDevJL\Framework\Utility;
+
+use WebDevJL\Framework\Core\Config;
 
 class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
@@ -36,7 +16,7 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   public function __construct(\WebDevJL\Framework\Core\Application $app, $data) {
     parent::__construct($app);
-    $this->rootDirectory = $app->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
+    $this->rootDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
     $this->files = $data["files"];
     $this->dataPost = $data["dataPost"];
     $this->resultJson = $data["resultJson"];

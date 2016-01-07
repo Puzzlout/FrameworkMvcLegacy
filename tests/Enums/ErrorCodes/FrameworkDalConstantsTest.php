@@ -27,7 +27,7 @@ class FrameworkDalConstantsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new FrameworkDalConstants();
+    $result = new FrameworkDalConstants($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\ErrorCodes\FrameworkDalConstants', $result);
   }
   

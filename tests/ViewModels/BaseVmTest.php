@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class BaseVmTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new BaseVm();
+    $result = new BaseVm($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\ViewModels\BaseVm', $result);
   }
   

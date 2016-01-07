@@ -27,7 +27,7 @@ class HtmlControlBuildHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new HtmlControlBuildHelper();
+    $result = new HtmlControlBuildHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\HtmlControlBuildHelper', $result);
   }
   

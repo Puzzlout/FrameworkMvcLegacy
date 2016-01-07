@@ -27,7 +27,7 @@ class ScriptControlTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ScriptControl();
+    $result = new ScriptControl($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\UC\ScriptControl', $result);
   }
   

@@ -27,7 +27,7 @@ class LogDalTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new LogDal();
+    $result = new LogDal($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\LogDal', $result);
   }
   

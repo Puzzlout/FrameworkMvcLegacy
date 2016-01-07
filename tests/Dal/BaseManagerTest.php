@@ -27,7 +27,7 @@ class BaseManagerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new BaseManager();
+    $result = new BaseManager($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\BaseManager', $result);
   }
   

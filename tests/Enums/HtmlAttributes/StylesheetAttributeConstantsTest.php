@@ -27,7 +27,7 @@ class StylesheetAttributeConstantsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new StylesheetAttributeConstants();
+    $result = new StylesheetAttributeConstants($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\HtmlAttributes\StylesheetAttributeConstants', $result);
   }
   

@@ -27,7 +27,7 @@ class CreateFileHelperTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new CreateFileHelper();
+    $result = new CreateFileHelper($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Helpers\WebIde\CreateFileHelper', $result);
   }
   

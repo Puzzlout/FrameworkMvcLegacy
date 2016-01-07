@@ -24,6 +24,8 @@
 
 namespace WebDevJL\Framework\Utility;
 
+use WebDevJL\Framework\Core\Config;
+
 class FileLoader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   public
@@ -37,8 +39,9 @@ class FileLoader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   function __construct(\WebDevJL\Framework\Core\Application $app, $data) {
     parent::__construct($app);
-    $this->rootDirectory = $app->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
-    $this->webDirectory = $app->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $app->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath);
+    $this->rootDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
+    //@todo: webDirectory is different from context: is it a document or an image?
+    $this->webDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl) . Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
     $this->dataPost = $data["dataPost"];
   }
 

@@ -27,7 +27,7 @@ class F_userTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_user();
+    $result = new F_user($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_user', $result);
   }
   

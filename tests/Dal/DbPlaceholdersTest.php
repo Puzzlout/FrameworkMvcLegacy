@@ -27,7 +27,7 @@ class DbPlaceholdersTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DbPlaceholders();
+    $result = new DbPlaceholders($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbPlaceholders', $result);
   }
   

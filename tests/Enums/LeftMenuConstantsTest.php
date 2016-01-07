@@ -27,7 +27,7 @@ class LeftMenuConstantsTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new LeftMenuConstants();
+    $result = new LeftMenuConstants($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\LeftMenuConstants', $result);
   }
   

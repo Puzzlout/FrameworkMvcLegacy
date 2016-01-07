@@ -27,7 +27,7 @@ class DalModuleNameConstantsEngineTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DalModuleNameConstantsEngine();
+    $result = new DalModuleNameConstantsEngine($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\DalModuleNameConstantsEngine', $result);
   }
   

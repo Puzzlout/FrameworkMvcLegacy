@@ -27,7 +27,7 @@ class DebugControllerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DebugController();
+    $result = new DebugController($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Controllers\DebugController', $result);
   }
   

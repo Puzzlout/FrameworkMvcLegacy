@@ -12,20 +12,31 @@
 
 namespace WebDevJL\Framework\Security;
 
-class Protect  {
+class Protect extends \WebDevJL\Framework\Core\ApplicationComponent  {
 
   private $hashSalt = null;
   private $encryptionKey = null;
-  private $encryptionType = MCRYPT_RIJNDAEL_128;
-  private $encryptionMode = MCRYPT_MODE_CBC;
   private $iv = null;
 
-  public function __construct(\WebDevJL\Framework\Core\Config $config) {
-    $this->iv = mcrypt_create_iv(mcrypt_get_iv_size($this->encryptionType, $this->encryptionMode), MCRYPT_DEV_URANDOM);
-    $this->encryptionKey = strrev($config->get(\WebDevJL\Framework\Enums\AppSettingKeys::EncryptionKey));
-    $this->hashSalt = strrev($config->get(\WebDevJL\Framework\Enums\AppSettingKeys::PasswordSalt));
+  const ENCRYPTION_TYPE = MCRYPT_RIJNDAEL_128;
+  const ENCRYPTION_MODE = MCRYPT_MODE_CBC;
+
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
   }
 
+  public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    $instance = new Protect($app);
+    return $instance;
+  }
+  
+  public function SetEncryption() {
+    $this->iv = mcrypt_create_iv(mcrypt_get_iv_size(self::ENCRYPTION_TYPE, self::ENCRYPTION_MODE), MCRYPT_DEV_URANDOM);
+    $this->encryptionKey = strrev(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::EncryptionKey));
+    $this->hashSalt = strrev(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PasswordSalt));
+    return $this;
+  }
+  
   /**
    * Hash some data using Sha1 method with the encryption key.
    * A dynamic salt generated at the request is used to create the hash.  

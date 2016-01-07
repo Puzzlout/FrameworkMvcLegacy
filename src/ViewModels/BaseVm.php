@@ -53,7 +53,6 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
   public function __construct(\WebDevJL\Framework\Core\Application $app) {
     $this->errorVm = new ErrorVm();
     $this->app = $app;
-    $this->ResourceObject = $this->GetResourceObject();
   }
 
   /**
@@ -73,6 +72,13 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
   public function setPageTitle($PageTitle) {
     $this->PageTitle = $PageTitle;
   }
+  
+  /**
+   * @todo: modify the call to init the resource object for the current request.
+   */
+  public function SetResourceObject() {
+    $this->ResourceObject = $this->GetResourceObject();
+  }
 
   public function GetResourceObject() {
     $context = new \WebDevJL\Framework\Core\Context($this->app);
@@ -88,6 +94,11 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel{
   }
   
   public function ResxFor($key) {
-    return $this->ResourceObject->GetValue(strtolower($key));
+    $keyReady = $this->PrepareResxKey($key);
+    return $this->ResourceObject->GetValue($keyReady);
+  }
+  
+  public function PrepareResxKey($rawKey) {
+    return strtolower($key);
   }
 }

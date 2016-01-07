@@ -27,7 +27,7 @@ class ViewnameConstantsEngineTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ViewnameConstantsEngine();
+    $result = new ViewnameConstantsEngine($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\ViewnameConstantsEngine', $result);
   }
   

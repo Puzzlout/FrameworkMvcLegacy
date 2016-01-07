@@ -27,7 +27,7 @@ class ResourceEngineTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ResourceEngine();
+    $result = new ResourceEngine($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Utility\ResourceEngine', $result);
   }
   

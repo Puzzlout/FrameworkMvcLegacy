@@ -27,7 +27,7 @@ class ErrorOriginTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ErrorOrigin();
+    $result = new ErrorOrigin($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Enums\ErrorOrigin', $result);
   }
   

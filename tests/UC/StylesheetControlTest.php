@@ -27,7 +27,7 @@ class StylesheetControlTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new StylesheetControl();
+    $result = new StylesheetControl($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\UC\StylesheetControl', $result);
   }
   

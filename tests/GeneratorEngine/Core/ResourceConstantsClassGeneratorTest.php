@@ -27,7 +27,7 @@ class ResourceConstantsClassGeneratorTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ResourceConstantsClassGenerator();
+    $result = new ResourceConstantsClassGenerator($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\ResourceConstantsClassGenerator', $result);
   }
   

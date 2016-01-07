@@ -27,7 +27,7 @@ class ListItemTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ListItem();
+    $result = new ListItem($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\BO\ListItem', $result);
   }
   

@@ -27,7 +27,7 @@ class DbStatementConfigTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DbStatementConfig();
+    $result = new DbStatementConfig($this->app);
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbStatementConfig', $result);
   }
   
