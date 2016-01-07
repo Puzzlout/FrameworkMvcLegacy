@@ -13,15 +13,15 @@
 
 namespace WebDevJL\Framework\Core\Cache;
 
-class ApcCache implements \WebDevJL\Framework\Interfaces\ICache {
+class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements \WebDevJL\Framework\Interfaces\ICache {
   protected $config;
 
-  public function __construct(\WebDevJL\Framework\Core\Config $config) {
-    $this->config = $config;
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
   }
   
-  public static function Init(\WebDevJL\Framework\Core\Config $config) {
-    $cacher = new ApcCache($config);
+  public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    $cacher = new ApcCache($app);
     return $cacher;
   }
   
@@ -51,7 +51,7 @@ class ApcCache implements \WebDevJL\Framework\Interfaces\ICache {
       throw new \Exception("key is already found the store. You need to use the Update method.", 0, NULL);
     }
     
-    $isValueCached = apc_add($key, $value, $this->config->Get("CacheTtl"));
+    $isValueCached = apc_add($key, $value, \WebDevJL\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
     return $isValueCached;
   }
   
@@ -86,7 +86,7 @@ class ApcCache implements \WebDevJL\Framework\Interfaces\ICache {
       throw new \Exception("key is not found the store. You need to use the Create method.", 0, NULL);
     }
     
-    $isValueCached = apc_store($key, $value, $this->config->Get("CacheTtl"));
+    $isValueCached = apc_store($key, $value, \WebDevJL\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
     return $isValueCached;
   }
   

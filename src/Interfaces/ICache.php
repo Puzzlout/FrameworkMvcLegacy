@@ -19,9 +19,9 @@ interface ICache {
    * The instanciater of the cache class using the config instance in order to 
    * retrieve some default values for ttl and other caching settings.
    * 
-   * @param \WebDevJL\Framework\Core\Config $config The instance of config class
+   * @param \WebDevJL\Framework\Core\Application $app The instance of application class
    */
-  public static function Init(\WebDevJL\Framework\Core\Config $config);
+  public static function Init(\WebDevJL\Framework\Core\Application $app);
   
   /**
    * Check if the given $key exists in the cache store.

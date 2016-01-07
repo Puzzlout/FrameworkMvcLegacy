@@ -13,7 +13,7 @@
 
 namespace WebDevJL\Framework\Core\Cache;
 
-class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
+class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements \WebDevJL\Framework\Interfaces\ICache {
 
   /**
    * Member value is pass on to the specific cache used in the context. The TTL
@@ -52,16 +52,17 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
    * Instanciate the class
    * 
    * 
-   * @param \WebDevJL\Framework\Core\Config $config
+   * @param \WebDevJL\Framework\Core\Application $config
    */
-  public function __construct(\WebDevJL\Framework\Core\Config $config) {
-    $typeOfCache = $config->Get(\WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED);
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
+    $typeOfCache = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED);
     $this->config = $config;
     $this->cacheType = constant("\WebDevJL\Framework\Core\Cache\BaseCache::$typeOfCache");
   }
 
-  public static function Init(\WebDevJL\Framework\Core\Config $config) {
-    $cacher = new BaseCache($config);
+  public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    $cacher = new BaseCache($app);
     return $cacher;
   }
   /**
@@ -94,7 +95,7 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
     $result = FALSE;
     switch ($this->cacheType) {
       case BaseCache::TYPE_APC:
-        $result = ApcCache::Init($this->config)->KeyExists($key);
+        $result = ApcCache::Init($this->app)->KeyExists($key);
         break;
       default:
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
@@ -116,7 +117,7 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
     $result = FALSE;
     switch ($this->cacheType) {
       case BaseCache::TYPE_APC:
-        $result = ApcCache::Init($this->config)->Create($key, $value);
+        $result = ApcCache::Init($this->app)->Create($key, $value);
         break;
       default:
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
@@ -138,7 +139,7 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
     $result = $default;
     switch ($this->cacheType) {
       case BaseCache::TYPE_APC:
-        $result = ApcCache::Init($this->config)->Read($key, $default);
+        $result = ApcCache::Init($this->app)->Read($key, $default);
         break;
       default:
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
@@ -160,7 +161,7 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
     $result = FALSE;
     switch ($this->cacheType) {
       case BaseCache::TYPE_APC:
-        $result = ApcCache::Init($this->config)->Update($key, $value);
+        $result = ApcCache::Init($this->app)->Update($key, $value);
         break;
       default:
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
@@ -181,7 +182,7 @@ class BaseCache implements \WebDevJL\Framework\Interfaces\ICache {
     $result = FALSE;
     switch ($this->cacheType) {
       case BaseCache::TYPE_APC:
-        $result = ApcCache::Init($this->config)->Remove($key);
+        $result = ApcCache::Init($this->app)->Remove($key);
         break;
       default:
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
