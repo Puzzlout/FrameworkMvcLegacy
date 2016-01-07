@@ -11,13 +11,13 @@ abstract class Application extends ApplicationBase {
     if (!$this->UnitTestingEnabled) {
       $this->ResourceManager = new ResourceManagers\ResourceBase($this);
       $this->error = $errorManager;
-      $this->httpRequest = new HttpRequest($this);
-      $this->httpResponse = new HttpResponse($this);
+      $this->request = new Request($this);
+      $this->response = new Response($this);
       $this->user = new User($this);
       $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
       $this->cultures = $this->GetCultureArray();
       $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
-      $this->locale = $this->httpRequest->initLanguage($this, "browser");
+      $this->locale = $this->request->initLanguage($this, "browser");
       $this->auth = new \WebDevJL\Framework\Security\AuthenticationManager($this);
       $this->toolTip = new PopUpResourceManager($this);
     }

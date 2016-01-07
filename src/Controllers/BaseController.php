@@ -14,6 +14,7 @@
 namespace WebDevJL\Framework\Controllers;
 
 use WebDevJL\Framework\Core\Context;
+use WebDevJL\Framework\Core\Router;
 
 abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationComponent {
 
@@ -104,7 +105,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     $this->setModule($module);
     $this->setAction($action);
     $this->setView();
-    $this->setDataPost($this->app->httpRequest()->retrievePostAjaxData(FALSE));
+    $this->setDataPost($this->app->request()->retrievePostAjaxData(FALSE));
     $this->setUploadingFiles();
   }
 
@@ -231,7 +232,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     if (!is_string($this->action) || empty($this->action)) {
       throw new \InvalidArgumentException('The action value must be a string and not be empty', 0);
     }
-    if ($this->app()->httpRequest()->IsPost()) {
+    if ($this->app()->request()->IsPost()) {
       //No view needed for Ajax calls.
       return;
     }
@@ -268,7 +269,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     $this->page()->addVar('culture', $culture);
     $user = $this->app()->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected);
     $this->page()->addVar('user', $user[0]);
-    $this->page()->addVar(\WebDevJL\Framework\Core\Router::CurrentRouteVarKey, \WebDevJL\Framework\Core\Router::Init($this->app)->currentRoute());
+    $this->page()->addVar(Router::CurrentRouteVarKey, Router::Init($this->app)->currentRoute());
   }
 
   /**

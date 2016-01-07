@@ -2,7 +2,7 @@
 
 namespace WebDevJL\Framework\Core;
 
-class HttpResponse extends ApplicationComponent {
+class Response extends ApplicationComponent {
 
   protected $page;
 
@@ -26,7 +26,7 @@ class HttpResponse extends ApplicationComponent {
   }
 
   public function send(\WebDevJL\Framework\ViewModels\BaseVm $ControllerVm) {
-    if (!$this->app()->httpRequest()->IsPost()) {
+    if (!$this->app()->request()->IsPost()) {
       $this->page->addVar(\Applications\EasyMvc\Resources\Enums\ViewVariablesKeys::ControllerVm, $ControllerVm);
       return $this->page->GetOutput();
     }

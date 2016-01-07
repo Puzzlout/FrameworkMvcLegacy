@@ -64,7 +64,7 @@ class UserHelper {
    * Stores the users
    * Set the data into the session for later use.
    *
-   * @param /Library/HttpRequest $rq
+   * @param /Library/Request $rq
    * @return array $lists : the lists of objects if any
    */
   public static function GetAndStoreUsersInSession($caller) {

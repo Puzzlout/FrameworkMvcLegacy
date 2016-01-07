@@ -18,8 +18,8 @@ abstract class ApplicationBase {
   const CONTROLLER_NAME_PREFIX = "F_";
   const CULTURES_ARRAY_KEY = "application_cultures";
 
-  public $HttpRequest;
-  protected $httpResponse;
+  public $Request;
+  protected $response;
   public $name;
   public $locale;
   public $localeDefault;
@@ -41,12 +41,12 @@ abstract class ApplicationBase {
   public $controller;
   public $UnitTestingEnabled;
   
-  public function HttpRequest() {
-    return $this->httpRequest;
+  public function Request() {
+    return $this->request;
   }
 
-  public function httpResponse() {
-    return $this->httpResponse;
+  public function response() {
+    return $this->response;
   }
 
   public function user() {

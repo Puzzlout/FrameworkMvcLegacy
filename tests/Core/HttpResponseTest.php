@@ -7,7 +7,7 @@
 
 namespace WebDevJL\Framework\Tests\Core;
 
-use WebDevJL\Framework\Core\HttpResponse;
+use WebDevJL\Framework\Core\Response;
 
 class HttpResponseTest extends \PHPUnit_Framework_TestCase {
 
@@ -27,8 +27,8 @@ class HttpResponseTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new HttpResponse();
-    $this->assertInstanceOf('WebDevJL\Framework\Core\HttpResponse', $result);
+    $result = new Response();
+    $this->assertInstanceOf('WebDevJL\Framework\Core\Response', $result);
   }
   
   //Write the next tests below...

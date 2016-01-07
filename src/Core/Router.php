@@ -6,7 +6,7 @@ use WebDevJL\Framework\FrameworkConstants;
 
 class Router extends ApplicationComponent {
 
-  public $request;
+  public $url;
   public $pageUrls = array();
   public $isWsCall = false;
   protected $routes = array();
@@ -15,17 +15,30 @@ class Router extends ApplicationComponent {
   const NO_ROUTE = 1;
   const CurrentRouteVarKey = "CurrentRoute";
 
+  /**
+   * 
+   * @param \WebDevJL\Framework\Core\Application $app
+   * @param string $url
+   * @return \WebDevJL\Framework\Core\Router
+   */
   public static function Init(Application $app) {
     $instance = new Router($app);
     return $instance;
   }
 
+  /**
+   * 
+   * @param \WebDevJL\Framework\Core\Application $app
+   * @param string $url
+   * @throws \Exception
+   */
   public function __construct(Application $app) {
     if (is_null($app)) {
       throw new \Exception('$app cannot be null!', 0, NULL);
     }
     parent::__construct($app);
-    $this->request = new HttpRequest($app);
+    $request = new Request($app);
+    $this->url = $request->RequestUriExist() ? $request->requestURI() : "";
   }
 
   /**
@@ -82,7 +95,7 @@ class Router extends ApplicationComponent {
   private function FindRouteMatch() {
     $route = new Route();
     $route->setDefaultUrl(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl));
-    $this->getRoute($route, $this->request->requestURI());
+    $this->getRoute($route, $this->url);
     return $route;
   }
 

@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @locked
+ * 
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\ViewModels;
+namespace WebDevJL\Framework\Tests\Core;
 
-use WebDevJL\Framework\ViewModels\WebIdeVm;
+use WebDevJL\Framework\Core\Response;
 
-class WebIdeVmTest extends \PHPUnit_Framework_TestCase {
+class ResponseTest extends \PHPUnit_Framework_TestCase {
 
   protected $app;
 
@@ -27,8 +27,8 @@ class WebIdeVmTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new WebIdeVm($this->app);
-    $this->assertInstanceOf('WebDevJL\Framework\ViewModels\WebIdeVm', $result);
+    $result = new Response();
+    $this->assertInstanceOf('WebDevJL\Framework\Core\Response', $result);
   }
   
   //Write the next tests below...

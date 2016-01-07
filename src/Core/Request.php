@@ -2,11 +2,12 @@
 
 namespace WebDevJL\Framework\Core;
 
-class HttpRequest {
+class Request extends ApplicationComponent {
 
   public $requestId;
 
-  public function __construct() {
+  public function __construct(Application $app) {
+    parent::__construct($app);
     $this->requestId = \WebDevJL\Framework\Utility\UUID::v4();
   }
 
@@ -60,7 +61,7 @@ class HttpRequest {
   public function requestURI() {
     $key = 'REQUEST_URI';
     if (!array_key_exists($key, $_SERVER)) {
-      throw new Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
+      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
     }
     return strtok($_SERVER[$key], '?');
   }
@@ -68,7 +69,7 @@ class HttpRequest {
   protected function requestType() {
     $key = 'REQUEST_METHOD';
     if (!array_key_exists($key, $_SERVER)) {
-      throw new Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
+      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
     }
     return $_SERVER[$key];
   }
@@ -183,4 +184,8 @@ class HttpRequest {
     return $array[$index];
   }
 
+  public function RequestUriExist() {
+    $result = filter_input(INPUT_SERVER, "REQUEST_URI");
+    return !is_null($result) || $result;
+  }
 }

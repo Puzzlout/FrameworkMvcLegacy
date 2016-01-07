@@ -22,7 +22,7 @@ class TimeLogger extends Logger {
     $log = new \WebDevJL\Framework\BO\F_log();
     $log->setF_log_guid(UUID::v4());
     $log->setF_log_level($type);
-    $log->setF_log_request_id($app->httpRequest()->requestId());
+    $log->setF_log_request_id($app->request()->requestId());
     $log->setF_log_start(Logger::GetTime());
     $log->setF_log_source($source);
     self::SetLog($app->user(), $log);
