@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class DbStatementConfigTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DbStatementConfig($this->app);
+    $result = new DbStatementConfig(null, "", new \WebDevJL\Framework\Dal\DbQueryFilters());
     $this->assertInstanceOf('WebDevJL\Framework\Dal\DbStatementConfig', $result);
   }
   

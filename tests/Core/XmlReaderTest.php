@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class XmlReaderTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new XmlReader($this->app);
+    $result = new XmlReader(ROOT_DIR);
     $this->assertInstanceOf('WebDevJL\Framework\Core\XmlReader', $result);
   }
   
