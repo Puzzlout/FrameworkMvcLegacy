@@ -14,9 +14,12 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
           $dataPost = array(),
           $resultJson = array();
 
-  public function __construct(\WebDevJL\Framework\Core\Application $app, $data) {
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
     parent::__construct($app);
     $this->rootDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
+  }
+  
+  public function FillInstance($data) {
     $this->files = $data["files"];
     $this->dataPost = $data["dataPost"];
     $this->resultJson = $data["resultJson"];
