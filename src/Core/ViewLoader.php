@@ -57,11 +57,13 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
 
     if (file_exists($FrameworkView)) {
       return $FrameworkView;
-    } else if (file_exists($ApplicationView)) {
+    } 
+    if (file_exists($ApplicationView)) {
       return $ApplicationView;
-    } else {
-      throw new \WebDevJL\Framework\Exceptions\ViewNotFoundException("View " . $FrameworkView . " or " . $ApplicationView . " doesn't exists", 0, NULL);
     }
+    
+    throw new \WebDevJL\Framework\Exceptions\ViewNotFoundException("View " . $FrameworkView . " or " . $ApplicationView . " doesn't exists", 0, NULL);
+    
   }
 
   /**
