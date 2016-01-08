@@ -137,4 +137,8 @@ abstract class Application extends ApplicationBase {
     }
   }
 
+  public function IsUnitTested() {
+    $result = $this instanceof \WebDevJL\Framework\Tests\TestApplication;
+    return $result;
+  }
 }

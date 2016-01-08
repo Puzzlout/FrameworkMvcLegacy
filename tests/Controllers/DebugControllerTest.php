@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class DebugControllerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new DebugController($this->app);
+    $result = new DebugController($this->app, "Test", "Test");
     $this->assertInstanceOf('WebDevJL\Framework\Controllers\DebugController', $result);
   }
   

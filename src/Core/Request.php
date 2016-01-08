@@ -6,6 +6,11 @@ class Request extends ApplicationComponent {
 
   public $requestId;
 
+  public static function Init(Application $app) {
+    $instance = new Request($app);
+    return $instance;
+  }
+  
   public function __construct(Application $app) {
     parent::__construct($app);
     $this->requestId = \WebDevJL\Framework\Utility\UUID::v4();
@@ -60,16 +65,16 @@ class Request extends ApplicationComponent {
 
   public function requestURI() {
     $key = 'REQUEST_URI';
-    if (!array_key_exists($key, $_SERVER)) {
-      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
+    if (filter_input(INPUT_SERVER, $key)) {
+      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, NULL);
     }
     return strtok($_SERVER[$key], '?');
   }
 
   protected function requestType() {
     $key = 'REQUEST_METHOD';
-    if (!array_key_exists($key, $_SERVER)) {
-      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump($_SERVER), 0, NULL);
+    if (filter_input(INPUT_SERVER, $key) && $this->app->IsUnitTested()) {
+      throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, NULL);
     }
     return $_SERVER[$key];
   }

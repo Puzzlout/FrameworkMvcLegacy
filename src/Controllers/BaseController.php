@@ -17,7 +17,7 @@ use WebDevJL\Framework\Core\Context;
 use WebDevJL\Framework\Core\Router;
 
 abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationComponent {
-
+ 
   /**
    * The Action.
    * 
@@ -105,7 +105,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     $this->setModule($module);
     $this->setAction($action);
     $this->setView();
-    $this->setDataPost($this->app->request()->retrievePostAjaxData(FALSE));
+    $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($app)->retrievePostAjaxData(FALSE));
     $this->setUploadingFiles();
   }
 
@@ -232,7 +232,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     if (!is_string($this->action) || empty($this->action)) {
       throw new \InvalidArgumentException('The action value must be a string and not be empty', 0);
     }
-    if ($this->app()->request()->IsPost()) {
+    if (\WebDevJL\Framework\Core\Request::Init($this->app)->IsPost()) {
       //No view needed for Ajax calls.
       return;
     }

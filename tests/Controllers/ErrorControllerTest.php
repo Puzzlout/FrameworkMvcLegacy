@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class ErrorControllerTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new ErrorController($this->app);
+    $result = new ErrorController($this->app, "Test", "Test");
     $this->assertInstanceOf('WebDevJL\Framework\Controllers\ErrorController', $result);
   }
   
