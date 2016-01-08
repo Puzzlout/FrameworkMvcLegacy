@@ -19,7 +19,7 @@ class XmlReader {
   private $currentFileTimeStamp;
   private $lastModifiedTimeStamp;
 
-  public function __construct($filePath, $fileName = NULL) {
+  public function __construct($filePath = NULL, $fileName = NULL) {
     $this->filePath = isset($fileName) ?
             $this->GetConfigurationFilePath($fileName) :
             $filePath;

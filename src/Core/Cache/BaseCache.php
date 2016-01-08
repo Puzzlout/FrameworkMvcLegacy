@@ -14,15 +14,6 @@
 namespace WebDevJL\Framework\Core\Cache;
 
 class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements \WebDevJL\Framework\Interfaces\ICache {
-
-  /**
-   * Member value is pass on to the specific cache used in the context. The TTL
-   * value is extracted from the config in the case setting a value in the cache
-   * store.
-   * 
-   * @var \WebDevJL\Framework\Core\Config 
-   */
-  protected $config;
   
   /**
    * For each method of the contract, a switch is use to instanciate the proper
@@ -52,12 +43,11 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
    * Instanciate the class
    * 
    * 
-   * @param \WebDevJL\Framework\Core\Application $config
+   * @param \WebDevJL\Framework\Core\Application $app
    */
   public function __construct(\WebDevJL\Framework\Core\Application $app) {
     parent::__construct($app);
     $typeOfCache = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED);
-    $this->config = $config;
     $this->cacheType = constant("\WebDevJL\Framework\Core\Cache\BaseCache::$typeOfCache");
   }
 

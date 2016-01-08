@@ -51,11 +51,12 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     $this->filenamePrefix = $prefix;
   }
 
-  public function selectMany($object, $where_filter_id, $filter_as_string = false) {
-    $list = parent::selectMany($object, $where_filter_id, $filter_as_string);
-    $list = $this->AddFilePathToObjectList($list);
-    return $list;
-  }
+  //@todo: to rewrite
+  //public function selectMany($object, $where_filter_id, $filter_as_string = false) {
+    //$list = parent::selectMany($object, $where_filter_id, $filter_as_string);
+    //$list = $this->AddFilePathToObjectList($list);
+    //return $list;
+  //}
 
   public function addWithFile($object, $file) {
     if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {

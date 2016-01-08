@@ -27,7 +27,7 @@ class XmlReaderTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new XmlReader(ROOT_DIR);
+    $result = new XmlReader();
     $this->assertInstanceOf('WebDevJL\Framework\Core\XmlReader', $result);
   }
   
