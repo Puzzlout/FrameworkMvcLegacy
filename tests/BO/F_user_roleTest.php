@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class F_user_roleTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_user_role($this->app);
+    $result = new F_user_role([]);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_user_role', $result);
   }
   

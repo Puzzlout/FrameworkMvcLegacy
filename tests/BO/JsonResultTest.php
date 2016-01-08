@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class JsonResultTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new JsonResult($this->app);
+    $result = new JsonResult();
     $this->assertInstanceOf('WebDevJL\Framework\BO\JsonResult', $result);
   }
   

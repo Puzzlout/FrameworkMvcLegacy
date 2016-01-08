@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new FileUploadResult($this->app);
+    $result = new FileUploadResult("");
     $this->assertInstanceOf('WebDevJL\Framework\BO\FileUploadResult', $result);
   }
   

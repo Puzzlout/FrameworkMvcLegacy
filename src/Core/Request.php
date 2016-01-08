@@ -73,7 +73,7 @@ class Request extends ApplicationComponent {
 
   protected function requestType() {
     $key = 'REQUEST_METHOD';
-    if (filter_input(INPUT_SERVER, $key) && $this->app->IsUnitTested()) {
+    if (filter_input(INPUT_SERVER, $key)) {
       throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, NULL);
     }
     return $_SERVER[$key];

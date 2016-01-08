@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class F_common_resourceTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_common_resource($this->app);
+    $result = new F_common_resource([]);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_common_resource', $result);
   }
   

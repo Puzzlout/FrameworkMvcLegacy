@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.0.0
  */
 
@@ -27,7 +27,7 @@ class F_actionTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new F_action($this->app);
+    $result = new F_action([]);
     $this->assertInstanceOf('WebDevJL\Framework\BO\F_action', $result);
   }
   

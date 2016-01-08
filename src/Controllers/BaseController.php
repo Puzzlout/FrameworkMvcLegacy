@@ -101,11 +101,14 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     $this->managers = $app->dal();
     $this->page = new \WebDevJL\Framework\Core\Page($app);
     $this->user = $app->user();
-    $this->viewModel = new \WebDevJL\Framework\ViewModels\BaseVm($app);
     $this->setModule($module);
     $this->setAction($action);
+  }
+  
+  public function FillInstance() {
+    $this->viewModel = new \WebDevJL\Framework\ViewModels\BaseVm($this->app);
     $this->setView();
-    $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($app)->retrievePostAjaxData(FALSE));
+    $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($this->app)->retrievePostAjaxData(FALSE));
     $this->setUploadingFiles();
   }
 
