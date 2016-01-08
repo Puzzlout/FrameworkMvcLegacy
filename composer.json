@@ -1,5 +1,5 @@
 {
-    "name": "WebDevJL/Framework",
+    "name": "WebDevJL/FrameworkMvc",
     "description": "The EasyMvc framework to be used to build MVC websites",
     "license": "MIT",
     "keywords": ["webdevjl", "web", "dev", "jl", "easymvc"],
@@ -9,7 +9,10 @@
             "email": "contact@jeremielitzler.net"
         }
     ],
-    "require": {},
+    "version": "1.0.0",
+    "require": {
+        "php": ">=5.4",
+    },
     "require-dev": {
         "phpunit/phpunit": "4.8.*"
     },
