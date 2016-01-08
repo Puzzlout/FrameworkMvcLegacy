@@ -156,13 +156,13 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
   }
 
   private function getHostUrl() {
-    $ssl = (!empty(filter_input(INPUT_SERVER,'HTTPS')) && filter_input(INPUT_SERVER,'HTTPS') == 'on') ? true : false;
-    $sp = strtolower(filter_input(INPUT_SERVER,'SERVER_PROTOCOL'));
-    $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
-    $port = filter_input(INPUT_SERVER,'SERVER_PORT');
-    $port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
-    $host = isset($host) ? $host : filter_input(INPUT_SERVER,'SERVER_NAME') . $port;
-    return $protocol . '://' . $host;
+    //$ssl = (!empty(filter_input(INPUT_SERVER,'HTTPS')) && filter_input(INPUT_SERVER,'HTTPS') == 'on') ? true : false;
+    //$sp = strtolower(filter_input(INPUT_SERVER,'SERVER_PROTOCOL'));
+    //$protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
+    //$port = filter_input(INPUT_SERVER,'SERVER_PORT');
+    //$port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
+    //$host = isset($host) ? $host : filter_input(INPUT_SERVER,'SERVER_NAME') . $port;
+    return "";//$protocol . '://' . $host;
   }
 
 }
