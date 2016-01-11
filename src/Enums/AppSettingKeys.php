@@ -19,11 +19,11 @@ abstract class AppSettingKeys {
    * Application mode defines DEV or LIVE mode. 
    */
 
-  const ApplicationMode = "ApplicationMode";
+  const APP_MODE = "ApplicationMode";
   /**
    * Default culture of the application. 
    */
-  const DefaultCulture = "DefaultCulture";
+  const DEFAULT_CULTURE = "DefaultCulture";
   /**
    * ApplicationBaseUrl value when the WebApp is not at the root of the public 
    * directory but when it is "publicRoot/MySite".<br />
@@ -31,92 +31,88 @@ abstract class AppSettingKeys {
    * When the url is http://mydomain.net/MySite, the BaseUrl value 
    * is "/MySite/".<br />
    */
-  const ApplicationBaseUrl = "ApplicationBaseUrl";
+  const APP_BASE_URL = "ApplicationBaseUrl";
   /**
    * Default url to load.
    */
-  const DefaultUrl = "DefaultUrl";
+  const APP_DEFAULT_ROUTE = "DefaultUrl";
   /**
    * Path to the images in the project. 
    */
-  const RootImageFolderPath = "RootImageFolderPath";
+  const ROOT_IMAGE_FOLDER_PATH = "RootImageFolderPath";
   /**
    * Path to the uploaded files in the project. 
    */
-  const RootDocumentUpload = "RootDocumentUpload";
+  const ROOT_DOC_UPLOAD_PATH = "RootDocumentUpload";
   /**
    * Path to the Dal classes of the Application. 
    */
-  const ApplicationsDalFolderPath = "ApplicationsDalFolderPath";
-  /**
-   *Path to the Tooltips definition file. 
-   */
-  const TooltipsXmlFileName = "TooltipsXmlFileName";
+  const APP_DAL_FOLDER_PATH = "ApplicationsDalFolderPath";
   /**
    * Host used for the MySQL connection. 
    */
-  const Myslq_host = "Myslq_host";
+  const MYSQL_HOST = "Myslq_host";
   /**
    * User used for the MySQL connection. 
    */
-  const Mysql_user = "Mysql_user";
+  const MYSL_USER = "Mysql_user";
   /**
    * User's password used for the MySQL connection. 
    */
-  const Mysql_pwd = "Mysql_pwd";
+  const MYSQL_PWD = "Mysql_pwd";
   /**
    * Target database used for the MySQL connection. 
    */
-  const Mysql_db_name = "Mysql_db_name";
+  const MYSQL_DB_NAME = "Mysql_db_name";
   /**
    * Default lattitude Coordinates to center Google Maps. 
    */
-  const GoogleMapsCenterLat = "GoogleMapsCenterLat";
+  const GMAPS_DEFAULT_LAT = "GoogleMapsCenterLat";
   /**
    * Default longitude Coordinates to center Google Maps. 
    */
-  const GoogleMapsCenterLng = "GoogleMapsCenterLng";
+  const GMAPS_DEFAULT_LNG = "GoogleMapsCenterLng";
   /**
    * Default icon image path when a marker has no lattitude and longitude
    * in Google Maps. 
    */
-  const GoogleMapsNoLatLngIcon = "GoogleMapsNoLatLngIcon";
+  const GMAPS_NO_COORD_ICON = "GoogleMapsNoLatLngIcon";
   /**
    * Default domain to use in build email addresses. 
    */
-  const DefaultEmailDomainValue = "DefaultEmailDomainValue";
+  const DEFAULT_EMAIL_DOMAIN = "DefaultEmailDomainValue";
   /**
    * Method using to log error. 
    * @see /Library/Enums/ErrorLoggingMethod.php
    */
-  const ErrorLoggingMethod = "ErrorLoggingMethod";
+  const ERROR_LOG_METHOD = "ErrorLoggingMethod";
   /**
    * Public encryption key to use mcrypt. 
    * @see /Library/Security/Protect .php
    */
-  const EncryptionKey = "EncryptionKey";
+  const ENCRYPTION_KEY = "EncryptionKey";
   /**
    * Public static salt value used to hash user passwords. 
    * @see /Library/Security/Protect .php
    */
-  const PasswordSalt = "PasswordSalt";
+  const PASSWORD_SALT = "PasswordSalt";
   /**
    * File name of the brand image
    */
-  const LogoImageUrl = "LogoImageUrl";
+  const BRAND_IMAGE_URL = "LogoImageUrl";
 
   /**
    * Boolean value to use when changing password at first line
    */
-  const UseEmailLinkForFirstLogin = "UseEmailLinkForFirstLogin";
+  const USE_EMAIL_LINK_1ST_LOGIN = "UseEmailLinkForFirstLogin";
   
   /**
    * Time to Live in seconds for the cache values (default value) 
    */
-  const CacheTtl = "CacheTtl";
+  const CACHE_TTL = "CacheTtl";
   
   /**
    * The class partial name of the cache to use
    */
-  const CACHETYPEUSED = "CacheTypeUsed";
+  const CACHE_TYPE = "CacheTypeUsed";
 }

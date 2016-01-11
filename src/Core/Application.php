@@ -2,6 +2,8 @@
 
 namespace WebDevJL\Framework\Core;
 
+use WebDevJL\Framework\Core\Config;
+use WebDevJL\Framework\Enums\AppSettingKeys;
 use WebDevJL\Framework\Enums;
 use WebDevJL\Framework\Enums\NameSpaceName;
 
@@ -73,9 +75,8 @@ abstract class Application extends ApplicationBase {
     $controllerName = $this->BuildControllerName($router->currentRoute());
     $FrameworkControllers = "\WebDevJL\Framework\Generated\FrameworkControllers";
     $ApplicationControllers = "\Applications\\" .
-            \WebDevJL\Framework\FrameworkConstants::APP_NAME .
-            "\Generated\\" .
-            \WebDevJL\Framework\FrameworkConstants::APP_NAME . "Controllers";
+            Config::Init($this)->Get(AppSettingKeys::APP_NAME) .
+            "\Generated\\Controllers";
 
     $controllerClassName = $this->FindControllerClassName(
             $controllerName, $FrameworkControllers, $ApplicationControllers, $router
