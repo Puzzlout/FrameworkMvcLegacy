@@ -12,7 +12,7 @@ define("TEST_SUITE_VERSION", "v1.0.0");
 require_once 'src/FrameworkConstants.php';
 use WebDevJL\Framework\FrameworkConstants;
 FrameworkConstants::SetNamedConstants(array(
-    FrameworkConstants::FrameworkConstants_Name_TestAppName => NULL
+    \WebDevJL\Framework\FrameworkConstants::TEST_APP_NAME => NULL
 ));
 
 echo "<h1>Starting...</h1>";

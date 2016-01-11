@@ -92,7 +92,7 @@ class DaoClassGenerator {
    * @param type $params : array of values
    */
   public function __construct($tableName) {
-    $this->dir = FrameworkConstants_RootDir . "Library/Dal/Generator/output/";
+    $this->dir = \WebDevJL\Framework\FrameworkConstants_RootDir . "Library/Dal/Generator/output/";
     $this->className = ucfirst($tableName);
     $this->fileName = $this->className . ".php";
     $this->placeholders = $this->InitPlaceholders();
@@ -115,9 +115,9 @@ class DaoClassGenerator {
         Placeholders\PhpDocPlaceholders::LINK => "https://github.com/WebDevJL/",
         Placeholders\PhpDocPlaceholders::PACKAGE => $this->className,
         Placeholders\PhpDocPlaceholders::SUBPACKAGE => "",
-        Placeholders\PhpDocPlaceholders::VERSION_NUMBER => FrameworkConstants_Version,
+        Placeholders\PhpDocPlaceholders::VERSION_NUMBER => \WebDevJL\Framework\FrameworkConstants::PACKAGE_VERSION,
         Placeholders\ClassFilePlaceholders::NAMESPACE_FRAMEWORK => "WebDevJL\Framework\BO",
-        Placeholders\ClassFilePlaceholders::NAMESPACE_APP => "\Applications\"" . FrameworkConstants_AppName . "\Models\Dao",
+        Placeholders\ClassFilePlaceholders::NAMESPACE_APP => "\Applications\"" . \WebDevJL\Framework\FrameworkConstants::APP_NAME . "\Models\Dao",
         Placeholders\ClassFilePlaceholders::CLASS_NAME => $this->className
     );
   }

@@ -28,12 +28,12 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
    */
   public function Run($data = NULL) {
     $FrameworkDalModules = DirectoryManager::GetFileNames(
-                    FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::DalModulesFolderName);
+                    \WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::DalModulesFolderName);
 
     $ApplicationDalModules = DirectoryManager::GetFileNames(
-                    FrameworkConstants_RootDir .
+                    \WebDevJL\Framework\FrameworkConstants_RootDir .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    FrameworkConstants_AppName .
+                    \WebDevJL\Framework\FrameworkConstants::APP_NAME .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::DalModulesFolderName);
 
 
@@ -55,10 +55,10 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . FrameworkConstants_AppName . "\Generated",
-        BaseClassGenerator::ClassNameKey => FrameworkConstants_AppName . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . \WebDevJL\Framework\FrameworkConstants::APP_NAME . "\Generated",
+        BaseClassGenerator::ClassNameKey => \WebDevJL\Framework\FrameworkConstants::APP_NAME . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        \WebDevJL\Framework\FrameworkConstants::APP_NAME . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application dal module classes for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

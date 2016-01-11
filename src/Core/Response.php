@@ -18,7 +18,7 @@ class Response extends ApplicationComponent {
   public function displayError(\WebDevJL\Framework\BO\Error $error) {
     $this->page = new Page($this->app);
     $this->page->addVar("error", $error);
-    $this->page->setContentFile(FrameworkConstants_RootDir . 'Errors/' . $error->errorId() . '.php');
+    $this->page->setContentFile(\WebDevJL\Framework\FrameworkConstants_RootDir . 'Errors/' . $error->errorId() . '.php');
 
     //$this->addHeader('HTTP/1.0 404 Not Found');
 

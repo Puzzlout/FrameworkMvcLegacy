@@ -70,7 +70,7 @@ class Page extends ApplicationComponent {
     include_once $this->contentFile;
     $content = ob_get_clean();
     ob_start();
-    include_once FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName . \WebDevJL\Framework\Enums\FileNameConst::LayoutTemplate;
+    include_once \WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName . \WebDevJL\Framework\Enums\FileNameConst::LayoutTemplate;
     return ob_get_clean();
   }
 

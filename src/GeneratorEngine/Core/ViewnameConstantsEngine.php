@@ -25,11 +25,11 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
    */
   public function Run($data = NULL) {
     $FrameworkList = DirectoryManager::GetFilesNamesRecursively(
-                    FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
+                    \WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
     $ApplicationList = DirectoryManager::GetFilesNamesRecursively(
-                    FrameworkConstants_RootDir .
+                    \WebDevJL\Framework\FrameworkConstants_RootDir .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    FrameworkConstants_AppName .
+                    \WebDevJL\Framework\FrameworkConstants::APP_NAME .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName);
     $this->InitGenerateFrameworkFile($FrameworkList);
     $this->InitGenerateApplicationFile($ApplicationList);
@@ -49,10 +49,10 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . FrameworkConstants_AppName . "\Generated",
-        BaseClassGenerator::ClassNameKey => FrameworkConstants_AppName . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . \WebDevJL\Framework\FrameworkConstants::APP_NAME . "\Generated",
+        BaseClassGenerator::ClassNameKey => \WebDevJL\Framework\FrameworkConstants::APP_NAME . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        \WebDevJL\Framework\FrameworkConstants::APP_NAME . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application viewnames to use for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

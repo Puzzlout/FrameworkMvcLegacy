@@ -30,7 +30,7 @@ class ApplicationList {
    */
   public function GetList() {
     //Get the list of applications in the folder "Applications"
-    //$list = scandir(FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName);
+    //$list = scandir(\WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName);
     $list = array("EasyMvc", "Ide");
     return $list;
   }

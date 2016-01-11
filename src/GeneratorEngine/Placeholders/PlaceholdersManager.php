@@ -23,7 +23,7 @@ class PlaceholdersManager {
         PhpDocPlaceholders::LINK => "https://github.com/WebDevJL/EasyMvc/blob/master/README.md",
         PhpDocPlaceholders::PACKAGE => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey],
         PhpDocPlaceholders::SUBPACKAGE => "",
-        PhpDocPlaceholders::VERSION_NUMBER => FrameworkConstants_Version,
+        PhpDocPlaceholders::VERSION_NUMBER => \WebDevJL\Framework\FrameworkConstants::PACKAGE_VERSION,
         ClassFilePlaceholders::NAMESPACE_FRAMEWORK => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey],
         ClassFilePlaceholders::NAMESPACE_APP => "",
         ClassFilePlaceholders::NAMESPACE_CLASS => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey],

@@ -150,7 +150,7 @@ class DirectoryManager {
    */
   public static function GetApplicationRootDir() {
     return \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-            FrameworkConstants_AppName .
+            \WebDevJL\Framework\FrameworkConstants::APP_NAME .
             \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName;
   }
 

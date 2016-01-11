@@ -46,7 +46,7 @@ abstract class ConstantsClassEngineBase {
     if (count($files) > 0) {
       $classGen = new ConstantsClassGeneratorBase($this->params, $files);
       $classGen->BuildClass();
-      return str_replace('\\', '/', "file://" . FrameworkConstants_RootDir . $this->params[BaseClassGenerator::NameSpaceKey] . "/" . $classGen->fileName);
+      return str_replace('\\', '/', "file://" . \WebDevJL\Framework\FrameworkConstants_RootDir . $this->params[BaseClassGenerator::NameSpaceKey] . "/" . $classGen->fileName);
     } else {
       return "No class to generate.";
     }

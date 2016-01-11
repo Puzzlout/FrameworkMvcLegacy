@@ -34,7 +34,7 @@ class ScriptControl extends HtmlControlBase implements \WebDevJL\Framework\Inter
    * @return string
    */
   public function ForInternalResource($jsFilePath) {
-    $href = FrameworkConstants_BaseUrl . $jsFilePath;
+    $href = \WebDevJL\Framework\FrameworkConstants::BASE_URL . $jsFilePath;
     $this->GenerateOutput($href);
     return $this->HtmlOutput;
   }

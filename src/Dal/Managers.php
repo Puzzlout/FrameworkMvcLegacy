@@ -2,7 +2,7 @@
 
 namespace WebDevJL\Framework\Dal;
 
-use WebDevJL\Framework\FrameworkConstants;
+use WebDevJL\Framework\\WebDevJL\Framework\FrameworkConstants;
 
 class Managers {
 
@@ -74,9 +74,9 @@ class Managers {
 
   private function GetDalApplicationNamespace() {
     $resultString =
-            defined(FrameworkConstants::FrameworkConstants_TestAppName) ?
-            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_TestAppName, $this->dalApplicationFolderPath) :
-            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_AppName, $this->dalApplicationFolderPath);
+            defined(\WebDevJL\Framework\FrameworkConstants::\WebDevJL\Framework\FrameworkConstants_TestAppName) ?
+            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, \WebDevJL\Framework\FrameworkConstants_TestAppName, $this->dalApplicationFolderPath) :
+            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, \WebDevJL\Framework\FrameworkConstants::APP_NAME, $this->dalApplicationFolderPath);
     return $resultString;
   }
 
