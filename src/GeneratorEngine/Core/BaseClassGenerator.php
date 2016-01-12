@@ -32,7 +32,7 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
     $this->destinationDir = Config::Init($app)->Get(AppSettingKeys::PACKAGE_ROOT_DIR) . $params[BaseClassGenerator::DestinationDirKey];
     $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
     $this->data = $data;
-    $templateHeader = TemplateFileNameConstants::GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
+    $templateHeader = TemplateFileNameConstants::Init($this->appInstance)->GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
     $this->classTemplateContents = file_exists($templateHeader) ?
             file_get_contents($templateHeader) : FALSE;
   }
