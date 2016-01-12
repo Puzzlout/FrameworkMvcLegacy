@@ -13,7 +13,9 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-abstract class ConstantsClassEngineBase {
+use WebDevJL\Framework\Core\Application;
+
+abstract class ConstantsClassEngineBase extends \WebDevJL\Framework\Core\ApplicationComponent {
   /**
    * Holds the static values to build the class, like the namespace, the description, etc.
    * @var array
@@ -32,7 +34,8 @@ abstract class ConstantsClassEngineBase {
    */
   public $filesGenerated = array();
 
-  public function __construct($classPrefix) {
+  public function __construct(Application $app, $classPrefix) {
+    parent::__construct($app);
     $this->GeneratedClassPrefix = $classPrefix;
   }
 
@@ -46,7 +49,7 @@ abstract class ConstantsClassEngineBase {
     if (count($files) > 0) {
       $classGen = new ConstantsClassGeneratorBase($this->params, $files);
       $classGen->BuildClass();
-      return str_replace('\\', '/', "file://" . \WebDevJL\Framework\FrameworkConstants_RootDir . $this->params[BaseClassGenerator::NameSpaceKey] . "/" . $classGen->fileName);
+      return str_replace('\\', '/', "file://" . $this->packageRootDir . $this->params[BaseClassGenerator::NameSpaceKey] . "/" . $classGen->fileName);
     } else {
       return "No class to generate.";
     }

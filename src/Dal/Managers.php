@@ -2,9 +2,11 @@
 
 namespace WebDevJL\Framework\Dal;
 
-use WebDevJL\Framework\\WebDevJL\Framework\FrameworkConstants;
+use WebDevJL\Framework\Enums\FrameworkPlaceholders;
+use WebDevJL\Framework\Core\Config;
+use WebDevJL\Framework\Enums\AppSettingKeys;
 
-class Managers {
+class Managers extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   /**
    * By default, the framework doesn't use another API than PDO but if you need
@@ -65,18 +67,18 @@ class Managers {
    * MYSQLI factory class must be built to use those API. The default is PDO.
    */
   public function __construct($api, \WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
     $this->databaseApi = $api;
     $this->databaseConnection = PDOFactory::getMysqlConnexion($app);
-    $this->dalApplicationFolderPath = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath);
+    $this->dalApplicationFolderPath = Config::Init($app)->Get(AppSettingKeys::ApplicationsDalFolderPath);
     $this->dalApplicationsNamespace = $this->GetDalApplicationNamespace();
     $this->dalFrameworkNameSpace = "\WebDevJL\Framework\Dal\Modules\\";
   }
 
   private function GetDalApplicationNamespace() {
     $resultString =
-            defined(\WebDevJL\Framework\FrameworkConstants::\WebDevJL\Framework\FrameworkConstants_TestAppName) ?
-            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, \WebDevJL\Framework\FrameworkConstants_TestAppName, $this->dalApplicationFolderPath) :
-            str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, \WebDevJL\Framework\FrameworkConstants::APP_NAME, $this->dalApplicationFolderPath);
+            
+            str_replace(FrameworkPlaceholders::ApplicationNamePlaceHolder, Config::Init($this->app)->Get(AppSettingKeys::APP_NAME), $this->dalApplicationFolderPath);
     return $resultString;
   }
 

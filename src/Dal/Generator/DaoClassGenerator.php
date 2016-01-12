@@ -10,10 +10,13 @@
  */
 
 namespace WebDevJL\Framework\Dal\Generator;
+
+use WebDevJL\Framework\Core\Config;
+use WebDevJL\Framework\Enums\AppSettingKeys;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets;
 use WebDevJL\Framework\GeneratorEngine\Placeholders;
 
-class DaoClassGenerator {
+class DaoClassGenerator extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   protected
   /**
@@ -91,8 +94,9 @@ class DaoClassGenerator {
    * 
    * @param type $params : array of values
    */
-  public function __construct($tableName) {
-    $this->dir = \WebDevJL\Framework\FrameworkConstants_RootDir . "Library/Dal/Generator/output/";
+  public function __construct(\WebDevJL\Framework\Core\Application $app, $tableName) {
+    parent::__construct($app);
+    $this->dir = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PACKAGE_ROOT_DIR) . "Library/Dal/Generator/output/";
     $this->className = ucfirst($tableName);
     $this->fileName = $this->className . ".php";
     $this->placeholders = $this->InitPlaceholders();
@@ -117,7 +121,7 @@ class DaoClassGenerator {
         Placeholders\PhpDocPlaceholders::SUBPACKAGE => "",
         Placeholders\PhpDocPlaceholders::VERSION_NUMBER => \WebDevJL\Framework\FrameworkConstants::PACKAGE_VERSION,
         Placeholders\ClassFilePlaceholders::NAMESPACE_FRAMEWORK => "WebDevJL\Framework\BO",
-        Placeholders\ClassFilePlaceholders::NAMESPACE_APP => "\Applications\"" . \WebDevJL\Framework\FrameworkConstants::APP_NAME . "\Models\Dao",
+        Placeholders\ClassFilePlaceholders::NAMESPACE_APP => "\Applications\"" . Config::Init($this->app)->Get(AppSettingKeys::APP_NAME) . "\Models\Dao",
         Placeholders\ClassFilePlaceholders::CLASS_NAME => $this->className
     );
   }

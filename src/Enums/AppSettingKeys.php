@@ -18,8 +18,9 @@ abstract class AppSettingKeys {
   /**
    * Application mode defines DEV or LIVE mode. 
    */
-
   const APP_MODE = "ApplicationMode";
+  
+  const APP_NAME = "ApplicationName";
   /**
    * Default culture of the application. 
    */
@@ -36,6 +37,8 @@ abstract class AppSettingKeys {
    * Default url to load.
    */
   const APP_DEFAULT_ROUTE = "DefaultUrl";
+  
+  const PACKAGE_ROOT_DIR = "SolutionRootDirectory";
   /**
    * Path to the images in the project. 
    */

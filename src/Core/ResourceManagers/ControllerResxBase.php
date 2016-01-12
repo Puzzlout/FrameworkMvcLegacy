@@ -23,7 +23,7 @@ class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Int
   public function GetList() {
     $namespacePrefix = 
       "\\Applications\\" .
-      \WebDevJL\Framework\FrameworkConstants::APP_NAME .
+      Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::APP_NAME) .
       "\\Resources\\Controller\\";
     $resourceNamespace = $this->GetResourceNamespace($namespacePrefix, $this->ModuleValue);
     $resourceFile = new $resourceNamespace();

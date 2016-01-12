@@ -13,8 +13,9 @@
 
 namespace WebDevJL\Framework\Core;
 
-class Route {
-
+class Route extends ApplicationComponent{
+  
+  protected $baseUrl;
   protected $action;
   protected $module;
   protected $url;
@@ -23,10 +24,11 @@ class Route {
   const StartIndexNoVirtualPath = 1;
   const StartIndexWithVirtualPath = 2;
 
-  public function __construct() {
-    
+  public function __construct(Application $app) {
+    parent::__construct($app);
+    $this->baseUrl = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::APP_BASE_URL);
   }
-
+  
   /**
    * Sets the url, module and action of the current route.
    * @param string $url
@@ -34,7 +36,7 @@ class Route {
   public function Init($url) {
     $urlParts = explode("/", $url);
 
-    $baseUrlConstainsVirtualPath = !(strcasecmp("/", \WebDevJL\Framework\FrameworkConstants::BASE_URL) === 0);
+    $baseUrlConstainsVirtualPath = !(strcasecmp("/", $this->baseUrl) === 0);
     $startIndex = $baseUrlConstainsVirtualPath ? self::StartIndexWithVirtualPath : self::StartIndexNoVirtualPath;
 
     $this->setUrl($url);
@@ -83,7 +85,7 @@ class Route {
    */
   public function setUrl($url) {
     if (is_string($url)) {
-      $this->url = \WebDevJL\Framework\FrameworkConstants::BASE_URL . $url;
+      $this->url = $this->baseUrl . $url;
     }
   }
   /**
@@ -92,7 +94,7 @@ class Route {
    * @return string
    */
   public function setDefaultUrl($defaultUrl) {
-    $this->defaultUrl = \WebDevJL\Framework\FrameworkConstants::BASE_URL . $defaultUrl;
+    $this->defaultUrl = $this->baseUrl . $defaultUrl;
   }
   
   /**

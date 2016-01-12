@@ -14,12 +14,13 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
+use WebDevJL\Framework\Core\Application;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ConstantsAndListClassGenerator extends ConstantsClassGeneratorBase implements IClassGenerator, IConstantClass {
 
-  public function __construct($params, $data) {
-    parent::__construct($params, $data);
+  public function __construct(Application $app, $params, $data) {
+    parent::__construct($app, $params, $data);
     $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
             $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
             FALSE;

@@ -2,8 +2,6 @@
 
 namespace WebDevJL\Framework\Core;
 
-use WebDevJL\Framework\\WebDevJL\Framework\FrameworkConstants;
-
 class Router extends ApplicationComponent {
 
   public $url;
@@ -106,16 +104,9 @@ class Router extends ApplicationComponent {
    * @param Route $route the instance of the Route to use in the current request.
    * @param string $url relative url of the current request. 
    * @return mixed \WebDevJL\Framework\Core\Route | \Exception
-   * @throws \Exception Is thrown if \WebDevJL\Framework\FrameworkConstants::\WebDevJL\Framework\FrameworkConstants::BASE_URL is not set. 
    */
   public function getRoute(Route $route, $url) {
-    $constantBaseUrlSet = defined(\WebDevJL\Framework\FrameworkConstants::BASE_URL);
-    if (!$constantBaseUrlSet) {
-      //todo: create error code
-      throw new \Exception("Named constant \WebDevJL\Framework\FrameworkConstants::BASE_URL must be set.", 0, NULL);
-    } else {
       $route->Init($url);
-    }
   }
 
 }

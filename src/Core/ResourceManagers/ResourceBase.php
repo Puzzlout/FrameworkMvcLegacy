@@ -13,7 +13,7 @@
 
 namespace WebDevJL\Framework\Core\ResourceManagers;
 
-class ResourceBase {
+class ResourceBase extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   const FROM_XML = 'FROM_XML';
   const FROM_DB = 'FROM_DB';
@@ -23,6 +23,10 @@ class ResourceBase {
   const ActionKey = "ActionKey";
   const CultureKey = "CultureKey";
 
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
+  }
+  
   /**
    * Defines if the resources is a common resource or not. By default, it is true.
    * It becomes FALSE when the GroupValue is not specified.
