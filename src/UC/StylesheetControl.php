@@ -12,13 +12,15 @@
  */
 
 namespace WebDevJL\Framework\UC;
-
+use WebDevJL\Framework\Core\Config;
+use WebDevJL\Framework\Enums\AppSettingKeys;
 use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
 use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 
 class StylesheetControl extends HtmlControlBase implements \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder {
 
-  public function __construct() {
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
     $this->Attributes = array();
     $this->HtmlOutput = "";
   }
@@ -34,7 +36,7 @@ class StylesheetControl extends HtmlControlBase implements \WebDevJL\Framework\I
    * @return string
    */
   public function ForInternalResource($cssFilePath) {
-    $href = \WebDevJL\Framework\FrameworkConstants::BASE_URL . $cssFilePath;
+    $href =  Config::Init($this->app)->Get(AppSettingKeys::APP_BASE_URL)  . $cssFilePath;
     $this->GenerateOutput($href);
     return $this->HtmlOutput;
   }

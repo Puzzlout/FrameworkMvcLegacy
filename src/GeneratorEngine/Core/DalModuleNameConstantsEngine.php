@@ -35,7 +35,7 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
     $ApplicationDalModules = DirectoryManager::GetFileNames(
     $this->packageRootDir .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    $this->appName .
+                    $this->app->name() .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::DalModulesFolderName);
 
 
@@ -57,10 +57,10 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . $this->appName . "\Generated",
-        BaseClassGenerator::ClassNameKey => $this->appName . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . $this->app->name() . "\Generated",
+        BaseClassGenerator::ClassNameKey => $this->app->name() . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        $this->appName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        $this->app->name() . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application dal module classes for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

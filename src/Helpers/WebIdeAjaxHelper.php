@@ -16,15 +16,19 @@ namespace WebDevJL\Framework\Helpers;
 use WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch;
 use WebDevJL\Framework\Enums\CacheKeys;
 
-class WebIdeAjaxHelper {
+class WebIdeAjaxHelper extends \WebDevJL\Framework\Core\ApplicationComponent{
 
   private $ListItemArray;
 
-  public static function Init() {
+  public static function Init(\WebDevJL\Framework\Core\Application $app) {
     $helper = new WebIdeAjaxHelper();
     return $helper;
   }
 
+  public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    parent::__construct($app);
+  }
+  
   /**
    * Retrieves the solution directory list. It caches the result if not already
    * done so that it retrieves it faster the next occurrences.
@@ -37,7 +41,7 @@ class WebIdeAjaxHelper {
     //$Cacher->Remove(CacheKeys::SOLUTION_FOLDERS);
     if (!$Cacher->KeyExists(CacheKeys::SOLUTION_FOLDERS)) {
       $SolutionPathListArray = ArrayFilterDirectorySearch::Init($app)->RecursiveScanOf(
-              \WebDevJL\Framework\FrameworkConstants_RootDir, \WebDevJL\Framework\Core\DirectoryManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+      $this->packageRootDir, \WebDevJL\Framework\Core\DirectoryManager\Algorithms\ArrayListAlgorithm::ExcludeList());
       $Cacher->Create(CacheKeys::SOLUTION_FOLDERS, $SolutionPathListArray);
     } else {
       $SolutionPathListArray = $Cacher->Read(CacheKeys::SOLUTION_FOLDERS, array());
@@ -50,7 +54,7 @@ class WebIdeAjaxHelper {
     //$Cacher->Remove(CacheKeys::SOLUTION_CLASSES);
     if (!$Cacher->KeyExists(CacheKeys::SOLUTION_CLASSES)) {
       $ArrayResult = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::Init($app)->RecursiveFileTreeScanOf(
-              \WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::CORE, \WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+      $this->packageRootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::CORE, \WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
       $Cacher->Create(CacheKeys::SOLUTION_CLASSES, $ArrayResult);
     } else {
       $ArrayResult = $Cacher->Read(CacheKeys::SOLUTION_CLASSES, array());

@@ -29,7 +29,7 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
     $ApplicationList = DirectoryManager::GetFilesNamesRecursively(
                     $this->packageRootDir .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    $this->appName .
+                    $this->app->name() .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName);
     $this->InitGenerateFrameworkFile($FrameworkList);
     $this->InitGenerateApplicationFile($ApplicationList);
@@ -49,10 +49,10 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . $this->appName . "\Generated",
-        BaseClassGenerator::ClassNameKey => $this->appName . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . $this->app->name() . "\Generated",
+        BaseClassGenerator::ClassNameKey => $this->app->name() . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        $this->appName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        $this->app->name() . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application viewnames to use for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

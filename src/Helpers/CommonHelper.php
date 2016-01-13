@@ -256,7 +256,7 @@ class CommonHelper {
     return
             defined("__TESTED_APPNAME__") ?
             __TESTED_APPNAME__ :
-            \WebDevJL\Framework\FrameworkConstants::APP_NAME;
+            $this->app->name();
   }
 
   /**

@@ -16,7 +16,7 @@ namespace WebDevJL\Framework\Helpers\WebIde;
 use WebDevJL\Framework\BO\NewFileItem;
 use WebDevJL\Framework\BO\JsonResult;
 
-class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
+class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
 
   /**
    *
@@ -24,8 +24,8 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
    */
   private $templateType;
 
-  public static function Init() {
-    $helper = new CreateFileHelper();
+  public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    $helper = new CreateFileHelper($app);
     return $helper;
   }
 
@@ -37,14 +37,14 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
    */
   public function GetFileType($dataPost) {
     $templateTypeKey = "templateType";
-    if(!array_key_exists($templateTypeKey, $dataPost)) {
+    if (!array_key_exists($templateTypeKey, $dataPost)) {
       throw new \Exception("The POST data doesn't contain the value $templateTypeKey. See dump" . var_dump($dataPost), 0, NULL);
     }
-    
+
     $this->templateType = $dataPost[$templateTypeKey];
     return $this;
   }
-  
+
   /**
    * 
    * @return string
@@ -60,26 +60,26 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
    * @throws Exception Thrown if the function file_get_contents returns FALSE.
    */
   public function GetTemplateContents() {
-    $templateFileName = 
-            \WebDevJL\Framework\FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
-    if(!file_exists($templateFileName)) {
+    $templateFileName = $this->packageRootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
+    if (!file_exists($templateFileName)) {
       throw new Exception("The template $templateFileName was not found. Please the template type" . $this->templateType . " or add a new template.", 0, NULL);
     }
     $contents = file_get_contents($templateFileName);
-    if(!$contents) {
+    if (!$contents) {
       throw new Exception("Failed to get contents from $templateFileName", 0, NULL);
     }
     return $contents;
   }
-  
+
   public function SaveFile(\WebDevJL\Framework\Controllers\BaseController $controller) {
     $result = JsonResult::Init()->SetDefault();
-    if(count($controller->dataPost()) === 0) {
+    if (count($controller->dataPost()) === 0) {
       throw new Exception("dataPost is empty! Please the form submission", 0, NULL);
     }
     $newFile = NewFileItem::Init()->Fill($controller->dataPost());
-    
+
     $result->UpdateResult(JsonResult::STATE_SUCCESS, $newFile);
     return $result;
   }
+
 }

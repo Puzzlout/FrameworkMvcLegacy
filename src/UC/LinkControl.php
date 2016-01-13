@@ -20,6 +20,7 @@ use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 class LinkControl extends HtmlControlBase{
 
   public function __construct() {
+    parent::__construct($app);
     $this->Attributes = array();
     $this->HtmlOutput = "";
   }
