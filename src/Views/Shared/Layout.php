@@ -10,9 +10,9 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <title><?php echo $ControllerVm->ResxFor("PageTitle"); ?></title>
     <?php
-    echo WebDevJL\Framework\UC\StylesheetControl::Init()->ForInternalResource("Applications/" . FrameworkConstants_AppName . "/ClientSide/css/app/reset.css");
+    echo WebDevJL\Framework\UC\StylesheetControl::Init()->ForInternalResource("Applications/" . "APP_NAME" . "/ClientSide/css/app/reset.css");
     echo WebDevJL\Framework\UC\StylesheetControl::Init()->ForInternalResource("Web/library/css/core/bootstrap.css");
-    echo WebDevJL\Framework\UC\StylesheetControl::Init()->ForInternalResource("Applications/" . FrameworkConstants_AppName . "/ClientSide/css/addons/toastr.css");
+    echo WebDevJL\Framework\UC\StylesheetControl::Init()->ForInternalResource("Applications/" . "APP_NAME" . "/ClientSide/css/addons/toastr.css");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/core/jquery.js");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/core/jquery-ui.js");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/services/config.js");
@@ -25,7 +25,7 @@
     <?php
     //echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/core/parsexml.js");
     //echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/core/bootbox.min.js");
-    echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Applications/" . FrameworkConstants_AppName . "/ClientSide/js/addons/toastr.js");
+    echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Applications/" . "APP_NAME" . "/ClientSide/js/addons/toastr.js");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/services/config.js");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/services/dataservice.js");
     echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/services/utils.js");

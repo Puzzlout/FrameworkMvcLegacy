@@ -59,7 +59,7 @@ class XmlReader {
    * @return string
    */
   public function GetConfigurationFilePath($fileName) {
-    return FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
+    return "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
   }
 
   /**

@@ -133,7 +133,7 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
     $placeholders = array(
         "{{culture}}" => $this->app()->locale
     );
-    $filePath = FrameworkConstants_RootDir . strtr($this->app()->config()->Get(\WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
+    $filePath = "APP_ROOT_DIR" . strtr($this->app()->config()->Get(\WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
     $xmlReader = new \WebDevJL\Framework\Core\XmlReader($filePath);
     if(!$this->xmlContent) {
       $this->xmlContent = $xmlReader->ReturnFileContents("resource");

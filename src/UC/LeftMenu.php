@@ -37,7 +37,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
     //@todo: rethink how to setup the left menu: xml, php array or db table?
     //$this->resx_left_menu = $resx_left_menu;
     //@todo: move the following to a method that can be called at a later time. Not required in the constructor
-    //$this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_AppName, $this->app->config->get("base_url"));
+    //$this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, "APP_NAME", $this->app->config->get("base_url"));
   }
 
   /**
@@ -62,7 +62,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
    */
   private function _LoadXml() {
     $xml = new \DOMDocument;
-    $filename = FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
+    $filename = "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
     if (file_exists($filename)) {
       $xml->load($filename);
     } else {

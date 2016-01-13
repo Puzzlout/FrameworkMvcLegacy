@@ -37,7 +37,7 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
 
   private function ProcessFrameworkData() {
     $FrameworkControllers = DirectoryManager::GetFileNames(
-                    FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ControllersFolderName, array("BaseController.php"));
+                    "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::ControllersFolderName, array("BaseController.php"));
 
     $this->params = array(
         BaseClassGenerator::NameSpaceKey => "WebDevJL\Framework\Generated",
@@ -57,7 +57,7 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
    */
   function ProcessApplicationData($Appname) {
     $ApplicationControllers = DirectoryManager::GetFileNames(
-                    FrameworkConstants_RootDir .
+                    "APP_ROOT_DIR" .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
                     $Appname .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::ControllersFolderName);

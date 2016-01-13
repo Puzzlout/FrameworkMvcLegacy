@@ -106,13 +106,13 @@ class Router extends ApplicationComponent {
    * @param Route $route the instance of the Route to use in the current request.
    * @param string $url relative url of the current request. 
    * @return mixed \WebDevJL\Framework\Core\Route | \Exception
-   * @throws \Exception Is thrown if FrameworkConstants::FrameworkConstants_BaseUrl is not set. 
+   * @throws \Exception Is thrown if FrameworkConstants::"APP_BASE_URL" is not set. 
    */
   public function getRoute(Route $route, $url) {
-    $constantBaseUrlSet = defined(FrameworkConstants::FrameworkConstants_BaseUrl);
+    $constantBaseUrlSet = defined(FrameworkConstants::"APP_BASE_URL");
     if (!$constantBaseUrlSet) {
       //todo: create error code
-      throw new \Exception("Named constant FrameworkConstants_BaseUrl must be set.", 0, NULL);
+      throw new \Exception("Named constant "APP_BASE_URL" must be set.", 0, NULL);
     } else {
       $route->Init($url);
     }

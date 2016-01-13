@@ -37,7 +37,7 @@ class WebIdeAjaxHelper {
     //$Cacher->Remove(CacheKeys::SOLUTION_FOLDERS);
     if (!$Cacher->KeyExists(CacheKeys::SOLUTION_FOLDERS)) {
       $SolutionPathListArray = ArrayFilterDirectorySearch::Init($app)->RecursiveScanOf(
-              FrameworkConstants_RootDir, \WebDevJL\Framework\Core\DirectoryManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+              "APP_ROOT_DIR", \WebDevJL\Framework\Core\DirectoryManager\Algorithms\ArrayListAlgorithm::ExcludeList());
       $Cacher->Create(CacheKeys::SOLUTION_FOLDERS, $SolutionPathListArray);
     } else {
       $SolutionPathListArray = $Cacher->Read(CacheKeys::SOLUTION_FOLDERS, array());
@@ -50,7 +50,7 @@ class WebIdeAjaxHelper {
     //$Cacher->Remove(CacheKeys::SOLUTION_CLASSES);
     if (!$Cacher->KeyExists(CacheKeys::SOLUTION_CLASSES)) {
       $ArrayResult = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::Init($app)->RecursiveFileTreeScanOf(
-              FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::CORE, \WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
+              "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::CORE, \WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::ExcludeList());
       $Cacher->Create(CacheKeys::SOLUTION_CLASSES, $ArrayResult);
     } else {
       $ArrayResult = $Cacher->Read(CacheKeys::SOLUTION_CLASSES, array());

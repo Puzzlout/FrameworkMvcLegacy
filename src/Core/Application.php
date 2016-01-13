@@ -73,9 +73,9 @@ abstract class Application extends ApplicationBase {
     $controllerName = $this->BuildControllerName($router->currentRoute());
     $FrameworkControllers = "\WebDevJL\Framework\Generated\FrameworkControllers";
     $ApplicationControllers = "\Applications\\" .
-            FrameworkConstants_AppName .
+            "APP_NAME" .
             "\Generated\\" .
-            FrameworkConstants_AppName . "Controllers";
+            "APP_NAME" . "Controllers";
 
     $controllerClassName = $this->FindControllerClassName(
             $controllerName, $FrameworkControllers, $ApplicationControllers, $router

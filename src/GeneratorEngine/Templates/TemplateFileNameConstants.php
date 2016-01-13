@@ -21,7 +21,7 @@ class TemplateFileNameConstants {
   
   public static function GetFullNameForConst($constant)
   {
-    $path = FrameworkConstants_RootDir . self::RootLocation . $constant . self::TemplateExtension;
+    $path = "APP_ROOT_DIR" . self::RootLocation . $constant . self::TemplateExtension;
     return $path;
   }
 }

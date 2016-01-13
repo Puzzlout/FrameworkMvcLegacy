@@ -99,7 +99,7 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
    * @return string The directory where to find the view.
    */
   public function GetPathForView($rootDir) {
-    $path = FrameworkConstants_RootDir .
+    $path = "APP_ROOT_DIR" .
             $rootDir .
             ucfirst($this->controller->module()) .
             "/" .

@@ -34,7 +34,7 @@ class StylesheetControl extends HtmlControlBase implements \WebDevJL\Framework\I
    * @return string
    */
   public function ForInternalResource($cssFilePath) {
-    $href = FrameworkConstants_BaseUrl . $cssFilePath;
+    $href = "APP_BASE_URL" . $cssFilePath;
     $this->GenerateOutput($href);
     return $this->HtmlOutput;
   }

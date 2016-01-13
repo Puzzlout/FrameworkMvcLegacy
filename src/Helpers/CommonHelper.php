@@ -256,7 +256,7 @@ class CommonHelper {
     return
             defined("__TESTED_APPNAME__") ?
             __TESTED_APPNAME__ :
-            FrameworkConstants_AppName;
+            "APP_NAME";
   }
 
   /**

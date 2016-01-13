@@ -25,11 +25,11 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
    */
   public function Run($data = NULL) {
     $FrameworkList = DirectoryManager::GetFilesNamesRecursively(
-                    FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
+                    "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
     $ApplicationList = DirectoryManager::GetFilesNamesRecursively(
-                    FrameworkConstants_RootDir .
+                    "APP_ROOT_DIR" .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    FrameworkConstants_AppName .
+                    "APP_NAME" .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName);
     $this->InitGenerateFrameworkFile($FrameworkList);
     $this->InitGenerateApplicationFile($ApplicationList);
@@ -49,10 +49,10 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . FrameworkConstants_AppName . "\Generated",
-        BaseClassGenerator::ClassNameKey => FrameworkConstants_AppName . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . "APP_NAME" . "\Generated",
+        BaseClassGenerator::ClassNameKey => "APP_NAME" . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application viewnames to use for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

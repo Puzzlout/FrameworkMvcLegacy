@@ -34,7 +34,7 @@ class Route {
   public function Init($url) {
     $urlParts = explode("/", $url);
 
-    $baseUrlConstainsVirtualPath = !(strcasecmp("/", FrameworkConstants_BaseUrl) === 0);
+    $baseUrlConstainsVirtualPath = !(strcasecmp("/", "APP_BASE_URL") === 0);
     $startIndex = $baseUrlConstainsVirtualPath ? self::StartIndexWithVirtualPath : self::StartIndexNoVirtualPath;
 
     $this->setUrl($url);
@@ -83,7 +83,7 @@ class Route {
    */
   public function setUrl($url) {
     if (is_string($url)) {
-      $this->url = FrameworkConstants_BaseUrl . $url;
+      $this->url = "APP_BASE_URL" . $url;
     }
   }
   /**
@@ -92,7 +92,7 @@ class Route {
    * @return string
    */
   public function setDefaultUrl($defaultUrl) {
-    $this->defaultUrl = FrameworkConstants_BaseUrl . $defaultUrl;
+    $this->defaultUrl = "APP_BASE_URL" . $defaultUrl;
   }
   
   /**

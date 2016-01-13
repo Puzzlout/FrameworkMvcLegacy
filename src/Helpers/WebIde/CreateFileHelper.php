@@ -61,7 +61,7 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper{
    */
   public function GetTemplateContents() {
     $templateFileName = 
-            FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
+            "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
     if(!file_exists($templateFileName)) {
       throw new Exception("The template $templateFileName was not found. Please the template type" . $this->templateType . " or add a new template.", 0, NULL);
     }
