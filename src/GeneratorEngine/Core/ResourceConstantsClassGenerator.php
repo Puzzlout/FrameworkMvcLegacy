@@ -13,12 +13,13 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
+use WebDevJL\Framework\Core\Application;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implements IClassGenerator, IConstantClass {
 
-  public function __construct($params, $data) {
-    parent::__construct($params, $data);
+  public function __construct(Application $app, $params, $data) {
+    parent::__construct($app, $params, $data);
     $this->fileName = !is_null($params[self::CultureKey]) ?
             $params[self::ClassNameKey] . "_" . $params[self::CultureKey] . ".php" :
             $params[self::ClassNameKey] . ".php";
@@ -55,7 +56,8 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
    * @param string $value the value that will make the constant name with self::Key suffix
    * @return string the computed value
    */
-  public function BuildConstantKeyValue($value) {
+  public function BuildConstantKeyValue($value, $suffix = "") {
+    $suffix = "";
     return $value;
   }
 

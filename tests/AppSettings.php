@@ -12,6 +12,8 @@
 
 namespace WebDevJL\Framework\Tests;
 
+use WebDevJL\Framework\Enums\AppSettingKeys;
+
 class AppSettings {
   
   public static function Init() {
@@ -27,29 +29,30 @@ class AppSettings {
    */
   public function GetSettings() {
     return array(
-        \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationBaseUrl => "/{{app_name}}/",
-        \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationMode => "DEV",
-        \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath => "\Applications\{{app_name}}\Models\Dal\\",
-        \WebDevJL\Framework\Enums\AppSettingKeys::DefaultCulture => "en-US",
-        \WebDevJL\Framework\Enums\AppSettingKeys::DefaultEmailDomainValue => "apps-jl.net",
-        \WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl => "error/http404",
-        \WebDevJL\Framework\Enums\AppSettingKeys::EncryptionKey => "4lx81277pVi606I4X77Q258bT7ua1GMZ",
-        \WebDevJL\Framework\Enums\AppSettingKeys::ErrorLoggingMethod => "error-log-type-echo",
-        \WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsCenterLat => "0.000000",
-        \WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsCenterLng => "0.000000",
-        \WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsNoLatLngIcon => "ltblu-blank_maps.png",
-        \WebDevJL\Framework\Enums\AppSettingKeys::LogoImageUrl => "logo.png",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Myslq_host => "localhost",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_db_name => "easymvc_db",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_pwd => "jUL%C9%15",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_user => "webdevjl",
-        \WebDevJL\Framework\Enums\AppSettingKeys::PasswordSalt => "g496lJL683yFiDzju2K94f1751Lo7WSw",
-        \WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload => "ClientSide/upload/",
-        \WebDevJL\Framework\Enums\AppSettingKeys::RootImageFolderPath => "../Web/images/",
-        \WebDevJL\Framework\Enums\AppSettingKeys::UseEmailLinkForFirstLogin => TRUE,
-        \WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName => "Applications\{{app_name}}\Resources\Common\\tooltipandpopupstrings.{{culture}}.xml",
-        \WebDevJL\Framework\Enums\AppSettingKeys::CacheTtl => 21600,//6 hours
-        \WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED => "TYPE_APC", //See possible value in constants of Library\Core\Cache\BaseCache.php
+        AppSettingKeys::ApplicationBaseUrl => "/{{app_name}}/",
+        AppSettingKeys::ApplicationMode => "DEV",
+        AppSettingKeys::ApplicationsDalFolderPath => "\Applications\{{app_name}}\Models\Dal\\",
+        AppSettingKeys::DefaultCulture => "en-US",
+        AppSettingKeys::DefaultEmailDomainValue => "apps-jl.net",
+        AppSettingKeys::DefaultUrl => "error/http404",
+        AppSettingKeys::EncryptionKey => "4lx81277pVi606I4X77Q258bT7ua1GMZ",
+        AppSettingKeys::ErrorLoggingMethod => "error-log-type-echo",
+        AppSettingKeys::GoogleMapsCenterLat => "0.000000",
+        AppSettingKeys::GoogleMapsCenterLng => "0.000000",
+        AppSettingKeys::GoogleMapsNoLatLngIcon => "ltblu-blank_maps.png",
+        AppSettingKeys::LogoImageUrl => "logo.png",
+        AppSettingKeys::Myslq_host => "localhost",
+        AppSettingKeys::Mysql_db_name => "easymvc_db",
+        AppSettingKeys::Mysql_pwd => "jUL%C9%15",
+        AppSettingKeys::Mysql_user => "webdevjl",
+        AppSettingKeys::PasswordSalt => "g496lJL683yFiDzju2K94f1751Lo7WSw",
+        AppSettingKeys::RootDocumentUpload => "ClientSide/upload/",
+        AppSettingKeys::RootImageFolderPath => "../Web/images/",
+        AppSettingKeys::UseEmailLinkForFirstLogin => TRUE,
+        AppSettingKeys::TooltipsXmlFileName => "Applications\{{app_name}}\Resources\Common\\tooltipandpopupstrings.{{culture}}.xml",
+        AppSettingKeys::CacheTtl => 21600,//6 hours
+        AppSettingKeys::CACHETYPEUSED => "TYPE_APC", //See possible value in constants of Library\Core\Cache\BaseCache.php
+        AppSettingKeys::APP_ROOT_DIR => dirname(dirname(__FILE__)) . "/src/",
     );
   }  
 }

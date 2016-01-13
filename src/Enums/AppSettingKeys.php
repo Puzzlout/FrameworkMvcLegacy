@@ -15,10 +15,11 @@
 namespace WebDevJL\Framework\Enums;
 
 abstract class AppSettingKeys {
+  
+  const APP_ROOT_DIR = "ApplicationRootDir";
   /**
    * Application mode defines DEV or LIVE mode. 
    */
-
   const ApplicationMode = "ApplicationMode";
   /**
    * Default culture of the application. 

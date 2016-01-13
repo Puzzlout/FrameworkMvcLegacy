@@ -13,6 +13,7 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
+use WebDevJL\Framework\Core\Application;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGenerator, IConstantClass {
@@ -24,9 +25,16 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
   protected $DoGenerateGetListMethod = TRUE;
   protected $ExtractedConstantsList = array();
 
-  public function __construct($params, $data) {
-    $this->fileName = $params[self::ClassNameKey] . ".php";
-    $this->className = $params[self::ClassNameKey];
+  /**
+   * 
+   * @todo: throw exception if $params[self::ClassNameKey] doesn't exist
+   * @todo: parameter $params must be an instance of class. Ex: ClassGenerationConfig ?
+   * @todo: parameter $data must be an instance of class. Ex: ClassGenerationData ?
+   */
+  public function __construct(Application $app, $params, $data) {
+    parent::__construct($app, $params, $data);
+    $this->fileName = array_key_exists(self::ClassNameKey, $params) ? $params[self::ClassNameKey] . ".php" : "";
+    $this->className = array_key_exists(self::ClassNameKey, $params) ? $params[self::ClassNameKey] : "";
     parent::__construct($params, $data);
   }
 

@@ -42,7 +42,7 @@ class FileLoader extends \WebDevJL\Framework\Core\ApplicationComponent {
     $this->rootDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
     //@todo: webDirectory is different from context: is it a document or an image?
     $this->webDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl) . Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
-    $this->dataPost = array_key_exists($data, "dataPost") ? $data["dataPost"] : [];
+    $this->dataPost = array_key_exists("dataPost", $data) ? $data["dataPost"] : [];
   }
 
   function LoadFiles() {

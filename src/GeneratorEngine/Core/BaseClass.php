@@ -13,7 +13,7 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-abstract class BaseClass {
+abstract class BaseClass extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   const NameSpaceKey = "NameSpaceKey";
   const ClassNameKey = "ClassNameKey";
@@ -53,4 +53,5 @@ abstract class BaseClass {
    */
   public $isFrameworkClass = true;
 
+  
 }

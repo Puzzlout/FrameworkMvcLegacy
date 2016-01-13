@@ -20,8 +20,14 @@ class FrameworkConstants {
   const FrameworkConstants_TestAppName = "FrameworkConstants_TestAppName";
   const FrameworkConstants_Version = "FrameworkConstants_Version";
   
-  static function SetNamedConstants($arrayOfCustomValues = array()) {
-    $arrayOfValuesToUse = self::SetNamedConstantsValues($arrayOfCustomValues);
+  public static function Init() 
+  {
+    $instance = new FrameworkConstants();
+    return $instance;
+  }
+  
+  public function SetNamedConstants($arrayOfCustomValues = array()) {
+    $arrayOfValuesToUse = $this->SetNamedConstantsValues($arrayOfCustomValues);
 
     /**
      * Version number global variable definition
@@ -83,8 +89,8 @@ class FrameworkConstants {
    * of the named constants value.
    * @return array : the named constants values to use
    */
-  static function SetNamedConstantsValues($arrayOfCustomValues) {
-    $arrayOfDefaultValues = self::DefaultNamedConstantValues();
+  public function SetNamedConstantsValues($arrayOfCustomValues) {
+    $arrayOfDefaultValues = $this->DefaultNamedConstantValues();
     $valuesToUse = array();
 
     $valuesToUse[FrameworkConstants::FrameworkConstants_Name_AppName] = array_key_exists(FrameworkConstants::FrameworkConstants_Name_AppName, $arrayOfCustomValues) ?
@@ -114,7 +120,7 @@ class FrameworkConstants {
     return $valuesToUse;
   }
 
-  static function DefaultNamedConstantValues() {
+  public function DefaultNamedConstantValues() {
     $DefaultAppName = "EasyMvc";
     return array(
         FrameworkConstants::FrameworkConstants_Name_AppName => $DefaultAppName,
