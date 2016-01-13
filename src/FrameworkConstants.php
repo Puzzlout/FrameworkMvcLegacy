@@ -2,6 +2,6 @@
 
 namespace WebDevJL\Framework;
 
-class FrameworkConstants {
+abstract class FrameworkConstants {
   const PACKAGE_VERSION = "v1.0.0";
 }
