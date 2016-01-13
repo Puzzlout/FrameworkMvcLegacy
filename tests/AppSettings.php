@@ -27,7 +27,6 @@ class AppSettings {
    */
   public function GetSettings() {
     return array(
-        \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationName => "UnitTestingApp",
         \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationBaseUrl => "/{{app_name}}/",
         \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationMode => "DEV",
         \WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath => "\Applications\{{app_name}}\Models\Dal\\",
@@ -41,13 +40,14 @@ class AppSettings {
         \WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsNoLatLngIcon => "ltblu-blank_maps.png",
         \WebDevJL\Framework\Enums\AppSettingKeys::LogoImageUrl => "logo.png",
         \WebDevJL\Framework\Enums\AppSettingKeys::Myslq_host => "localhost",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_db_name => "",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_pwd => "",
-        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_user => "",
+        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_db_name => "easymvc_db",
+        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_pwd => "jUL%C9%15",
+        \WebDevJL\Framework\Enums\AppSettingKeys::Mysql_user => "webdevjl",
         \WebDevJL\Framework\Enums\AppSettingKeys::PasswordSalt => "g496lJL683yFiDzju2K94f1751Lo7WSw",
-        \WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload => "",
-        \WebDevJL\Framework\Enums\AppSettingKeys::RootImageFolderPath => "",
+        \WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload => "ClientSide/upload/",
+        \WebDevJL\Framework\Enums\AppSettingKeys::RootImageFolderPath => "../Web/images/",
         \WebDevJL\Framework\Enums\AppSettingKeys::UseEmailLinkForFirstLogin => TRUE,
+        \WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName => "Applications\{{app_name}}\Resources\Common\\tooltipandpopupstrings.{{culture}}.xml",
         \WebDevJL\Framework\Enums\AppSettingKeys::CacheTtl => 21600,//6 hours
         \WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED => "TYPE_APC", //See possible value in constants of Library\Core\Cache\BaseCache.php
     );

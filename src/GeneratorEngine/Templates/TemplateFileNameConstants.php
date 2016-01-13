@@ -13,24 +13,15 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Templates;
 
-class TemplateFileNameConstants extends \WebDevJL\Framework\Core\ApplicationComponent {
+class TemplateFileNameConstants {
   const RootLocation = "CodeGenerators/templates/";
   const TemplateExtension = ".tt";
   const ClassTemplate = "ClassTemplate";
   const ViewTemplate = "ViewTemplate";
   
-  public function Init($app) {
-    $instance = new TemplateFileNameConstants($app);
-    return $instance;
-  }
-  
-  public function __construct(\WebDevJL\Framework\Core\Application $app) {
-      parent::__construct($app);
-  }
-  
-  public function GetFullNameForConst($constant)
+  public static function GetFullNameForConst($constant)
   {
-    $path = $this->packageRootDir . self::RootLocation . $constant . self::TemplateExtension;
+    $path = FrameworkConstants_RootDir . self::RootLocation . $constant . self::TemplateExtension;
     return $path;
   }
 }

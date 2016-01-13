@@ -24,19 +24,10 @@
 
 namespace WebDevJL\Framework\Core;
 
-class DirectoryManager extends ApplicationComponent {
+class DirectoryManager {
 
   const DIRECTORY_SEPARATOR = "/";
 
-  public function Init(Application $app) {
-    $instance = new DirectoryManager($app);
-    return $instance;
-  }
-  
-  public function __construct(Application $app) {
-    parent::__construct($app);
-  }
-  
   /**
    * Get the file paths for the current directory
    * 
@@ -148,7 +139,7 @@ class DirectoryManager extends ApplicationComponent {
    * 
    * @return string The directory
    */
-  public function GetFrameworkRootDir() {
+  public static function GetFrameworkRootDir() {
     return \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName;
   }
 
@@ -157,9 +148,9 @@ class DirectoryManager extends ApplicationComponent {
    * 
    * @return string The directory
    */
-  public function GetApplicationRootDir() {
+  public static function GetApplicationRootDir() {
     return \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-            Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::APP_NAME) .
+            FrameworkConstants_AppName .
             \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName;
   }
 

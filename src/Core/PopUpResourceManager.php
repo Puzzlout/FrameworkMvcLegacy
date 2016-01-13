@@ -130,16 +130,16 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
  * @todo: next generated php classes to access the data more easily.
  */
   public function loadToolTipMessagefromXML() {
-//    $placeholders = array(
-//        "{{culture}}" => $this->app()->locale
-//    );
-//    $filePath = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PACKAGE_ROOT_DIR) . strtr(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
-//    $xmlReader = new \WebDevJL\Framework\Core\XmlReader($filePath);
-//    if(!$this->xmlContent) {
-//      $this->xmlContent = $xmlReader->ReturnFileContents("resource");
-//      return $this->xmlContent;
-//    }
-//    return FALSE;
+    $placeholders = array(
+        "{{culture}}" => $this->app()->locale
+    );
+    $filePath = FrameworkConstants_RootDir . strtr($this->app()->config()->Get(\WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
+    $xmlReader = new \WebDevJL\Framework\Core\XmlReader($filePath);
+    if(!$this->xmlContent) {
+      $this->xmlContent = $xmlReader->ReturnFileContents("resource");
+      return $this->xmlContent;
+    }
+    return FALSE;
   }
 
 }

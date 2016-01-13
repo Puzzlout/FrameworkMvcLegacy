@@ -13,14 +13,13 @@
 
 namespace WebDevJL\Framework\Core;
 
-class XmlReader extends ApplicationComponent {
+class XmlReader {
 
   private $filePath;
   private $currentFileTimeStamp;
   private $lastModifiedTimeStamp;
 
-  public function __construct(Application $app, $filePath = NULL, $fileName = NULL) {
-    parent::__construct($app);
+  public function __construct($filePath = NULL, $fileName = NULL) {
     $this->filePath = isset($fileName) ?
             $this->GetConfigurationFilePath($fileName) :
             $filePath;
@@ -60,7 +59,7 @@ class XmlReader extends ApplicationComponent {
    * @return string
    */
   public function GetConfigurationFilePath($fileName) {
-    return Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PACKAGE_ROOT_DIR) . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
+    return FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
   }
 
   /**

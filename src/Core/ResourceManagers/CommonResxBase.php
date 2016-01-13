@@ -22,7 +22,7 @@ class CommonResxBase extends ResourceBase implements \WebDevJL\Framework\Interfa
   public function GetList() {
     $namespacePrefix = 
       "\\Applications\\" .
-      Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::APP_NAME) .
+      FrameworkConstants_AppName .
       "\\Resources\\Common\\";
     $resourceNamespace = $this->GetResourceNamespace($namespacePrefix, $this->GroupValue);
     $resourceFile = new $resourceNamespace();

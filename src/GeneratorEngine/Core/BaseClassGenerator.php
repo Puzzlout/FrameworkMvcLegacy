@@ -13,9 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
-use WebDevJL\Framework\Core\Config;
-use WebDevJL\Framework\Enums\AppSettingKeys;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 use WebDevJL\Framework\GeneratorEngine\Templates\TemplateFileNameConstants;
 
@@ -27,12 +24,11 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
    * @param assoc array $params : the params composed the namespace and name of the class
    * @param array(of String) $data : list of controllers file names.
    */
-  public function __construct(Application $app, $params, $data) {
-    $this->appInstance = $app;
-    $this->destinationDir = Config::Init($app)->Get(AppSettingKeys::PACKAGE_ROOT_DIR) . $params[BaseClassGenerator::DestinationDirKey];
+  public function __construct($params, $data) {
+    $this->destinationDir = FrameworkConstants_RootDir . $params[BaseClassGenerator::DestinationDirKey];
     $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
     $this->data = $data;
-    $templateHeader = TemplateFileNameConstants::Init($this->appInstance)->GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
+    $templateHeader = TemplateFileNameConstants::GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
     $this->classTemplateContents = file_exists($templateHeader) ?
             file_get_contents($templateHeader) : FALSE;
   }

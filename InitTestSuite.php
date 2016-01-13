@@ -6,6 +6,14 @@ define("TESTING_FILE_TREE", FALSE);
 define("SKIP_TEST_CLASSES_GENERATION", FALSE);
 define("OVERWRITE_TEST_SUITE", TRUE);
 define("TEST_SUITE_VERSION", "v1.0.0");
+/*
+ * Load the framework constants
+ */
+require_once 'src/FrameworkConstants.php';
+use WebDevJL\Framework\FrameworkConstants;
+FrameworkConstants::SetNamedConstants(array(
+    FrameworkConstants::FrameworkConstants_Name_TestAppName => NULL
+));
 
 echo "<h1>Starting...</h1>";
 $TestSuite = WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite::Init()->ProcessSourceFolder();

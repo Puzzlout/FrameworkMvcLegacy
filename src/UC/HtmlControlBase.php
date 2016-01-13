@@ -13,7 +13,7 @@
 
 namespace WebDevJL\Framework\UC;
 
-abstract class HtmlControlBase extends \WebDevJL\Framework\Core\ApplicationComponent{
+abstract class HtmlControlBase {
   public $Attributes;
   public $HtmlOutput;
 

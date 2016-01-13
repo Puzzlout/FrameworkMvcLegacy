@@ -71,8 +71,8 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
   }
 
   private function GenerateCommonResxFiles($resources) {
-    $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . $this->app->name() . "\Resources\\Common";
-    $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceCommonFolderName;
+    $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . FrameworkConstants_AppName . "\Resources\\Common";
+    $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceCommonFolderName;
     foreach ($resources as $groupKey => $groupArray) {
       $this->IsGeneratingBaseClass = TRUE;
       foreach ($groupArray as $cultureKey => $cultureArray) {
@@ -92,8 +92,8 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
   }
 
   private function GenerateControllerResxFiles($resources) {
-    $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . $this->app->name() . "\Resources\\Controller";
-    $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceControllerFolderName;
+    $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . FrameworkConstants_AppName . "\Resources\\Controller";
+    $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceControllerFolderName;
     foreach ($resources as $moduleKey => $moduleArray) {
       $this->IsGeneratingBaseClass = TRUE;
       foreach ($moduleArray as $cultureKey => $cultureArray) {

@@ -27,7 +27,7 @@ class GeneratorManager extends \WebDevJL\Framework\Core\ApplicationComponent {
         $tableName = $table[0];
         $tableColumnNames = $this->app()->dal()->getDalInstance()->GetTableColumnNames($tableName);
         $tableColumnMetadata = $this->app()->dal()->getDalInstance()->GetTableColumnsMeta($tableName, $tableColumnNames);
-        $dao = new \WebDevJL\Framework\Dal\Generator\DaoClassGenerator($this->app, $tableName);
+        $dao = new \WebDevJL\Framework\Dal\Generator\DaoClassGenerator($tableName);
         $dao->BuildClassHeader($tableName);
         $dao->BuildClassBody($tableColumnMetadata);
         $dao->ClassEnd();

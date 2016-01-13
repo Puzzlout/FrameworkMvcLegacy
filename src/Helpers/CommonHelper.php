@@ -256,7 +256,7 @@ class CommonHelper {
     return
             defined("__TESTED_APPNAME__") ?
             __TESTED_APPNAME__ :
-            $this->app->name();
+            FrameworkConstants_AppName;
   }
 
   /**

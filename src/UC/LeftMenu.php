@@ -24,12 +24,10 @@
 
 namespace WebDevJL\Framework\UC;
 
-use WebDevJL\Framework\Core\Config;
-use WebDevJL\Framework\Enums\AppSettingKeys;
-
 class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
 
-  protected $BaseUrl = "";
+  protected $app = null;
+  protected $base_url = "";
   protected $resx_left_menu = array();
   protected $NOSUBMENUS = "NOSUBMENUS";
   protected $NOHEADERMENU = "NOHEADERMENU";
@@ -39,7 +37,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
     //@todo: rethink how to setup the left menu: xml, php array or db table?
     //$this->resx_left_menu = $resx_left_menu;
     //@todo: move the following to a method that can be called at a later time. Not required in the constructor
-    //$this->BaseUrl = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, $this->app->name(), Config::Init($this->app)->Get(AppSettingKeys::APP_BASE_URL));
+    //$this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_AppName, $this->app->config->get("base_url"));
   }
 
   /**
@@ -64,7 +62,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
    */
   private function _LoadXml() {
     $xml = new \DOMDocument;
-    $filename = $this->packageRootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
+    $filename = FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
     if (file_exists($filename)) {
       $xml->load($filename);
     } else {
@@ -150,7 +148,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
 
   private function _CanDisplayMenuItem($menuItem) {
     if ($menuItem->getAttribute('href')) {
-      $href = $this->BaseUrl . current(explode('?', $menuItem->getAttribute('href')));
+      $href = $this->base_url . current(explode('?', $menuItem->getAttribute('href')));
       $routes = $this->app->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserRoutes);
       $result = $routes && $menuItem->getAttribute('active') === "true" ?
               array_reduce(
@@ -215,7 +213,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
   private function _BuildPlaceholderList($link) {
     $elementCssClass = $link->getAttribute("cssClass");
     return array(
-        \WebDevJL\Framework\Enums\LeftMenuConstants::href => $this->BaseUrl . $link->getAttribute("href"),
+        \WebDevJL\Framework\Enums\LeftMenuConstants::href => $this->base_url . $link->getAttribute("href"),
         \WebDevJL\Framework\Enums\LeftMenuConstants::linkText => $this->resx_left_menu[$link->getAttribute("resourcekey")],
         \WebDevJL\Framework\Enums\LeftMenuConstants::cssClassValue => $elementCssClass ? $elementCssClass : ""
     );

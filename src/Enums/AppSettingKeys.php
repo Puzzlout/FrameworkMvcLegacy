@@ -18,13 +18,12 @@ abstract class AppSettingKeys {
   /**
    * Application mode defines DEV or LIVE mode. 
    */
-  const APP_MODE = "ApplicationMode";
-  
-  const APP_NAME = "ApplicationName";
+
+  const ApplicationMode = "ApplicationMode";
   /**
    * Default culture of the application. 
    */
-  const DEFAULT_CULTURE = "DefaultCulture";
+  const DefaultCulture = "DefaultCulture";
   /**
    * ApplicationBaseUrl value when the WebApp is not at the root of the public 
    * directory but when it is "publicRoot/MySite".<br />
@@ -32,90 +31,92 @@ abstract class AppSettingKeys {
    * When the url is http://mydomain.net/MySite, the BaseUrl value 
    * is "/MySite/".<br />
    */
-  const APP_BASE_URL = "ApplicationBaseUrl";
+  const ApplicationBaseUrl = "ApplicationBaseUrl";
   /**
    * Default url to load.
    */
-  const APP_DEFAULT_ROUTE = "DefaultUrl";
-  
-  const PACKAGE_ROOT_DIR = "SolutionRootDirectory";
+  const DefaultUrl = "DefaultUrl";
   /**
    * Path to the images in the project. 
    */
-  const ROOT_IMAGE_FOLDER_PATH = "RootImageFolderPath";
+  const RootImageFolderPath = "RootImageFolderPath";
   /**
    * Path to the uploaded files in the project. 
    */
-  const ROOT_DOC_UPLOAD_PATH = "RootDocumentUpload";
+  const RootDocumentUpload = "RootDocumentUpload";
   /**
    * Path to the Dal classes of the Application. 
    */
-  const APP_DAL_FOLDER_PATH = "ApplicationsDalFolderPath";
+  const ApplicationsDalFolderPath = "ApplicationsDalFolderPath";
+  /**
+   *Path to the Tooltips definition file. 
+   */
+  const TooltipsXmlFileName = "TooltipsXmlFileName";
   /**
    * Host used for the MySQL connection. 
    */
-  const MYSQL_HOST = "Myslq_host";
+  const Myslq_host = "Myslq_host";
   /**
    * User used for the MySQL connection. 
    */
-  const MYSL_USER = "Mysql_user";
+  const Mysql_user = "Mysql_user";
   /**
    * User's password used for the MySQL connection. 
    */
-  const MYSQL_PWD = "Mysql_pwd";
+  const Mysql_pwd = "Mysql_pwd";
   /**
    * Target database used for the MySQL connection. 
    */
-  const MYSQL_DB_NAME = "Mysql_db_name";
+  const Mysql_db_name = "Mysql_db_name";
   /**
    * Default lattitude Coordinates to center Google Maps. 
    */
-  const GMAPS_DEFAULT_LAT = "GoogleMapsCenterLat";
+  const GoogleMapsCenterLat = "GoogleMapsCenterLat";
   /**
    * Default longitude Coordinates to center Google Maps. 
    */
-  const GMAPS_DEFAULT_LNG = "GoogleMapsCenterLng";
+  const GoogleMapsCenterLng = "GoogleMapsCenterLng";
   /**
    * Default icon image path when a marker has no lattitude and longitude
    * in Google Maps. 
    */
-  const GMAPS_NO_COORD_ICON = "GoogleMapsNoLatLngIcon";
+  const GoogleMapsNoLatLngIcon = "GoogleMapsNoLatLngIcon";
   /**
    * Default domain to use in build email addresses. 
    */
-  const DEFAULT_EMAIL_DOMAIN = "DefaultEmailDomainValue";
+  const DefaultEmailDomainValue = "DefaultEmailDomainValue";
   /**
    * Method using to log error. 
    * @see /Library/Enums/ErrorLoggingMethod.php
    */
-  const ERROR_LOG_METHOD = "ErrorLoggingMethod";
+  const ErrorLoggingMethod = "ErrorLoggingMethod";
   /**
    * Public encryption key to use mcrypt. 
    * @see /Library/Security/Protect .php
    */
-  const ENCRYPTION_KEY = "EncryptionKey";
+  const EncryptionKey = "EncryptionKey";
   /**
    * Public static salt value used to hash user passwords. 
    * @see /Library/Security/Protect .php
    */
-  const PASSWORD_SALT = "PasswordSalt";
+  const PasswordSalt = "PasswordSalt";
   /**
    * File name of the brand image
    */
-  const BRAND_IMAGE_URL = "LogoImageUrl";
+  const LogoImageUrl = "LogoImageUrl";
 
   /**
    * Boolean value to use when changing password at first line
    */
-  const USE_EMAIL_LINK_1ST_LOGIN = "UseEmailLinkForFirstLogin";
+  const UseEmailLinkForFirstLogin = "UseEmailLinkForFirstLogin";
   
   /**
    * Time to Live in seconds for the cache values (default value) 
    */
-  const CACHE_TTL = "CacheTtl";
+  const CacheTtl = "CacheTtl";
   
   /**
    * The class partial name of the cache to use
    */
-  const CACHE_TYPE = "CacheTypeUsed";
+  const CACHETYPEUSED = "CacheTypeUsed";
 }

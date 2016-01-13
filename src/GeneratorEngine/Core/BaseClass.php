@@ -23,13 +23,7 @@ abstract class BaseClass {
   const ClassDescriptionKey = "ClassDescriptionKey";
   const CultureKey = "CultureKey";
   const ClassDerivation = "ClassDerivationKey";
- 
-  /**
-   *
-   * @var  \WebDevJL\Framework\Core\Application the instance of the current app.
-   */
-  public $appInstance;
-  
+
   /**
    * The path where the class file generated must be saved.
    * @var string 

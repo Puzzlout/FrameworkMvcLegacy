@@ -76,10 +76,10 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
    */
   public function GetPartialView($viewName) {
     $ListOfPathToCheck = array(
-        DirectoryManager::Init($this->app)->GetFrameworkRootDir() . "Modules/",
-        DirectoryManager::Init($this->app)->GetFrameworkRootDir() . $this->controller->module() . "/Modules/",
-        DirectoryManager::Init($this->app)->GetApplicationRootDir() . "/Modules/",
-        DirectoryManager::Init($this->app)->GetApplicationRootDir() . $this->controller->module() . "/Modules/"
+        DirectoryManager::GetFrameworkRootDir() . "Modules/",
+        DirectoryManager::GetFrameworkRootDir() . $this->controller->module() . "/Modules/",
+        DirectoryManager::GetApplicationRootDir() . "/Modules/",
+        DirectoryManager::GetApplicationRootDir() . $this->controller->module() . "/Modules/"
     );
     foreach ($ListOfPathToCheck as $path) {
       $fileToCheck = $path . $viewName . self::VIEWFILEEXTENSION;
@@ -99,7 +99,7 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
    * @return string The directory where to find the view.
    */
   public function GetPathForView($rootDir) {
-    $path = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PACKAGE_ROOT_DIR) .
+    $path = FrameworkConstants_RootDir .
             $rootDir .
             ucfirst($this->controller->module()) .
             "/" .

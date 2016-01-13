@@ -33,7 +33,7 @@ class ArrayListAlgorithm {
         "Views",
         "Generator",
         ".DS_Store",
-        "\WebDevJL\Framework\FrameworkConstants.php",
+        "FrameworkConstants.php",
         "Mailer",
     );
     $list = array_merge($specific, self::ExcludeList());

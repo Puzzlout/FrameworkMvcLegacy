@@ -25,11 +25,11 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
    */
   public function Run($data = NULL) {
     $FrameworkList = DirectoryManager::GetFilesNamesRecursively(
-    $this->packageRootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
+                    FrameworkConstants_RootDir . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
     $ApplicationList = DirectoryManager::GetFilesNamesRecursively(
-                    $this->packageRootDir .
+                    FrameworkConstants_RootDir .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-                    $this->app->name() .
+                    FrameworkConstants_AppName .
                     \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName);
     $this->InitGenerateFrameworkFile($FrameworkList);
     $this->InitGenerateApplicationFile($ApplicationList);
@@ -49,10 +49,10 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
 
   function InitGenerateApplicationFile($ApplicationControllers) {
     $this->params = array(
-        BaseClassGenerator::NameSpaceKey => "Applications\\" . $this->app->name() . "\Generated",
-        BaseClassGenerator::ClassNameKey => $this->app->name() . $this->GeneratedClassPrefix,
+        BaseClassGenerator::NameSpaceKey => "Applications\\" . FrameworkConstants_AppName . "\Generated",
+        BaseClassGenerator::ClassNameKey => FrameworkConstants_AppName . $this->GeneratedClassPrefix,
         BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-        $this->app->name() . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+        FrameworkConstants_AppName . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
         BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application viewnames to use for autocompletion and easy coding.",
         ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
         ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE

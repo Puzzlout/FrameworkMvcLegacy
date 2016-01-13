@@ -13,7 +13,6 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
 use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGenerator, IConstantClass {
@@ -25,10 +24,10 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
   protected $DoGenerateGetListMethod = TRUE;
   protected $ExtractedConstantsList = array();
 
-  public function __construct(Application $app, $params, $data) {
+  public function __construct($params, $data) {
     $this->fileName = $params[self::ClassNameKey] . ".php";
     $this->className = $params[self::ClassNameKey];
-    parent::__construct($app, $params, $data);
+    parent::__construct($params, $data);
   }
 
   public function BuildClass() {
