@@ -30,7 +30,7 @@ class PlaceholdersManager {
         ClassFilePlaceholders::NAMESPACE_APP => "",
         ClassFilePlaceholders::NAMESPACE_CLASS => (array_key_exists(BaseClassGenerator::NameSpaceKey, $params) ? $params[BaseClassGenerator::NameSpaceKey] : ""),
         ClassFilePlaceholders::CLASS_NAME => (array_key_exists(BaseClassGenerator::ClassNameKey, $params) ? $params[BaseClassGenerator::ClassNameKey] : ""),
-        ClassFilePlaceholders::CLASS_DESCRIPTION => (array_key_exists(BaseClassGenerator::ClassDescriptionKey, $params) ? params[BaseClassGenerator::ClassDescriptionKey] : "")
+        ClassFilePlaceholders::CLASS_DESCRIPTION => (array_key_exists(BaseClassGenerator::ClassDescriptionKey, $params) ? $params[BaseClassGenerator::ClassDescriptionKey] : "")
     );
   }
 
