@@ -14,8 +14,12 @@
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 interface IConstantClass {
-  public function CloseArray($tabAmount = 0);
-  public function WriteConstants($valueToTrim = ".php");
-  public function WriteConstantsFromArray($array, $valueToTrim);
-  public function WriteGetListMethod();
+
+    public function CloseArray($tabAmount = 0);
+
+    public function WriteConstants($valueToTrim = ".php");
+
+    public function WriteConstantsFromArray($array, $valueToTrim);
+
+    public function WriteGetListMethod();
 }

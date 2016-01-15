@@ -17,5 +17,5 @@ namespace WebDevJL\Framework\ViewModels;
  * @see \WebDevJL\Framework\ViewModels\BaseVm for the guidelines to create a View Models.
  */
 class HttpErrorVm extends BaseVm {
-  
+    
 }

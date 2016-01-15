@@ -15,69 +15,69 @@ namespace WebDevJL\Framework\Core;
 
 class XmlReader {
 
-  private $filePath;
-  private $currentFileTimeStamp;
-  private $lastModifiedTimeStamp;
+    private $filePath;
+    private $currentFileTimeStamp;
+    private $lastModifiedTimeStamp;
 
-  public function __construct($filePath = NULL, $fileName = NULL) {
-    $this->filePath = isset($fileName) ?
-            $this->GetConfigurationFilePath($fileName) :
-            $filePath;
-    $this->currentFileTimeStamp = file_exists($this->filePath) ?
-            filemtime($this->filePath) :
-            0;
-  }
-
-  public function setCurrentFileTimeStamp() {
-    $this->currentFileTimeStamp = filemtime($this->filePath);
-  }
-
-  public function setLastModifiedTimeStamp($lastModifiedTimeStamp) {
-    $this->lastModifiedTimeStamp = $lastModifiedTimeStamp;
-  }
-
-  public function currentFileTimeStamp() {
-    return $this->currentFileTimeStamp;
-  }
-
-  public function lastModifiedTimeStamp() {
-    return $this->lastModifiedTimeStamp;
-  }
-
-  public function filePath() {
-    return $this->filePath;
-  }
-
-  public function FileIsNewer() {
-    return $this->currentFileTimeStamp > $this->lastModifiedTimeStamp;
-  }
-
-  /**
-   * Builds the filePath to the configuration file.
-   * 
-   * @param string $fileName : the file name with .xml extension.
-   * @return string
-   */
-  public function GetConfigurationFilePath($fileName) {
-    return "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
-  }
-
-  /**
-   * Gets the content of a DOMDocument for a node name. 
-   * 
-   * @param string $filePath : the file path to load.
-   * @param string $nodeName : the node name to find in the xml.
-   * @return boolean|DOMNodeList
-   */
-  public function ReturnFileContents($nodeName) {
-    if (file_exists($this->filePath)) {
-
-      $xml = new \DOMDocument;
-      $xml->load($this->filePath);
-
-      return $xml->getElementsByTagName($nodeName);
+    public function __construct($filePath = NULL, $fileName = NULL) {
+        $this->filePath = isset($fileName) ?
+                $this->GetConfigurationFilePath($fileName) :
+                $filePath;
+        $this->currentFileTimeStamp = file_exists($this->filePath) ?
+                filemtime($this->filePath) :
+                0;
     }
-    return FALSE;
-  }
+
+    public function setCurrentFileTimeStamp() {
+        $this->currentFileTimeStamp = filemtime($this->filePath);
+    }
+
+    public function setLastModifiedTimeStamp($lastModifiedTimeStamp) {
+        $this->lastModifiedTimeStamp = $lastModifiedTimeStamp;
+    }
+
+    public function currentFileTimeStamp() {
+        return $this->currentFileTimeStamp;
+    }
+
+    public function lastModifiedTimeStamp() {
+        return $this->lastModifiedTimeStamp;
+    }
+
+    public function filePath() {
+        return $this->filePath;
+    }
+
+    public function FileIsNewer() {
+        return $this->currentFileTimeStamp > $this->lastModifiedTimeStamp;
+    }
+
+    /**
+     * Builds the filePath to the configuration file.
+     * 
+     * @param string $fileName : the file name with .xml extension.
+     * @return string
+     */
+    public function GetConfigurationFilePath($fileName) {
+        return "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . \WebDevJL\Framework\Helpers\CommonHelper::GetAppName() . '/Config/' . $fileName;
+    }
+
+    /**
+     * Gets the content of a DOMDocument for a node name. 
+     * 
+     * @param string $filePath : the file path to load.
+     * @param string $nodeName : the node name to find in the xml.
+     * @return boolean|DOMNodeList
+     */
+    public function ReturnFileContents($nodeName) {
+        if (file_exists($this->filePath)) {
+
+            $xml = new \DOMDocument;
+            $xml->load($this->filePath);
+
+            return $xml->getElementsByTagName($nodeName);
+        }
+        return FALSE;
+    }
 
 }

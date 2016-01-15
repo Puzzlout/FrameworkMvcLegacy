@@ -14,8 +14,10 @@
 namespace WebDevJL\Framework\Enums;
 
 class FrameworkPlaceholders {
-/**
- * For Application name.  
- */
-  const ApplicationNamePlaceHolder = "{{app_name}}";
+
+    /**
+     * For Application name.  
+     */
+    const ApplicationNamePlaceHolder = "{{app_name}}";
+
 }

@@ -14,5 +14,7 @@
 namespace WebDevJL\Framework\Enums\HtmlAttributes;
 
 class LinkAttributeConstants {
-  const Target = 'target';
+
+    const Target = 'target';
+
 }

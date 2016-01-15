@@ -26,19 +26,20 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class FileNameConst {
 
-  /**
-   * File name suffixes
-   */
-  const ControllerSuffix = "Controller";
-  const Extension = ".php";
+    /**
+     * File name suffixes
+     */
+    const ControllerSuffix = "Controller";
+    const Extension = ".php";
 
-  /**
-   * File name prefixes
-   */
-  /*
-   * Templates file names
-   */
-  const LayoutTemplate = "Shared/Layout.php";
-  const MenuTopTemplate = "/Templates/menus/top.php";
-  const MenuLeftTemplate = "/Templates/menus/left.php";
+    /**
+     * File name prefixes
+     */
+    /*
+     * Templates file names
+     */
+    const LayoutTemplate = "Shared/Layout.php";
+    const MenuTopTemplate = "/Templates/menus/top.php";
+    const MenuLeftTemplate = "/Templates/menus/left.php";
+
 }

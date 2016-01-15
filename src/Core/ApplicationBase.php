@@ -15,77 +15,78 @@ namespace WebDevJL\Framework\Core;
 
 abstract class ApplicationBase {
 
-  const CONTROLLER_NAME_PREFIX = "F_";
-  const CULTURES_ARRAY_KEY = "application_cultures";
+    const CONTROLLER_NAME_PREFIX = "F_";
+    const CULTURES_ARRAY_KEY = "application_cultures";
 
-  public $Request;
-  protected $response;
-  public $name;
-  public $locale;
-  public $localeDefault;
-  public $pageTitle;
-  public $logoImageUrl;
-  public $globalResources;
-  public $relative_path;
-  public $user;
-  public $imageUtil;
-  public $jsManager;
-  public $cssManager;
-  public $auth;
-  public $dal;
-  public $toolTip;
-  protected $security;
-  public $error;
-  public $cultures = array();
-  public $ResourceManager;
-  public $controller;
-  public $UnitTestingEnabled;
-  
-  public function Request() {
-    return $this->request;
-  }
+    public $Request;
+    protected $response;
+    public $name;
+    public $locale;
+    public $localeDefault;
+    public $pageTitle;
+    public $logoImageUrl;
+    public $globalResources;
+    public $relative_path;
+    public $user;
+    public $imageUtil;
+    public $jsManager;
+    public $cssManager;
+    public $auth;
+    public $dal;
+    public $toolTip;
+    protected $security;
+    public $error;
+    public $cultures = array();
+    public $ResourceManager;
+    public $controller;
+    public $UnitTestingEnabled;
 
-  public function response() {
-    return $this->response;
-  }
+    public function Request() {
+        return $this->request;
+    }
 
-  public function user() {
-    return $this->user;
-  }
+    public function response() {
+        return $this->response;
+    }
 
-  public function name() {
-    return $this->name;
-  }
+    public function user() {
+        return $this->user;
+    }
 
-  public function css() {
-    return $this->cssManager;
-  }
+    public function name() {
+        return $this->name;
+    }
 
-  public function js() {
-    return $this->jsManager;
-  }
+    public function css() {
+        return $this->cssManager;
+    }
 
-  public function auth() {
-    return $this->auth;
-  }
+    public function js() {
+        return $this->jsManager;
+    }
 
-  public function dal() {
-    return $this->dal;
-  }
+    public function auth() {
+        return $this->auth;
+    }
 
-  public function toolTip() {
-    return $this->toolTip;
-  }
+    public function dal() {
+        return $this->dal;
+    }
 
-  public function security() {
-    return $this->security;
-  }
+    public function toolTip() {
+        return $this->toolTip;
+    }
 
-  public function Resx() {
-    return $this->ResourceManager;
-  }
-  
-  public function controller() {
-    return $this->controller;
-  }
+    public function security() {
+        return $this->security;
+    }
+
+    public function Resx() {
+        return $this->ResourceManager;
+    }
+
+    public function controller() {
+        return $this->controller;
+    }
+
 }

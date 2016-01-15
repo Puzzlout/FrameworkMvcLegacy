@@ -26,17 +26,17 @@ namespace WebDevJL\Framework\Helpers;
 
 class ConfigHelper {
 
-  public static function GetValue($caller, $rq, $result) {
-    if (!$caller->dataPost()) {
-      $dataPost = $caller->dataPost();
-      $result[$dataPost["key"]] = $caller->app()->config()->get($dataPost["key"]);
-      $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::POST_METHOD;
+    public static function GetValue($caller, $rq, $result) {
+        if (!$caller->dataPost()) {
+            $dataPost = $caller->dataPost();
+            $result[$dataPost["key"]] = $caller->app()->config()->get($dataPost["key"]);
+            $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::POST_METHOD;
+        }
+        if ($rq->getExists("key")) {
+            $result[$rq->getData("key")] = $caller->app()->config()->get($rq->getData("key"));
+            $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::GET_METHOD;
+        }
+        return $result;
     }
-    if ($rq->getExists("key")) {
-      $result[$rq->getData("key")] = $caller->app()->config()->get($rq->getData("key"));
-      $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::GET_METHOD;
-    }
-    return $result;
-  }
 
 }

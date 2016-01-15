@@ -15,27 +15,27 @@ namespace WebDevJL\Framework\Enums\ErrorCodes;
 
 class FrameworkDal {
 
-  const PrefixMysql = "mysql_";
+    const PrefixMysql = "mysql_";
 
-  public static function GetErrorCodesMySql() {
-    return array(
-        FrameworkDalConstants::Generic => self::PrefixMysql . FrameworkDalConstants::GenericValue,
-    );
-  }
-
-  public function GetErrorCodeFromMySqlCode($mysqlCode) {
-    $key = self::PrefixMysql . $mysqlCode;
-    $codes = self::GetErrorCodesMySql();
-    if (array_key_exists($key, $codes)) {
-      return $codes[$key];
-    } else {
-      error_log("MySql exception code not handled. Code => " . $mysqlCode);
-      return self::GetGenericErrorCode();
+    public static function GetErrorCodesMySql() {
+        return array(
+            FrameworkDalConstants::Generic => self::PrefixMysql . FrameworkDalConstants::GenericValue,
+        );
     }
-  }
-  
-  public static function GetGenericErrorCode() {
-    return self::PrefixMysql . FrameworkDalConstants::GenericValue;
-  }
+
+    public function GetErrorCodeFromMySqlCode($mysqlCode) {
+        $key = self::PrefixMysql . $mysqlCode;
+        $codes = self::GetErrorCodesMySql();
+        if (array_key_exists($key, $codes)) {
+            return $codes[$key];
+        } else {
+            error_log("MySql exception code not handled. Code => " . $mysqlCode);
+            return self::GetGenericErrorCode();
+        }
+    }
+
+    public static function GetGenericErrorCode() {
+        return self::PrefixMysql . FrameworkDalConstants::GenericValue;
+    }
 
 }

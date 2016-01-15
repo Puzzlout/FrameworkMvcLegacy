@@ -13,10 +13,10 @@
 
 namespace WebDevJL\Framework\Exceptions;
 
-
 class NotImplementedException extends \Exception {
 
-  public function __construct($message = "Not implemented code", $code = 0, $previous = null) {
-    parent::__construct($message, $code, $previous); //todo: generate error code.
-  }
+    public function __construct($message = "Not implemented code", $code = 0, $previous = null) {
+        parent::__construct($message, $code, $previous); //todo: generate error code.
+    }
+
 }

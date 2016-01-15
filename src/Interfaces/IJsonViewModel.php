@@ -14,9 +14,9 @@
 namespace WebDevJL\Framework\Interfaces;
 
 interface IJsonViewModel {
-  /**
-   * Transform the Vm object given to a JSON object.
-   * @return JSON The JSON object for the view model.
-   */
-  //public function EncodeToJson($ControllerVm);
+    /**
+     * Transform the Vm object given to a JSON object.
+     * @return JSON The JSON object for the view model.
+     */
+    //public function EncodeToJson($ControllerVm);
 }

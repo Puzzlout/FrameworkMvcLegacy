@@ -26,5 +26,5 @@
 namespace WebDevJL\Framework\Dal\Modules;
 
 class LogDal extends \WebDevJL\Framework\Dal\BaseManager {
-  //Common implementation is done WebDevJL\Framework\Dal\BaseManager
+    //Common implementation is done WebDevJL\Framework\Dal\BaseManager
 }

@@ -26,12 +26,12 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class NameSpaceName {
 
-  const VENDOR = "\\WebDevJL";
-  const FRAMEWORK = "\\Framework\\";
-  const LibFolderName = "\\Library";
-  const LibControllersFolderName = "\\Controllers\\";
-  const AppsFolderName = "Applications";
-  const AppsControllersFolderName = "\\Controllers\\";
+    const VENDOR = "\\WebDevJL";
+    const FRAMEWORK = "\\Framework\\";
+    const LibFolderName = "\\Library";
+    const LibControllersFolderName = "\\Controllers\\";
+    const AppsFolderName = "Applications";
+    const AppsControllersFolderName = "\\Controllers\\";
 
 }
 

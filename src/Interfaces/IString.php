@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Interface for String objects
  * 
@@ -9,11 +10,13 @@
  * @since Version 1.0.0
  * @package IString
  */
+
 namespace WebDevJL\Framework\Interfaces;
 
 interface IString {
-  /**
-   * Method that retrieve the string value of the instance.
-   */
-  public function ToString();
+
+    /**
+     * Method that retrieve the string value of the instance.
+     */
+    public function ToString();
 }

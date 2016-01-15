@@ -14,5 +14,5 @@
 namespace WebDevJL\Framework\Interfaces;
 
 interface IHtmlControl {
-  
+    
 }

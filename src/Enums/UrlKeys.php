@@ -26,8 +26,8 @@ namespace WebDevJL\Framework\Enums;
 
 class UrlKeys {
 
-  const LoginUrl = "login";
-  const LogoutUrl = "logout";
-  const AuthenticationUrl = "auth";
+    const LoginUrl = "login";
+    const LogoutUrl = "logout";
+    const AuthenticationUrl = "auth";
 
 }

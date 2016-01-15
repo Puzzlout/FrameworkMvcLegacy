@@ -13,43 +13,43 @@ echo "<h1>Finished!</h1>\n";
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Test Suite Generation</title>
-    <style>
-      * {
-        margin: 0 !important;
-      }
-      p{
-        padding: 10px 5px;
-      }
-      .exists {
-        font-weight: bold;
-        background-color: #EECE32;
-        color: #000;
-      }
-      .not-created {
-        font-weight: bold;
-        background-color: #CB554A;
-        color: #FFF;
-      }
-      .created {
-        font-weight: bold;
-        background-color: #8CC75A;
-        color: #FFF;
-      }
-      .skipped {
-        background-color: #FFC31E;
-        color: #1F5AFF;
-      }
-      .test-class {
-        margin-left: 1em;
-        text-indent: 1em;
-      }
-    </style>
-  </head>
+    <head>
+        <title>Test Suite Generation</title>
+        <style>
+            * {
+                margin: 0 !important;
+            }
+            p{
+                padding: 10px 5px;
+            }
+            .exists {
+                font-weight: bold;
+                background-color: #EECE32;
+                color: #000;
+            }
+            .not-created {
+                font-weight: bold;
+                background-color: #CB554A;
+                color: #FFF;
+            }
+            .created {
+                font-weight: bold;
+                background-color: #8CC75A;
+                color: #FFF;
+            }
+            .skipped {
+                background-color: #FFC31E;
+                color: #1F5AFF;
+            }
+            .test-class {
+                margin-left: 1em;
+                text-indent: 1em;
+            }
+        </style>
+    </head>
 
-  <body>
-    <?php echo $TestSuite->output; ?>
-  </body>
+    <body>
+        <?php echo $TestSuite->output; ?>
+    </body>
 
 </html>

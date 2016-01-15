@@ -25,7 +25,7 @@ namespace WebDevJL\Framework\Enums;
 
 class UserRole {
 
-  const Admin = 1;
-  const Visitor = 2;
+    const Admin = 1;
+    const Visitor = 2;
 
 }

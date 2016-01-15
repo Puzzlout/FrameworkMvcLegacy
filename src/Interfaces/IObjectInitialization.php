@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Interface defining the contract to init objects
  * 
@@ -9,18 +10,20 @@
  * @since Version 1.0.0
  * @package IObjectInitialization
  */
+
 namespace WebDevJL\Framework\Interfaces;
 
 interface IObjectInitialization {
-  /**
-   * Method that creates the instance of a class.
-   */
-  public static function Init();
-  
-  /**
-   * Method that creates the instance of a class where $value can be used during
-   * instantiation.
-   * @param mixed $value The value that is used during instantiation.
-   */
-  public static function InitWith($value);
+
+    /**
+     * Method that creates the instance of a class.
+     */
+    public static function Init();
+
+    /**
+     * Method that creates the instance of a class where $value can be used during
+     * instantiation.
+     * @param mixed $value The value that is used during instantiation.
+     */
+    public static function InitWith($value);
 }

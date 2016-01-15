@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lists the constants for framework dal module classes for autocompletion and easy coding.
  * 
@@ -13,19 +14,21 @@
 namespace WebDevJL\Framework\Generated;
 
 class FrameworkDalModules {
-  const COMMONDAL = 'CommonDal';
-  const DOCUMENTDAL = 'DocumentDal';
-  const LOGDAL = 'LogDal';
-  const USERDAL = 'UserDal';
-  const _TEMPLATEDAL = '_TemplateDal';
 
-  public static function GetList() {
-    return array(
-      self::COMMONDAL => 'CommonDal',
-      self::DOCUMENTDAL => 'DocumentDal',
-      self::LOGDAL => 'LogDal',
-      self::USERDAL => 'UserDal',
-      self::_TEMPLATEDAL => '_TemplateDal',
-    );
-  }
+    const COMMONDAL = 'CommonDal';
+    const DOCUMENTDAL = 'DocumentDal';
+    const LOGDAL = 'LogDal';
+    const USERDAL = 'UserDal';
+    const _TEMPLATEDAL = '_TemplateDal';
+
+    public static function GetList() {
+        return array(
+            self::COMMONDAL => 'CommonDal',
+            self::DOCUMENTDAL => 'DocumentDal',
+            self::LOGDAL => 'LogDal',
+            self::USERDAL => 'UserDal',
+            self::_TEMPLATEDAL => '_TemplateDal',
+        );
+    }
+
 }

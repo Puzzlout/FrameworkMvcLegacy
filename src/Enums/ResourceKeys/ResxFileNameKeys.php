@@ -27,14 +27,14 @@ namespace WebDevJL\Framework\Enums\ResourceKeys;
 
 abstract class ResxFileNameKeys {
 
-  /**
-   * Common file names
-   */
-  const Breadcrumb = "breadcrumb";
-  const MenuLeft = "menu_left";
-  const WsDefaults = "ws_defaults";
-  const Config = "config";
-  const FileUpload = "fileupload";
+    /**
+     * Common file names
+     */
+    const Breadcrumb = "breadcrumb";
+    const MenuLeft = "menu_left";
+    const WsDefaults = "ws_defaults";
+    const Config = "config";
+    const FileUpload = "fileupload";
 
 }
 

@@ -15,20 +15,21 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 abstract class ResourceConstantsClassEngine extends ConstantsClassEngineBase {
 
-  public $IsGeneratingBaseClass;
+    public $IsGeneratingBaseClass;
 
-  /**
-   * Generate the Constant Class list the framework.
-   * 
-   * @param array(of String) $data the array of data that will be used to build the list of constants
-   */
-  protected function GenerateConstantsClass($data) {
-    if (count($data) > 0) {
-      $classGen = new ResourceConstantsClassGenerator($this->params, $data);
-      $classGen->BuildClass();
-      return str_replace(".php", "", $classGen->fileName);
-    } else {
-      return "No class to generate.";
+    /**
+     * Generate the Constant Class list the framework.
+     * 
+     * @param array(of String) $data the array of data that will be used to build the list of constants
+     */
+    protected function GenerateConstantsClass($data) {
+        if (count($data) > 0) {
+            $classGen = new ResourceConstantsClassGenerator($this->params, $data);
+            $classGen->BuildClass();
+            return str_replace(".php", "", $classGen->fileName);
+        } else {
+            return "No class to generate.";
+        }
     }
-  }
+
 }

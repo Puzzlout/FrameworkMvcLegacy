@@ -14,37 +14,40 @@
 namespace WebDevJL\Framework\UC;
 
 class HtmlAttribute {
-  /**
-   *
-   * @var string
-   */
-  public $Value;
-  /**
-   *
-   * @var string
-   */
-  public $Name;
 
-  /**
-   * Constructor of the class.
-   * 
-   * @param string $name The name of the attribute
-   * @param string $value The value of the attribute
-   */
-  public function __construct($name, $value) {
-    $this->Name = $name;
-    $this->Value = $value;
-  }
-  
-  /**
-   * Instanciate a HtmlAttribute object.
-   * 
-   * @param string $name The name of the attribute
-   * @param string $value The value of the attribute
-   * @return \WebDevJL\Framework\UC\HtmlAttribute
-   */
-  public static function Instanciate($name, $value) {
-    $attr = new HtmlAttribute($name, $value);
-    return $attr;
-  }
+    /**
+     *
+     * @var string
+     */
+    public $Value;
+
+    /**
+     *
+     * @var string
+     */
+    public $Name;
+
+    /**
+     * Constructor of the class.
+     * 
+     * @param string $name The name of the attribute
+     * @param string $value The value of the attribute
+     */
+    public function __construct($name, $value) {
+        $this->Name = $name;
+        $this->Value = $value;
+    }
+
+    /**
+     * Instanciate a HtmlAttribute object.
+     * 
+     * @param string $name The name of the attribute
+     * @param string $value The value of the attribute
+     * @return \WebDevJL\Framework\UC\HtmlAttribute
+     */
+    public static function Instanciate($name, $value) {
+        $attr = new HtmlAttribute($name, $value);
+        return $attr;
+    }
+
 }

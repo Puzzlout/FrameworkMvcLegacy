@@ -14,9 +14,14 @@
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 interface IClassGenerator {
-  public function BuildClass();
-  public function WriteAssociativeArrayValueAsNewArray($value, $tabAmount = 0);
-  public function WriteAssociativeArrayValueWithKeyAndValue($key, $value, $tabAmount = 0);
-  public function WriteContent();
-  public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0);
+
+    public function BuildClass();
+
+    public function WriteAssociativeArrayValueAsNewArray($value, $tabAmount = 0);
+
+    public function WriteAssociativeArrayValueWithKeyAndValue($key, $value, $tabAmount = 0);
+
+    public function WriteContent();
+
+    public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0);
 }

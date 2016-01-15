@@ -14,60 +14,62 @@
 namespace WebDevJL\Framework\ViewModels;
 
 class ErrorVm {
-  /**
-   *
-   * @var int the error identification
-   */
-  protected $errorId;
-  
-  /**
-   *
-   * @var string the error messge extracted from the Common resources for group Error.
-   */
-  protected $errorMessage;
-  
-  /**
-   *
-   * @var \Exception the exception object 
-   */
-  protected $exceptionObj;
-  
-  /**
-   * Initialize the object
-   */
-  public function __construct() {
-    $this->errorId = 0;
-    $this->errorMessage = "None";
-  }
-  
-  /**
-   * Retrieves the errorId property.
-   * 
-   * @return int
-   */
-  public function errorId() {
-    return $this->errorId;
-  }
-  
-  /**
-   * Retrieves the errorMessage property.
-   * 
-   * @return string
-   */
-  public function errorMessage() {
-    return $this->errorMessage;
-  }
-  
-  /**
-   * Sets the properties of the object
-   * 
-   * @param int $errorId
-   * @param string $errorMessage
-   * @param \Exception $exception
-   */
-  protected function FillInstance($errorId, $errorMessage, $exception) {
-    $this->errorId = $errorId;
-    $this->errorMessage = $errorMessage;
-    $this->exceptionObj = $exception;
-  }
+
+    /**
+     *
+     * @var int the error identification
+     */
+    protected $errorId;
+
+    /**
+     *
+     * @var string the error messge extracted from the Common resources for group Error.
+     */
+    protected $errorMessage;
+
+    /**
+     *
+     * @var \Exception the exception object 
+     */
+    protected $exceptionObj;
+
+    /**
+     * Initialize the object
+     */
+    public function __construct() {
+        $this->errorId = 0;
+        $this->errorMessage = "None";
+    }
+
+    /**
+     * Retrieves the errorId property.
+     * 
+     * @return int
+     */
+    public function errorId() {
+        return $this->errorId;
+    }
+
+    /**
+     * Retrieves the errorMessage property.
+     * 
+     * @return string
+     */
+    public function errorMessage() {
+        return $this->errorMessage;
+    }
+
+    /**
+     * Sets the properties of the object
+     * 
+     * @param int $errorId
+     * @param string $errorMessage
+     * @param \Exception $exception
+     */
+    protected function FillInstance($errorId, $errorMessage, $exception) {
+        $this->errorId = $errorId;
+        $this->errorMessage = $errorMessage;
+        $this->exceptionObj = $exception;
+    }
+
 }

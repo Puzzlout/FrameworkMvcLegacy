@@ -14,7 +14,8 @@
 namespace WebDevJL\Framework\Enums\ErrorCodes;
 
 class FrameworkDalConstants {
-  const GenericValue = 0;
-  const Generic = "ErrorCodes_FrameworkDal_GENERIC_KEY";
+
+    const GenericValue = 0;
+    const Generic = "ErrorCodes_FrameworkDal_GENERIC_KEY";
 
 }

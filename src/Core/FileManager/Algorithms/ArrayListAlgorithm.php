@@ -15,28 +15,29 @@ namespace WebDevJL\Framework\Core\FileManager\Algorithms;
 
 class ArrayListAlgorithm {
 
-  public static function Init() {
-    $instance = new ArrayListAlgorithm();
-    return $instance;
-  }
+    public static function Init() {
+        $instance = new ArrayListAlgorithm();
+        return $instance;
+    }
 
-  public static function ExcludeList() {
-    return array(
-        "\\.",
-        "\\.\\.",
-    );
-  }
+    public static function ExcludeList() {
+        return array(
+            "\\.",
+            "\\.\\.",
+        );
+    }
 
-  public function ExcludeListForTestSuite() {
-    $specific = array(
-        "src",
-        "Views",
-        "Generator",
-        ".DS_Store",
-        "FrameworkConstants.php",
-        "Mailer",
-    );
-    $list = array_merge($specific, self::ExcludeList());
-    return $list;
-  }
+    public function ExcludeListForTestSuite() {
+        $specific = array(
+            "src",
+            "Views",
+            "Generator",
+            ".DS_Store",
+            "FrameworkConstants.php",
+            "Mailer",
+        );
+        $list = array_merge($specific, self::ExcludeList());
+        return $list;
+    }
+
 }

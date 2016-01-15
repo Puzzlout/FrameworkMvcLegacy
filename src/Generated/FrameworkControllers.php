@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lists the constants for framework controller classes to autocompletion and easy coding.
  * 
@@ -13,23 +14,25 @@
 namespace WebDevJL\Framework\Generated;
 
 class FrameworkControllers {
-  const CONFIGCONTROLLER = 'ConfigController';
-  const DEBUGCONTROLLER = 'DebugController';
-  const ERRORCONTROLLER = 'ErrorController';
-  const FILECONTROLLER = 'FileController';
-  const GENERATORCONTROLLER = 'GeneratorController';
-  const WEBIDEAJAXCONTROLLER = 'WebIdeAjaxController';
-  const WEBIDECONTROLLER = 'WebIdeController';
 
-  public static function GetList() {
-    return array(
-      self::CONFIGCONTROLLER => 'ConfigController',
-      self::DEBUGCONTROLLER => 'DebugController',
-      self::ERRORCONTROLLER => 'ErrorController',
-      self::FILECONTROLLER => 'FileController',
-      self::GENERATORCONTROLLER => 'GeneratorController',
-      self::WEBIDEAJAXCONTROLLER => 'WebIdeAjaxController',
-      self::WEBIDECONTROLLER => 'WebIdeController',
-    );
-  }
+    const CONFIGCONTROLLER = 'ConfigController';
+    const DEBUGCONTROLLER = 'DebugController';
+    const ERRORCONTROLLER = 'ErrorController';
+    const FILECONTROLLER = 'FileController';
+    const GENERATORCONTROLLER = 'GeneratorController';
+    const WEBIDEAJAXCONTROLLER = 'WebIdeAjaxController';
+    const WEBIDECONTROLLER = 'WebIdeController';
+
+    public static function GetList() {
+        return array(
+            self::CONFIGCONTROLLER => 'ConfigController',
+            self::DEBUGCONTROLLER => 'DebugController',
+            self::ERRORCONTROLLER => 'ErrorController',
+            self::FILECONTROLLER => 'FileController',
+            self::GENERATORCONTROLLER => 'GeneratorController',
+            self::WEBIDEAJAXCONTROLLER => 'WebIdeAjaxController',
+            self::WEBIDECONTROLLER => 'WebIdeController',
+        );
+    }
+
 }

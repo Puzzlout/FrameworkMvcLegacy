@@ -26,26 +26,26 @@ namespace WebDevJL\Framework\Core;
 
 class FileManager {
 
-  /**
-   * @property string $filePath File Path being read or written
-   */
-  protected $filePath = "";
+    /**
+     * @property string $filePath File Path being read or written
+     */
+    protected $filePath = "";
 
-  /**
-   * 
-   * @param type $filePath
-   * File to use in instance
-   */
-  public function __construct($filePath) {
-    $this->filePath = $filePath;
-  }
+    /**
+     * 
+     * @param type $filePath
+     * File to use in instance
+     */
+    public function __construct($filePath) {
+        $this->filePath = $filePath;
+    }
 
-  /**
-   * Get content of the file
-   * @return array
-   */
-  public function GetFileContent() {
-    
-  }
+    /**
+     * Get content of the file
+     * @return array
+     */
+    public function GetFileContent() {
+        
+    }
 
 }

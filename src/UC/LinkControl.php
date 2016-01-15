@@ -17,33 +17,34 @@ use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
 use WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
 use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
 
-class LinkControl extends HtmlControlBase{
+class LinkControl extends HtmlControlBase {
 
-  public function __construct() {
-    $this->Attributes = array();
-    $this->HtmlOutput = "";
-  }
-  
-  public static function Init() {
-    $control = new LinkControl();
-    return $control;
-  }
-  
-  public function Simple($linkUrl, $linkText) {
-    if(is_null($linkUrl) || empty($linkUrl)) {
-      throw new \InvalidArgumentException('$linkUrl must be provided.', 0, NULL);
+    public function __construct() {
+        $this->Attributes = array();
+        $this->HtmlOutput = "";
     }
-    if(is_null($linkText) || empty($linkText)) {
-      throw new \InvalidArgumentException('$linkText must be provided.', 0, NULL);
+
+    public static function Init() {
+        $control = new LinkControl();
+        return $control;
     }
-    if (!\WebDevJL\Framework\Helpers\RegexHelper::Init($linkUrl)->IsMatch("`\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]`")) {
-      throw new \InvalidArgumentException('$linkUrl ' . $linkUrl .' is not valid.', 0, NULL);
+
+    public function Simple($linkUrl, $linkText) {
+        if (is_null($linkUrl) || empty($linkUrl)) {
+            throw new \InvalidArgumentException('$linkUrl must be provided.', 0, NULL);
+        }
+        if (is_null($linkText) || empty($linkText)) {
+            throw new \InvalidArgumentException('$linkText must be provided.', 0, NULL);
+        }
+        if (!\WebDevJL\Framework\Helpers\RegexHelper::Init($linkUrl)->IsMatch("`\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]`")) {
+            throw new \InvalidArgumentException('$linkUrl ' . $linkUrl . ' is not valid.', 0, NULL);
+        }
+
+        array_push($this->Attributes, HtmlAttribute::Instanciate(HtmlAttributeConstants::Href, $linkUrl));
+        array_push($this->Attributes, HtmlAttribute::Instanciate(LinkAttributeConstants::Target, "_BLANK"));
+        $this->HtmlOutput = '<a {0} {1}>' . $linkText . '</a>';
+        HtmlControlBuildHelper::Init()->GenerateAttributes($this);
+        return $this->HtmlOutput;
     }
-    
-    array_push($this->Attributes, HtmlAttribute::Instanciate(HtmlAttributeConstants::Href, $linkUrl));
-    array_push($this->Attributes, HtmlAttribute::Instanciate(LinkAttributeConstants::Target, "_BLANK"));
-    $this->HtmlOutput = '<a {0} {1}>'. $linkText . '</a>';
-    HtmlControlBuildHelper::Init()->GenerateAttributes($this);
-    return $this->HtmlOutput;
-  }
+
 }

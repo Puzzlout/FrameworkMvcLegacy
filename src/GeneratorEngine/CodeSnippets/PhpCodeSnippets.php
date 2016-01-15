@@ -14,44 +14,44 @@ namespace WebDevJL\Framework\GeneratorEngine\CodeSnippets;
 
 class PhpCodeSnippets {
 
-  /**
-   * The carriage return constant.
-   */
-  const CRLF = "\n\r";
-
-  /**
-   * The break line constant.
-   */
-  const LF = "\r";
-
-  /**
-   * The equivalent of one tab.
-   */
-  const TAB2 = "  ";
-
-  /**
-   * The equivalent of 2 tabs.
-   */
-  const TAB4 = "    ";
-
-  /**
-   * The equivalent of 3 tabs.
-   */
-  const TAB6 = "      ";
-
-  /**
-   * The equivalent of 4 tabs.
-   */
-  const TAB8 = "        ";
-
-  /**
-   * public static function snippet
-   */
-  const PublicStaticFunction = "public static function ";
+    /**
+     * The carriage return constant.
+     */
+    const CRLF = "\n\r";
 
     /**
-   * public function snippet
-   */
-  const PublicFunction = "public function ";
+     * The break line constant.
+     */
+    const LF = "\r";
+
+    /**
+     * The equivalent of one tab.
+     */
+    const TAB2 = "  ";
+
+    /**
+     * The equivalent of 2 tabs.
+     */
+    const TAB4 = "    ";
+
+    /**
+     * The equivalent of 3 tabs.
+     */
+    const TAB6 = "      ";
+
+    /**
+     * The equivalent of 4 tabs.
+     */
+    const TAB8 = "        ";
+
+    /**
+     * public static function snippet
+     */
+    const PublicStaticFunction = "public static function ";
+
+    /**
+     * public function snippet
+     */
+    const PublicFunction = "public function ";
 
 }

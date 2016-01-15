@@ -26,26 +26,25 @@ namespace WebDevJL\Framework\Helpers;
 
 class DebugHelper {
 
-  /**
-   * Print out a string.
-   * 
-   * @param string $stringData
-   */
-  public static function WriteString($stringData, $useJson = FALSE) {
-    if ($useJson) {
-      echo json_encode('{"data":' . $stringData . '}');
-    } else {
-      echo '<!-- ' . $stringData . ' -->';
+    /**
+     * Print out a string.
+     * 
+     * @param string $stringData
+     */
+    public static function WriteString($stringData, $useJson = FALSE) {
+        if ($useJson) {
+            echo json_encode('{"data":' . $stringData . '}');
+        } else {
+            echo '<!-- ' . $stringData . ' -->';
+        }
     }
-  }
 
-  public static function WriteObject($object, $useJson = FALSE) {
-    if ($useJson) {
-      echo json_encode('{"data":' . var_dump($object) . '}');
-    } else {
-      echo '<!-- ' . var_dump($object) . ' -->';
+    public static function WriteObject($object, $useJson = FALSE) {
+        if ($useJson) {
+            echo json_encode('{"data":' . var_dump($object) . '}');
+        } else {
+            echo '<!-- ' . var_dump($object) . ' -->';
+        }
     }
-    
-  }
 
 }

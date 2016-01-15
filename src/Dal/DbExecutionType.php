@@ -14,12 +14,14 @@
 namespace WebDevJL\Framework\Dal;
 
 class DbExecutionType {
-  const SELECT = "SELECT";
-  const UPDATE = "UPDATE";
-  const DELETE = "DELETE";
-  const INSERT = "INSERT";
-  const SHOWTABLES = "SHOWTABLES";
-  const COLUMNNAMES = "COLUMNNAMES";
-  const COLUMNMETAS = "COLUMNMETAS";
-  const MULTIROWSET = "MULTIROWSET";
+
+    const SELECT = "SELECT";
+    const UPDATE = "UPDATE";
+    const DELETE = "DELETE";
+    const INSERT = "INSERT";
+    const SHOWTABLES = "SHOWTABLES";
+    const COLUMNNAMES = "COLUMNNAMES";
+    const COLUMNMETAS = "COLUMNMETAS";
+    const MULTIROWSET = "MULTIROWSET";
+
 }

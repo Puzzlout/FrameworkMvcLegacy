@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base class for class methods generation.
  * A method is made of:
@@ -15,8 +16,9 @@
  * @since Version 1.0.0
  * @package BaseMethod
  */
+
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 abstract class BaseMethod {
-
+    
 }

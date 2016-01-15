@@ -11,26 +11,23 @@ use WebDevJL\Framework\BO\FileUploadResult;
 
 class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
 
-  protected $app;
+    protected $app;
 
-  /**
-   * Initialize the app object.
-   */
-  protected function setUp()
-  {
-      $this->app = new \WebDevJL\Framework\Tests\TestApplication();
-  }
-  
-  /**
-   * This method is generated.
-   */
-  public function testInstanceIsCorrect()
-  {
-    $this->assertNotNull($this->app);
-    $result = new FileUploadResult("");
-    $this->assertInstanceOf('WebDevJL\Framework\BO\FileUploadResult', $result);
-  }
-  
-  //Write the next tests below...
-  
+    /**
+     * Initialize the app object.
+     */
+    protected function setUp() {
+        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+    }
+
+    /**
+     * This method is generated.
+     */
+    public function testInstanceIsCorrect() {
+        $this->assertNotNull($this->app);
+        $result = new FileUploadResult("");
+        $this->assertInstanceOf('WebDevJL\Framework\BO\FileUploadResult', $result);
+    }
+
+    //Write the next tests below...
 }

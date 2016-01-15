@@ -14,13 +14,15 @@
 namespace WebDevJL\Framework\Core\DirectoryManager\Algorithms;
 
 class ArrayListAlgorithm {
-  public static function ExcludeList() {
-    return array(
-        "Documentation",
-        "\\.",
-        "\\.\\.",
-        "nbproject",
-        "output",
-    );
-  }
+
+    public static function ExcludeList() {
+        return array(
+            "Documentation",
+            "\\.",
+            "\\.\\.",
+            "nbproject",
+            "output",
+        );
+    }
+
 }

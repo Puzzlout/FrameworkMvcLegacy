@@ -14,6 +14,8 @@
 namespace WebDevJL\Framework\Core\DirectoryManager\Algorithms;
 
 class RegexAlgorithm {
-  public $RegexForDirectory;
-  public $RegexForFile;
+
+    public $RegexForDirectory;
+    public $RegexForFile;
+
 }

@@ -14,4 +14,5 @@
 namespace WebDevJL\Framework\Dal;
 
 class DbPlaceholders {
+    
 }

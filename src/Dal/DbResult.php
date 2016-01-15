@@ -14,5 +14,5 @@
 namespace WebDevJL\Framework\Dal;
 
 class DbResult {
-  
+    
 }

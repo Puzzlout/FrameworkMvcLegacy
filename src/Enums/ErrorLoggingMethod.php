@@ -15,9 +15,9 @@ namespace WebDevJL\Framework\Enums;
 
 class ErrorLoggingMethod {
 
-  const EchoString = "error-log-type-echo";
-  const Alert = "error-log-type-alert";
-  const File = "error-log-type-file";
-  const Database = "error-log-type-db";
+    const EchoString = "error-log-type-echo";
+    const Alert = "error-log-type-alert";
+    const File = "error-log-type-file";
+    const Database = "error-log-type-db";
 
 }

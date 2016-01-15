@@ -28,11 +28,11 @@ namespace WebDevJL\Framework\Enums;
  */
 abstract class GenericAppKeys {
 
-  const GET_METHOD = "get";
-  const POST_METHOD = "post";
-  const PUT_METHOD = "put";
-  const PREFIX_FRAMEWORK_TABLE = "f_";
-  const FRAMEWORK_DB_TABLE = "framework_db_table";
-  const APP_DB_TABLE = "app_db_table";
+    const GET_METHOD = "get";
+    const POST_METHOD = "post";
+    const PUT_METHOD = "put";
+    const PREFIX_FRAMEWORK_TABLE = "f_";
+    const FRAMEWORK_DB_TABLE = "framework_db_table";
+    const APP_DB_TABLE = "app_db_table";
 
 }

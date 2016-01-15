@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base class for class methods generation. This is where the basic generation happens.
  * 
@@ -10,8 +11,9 @@
  * @package BaseMethodGenerator
  * @see BaseMethod
  */
+
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 abstract class BaseMethodGenerator extends BaseMethod {
-
+    
 }

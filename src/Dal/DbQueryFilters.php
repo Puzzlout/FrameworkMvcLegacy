@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class to manage the where and order by clauses in a SQL statement.
  * 
@@ -13,36 +14,42 @@
 namespace WebDevJL\Framework\Dal;
 
 class DbQueryFilters {
-  public $selectFilters = false;
-  public $whereFilters = false;
-  public $orderByFilters = false;
-  public $setFilters = false;
 
-  public function selectFilters() {
-    return $this->selectFilters;
-  }
-  
-  public function whereFilters() {
-    return $this->whereFilters;
-  }
-  public function orderByFilters() {
-    return $this->orderByFilters;
-  }
-  public function setFilters() {
-    return $this->setFilters;
-  }
-  
-  public function setSelectFilters($selectFilters) {
-    $this->selectFilters = $selectFilters;
-  }
-  
-  public function setWhereFilters($whereFilters) {
-    $this->whereFilters = $whereFilters;
-  }
-  public function setOrderByFilters($orderByFilters) {
-    $this->orderByFilters = $orderByFilters;
-  }
-  public function setSetFilters($setFilters) {
-    $this->setFilters = $setFilters;
-  }
+    public $selectFilters = false;
+    public $whereFilters = false;
+    public $orderByFilters = false;
+    public $setFilters = false;
+
+    public function selectFilters() {
+        return $this->selectFilters;
+    }
+
+    public function whereFilters() {
+        return $this->whereFilters;
+    }
+
+    public function orderByFilters() {
+        return $this->orderByFilters;
+    }
+
+    public function setFilters() {
+        return $this->setFilters;
+    }
+
+    public function setSelectFilters($selectFilters) {
+        $this->selectFilters = $selectFilters;
+    }
+
+    public function setWhereFilters($whereFilters) {
+        $this->whereFilters = $whereFilters;
+    }
+
+    public function setOrderByFilters($orderByFilters) {
+        $this->orderByFilters = $orderByFilters;
+    }
+
+    public function setSetFilters($setFilters) {
+        $this->setFilters = $setFilters;
+    }
+
 }

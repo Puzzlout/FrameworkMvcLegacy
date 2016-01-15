@@ -14,7 +14,8 @@
 namespace WebDevJL\Framework\UC;
 
 abstract class HtmlControlBase {
-  public $Attributes;
-  public $HtmlOutput;
+
+    public $Attributes;
+    public $HtmlOutput;
 
 }
