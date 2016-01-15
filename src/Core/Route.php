@@ -34,7 +34,9 @@ class Route {
   public function Init($url) {
     $urlParts = explode("/", $url);
 
-    $baseUrlConstainsVirtualPath = !(strcasecmp("/", "APP_BASE_URL") === 0);
+    //@todo: Get the application base url
+    $baseUrl = "/";
+    $baseUrlConstainsVirtualPath = !(strcasecmp("/", $baseUrl) === 0);
     $startIndex = $baseUrlConstainsVirtualPath ? self::StartIndexWithVirtualPath : self::StartIndexNoVirtualPath;
 
     $this->setUrl($url);
