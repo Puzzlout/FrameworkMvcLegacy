@@ -13,6 +13,8 @@
 
 namespace WebDevJL\Framework\GeneratorEngine\Placeholders;
 
+use WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator;
+
 class PlaceholdersManager {
 
   public static function InitPlaceholdersForPhpDoc($params) {
@@ -21,14 +23,14 @@ class PlaceholdersManager {
         PhpDocPlaceholders::COPYRIGHT_YEAR => date("Y"),
         PhpDocPlaceholders::LICENCE => "http://opensource.org/licenses/gpl-license.php GNU Public License",
         PhpDocPlaceholders::LINK => "https://github.com/WebDevJL/EasyMvc/blob/master/README.md",
-        PhpDocPlaceholders::PACKAGE => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey],
+        PhpDocPlaceholders::PACKAGE => array_key_exists(BaseClassGenerator::ClassNameKey, $params) ? $params[BaseClassGenerator::ClassNameKey] : "",
         PhpDocPlaceholders::SUBPACKAGE => "",
         PhpDocPlaceholders::VERSION_NUMBER => "PACKAGE_VERSION",
-        ClassFilePlaceholders::NAMESPACE_FRAMEWORK => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey],
+        ClassFilePlaceholders::NAMESPACE_FRAMEWORK => array_key_exists(BaseClassGenerator::NameSpaceKey, $params) ? $params[BaseClassGenerator::NameSpaceKey] : "",
         ClassFilePlaceholders::NAMESPACE_APP => "",
-        ClassFilePlaceholders::NAMESPACE_CLASS => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey],
-        ClassFilePlaceholders::CLASS_NAME => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey],
-        ClassFilePlaceholders::CLASS_DESCRIPTION => $params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey],
+        ClassFilePlaceholders::NAMESPACE_CLASS => array_key_exists(BaseClassGenerator::NameSpaceKey, $params) ? $params[BaseClassGenerator::NameSpaceKey] : "",
+        ClassFilePlaceholders::CLASS_NAME => array_key_exists(BaseClassGenerator::ClassNameKey, $params) ? $params[BaseClassGenerator::ClassNameKey] : "",
+        ClassFilePlaceholders::CLASS_DESCRIPTION => array_key_exists(BaseClassGenerator::ClassDescriptionKey, $params) ? params[BaseClassGenerator::ClassDescriptionKey] : "",
     );
   }
 

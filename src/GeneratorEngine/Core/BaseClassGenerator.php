@@ -26,10 +26,11 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
    * @param string $destinationDir
    * @param assoc array $params : the params composed the namespace and name of the class
    * @param array(of String) $data : list of controllers file names.
+   * @todo Validate the data $params and $data
    */
   public function __construct(Application $app, $params, $data) {
     parent::__construct($app);
-    $this->destinationDir = "APP_ROOT_DIR" . $params[BaseClassGenerator::DestinationDirKey];
+    $this->destinationDir = array_key_exists(BaseClassGenerator::DestinationDirKey, $params) ? "APP_ROOT_DIR" . $params[BaseClassGenerator::DestinationDirKey] : "";
     $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
     $this->data = $data;
     $templateHeader = TemplateFileNameConstants::GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
