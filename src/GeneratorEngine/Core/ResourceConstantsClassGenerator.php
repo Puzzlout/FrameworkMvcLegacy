@@ -20,20 +20,22 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
 
   public function __construct(Application $app, $params, $data) {
     parent::__construct($app, $params, $data);
-    $this->fileName = !is_null($params[self::CultureKey]) ?
-            $params[self::ClassNameKey] . "_" . $params[self::CultureKey] . ".php" :
-            $params[self::ClassNameKey] . ".php";
-    $this->className = !is_null($params[self::ClassDerivation]) ?
-            str_replace(".php", "", $this->fileName) . " extends " . $params[self::ClassDerivation] :
-            str_replace(".php", "", $this->fileName);
-    $params[self::ClassNameKey] = $this->className;
-    $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
-    $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
-            $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
-            FALSE;
-    $this->DoGenerateGetListMethod = array_key_exists(ConstantsClassGeneratorBase::DoGenerateGetListMethodKey, $params) ?
-            $params[ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] :
-            FALSE;
+    if (!$this->app->UnitTestingEnabled) {
+      $this->fileName = array_key_exists(self::CultureKey, $params) ?
+              $params[self::ClassNameKey] . "_" . $params[self::CultureKey] . ".php" :
+              $params[self::ClassNameKey] . ".php";
+      $this->className = !is_null($params[self::ClassDerivation]) ?
+              str_replace(".php", "", $this->fileName) . " extends " . $params[self::ClassDerivation] :
+              str_replace(".php", "", $this->fileName);
+      $params[self::ClassNameKey] = $this->className;
+      $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
+      $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
+              $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
+              FALSE;
+      $this->DoGenerateGetListMethod = array_key_exists(ConstantsClassGeneratorBase::DoGenerateGetListMethodKey, $params) ?
+              $params[ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] :
+              FALSE;
+    }
   }
 
   public function BuildClass() {
@@ -129,7 +131,7 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
     $extrator = \WebDevJL\Framework\Helpers\ArrayExtractionHelper::Init()->ExtractDistinctValues($this->data);
     $output = "";
     foreach ($extrator->List as $constant) {
-      if(\WebDevJL\Framework\Helpers\RegexHelper::Init($constant)->IsResoureKeyValid()) {
+      if (\WebDevJL\Framework\Helpers\RegexHelper::Init($constant)->IsResoureKeyValid()) {
         $output .= $this->WriteConstant($constant);
       }
     }
