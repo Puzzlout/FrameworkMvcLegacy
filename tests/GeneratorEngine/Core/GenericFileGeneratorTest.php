@@ -27,7 +27,7 @@ class GenericFileGeneratorTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new GenericFileGenerator([],[]);
+    $result = new GenericFileGenerator($this->app, [],[]);
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\GenericFileGenerator', $result);
   }
   

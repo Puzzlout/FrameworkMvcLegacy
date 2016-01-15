@@ -32,10 +32,9 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
    * @todo: parameter $data must be an instance of class. Ex: ClassGenerationData ?
    */
   public function __construct(Application $app, $params, $data) {
-    parent::__construct($app, $params, $data);
     $this->fileName = array_key_exists(self::ClassNameKey, $params) ? $params[self::ClassNameKey] . ".php" : "";
     $this->className = array_key_exists(self::ClassNameKey, $params) ? $params[self::ClassNameKey] : "";
-    parent::__construct($params, $data);
+    parent::__construct($app, $params, $data);
   }
 
   public function BuildClass() {

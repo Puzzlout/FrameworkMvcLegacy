@@ -109,13 +109,7 @@ class Router extends ApplicationComponent {
    * @throws \Exception Is thrown if FrameworkConstants::"APP_BASE_URL" is not set. 
    */
   public function getRoute(Route $route, $url) {
-    $constantBaseUrlSet = defined(FrameworkConstants::"APP_BASE_URL");
-    if (!$constantBaseUrlSet) {
-      //todo: create error code
-      throw new \Exception("Named constant "APP_BASE_URL" must be set.", 0, NULL);
-    } else {
       $route->Init($url);
-    }
   }
 
 }
