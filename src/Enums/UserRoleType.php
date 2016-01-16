@@ -25,7 +25,7 @@ namespace WebDevJL\Framework\Enums;
 
 class UserRoleType {
 
-  const Admin = "administrator_id";
-  const Visitor = "";
+    const Admin = "administrator_id";
+    const Visitor = "";
 
 }

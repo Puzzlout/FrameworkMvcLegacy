@@ -17,11 +17,11 @@ namespace WebDevJL\Framework\Enums\ResourceKeys;
 
 abstract class GlobalAppKeys {
 
-  const log_http_request = "log_http_request";
-  const log_controller_method_request = "log_controller_method_request";
-  const log_type = "log_type";
-  const log_data = "log_data";
-  const log_time_prefix = "time";
+    const log_http_request = "log_http_request";
+    const log_controller_method_request = "log_controller_method_request";
+    const log_type = "log_type";
+    const log_data = "log_data";
+    const log_time_prefix = "time";
 
 }
 

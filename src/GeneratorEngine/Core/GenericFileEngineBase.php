@@ -14,5 +14,5 @@
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 abstract class GenericFileEngineBase {
-
+    
 }

@@ -14,19 +14,21 @@
 namespace WebDevJL\Framework\ViewModels;
 
 class BaseJsonVm extends BaseVm {
-  /**
-   *
-   * @var mixed The response to use by the JavaScript Client 
-   */
-  protected $Response;
-  
-  /**
-   * Getter for $Response member.
-   * 
-   * @return mixed
-   * @see $Response member
-   */
-  public function Response() {
-    return $this->Response;
-  }
+
+    /**
+     *
+     * @var mixed The response to use by the JavaScript Client 
+     */
+    protected $Response;
+
+    /**
+     * Getter for $Response member.
+     * 
+     * @return mixed
+     * @see $Response member
+     */
+    public function Response() {
+        return $this->Response;
+    }
+
 }

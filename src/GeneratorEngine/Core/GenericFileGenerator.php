@@ -14,5 +14,5 @@
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 class GenericFileGenerator extends BaseClassGenerator implements IClassGenerator {
-  
+    
 }

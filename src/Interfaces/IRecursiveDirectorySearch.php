@@ -15,28 +15,28 @@
 namespace WebDevJL\Framework\Interfaces;
 
 interface IRecursiveDirectorySearch {
-  
-  /**
-   * Scan a directory recursively applying an algorithm and return the filtered 
-   * resulting list that is an array of following structure:
-   * 
-   * array(
-   *    0 => "Dir1",
-   *    "Dir2" => array(
-   *      0 => "Dir3",
-   *      1 => "Dir4",
-   *      2 => "DirN.ext",
-   *      "SubDir => array(
-   *        0 => "Dir1",
-   *        1 => "Dir2",
-   *        2 => "DirN.ext",
-   *      )
-   *    )
-   * ).
-   * 
-   * @param string $directory The directory to scan
-   * @param mixed $algorithmFilter The filter to apply to the search
-   * @return array
-   */
-  public function RecursiveScanOf($directory, $algorithmFilter);
+
+    /**
+     * Scan a directory recursively applying an algorithm and return the filtered 
+     * resulting list that is an array of following structure:
+     * 
+     * array(
+     *    0 => "Dir1",
+     *    "Dir2" => array(
+     *      0 => "Dir3",
+     *      1 => "Dir4",
+     *      2 => "DirN.ext",
+     *      "SubDir => array(
+     *        0 => "Dir1",
+     *        1 => "Dir2",
+     *        2 => "DirN.ext",
+     *      )
+     *    )
+     * ).
+     * 
+     * @param string $directory The directory to scan
+     * @param mixed $algorithmFilter The filter to apply to the search
+     * @return array
+     */
+    public function RecursiveScanOf($directory, $algorithmFilter);
 }

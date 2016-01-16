@@ -14,5 +14,7 @@
 namespace WebDevJL\Framework\ViewModels;
 
 class WebIdeVm extends BaseVm {
-  public $SolutionPathListArray;
+
+    public $SolutionPathListArray;
+
 }

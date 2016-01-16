@@ -25,8 +25,8 @@ namespace WebDevJL\Framework\Helpers;
 
 class ErrorHelper {
 
-  public static function EchoError(\Exception $ex) {
-    
-  }
+    public static function EchoError(\Exception $ex) {
+        
+    }
 
 }

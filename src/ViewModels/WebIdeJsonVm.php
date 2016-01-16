@@ -14,22 +14,23 @@
 namespace WebDevJL\Framework\ViewModels;
 
 class WebIdeJsonVm extends BaseJsonVm implements \WebDevJL\Framework\Interfaces\IJsonViewModel {
-  
-  public static function Init(\WebDevJL\Framework\Core\Application $app) {
-    $instance = new WebIdeJsonVm($app);
-    return $instance;
-  }
-  
-  public function __construct(\WebDevJL\Framework\Core\Application $app) {
-    parent::__construct($app);
-  }
-  
-  public function Fill($value) {
-    if(is_array($value)) {
-      $this->Response = json_encode($value, JSON_PRETTY_PRINT);
-      return $this;
+
+    public static function Init(\WebDevJL\Framework\Core\Application $app) {
+        $instance = new WebIdeJsonVm($app);
+        return $instance;
     }
-    $this->Response = json_encode($value, JSON_PRETTY_PRINT);
-    return $this;
-  }
+
+    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+        parent::__construct($app);
+    }
+
+    public function Fill($value) {
+        if (is_array($value)) {
+            $this->Response = json_encode($value, JSON_PRETTY_PRINT);
+            return $this;
+        }
+        $this->Response = json_encode($value, JSON_PRETTY_PRINT);
+        return $this;
+    }
+
 }

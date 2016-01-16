@@ -15,23 +15,24 @@ namespace WebDevJL\Framework\BO;
 
 class ListItem {
 
-  public $value;
-  public $label;
-  
-  public static function Init($value, $label) {
-    $instance = new ListItem($value, $label);
-    return $instance;
-  }
-  /**
-   * 
-   * @param type $id
-   * @param type $type
-   * @param type $title
-   * @param type $dynamicValue
-   */
-  public function __construct($value, $label) {
-    $this->value = $value;
-    $this->label = $label;
-  }
+    public $value;
+    public $label;
+
+    public static function Init($value, $label) {
+        $instance = new ListItem($value, $label);
+        return $instance;
+    }
+
+    /**
+     * 
+     * @param type $id
+     * @param type $type
+     * @param type $title
+     * @param type $dynamicValue
+     */
+    public function __construct($value, $label) {
+        $this->value = $value;
+        $this->label = $label;
+    }
 
 }

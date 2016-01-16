@@ -14,6 +14,8 @@
 namespace WebDevJL\Framework\ViewModels;
 
 class GeneratorVm extends BaseVm {
-  public $links = array();
-  public $filesGenerated = array();
+
+    public $links = array();
+    public $filesGenerated = array();
+
 }

@@ -29,8 +29,8 @@ namespace WebDevJL\Framework\Enums;
  */
 abstract class QueryStringKeys {
 
-  const EditionMode = "mode";
-  const EditionModeAdd = "add";
-  const EditionModeEdit = "edit";
+    const EditionMode = "mode";
+    const EditionModeAdd = "add";
+    const EditionModeEdit = "edit";
 
 }

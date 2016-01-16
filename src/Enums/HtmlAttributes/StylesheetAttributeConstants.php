@@ -14,5 +14,7 @@
 namespace WebDevJL\Framework\Enums\HtmlAttributes;
 
 class StylesheetAttributeConstants {
-  const Rel = 'rel';
+
+    const Rel = 'rel';
+
 }

@@ -47,203 +47,203 @@ use WebDevJL\Framework\BO\F_controller_resource;
 
 class Globalization extends ApplicationComponent {
 
-  const COMMON_RESX_OBJ_LIST = "COMMON_RESX_OBJ_LIST";
-  const CONTROLLER_RESX_OBJ_LIST = "CONTROLLER_RESX_OBJ_LIST";
-  const COMMON_RESX_ARRAY_KEY = "COMMON_RESX_ARRAY_KEY";
-  const CONTROLLER_RESX_ARRAY_KEY = "CONTROLLER_RESX_ARRAY_KEY";
+    const COMMON_RESX_OBJ_LIST = "COMMON_RESX_OBJ_LIST";
+    const CONTROLLER_RESX_OBJ_LIST = "CONTROLLER_RESX_OBJ_LIST";
+    const COMMON_RESX_ARRAY_KEY = "COMMON_RESX_ARRAY_KEY";
+    const CONTROLLER_RESX_ARRAY_KEY = "CONTROLLER_RESX_ARRAY_KEY";
 
-  public $CommonResources = array();
-  public $ControllerResources = array();
-  private $context;
+    public $CommonResources = array();
+    public $ControllerResources = array();
+    private $context;
 
-  public function __construct(Application $app) {
-    parent::__construct($app);
-    $this->context = new Context($app);
-  }
-
-  public function Init($source = \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
-    $dal = $this->app()->dal()->getDalInstance();
-    switch ($source) {
-      case ResourceManagers\ResourceBase::FROM_DB:
-        $logGuid = \WebDevJL\Framework\Utility\TimeLogger::StartLogInfo($this->app(), __CLASS__ . __METHOD__);
-        $objectLists = array();
-        $objectLists[self::COMMON_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_common_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
-        $objectLists[self::CONTROLLER_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_controller_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
-        $this->OrganizeResourcesIntoAssociativeArray($objectLists);
-        \WebDevJL\Framework\Utility\TimeLogger::EndLog($this->app, $logGuid);
-        break;
-
-      default:
-        //todo: create error code
-        throw new \Exception("Source " . $source . " is not implemented", 0, NULL);
+    public function __construct(Application $app) {
+        parent::__construct($app);
+        $this->context = new Context($app);
     }
-  }
 
-  /**
-   * $this->CommonResources and $this->ControllerResources hold a array of F_resource_global
-   * and F_resource_local objects.
-   * 
-   * We could use these list and use a loop to find the resource by key and culture.
-   * Instead, let's transform the array into an associative array of this form:
-   */
-  private function OrganizeResourcesIntoAssociativeArray($objectLists) {
-    $this->OrganizeCommonResources($objectLists[self::COMMON_RESX_OBJ_LIST]);
-    $this->OrganizeControllerResources($objectLists[self::CONTROLLER_RESX_OBJ_LIST]);
-  }
+    public function Init($source = \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
+        $dal = $this->app()->dal()->getDalInstance();
+        switch ($source) {
+            case ResourceManagers\ResourceBase::FROM_DB:
+                $logGuid = \WebDevJL\Framework\Utility\TimeLogger::StartLogInfo($this->app(), __CLASS__ . __METHOD__);
+                $objectLists = array();
+                $objectLists[self::COMMON_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_common_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
+                $objectLists[self::CONTROLLER_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_controller_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
+                $this->OrganizeResourcesIntoAssociativeArray($objectLists);
+                \WebDevJL\Framework\Utility\TimeLogger::EndLog($this->app, $logGuid);
+                break;
 
-  /**
-   * Build the associative array for the Common resources.
-   * The structure is:
-   * 
-   * $array = array(
-   *    "culture_id_1" => array(
-   *      "group1" 
-   *        "key1" => "value1",
-   *        "key2" => "value2",
-   *        ...
-   *        "keyN" => "valueN",
-   *    ),
-   *    "culture_id_2" => array(
-   *        "key1" => "value1",
-   *        "key2" => "value2",
-   *        ...
-   *        "keyN" => "valueN",
-   *    )
-   * );
-   * 
-   * @param array(of WebDevJL\Framework\BO\F_common_resource) $resources the objects to loop through
-   */
-  private function OrganizeCommonResources($resources) {
-    $assocArray = array(self::COMMON_RESX_ARRAY_KEY);
-    foreach ($resources as $resourceObj) {
-      $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
-      if (isset($assocArray
-              [self::COMMON_RESX_ARRAY_KEY]
-              [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
-              [$resourceObj->f_culture_id()]
-              [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]])) {
-        $assocArray
-            [self::COMMON_RESX_ARRAY_KEY]
-            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
-            [$resourceObj->f_culture_id()]
-            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]] = array(
-          $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
-          $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
-        );
-      } else {
-        $assocArray
-            [self::COMMON_RESX_ARRAY_KEY]
-            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
-            [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
-            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]] = array(
-          \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_VALUE => $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
-          \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_COMMENT => $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
-        );
-      }
+            default:
+                //todo: create error code
+                throw new \Exception("Source " . $source . " is not implemented", 0, NULL);
+        }
     }
-    $this->CommonResources = $assocArray[self::COMMON_RESX_ARRAY_KEY];
-  }
 
-  /**
-   * 
-   * //For Controller Resources
-   *    "en" => array(
-   *      "module1" => array(
-   *        "common" => array(
-   *          "key1" => "value1",
-   *          ...
-   *          "keyN" => "valueN"
-   *        ),
-   *        "action1" => array(
-   *          "key1" => "value1",
-   *          ...
-   *          "keyN" => "valueN"
-   *        ),
-   *        "action2" => array(
-   *          "key1" => "value1",
-   *          ...
-   *          "keyN" => "valueN"
-   *        ),
-   *      ),
-   *      "module2" => array(
-   *        "action3" => array(
-   *          "key1" => "value1",
-   *          ...
-   *          "keyN" => "valueN"
-   *        ),
-   *        "action4" => array(
-   *          "key1" => "value1",
-   *          ...
-   *          "keyN" => "valueN"
-   *        ),
-   *      ),
-   *    ),
-   *    ... repeat for other languages ...
-   * );
-   * 
-   * @param array(of WebDevJL\Framework\BO\F_controller_resource) $resources the objects to loop through
-   */
-  private function OrganizeControllerResources($resources) {
-    $assocArray = array(self::CONTROLLER_RESX_ARRAY_KEY);
-    foreach ($resources as $resourceObj) {
-      $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
-      if (isset($assocArray
-              [self::COMMON_RESX_ARRAY_KEY]
-              [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
-              [$resourceObj->f_culture_id()]
-              [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
-              [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]])) {
-        $assocArray
-            [self::CONTROLLER_RESX_ARRAY_KEY]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
-            [$resourceObj->f_culture_id()]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
-          \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
-          \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
-        ;
-      } else {
-        $assocArray
-            [self::CONTROLLER_RESX_ARRAY_KEY]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
-            [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
-            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
-          \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
-          \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
-        ;
-      }
+    /**
+     * $this->CommonResources and $this->ControllerResources hold a array of F_resource_global
+     * and F_resource_local objects.
+     * 
+     * We could use these list and use a loop to find the resource by key and culture.
+     * Instead, let's transform the array into an associative array of this form:
+     */
+    private function OrganizeResourcesIntoAssociativeArray($objectLists) {
+        $this->OrganizeCommonResources($objectLists[self::COMMON_RESX_OBJ_LIST]);
+        $this->OrganizeControllerResources($objectLists[self::CONTROLLER_RESX_OBJ_LIST]);
     }
-    $this->ControllerResources = $assocArray[self::CONTROLLER_RESX_ARRAY_KEY];
-  }
 
-  /**
-   * 
-   * @param string $key
-   * @return string
-   */
-  public function getCommonResx($key) {
-    $resource = $this->CommonResources
-        [$this->context->GetCultureId()]
-        [$key]
-        [F_common_resource::F_COMMON_RESOURCE_VALUE];
-    return $resource;
-  }
+    /**
+     * Build the associative array for the Common resources.
+     * The structure is:
+     * 
+     * $array = array(
+     *    "culture_id_1" => array(
+     *      "group1" 
+     *        "key1" => "value1",
+     *        "key2" => "value2",
+     *        ...
+     *        "keyN" => "valueN",
+     *    ),
+     *    "culture_id_2" => array(
+     *        "key1" => "value1",
+     *        "key2" => "value2",
+     *        ...
+     *        "keyN" => "valueN",
+     *    )
+     * );
+     * 
+     * @param array(of WebDevJL\Framework\BO\F_common_resource) $resources the objects to loop through
+     */
+    private function OrganizeCommonResources($resources) {
+        $assocArray = array(self::COMMON_RESX_ARRAY_KEY);
+        foreach ($resources as $resourceObj) {
+            $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
+            if (isset($assocArray
+                            [self::COMMON_RESX_ARRAY_KEY]
+                            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
+                            [$resourceObj->f_culture_id()]
+                            [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]])) {
+                $assocArray
+                        [self::COMMON_RESX_ARRAY_KEY]
+                        [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
+                        [$resourceObj->f_culture_id()]
+                        [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]] = array(
+                    $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
+                    $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
+                );
+            } else {
+                $assocArray
+                        [self::COMMON_RESX_ARRAY_KEY]
+                        [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
+                        [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
+                        [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]] = array(
+                    \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_VALUE => $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
+                    \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_COMMENT => $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
+                );
+            }
+        }
+        $this->CommonResources = $assocArray[self::COMMON_RESX_ARRAY_KEY];
+    }
 
-  /**
-   * 
-   * @param string $key
-   * @return string
-   */
-  public function getControllerResx($key) {
-    $route = Router::Init($this->app)->currentRoute();
-    $resource = $this->ControllerResources
-        [$this->context->GetCultureID()]
-        [$route->module()]
-        [$route->action()]
-        [$key]
-        [F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
-    return $resource;
-  }
+    /**
+     * 
+     * //For Controller Resources
+     *    "en" => array(
+     *      "module1" => array(
+     *        "common" => array(
+     *          "key1" => "value1",
+     *          ...
+     *          "keyN" => "valueN"
+     *        ),
+     *        "action1" => array(
+     *          "key1" => "value1",
+     *          ...
+     *          "keyN" => "valueN"
+     *        ),
+     *        "action2" => array(
+     *          "key1" => "value1",
+     *          ...
+     *          "keyN" => "valueN"
+     *        ),
+     *      ),
+     *      "module2" => array(
+     *        "action3" => array(
+     *          "key1" => "value1",
+     *          ...
+     *          "keyN" => "valueN"
+     *        ),
+     *        "action4" => array(
+     *          "key1" => "value1",
+     *          ...
+     *          "keyN" => "valueN"
+     *        ),
+     *      ),
+     *    ),
+     *    ... repeat for other languages ...
+     * );
+     * 
+     * @param array(of WebDevJL\Framework\BO\F_controller_resource) $resources the objects to loop through
+     */
+    private function OrganizeControllerResources($resources) {
+        $assocArray = array(self::CONTROLLER_RESX_ARRAY_KEY);
+        foreach ($resources as $resourceObj) {
+            $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
+            if (isset($assocArray
+                            [self::COMMON_RESX_ARRAY_KEY]
+                            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
+                            [$resourceObj->f_culture_id()]
+                            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
+                            [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]])) {
+                $assocArray
+                        [self::CONTROLLER_RESX_ARRAY_KEY]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
+                        [$resourceObj->f_culture_id()]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
+                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
+                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
+                ;
+            } else {
+                $assocArray
+                        [self::CONTROLLER_RESX_ARRAY_KEY]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
+                        [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
+                        [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
+                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
+                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
+                ;
+            }
+        }
+        $this->ControllerResources = $assocArray[self::CONTROLLER_RESX_ARRAY_KEY];
+    }
+
+    /**
+     * 
+     * @param string $key
+     * @return string
+     */
+    public function getCommonResx($key) {
+        $resource = $this->CommonResources
+                [$this->context->GetCultureId()]
+                [$key]
+                [F_common_resource::F_COMMON_RESOURCE_VALUE];
+        return $resource;
+    }
+
+    /**
+     * 
+     * @param string $key
+     * @return string
+     */
+    public function getControllerResx($key) {
+        $route = Router::Init($this->app)->currentRoute();
+        $resource = $this->ControllerResources
+                [$this->context->GetCultureID()]
+                [$route->module()]
+                [$route->action()]
+                [$key]
+                [F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
+        return $resource;
+    }
 
 }

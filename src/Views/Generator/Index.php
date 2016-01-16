@@ -1,10 +1,9 @@
 <?php
-
 $ViewModel = new WebDevJL\Framework\ViewModels\GeneratorVm($this->app);
 if (!($ControllerVm instanceof WebDevJL\Framework\ViewModels\GeneratorVm)) {
-  throw new WebDevJL\Framework\Exceptions\InvalidViewModelTypeException();
+    throw new WebDevJL\Framework\Exceptions\InvalidViewModelTypeException();
 } else {
-  $ViewModel = clone $ControllerVm;
+    $ViewModel = clone $ControllerVm;
 }
         const ControllerGeneratorUrl = "../Generator/BuildControllerConstantsClass";
         const ControllerGeneratorText = "Generate controller constants class";
@@ -20,11 +19,11 @@ if (!($ControllerVm instanceof WebDevJL\Framework\ViewModels\GeneratorVm)) {
 <h1>Generator scripts</h1>
 <p>On this page, you can generate code by simple click.</p>
 <ul>
-  <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ControllerGeneratorUrl, ControllerGeneratorText); ?></li>
-  <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(DalModuleGeneratorUrl, DalModuleGeneratorText); ?></li>
-  <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ViewNameGeneratorUrl, ViewNameGeneratorText); ?></li>
-  <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(DalModuleGeneratorUrl, DaoGeneratorText); ?></li>
-  <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ResourceGeneratorUrl, ResourceGeneratorText); ?></li>
+    <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ControllerGeneratorUrl, ControllerGeneratorText); ?></li>
+    <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(DalModuleGeneratorUrl, DalModuleGeneratorText); ?></li>
+    <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ViewNameGeneratorUrl, ViewNameGeneratorText); ?></li>
+    <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(DalModuleGeneratorUrl, DaoGeneratorText); ?></li>
+    <li><?php echo \WebDevJL\Framework\UC\LinkControl::Init()->Simple(ResourceGeneratorUrl, ResourceGeneratorText); ?></li>
 </ul>
 </body>
 </html>

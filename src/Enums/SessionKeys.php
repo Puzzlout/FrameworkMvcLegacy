@@ -27,5 +27,5 @@
 namespace WebDevJL\Framework\Enums;
 
 abstract class SessionKeys {
-
+    
 }

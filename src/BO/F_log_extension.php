@@ -13,11 +13,12 @@
 
 namespace WebDevJL\Framework\BO;
 
-
 class F_log_extension extends \WebDevJL\Framework\BO\F_log {
-  const LEVEL_INFO = "LEVEL_INFO";
-  const LEVEL_DEBUG = "LEVEL_DEBUG";
-  const LEVEL_WARNING = "LEVEL_WARNING";
-  const LEVEL_ERROR = "LEVEL_ERROR";
-  const LEVEL_FATAL = "LEVEL_FATAL";
+
+    const LEVEL_INFO = "LEVEL_INFO";
+    const LEVEL_DEBUG = "LEVEL_DEBUG";
+    const LEVEL_WARNING = "LEVEL_WARNING";
+    const LEVEL_ERROR = "LEVEL_ERROR";
+    const LEVEL_FATAL = "LEVEL_FATAL";
+
 }

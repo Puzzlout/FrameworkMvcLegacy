@@ -14,15 +14,16 @@
 namespace WebDevJL\Framework\Interfaces;
 
 interface IViewModel {
-  /**
-   * Get the Resource Object for a given ViewModel.
-   * @return Object The resource object for the view model.
-   */
-  public function GetResourceObject();
-  
-  /**
-   * Get the resource for the given key.
-   * @param string $key
-   */
-  public function ResxFor($key);
+
+    /**
+     * Get the Resource Object for a given ViewModel.
+     * @return Object The resource object for the view model.
+     */
+    public function GetResourceObject();
+
+    /**
+     * Get the resource for the given key.
+     * @param string $key
+     */
+    public function ResxFor($key);
 }

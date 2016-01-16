@@ -212,5 +212,4 @@ class InitializeTestSuite {
     $status = fclose($writer);
     return $status;
   }
-
 }

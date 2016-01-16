@@ -14,24 +14,25 @@
 namespace WebDevJL\Framework\GeneratorEngine\Constants;
 
 class ApplicationList {
-  
-  /***
-   * Instantiate the class
-   */
-  public static function Init() {
-    $instance = new ApplicationList();
-    return $instance;
-  }
-  
-  /**
-   * Retrieve the associative array representing the list of file types.
-   * 
-   * @return array The Types of file.
-   */
-  public function GetList() {
-    //Get the list of applications in the folder "Applications"
-    //$list = scandir("APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName);
-    $list = array("EasyMvc", "Ide");
-    return $list;
-  }
+    /*     * *
+     * Instantiate the class
+     */
+
+    public static function Init() {
+        $instance = new ApplicationList();
+        return $instance;
+    }
+
+    /**
+     * Retrieve the associative array representing the list of file types.
+     * 
+     * @return array The Types of file.
+     */
+    public function GetList() {
+        //Get the list of applications in the folder "Applications"
+        //$list = scandir("APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName);
+        $list = array("EasyMvc", "Ide");
+        return $list;
+    }
+
 }

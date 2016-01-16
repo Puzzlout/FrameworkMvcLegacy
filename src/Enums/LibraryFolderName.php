@@ -25,16 +25,16 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class LibraryFolderName {
 
-  const Library = "Library/";
-  const BL = "BL/";
-  const Core = "Core/";
-  const Controllers = "Controllers/";
-  const BO = "BO/";
-  const Utility = "Utility/";
-  const DAL = "DAL/";
-  const Modules = "Modules/";
-  const Enums = "Enums/";
-  const ResourceKeys = "ResourceKeys/";
-  const UC = "UC/";
+    const Library = "Library/";
+    const BL = "BL/";
+    const Core = "Core/";
+    const Controllers = "Controllers/";
+    const BO = "BO/";
+    const Utility = "Utility/";
+    const DAL = "DAL/";
+    const Modules = "Modules/";
+    const Enums = "Enums/";
+    const ResourceKeys = "ResourceKeys/";
+    const UC = "UC/";
 
 }

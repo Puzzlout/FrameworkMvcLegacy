@@ -15,11 +15,11 @@ namespace WebDevJL\Framework\Utility;
 
 class DateTimeHelper {
 
-  public static function GetDateTimeWithMs($time) {
-    $micro = sprintf("%06d", ($time - floor($time)) * 1000000);
-    $dateTime = new \DateTime(date('Y-m-d H:i:s.' . $micro, $time));
-    $formattedTime = $dateTime->format("Y-m-d H:i:s.u");
-    return $formattedTime;
-  }
+    public static function GetDateTimeWithMs($time) {
+        $micro = sprintf("%06d", ($time - floor($time)) * 1000000);
+        $dateTime = new \DateTime(date('Y-m-d H:i:s.' . $micro, $time));
+        $formattedTime = $dateTime->format("Y-m-d H:i:s.u");
+        return $formattedTime;
+    }
 
 }

@@ -15,32 +15,34 @@ namespace WebDevJL\Framework\BO;
 
 class NewFileItem implements \JsonSerializable {
 
-  public $fileType;
-  public $fileName;
-  public $fileDesc;
-  public $fileDirPath;
-  public $fileContents;
-  
-  public static function Init() {
-    $instance = new NewFileItem();
-    return $instance;
-  }
-  /**
-   * 
-   * @param array $dataAssocArray
-   */
-  public function Fill($dataAssocArray) {
-    foreach ($dataAssocArray as $key => $value) {
-      if(!property_exists($this, $key)) {
-        throw new \Exception("Property $key doesn't exist in the class ". __CLASS__, 0, NULL);
-      }
-      $this->$key = $value;
+    public $fileType;
+    public $fileName;
+    public $fileDesc;
+    public $fileDirPath;
+    public $fileContents;
+
+    public static function Init() {
+        $instance = new NewFileItem();
+        return $instance;
     }
-    return $this;
-  }
-  
-  public function jsonSerialize() {
-    $serializedThis = (array) $this;
-    return $serializedThis;
-  }
+
+    /**
+     * 
+     * @param array $dataAssocArray
+     */
+    public function Fill($dataAssocArray) {
+        foreach ($dataAssocArray as $key => $value) {
+            if (!property_exists($this, $key)) {
+                throw new \Exception("Property $key doesn't exist in the class " . __CLASS__, 0, NULL);
+            }
+            $this->$key = $value;
+        }
+        return $this;
+    }
+
+    public function jsonSerialize() {
+        $serializedThis = (array) $this;
+        return $serializedThis;
+    }
+
 }

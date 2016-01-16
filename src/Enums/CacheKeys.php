@@ -15,11 +15,10 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class CacheKeys {
 
-  /**
-   * Retrieve the list of folders in the solution
-   */
-  const SOLUTION_FOLDERS = "SOLUTION_FOLDERS";
-  
-  const SOLUTION_CLASSES = "SOLUTION_CLASSES";
+    /**
+     * Retrieve the list of folders in the solution
+     */
+    const SOLUTION_FOLDERS = "SOLUTION_FOLDERS";
+    const SOLUTION_CLASSES = "SOLUTION_CLASSES";
 
 }

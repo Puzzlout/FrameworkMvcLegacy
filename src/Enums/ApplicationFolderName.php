@@ -15,16 +15,17 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class ApplicationFolderName {
 
-  const AppsFolderName = "Applications/";
-  const ControllersFolderName = "/Controllers/";
-  const DalModulesFolderName = "/DalModules/";
-  const ViewsFolderName = "/Views/";
-  const TemplatesFolderName = "/Templates/";
-  const ConfigFolderName = "/Config/";
-  const ResourceCommonFolderName = "/Resources/Common/";
-  const ResourceControllerFolderName = "/Resources/Controller/";
-  const WebJs = "Web/js/";
-  const WebCss = "Web/css/";
-  const ModulesFolderName = "/Modules/";
-  const Generated = "/Generated/";
+    const AppsFolderName = "Applications/";
+    const ControllersFolderName = "/Controllers/";
+    const DalModulesFolderName = "/DalModules/";
+    const ViewsFolderName = "/Views/";
+    const TemplatesFolderName = "/Templates/";
+    const ConfigFolderName = "/Config/";
+    const ResourceCommonFolderName = "/Resources/Common/";
+    const ResourceControllerFolderName = "/Resources/Controller/";
+    const WebJs = "Web/js/";
+    const WebCss = "Web/css/";
+    const ModulesFolderName = "/Modules/";
+    const Generated = "/Generated/";
+
 }

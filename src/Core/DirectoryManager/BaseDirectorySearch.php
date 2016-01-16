@@ -14,6 +14,8 @@
 namespace WebDevJL\Framework\Core\DirectoryManager;
 
 abstract class BaseDirectorySearch {
-  protected $DirectoryList;
-  protected $ContextApp;
+
+    protected $DirectoryList;
+    protected $ContextApp;
+
 }

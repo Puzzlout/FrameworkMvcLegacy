@@ -14,7 +14,9 @@
 namespace WebDevJL\Framework\Enums\HtmlAttributes;
 
 class HtmlAttributeConstants {
-  const DataRootAttr = "data-";
-  const Src = "src";
-  const Href = "href";
+
+    const DataRootAttr = "data-";
+    const Src = "src";
+    const Href = "href";
+
 }

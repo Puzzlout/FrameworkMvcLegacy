@@ -14,6 +14,8 @@
 namespace WebDevJL\Framework\Core\FileManager;
 
 abstract class BaseFileSearch {
-  protected $FileList;
-  protected $ContextApp;
+
+    protected $FileList;
+    protected $ContextApp;
+
 }

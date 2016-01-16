@@ -15,8 +15,8 @@ namespace WebDevJL\Framework\Controllers;
 
 class DebugController extends \WebDevJL\Framework\Controllers\BaseController {
 
-  public function ViewSessionArrays() {
-    $output = array();
+    public function ViewSessionArrays() {
+        $output = array();
 //    switch ($this->currentRequest()->getData("type")) {
 //      case "route":
 //            \WebDevJL\Framework\Helpers\DebugHelper::WriteObject(
@@ -25,7 +25,7 @@ class DebugController extends \WebDevJL\Framework\Controllers\BaseController {
 //      default:
 //        break;
 //    }
-    die();
-  }
+        die();
+    }
 
 }

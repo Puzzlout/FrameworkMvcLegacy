@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Interface to base objects handling
  * 
@@ -9,21 +10,24 @@
  * @since Version 1.0.0
  * @package IObject
  */
+
 namespace WebDevJL\Framework\Interfaces;
 
 interface IObject {
-  /**
-   * Method that retrieve the instance type.
-   */
-  public function GetType();
-  /**
-   * Method that retrieve the instance class value.
-   */
-  public function GetClass();
 
-  /**
-   * Method that validates the value is correct before assigning it to the Object 
-   * value field.
-   */
-  public function IsValid($value);
+    /**
+     * Method that retrieve the instance type.
+     */
+    public function GetType();
+
+    /**
+     * Method that retrieve the instance class value.
+     */
+    public function GetClass();
+
+    /**
+     * Method that validates the value is correct before assigning it to the Object 
+     * value field.
+     */
+    public function IsValid($value);
 }

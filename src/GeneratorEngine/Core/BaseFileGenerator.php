@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Base class for creating files from a given name, description, a destination
  * path and template.
@@ -13,9 +14,11 @@
  * @since Version 1.0.0
  * @package BaseFileGenerator
  */
+
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 abstract class BaseFileGenerator {
-  protected $newFileItem;
-          
+
+    protected $newFileItem;
+
 }

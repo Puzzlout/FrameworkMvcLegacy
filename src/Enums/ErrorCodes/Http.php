@@ -14,7 +14,8 @@
 namespace WebDevJL\Framework\Enums\ErrorCodes;
 
 abstract class Http {
-  const PAGE_NOT_FOUND = 404;
-  const SERVER_ERROR = 500;
+
+    const PAGE_NOT_FOUND = 404;
+    const SERVER_ERROR = 500;
 
 }

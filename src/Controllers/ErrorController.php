@@ -15,15 +15,15 @@ namespace WebDevJL\Framework\Controllers;
 
 class ErrorController extends \WebDevJL\Framework\Controllers\BaseController {
 
-  public function ControllerNotFound() {
-    $this->viewModel->errorVm->errorId(0);
-    $this->viewModel->errorVm->errorMessage("Controller Not Found");
-  }
+    public function ControllerNotFound() {
+        $this->viewModel->errorVm->errorId(0);
+        $this->viewModel->errorVm->errorMessage("Controller Not Found");
+    }
 
-  public function Http404() {
-    $this->viewModel = new \WebDevJL\Framework\ViewModels\HttpErrorVm($this->app());
-    $this->viewModel->errorVm->errorId(404);
-    $this->viewModel->errorVm->errorMessage("Page not found");
-  }
+    public function Http404() {
+        $this->viewModel = new \WebDevJL\Framework\ViewModels\HttpErrorVm($this->app());
+        $this->viewModel->errorVm->errorId(404);
+        $this->viewModel->errorVm->errorMessage("Page not found");
+    }
 
 }

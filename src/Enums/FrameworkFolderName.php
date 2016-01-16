@@ -15,10 +15,11 @@ namespace WebDevJL\Framework\Enums;
 
 abstract class FrameworkFolderName {
 
-  const ControllersFolderName = "Library/Controllers/";
-  const DalModulesFolderName = "Library/Dal/Modules/";
-  const ViewsFolderName = "Library/Views/";
-  const GeneratedFolderName = "Library/Generated/";
-  const CORE = "Library/Core";
-  const TEMPLATES_DIR = "CodeGenerators/templates/";
+    const ControllersFolderName = "Library/Controllers/";
+    const DalModulesFolderName = "Library/Dal/Modules/";
+    const ViewsFolderName = "Library/Views/";
+    const GeneratedFolderName = "Library/Generated/";
+    const CORE = "Library/Core";
+    const TEMPLATES_DIR = "CodeGenerators/templates/";
+
 }
