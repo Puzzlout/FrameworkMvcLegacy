@@ -5,6 +5,6 @@ A framework to build Mvc applications
 
 v1.0.0-alpha.1 : 
 
-- #25
+- [issue #25](https://github.com/WebDevJLProjectsOrg/FrameworkMvc/issues/25)
 
 v1.0.0 : First pre-release with passing build on Travis CI testing instantiation of all the package classes.
