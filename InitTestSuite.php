@@ -1,15 +1,25 @@
 <?php
-include_once("vendor/autoload.php");
-define("ROOT_DIR", dirname(dirname(__FILE__)) . "/FrameworkMvc/");
+/**
+ * You must change the following values according to your case.
+ */
 define("VENDOR", "WebDevJL");
+define("PACKAGE", "FrameworkMvc");
+$soureNamespacePrefix = VENDOR . "\\Framework\\";
+$testNamespacePrefix = VENDOR . "\\Framework\\Tests";
+
+/**
+ * NO MODIFICATION ZONE (except if you take responsibility of your actions)
+ */
+define("ROOT_DIR", dirname(dirname(__FILE__)) . "/" . PACKAGE . "/");
 define("TESTING_FILE_TREE", FALSE);
 define("SKIP_TEST_CLASSES_GENERATION", FALSE);
 define("OVERWRITE_TEST_SUITE", TRUE);
-define("TEST_SUITE_VERSION", "v1.0.0");
+define("TEST_SUITE_VERSION", "v1.1.0");
 
-echo "<h1>Starting...</h1>";
-$TestSuite = WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite::Init()->ProcessSourceFolder();
-echo "<h1>Finished!</h1>\n";
+include_once("vendor/autoload.php");
+use WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite;
+
+$TestSuite = InitializeTestSuite::Init($soureNamespacePrefix, $testNamespacePrefix)->ProcessSourceFolder();
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,9 +57,9 @@ echo "<h1>Finished!</h1>\n";
       }
     </style>
   </head>
-
   <body>
+    <h1>Starting generation of testing suite (<?php echo TEST_SUITE_VERSION; ?>)...</h1>
     <?php echo $TestSuite->output; ?>
+    <h1>End of generation.</h1>
   </body>
-
 </html>

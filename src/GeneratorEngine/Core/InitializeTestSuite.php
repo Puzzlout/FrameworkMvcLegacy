@@ -22,8 +22,6 @@ class InitializeTestSuite {
   const FULL_CLASS_NAME_TO_TEST = "{{full_class_name_to_test}}";
   const TEST_CLASS_NAME = "{{test_class_name}}";
   const TEST_CLASS_NAMESPACE = "{{test_class_namespace}}";
-  const SOURCE_NAMESPACE_PREFIX = "WebDevJL\\Framework\\";
-  const TEST_NAMESPACE_PREFIX = "WebDevJL\\Framework\\Tests";
   const SOURCE_FOLDER_NAME = "src";
   const TESTS_FOLDER_NAME = "tests";
   const DIR_SEPARATOR = "/";
@@ -31,10 +29,18 @@ class InitializeTestSuite {
   const CLASS_CREATION_FINAL_PATH = "test_class_filepath";
   const TEST_SUITE_VERSION = "{{test_suite_version}}";
 
+  private $SourceNamespacePrefix;
+  private $TestNamespacePrefix;
+  
   public $output;
 
-  public static function Init() {
-    $instance = new InitializeTestSuite();
+  public function __construct($soureNamespacePrefix, $testNamespacePrefix) {
+    $this->SourceNamespacePrefix = $soureNamespacePrefix;
+    $this->TestNamespacePrefix = $testNamespacePrefix;
+  }
+  
+  public static function Init($soureNamespacePrefix, $testNamespacePrefix) {
+    $instance = new InitializeTestSuite($soureNamespacePrefix, $testNamespacePrefix);
     return $instance;
   }
 
@@ -67,13 +73,13 @@ class InitializeTestSuite {
   private function GetSourceClassFullName($sourceDir, $file) {
     $dir = $this->GetShortDir($sourceDir, self::SOURCE_FOLDER_NAME);
     $className = $this->GetSourceClass($file);
-    $result = self::SOURCE_NAMESPACE_PREFIX . $dir . "\\" . $className;
+    $result = $this->SourceNamespacePrefix . $dir . "\\" . $className;
     return $result;
   }
 
   private function GetTestClassNamespace($testDir) {
     $dir = $this->GetShortDir($testDir, self::TESTS_FOLDER_NAME);
-    $result = self::TEST_NAMESPACE_PREFIX . "\\" . $dir;
+    $result = $this->TestNamespacePrefix . "\\" . $dir;
     return $result;
   }
 

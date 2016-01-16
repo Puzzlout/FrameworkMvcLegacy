@@ -2,7 +2,7 @@
 
 /**
  * 
- * @since Test Suite v1.0.0
+ * @since Test Suite v1.1.0
  */
 
 namespace WebDevJL\Framework\Tests\Core\DirectoryManager\Algorithms;
