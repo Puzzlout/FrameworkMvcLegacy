@@ -19,7 +19,8 @@ define("TEST_SUITE_VERSION", "v1.1.0");
 include_once("vendor/autoload.php");
 use WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite;
 
-$TestSuite = InitializeTestSuite::Init($soureNamespacePrefix, $testNamespacePrefix)->ProcessSourceFolder();
+$additionalFilters = array("Views");
+$TestSuite = InitializeTestSuite::init($additionalFilters, $soureNamespacePrefix, $testNamespacePrefix)->processSourceFolder();
 ?>
 <!DOCTYPE html>
 <html>

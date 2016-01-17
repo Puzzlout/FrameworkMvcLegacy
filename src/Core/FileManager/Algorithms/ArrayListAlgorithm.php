@@ -30,7 +30,6 @@ class ArrayListAlgorithm {
     public function ExcludeListForTestSuite() {
         $specific = array(
             "src",
-            "Views",
             "Generator",
             ".DS_Store",
             "FrameworkConstants.php",

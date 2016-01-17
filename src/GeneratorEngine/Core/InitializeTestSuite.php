@@ -15,6 +15,7 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 use WebDevJL\Framework\Helpers\RegexHelper;
 use WebDevJL\Framework\Enums\CommonRegexes;
+use WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm;
 
 class InitializeTestSuite {
 
@@ -31,69 +32,79 @@ class InitializeTestSuite {
 
   private $SourceNamespacePrefix;
   private $TestNamespacePrefix;
-  
+  private $ExceptionFilters;
+
+
   public $output;
 
-  public function __construct($soureNamespacePrefix, $testNamespacePrefix) {
+  /**
+   * 
+   * @param type $exceptionFilter
+   * @param type $soureNamespacePrefix
+   * @param type $testNamespacePrefix
+   */
+  public function __construct($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix) {
+    $this->ExceptionFilters = $exceptionFilters;
     $this->SourceNamespacePrefix = $soureNamespacePrefix;
     $this->TestNamespacePrefix = $testNamespacePrefix;
   }
   
-  public static function Init($soureNamespacePrefix, $testNamespacePrefix) {
-    $instance = new InitializeTestSuite($soureNamespacePrefix, $testNamespacePrefix);
+  public static function init($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix) {
+    $instance = new InitializeTestSuite($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix);
     return $instance;
   }
 
-  public function ProcessSourceFolder() {
+  public function processSourceFolder() {
+    $fullExcludeList = array_merge(ArrayListAlgorithm::Init()->ExcludeListForTestSuite(), $this->ExceptionFilters);
     $listOfDir = \WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch::InitWithoutApp()->RecursiveFileTreeScanOf(
-            ROOT_DIR . self::SOURCE_FOLDER_NAME, \WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm::Init()->ExcludeListForTestSuite());
+            ROOT_DIR . self::SOURCE_FOLDER_NAME, $fullExcludeList);
     if (TESTING_FILE_TREE) {
       var_dump($listOfDir);
       return;
     }
     foreach ($listOfDir as $sourceDirectory => $files) {
-      $targetDir = $this->GetFullDirectoryValue($sourceDirectory);
-      $this->CreateTestClasses($sourceDirectory, $targetDir, $files);
+      $targetDir = $this->getFullDirectoryValue($sourceDirectory);
+      $this->createTestClasses($sourceDirectory, $targetDir, $files);
     }
     return $this;
   }
 
-  private function GetShortDir($dir, $specificDirPart) {
+  private function getShortDir($dir, $specificDirPart) {
     $shortDirectory = str_replace(ROOT_DIR . $specificDirPart . self::DIR_SEPARATOR, "", $dir);
     $shortDirectory = str_replace("/", "\\", $shortDirectory);
     return $shortDirectory;
   }
 
-  private function GetSourceClass($file) {
+  private function getSourceClass($file) {
     $result = substr($file, strrpos($file, '/'));
     $result = str_replace(".php", "", $result);
     return $result;
   }
 
-  private function GetSourceClassFullName($sourceDir, $file) {
-    $dir = $this->GetShortDir($sourceDir, self::SOURCE_FOLDER_NAME);
-    $className = $this->GetSourceClass($file);
+  private function getSourceClassFullName($sourceDir, $file) {
+    $dir = $this->getShortDir($sourceDir, self::SOURCE_FOLDER_NAME);
+    $className = $this->getSourceClass($file);
     $result = $this->SourceNamespacePrefix . $dir . "\\" . $className;
     return $result;
   }
 
-  private function GetTestClassNamespace($testDir) {
-    $dir = $this->GetShortDir($testDir, self::TESTS_FOLDER_NAME);
+  private function getTestClassNamespace($testDir) {
+    $dir = $this->getShortDir($testDir, self::TESTS_FOLDER_NAME);
     $result = $this->TestNamespacePrefix . "\\" . $dir;
     return $result;
   }
 
-  private function CreateDirectories($fullDirectory) {
+  private function createDirectories($fullDirectory) {
     $targetDirRoot = ROOT_DIR . self::TESTS_FOLDER_NAME;
     $shortDirectory = str_replace($targetDirRoot . self::DIR_SEPARATOR, "", $fullDirectory);
     $directoryParts = explode('/', $shortDirectory);
     foreach ($directoryParts as $part) {
-      $this->CreateDirectory($targetDirRoot, $part);
+      $this->createDirectory($targetDirRoot, $part);
       $targetDirRoot .= self::DIR_SEPARATOR . $part;
     }
   }
 
-  private function CreateDirectory($targetDirRoot, $part) {
+  private function createDirectory($targetDirRoot, $part) {
     $dirToCheck = $targetDirRoot . self::DIR_SEPARATOR . $part;
     $dirExists = file_exists($dirToCheck);
     if (!$dirExists) {
@@ -111,15 +122,15 @@ class InitializeTestSuite {
     $this->output .= "<p class=\"dir created\">Directory created => $dirToCheck</p>";
   }
 
-  private function GetFullDirectoryValue($dirWithFiles) {
+  private function getFullDirectoryValue($dirWithFiles) {
     $targetDirFull = str_replace(self::SOURCE_FOLDER_NAME, self::TESTS_FOLDER_NAME, $dirWithFiles);
-    $this->CreateDirectories($targetDirFull);
+    $this->createDirectories($targetDirFull);
     return $targetDirFull;
   }
 
-  private function CreateTestClasses($sourceDirectory, $targetDir, $files) {
+  private function createTestClasses($sourceDirectory, $targetDir, $files) {
     foreach ($files as $file) {
-      $result = $this->CreateTestClass($sourceDirectory, $targetDir, $file);
+      $result = $this->createTestClass($sourceDirectory, $targetDir, $file);
       if (!$result[self::CLASS_CREATION_STATE]) {
         $this->output .= "<p class=\"test-class not-created\">Test class was not created => " . $result[self::CLASS_CREATION_FINAL_PATH] . "</p>";
         continue;
@@ -128,47 +139,47 @@ class InitializeTestSuite {
     }
   }
 
-  private function CreateTestClass($sourceDir, $targetDir, $file) {
-    $resultCheckForTest = $this->CheckTestFile($targetDir, $file);
+  private function createTestClass($sourceDir, $targetDir, $file) {
+    $resultCheckForTest = $this->checkTestFile($targetDir, $file);
     if (!$resultCheckForTest[self::CLASS_CREATION_STATE]) {
       return $resultCheckForTest;
     }
-    $resultCheckForSource = $this->CheckSourceFile($sourceDir, $file);
+    $resultCheckForSource = $this->checkSourceFile($sourceDir, $file);
     if (!$resultCheckForSource[self::CLASS_CREATION_STATE]) {
       return $resultCheckForSource;
     }
     $testClassName = str_replace(".php", "Test", $file);
     $testClassFullPath = $targetDir . "/" . $testClassName . ".php";
-    $placeholders = $this->GetPlaceholders($sourceDir, $targetDir, $file, $testClassName);
+    $placeholders = $this->getPlaceholders($sourceDir, $targetDir, $file, $testClassName);
     if (SKIP_TEST_CLASSES_GENERATION) {
       var_dump($placeholders);
       return array(self::CLASS_CREATION_STATE => $result, self::CLASS_CREATION_FINAL_PATH => $testClassFullPath);
       ;
     }
-    $newTestClassContents = $this->GenerateTestClassContents($placeholders);
-    $result = $this->WriteTestClassFile($testClassFullPath, $newTestClassContents);
+    $newTestClassContents = $this->generateTestClassContents($placeholders);
+    $result = $this->writeTestClassFile($testClassFullPath, $newTestClassContents);
     return array(self::CLASS_CREATION_STATE => $result, self::CLASS_CREATION_FINAL_PATH => $testClassFullPath);
   }
 
-  private function GenerateTestClassContents($placeholders) {
+  private function generateTestClassContents($placeholders) {
     $templateContents = file_get_contents(ROOT_DIR . "TestClass.tt");
     $newTestClassContents = strtr($templateContents, $placeholders);
     return $newTestClassContents;
   }
 
-  private function GetPlaceholders($sourceDir, $targetDir, $file, $testClassName) {
+  private function getPlaceholders($sourceDir, $targetDir, $file, $testClassName) {
     $sourceClassName = str_replace(".php", "", $file);
     return array(
-        self::FULL_CLASS_NAME_TO_TEST => $this->GetSourceClassFullName($sourceDir, $file),
+        self::FULL_CLASS_NAME_TO_TEST => $this->getSourceClassFullName($sourceDir, $file),
         self::CLASS_NAME_TO_TEST => $sourceClassName,
         self::TEST_CLASS_NAME => $testClassName,
-        self::TEST_CLASS_NAMESPACE => $this->GetTestClassNamespace($targetDir),
+        self::TEST_CLASS_NAMESPACE => $this->getTestClassNamespace($targetDir),
         self::TEST_SUITE_VERSION => TEST_SUITE_VERSION,
     );
     ;
   }
 
-  private function CheckTestFile($targetDir, $file) {
+  private function checkTestFile($targetDir, $file) {
     if (is_null($file)) {
       return array(self::CLASS_CREATION_STATE => FALSE, self::CLASS_CREATION_FINAL_PATH => 'Variable $file is null!');
     }
@@ -186,7 +197,7 @@ class InitializeTestSuite {
     return array(self::CLASS_CREATION_STATE => TRUE);
   }
 
-  private function CheckSourceFile($sourceDir, $file) {
+  private function checkSourceFile($sourceDir, $file) {
     $sourcefilePath = $sourceDir . self::DIR_SEPARATOR . $file;
     $sourceClassContents = file_get_contents($sourcefilePath);
     if (RegexHelper::Init($sourceClassContents)->IsMatch(CommonRegexes::IS_CLASS_ABSCTRACT)) {
@@ -198,7 +209,7 @@ class InitializeTestSuite {
     return array(self::CLASS_CREATION_STATE => TRUE);
   }
 
-  private function WriteTestClassFile($classPath, $classContents) {
+  private function writeTestClassFile($classPath, $classContents) {
     $writer = fopen($classPath, 'w');
     if (!$writer) {
       error_log("$classPath couldn't be created.");
