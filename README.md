@@ -3,6 +3,10 @@ A framework to build Mvc applications
 
 # Changelog
 
+v1.0.0-alpha.2 : 
+
+- [issue #26](https://github.com/WebDevJLProjectsOrg/FrameworkMvc/issues/26)
+
 v1.0.0-alpha.1 : 
 
 - [issue #25](https://github.com/WebDevJLProjectsOrg/FrameworkMvc/issues/25)
