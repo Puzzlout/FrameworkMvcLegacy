@@ -14,7 +14,8 @@ define("ROOT_DIR", dirname(dirname(__FILE__)) . "/" . PACKAGE . "/");
 define("TESTING_FILE_TREE", false);
 define("SKIP_TEST_CLASSES_GENERATION", false);
 define("OVERWRITE_TEST_SUITE", true);
-define("TEST_SUITE_VERSION", "v1.1.0");
+define("PREVIOUS_TEST_SUITE_VERSION", "v1.1.0");
+define("TEST_SUITE_VERSION", "v1.2.0");
 
 include_once("vendor/autoload.php");
 
