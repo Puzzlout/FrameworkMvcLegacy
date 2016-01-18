@@ -14,6 +14,7 @@
 namespace WebDevJL\Framework\GeneratorEngine\Core;
 
 class InitializeTestSuiteBaseObject {
+
     const CLASS_NAME_TO_TEST = "{{class_name_to_test}}";
     const FULL_CLASS_NAME_TO_TEST = "{{full_class_name_to_test}}";
     const TEST_CLASS_NAME = "{{test_class_name}}";
@@ -29,4 +30,5 @@ class InitializeTestSuiteBaseObject {
     private $TestNamespacePrefix;
     private $ExceptionFilters;
     public $output;
+
 }

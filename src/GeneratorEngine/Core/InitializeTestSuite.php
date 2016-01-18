@@ -16,7 +16,7 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 use WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch;
 use WebDevJL\Framework\Core\FileManager\Algorithms\ArrayListAlgorithm;
 
-class InitializeTestSuite extends InitializeTestSuiteBaseObject{
+class InitializeTestSuite extends InitializeTestSuiteBaseObject {
 
     /**
      * The constructor
@@ -113,15 +113,15 @@ class InitializeTestSuite extends InitializeTestSuiteBaseObject{
         foreach ($files as $file) {
             $result = $this->createTestClass($sourceDirectory, $targetDir, $file);
             if (!$result[self::CLASS_CREATION_STATE]) {
-                $this->output .= 
-                        "<p class=\"test-class not-created\">Test class was not created => " . 
-                        $result[self::CLASS_CREATION_FINAL_PATH] . 
+                $this->output .=
+                        "<p class=\"test-class not-created\">Test class was not created => " .
+                        $result[self::CLASS_CREATION_FINAL_PATH] .
                         "</p>";
                 continue;
             }
-            $this->output .= 
-                    "<p class=\"test-class created\">Test class was generated => " . 
-                    $result[self::CLASS_CREATION_FINAL_PATH] . 
+            $this->output .=
+                    "<p class=\"test-class created\">Test class was generated => " .
+                    $result[self::CLASS_CREATION_FINAL_PATH] .
                     "</p>";
         }
     }

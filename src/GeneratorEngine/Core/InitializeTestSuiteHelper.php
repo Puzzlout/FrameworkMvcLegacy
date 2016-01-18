@@ -25,7 +25,7 @@ class InitializeTestSuiteHelper extends InitializeTestSuiteBaseObject {
 
     public function checkTestFile($targetDir, $file) {
         if (is_null($file)) {
-            return $this->getResultArray(FALSE,'Variable $file is null!');
+            return $this->getResultArray(FALSE, 'Variable $file is null!');
         }
         $testfilePath = $targetDir . self::DIR_SEPARATOR . str_replace(".php", "Test.php", $file);
         $testClassExists = file_exists($testfilePath);
@@ -61,10 +61,10 @@ class InitializeTestSuiteHelper extends InitializeTestSuiteBaseObject {
         );
     }
 
-
     private function testIfTestClassIsLocked($testClassContents) {
         $result = is_string($testClassContents) &&
                 RegexHelper::Init($testClassContents)->IsMatch(CommonRegexes::CONTAINS_LOCKED_FLAG);
         return $result;
     }
+
 }
