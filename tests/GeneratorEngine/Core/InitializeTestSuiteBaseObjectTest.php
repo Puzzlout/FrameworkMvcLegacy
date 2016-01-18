@@ -27,7 +27,7 @@ class InitializeTestSuiteBaseObjectTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new InitializeTestSuiteBaseObject();
+    $result = new InitializeTestSuiteBaseObject([], "", "");
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuiteBaseObject', $result);
   }
   
