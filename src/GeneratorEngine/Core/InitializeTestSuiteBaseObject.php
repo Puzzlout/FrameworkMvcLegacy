@@ -31,4 +31,16 @@ class InitializeTestSuiteBaseObject {
     private $ExceptionFilters;
     public $output;
 
+        /**
+     * The constructor
+     * @param array $exceptionFilters The list of exception filters to merge the common filters
+     * @param string $soureNamespacePrefix The namespace prefix for the source classes
+     * @param string $testNamespacePrefix The namespace prefix for the test classes
+     */
+    public function __construct($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix) {
+        $this->ExceptionFilters = $exceptionFilters;
+        $this->SourceNamespacePrefix = $soureNamespacePrefix;
+        $this->TestNamespacePrefix = $testNamespacePrefix;
+    }
+
 }

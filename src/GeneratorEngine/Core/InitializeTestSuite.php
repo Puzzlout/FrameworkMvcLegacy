@@ -25,9 +25,7 @@ class InitializeTestSuite extends InitializeTestSuiteBaseObject {
      * @param string $testNamespacePrefix The namespace prefix for the test classes
      */
     public function __construct($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix) {
-        $this->ExceptionFilters = $exceptionFilters;
-        $this->SourceNamespacePrefix = $soureNamespacePrefix;
-        $this->TestNamespacePrefix = $testNamespacePrefix;
+        parent::__construct($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix);
     }
 
     public static function init($exceptionFilters, $soureNamespacePrefix, $testNamespacePrefix) {
