@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.1.0
  */
 
@@ -27,7 +27,7 @@ class InitializeTestSuiteTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new InitializeTestSuite($this->app);
+    $result = new InitializeTestSuite([], "", "");
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite', $result);
   }
   

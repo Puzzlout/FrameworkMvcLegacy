@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 
+ * @locked
  * @since Test Suite v1.1.0
  */
 
@@ -27,7 +27,7 @@ class InitializeTestSuiteBaseObjectTest extends \PHPUnit_Framework_TestCase {
   public function testInstanceIsCorrect()
   {
     $this->assertNotNull($this->app);
-    $result = new InitializeTestSuiteBaseObject($this->app);
+    $result = new InitializeTestSuiteBaseObject();
     $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuiteBaseObject', $result);
   }
   
