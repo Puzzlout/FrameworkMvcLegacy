@@ -31,7 +31,7 @@ class DebugHelper {
      * 
      * @param string $stringData
      */
-    public static function WriteString($stringData, $useJson = FALSE) {
+    public static function WriteString($stringData, $useJson = false) {
         if ($useJson) {
             echo json_encode('{"data":' . $stringData . '}');
         } else {
@@ -39,7 +39,7 @@ class DebugHelper {
         }
     }
 
-    public static function WriteObject($object, $useJson = FALSE) {
+    public static function WriteObject($object, $useJson = false) {
         if ($useJson) {
             echo json_encode('{"data":' . var_dump($object) . '}');
         } else {

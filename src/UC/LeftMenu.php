@@ -92,7 +92,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
                 } else {
                     $menuHeaderOutput = array(
                         "output" => $this->NOHEADERMENU,
-                        "hasLink" => FALSE);
+                        "hasLink" => false);
                 }
             }
         }
@@ -158,7 +158,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
                     false;
             return $result;
         }
-        return TRUE;
+        return true;
     }
 
     private function _AddLinkHeader($link) {
@@ -168,10 +168,10 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
                 "";
         $placeholders = $this->_BuildPlaceholderList($link);
         $formattedString = $this->_GetStringForLinkHeader($cssClassPrintedOut);
-        $html["hasLink"] = FALSE;
+        $html["hasLink"] = false;
         if ($link->getAttribute("enablelink") === "true") {
             $html["output"] = strtr($formattedString, $placeholders);
-            $html["hasLink"] = TRUE;
+            $html["hasLink"] = true;
         } else {
             $html["output"] = \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_SPAN .
                     $this->resx_left_menu[$link->getAttribute("resourcekey")] .

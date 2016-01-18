@@ -21,8 +21,8 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
     const DoGenerateConstantKeysKey = "DoGenerateConstantKeysKey";
     const DoGenerateGetListMethodKey = "DoGenerateGetListMethodKey";
 
-    protected $DoGenerateConstantKeys = TRUE;
-    protected $DoGenerateGetListMethod = TRUE;
+    protected $DoGenerateConstantKeys = true;
+    protected $DoGenerateGetListMethod = true;
     protected $ExtractedConstantsList = array();
 
     /**
@@ -131,7 +131,7 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
             } else {
                 //write a new array and its contents
                 $output .= $this->WriteAssociativeArrayValueAsNewArray($key, 3);
-                $output .= $this->WriteNewArrayAndItsContents($value, TRUE, 4);
+                $output .= $this->WriteNewArrayAndItsContents($value, true, 4);
                 //$output .= $this->CloseArray(count($value), 4);
             }
             $output .= PhpCodeSnippets::LF;
@@ -152,12 +152,12 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
      * code.
      * @return string the code generated.
      */
-    public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0) {
+    public function WriteNewArrayAndItsContents($array, $arrayOpened = false, $tabAmount = 0) {
         $output = "";
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 $output .= $this->WriteAssociativeArrayValueAsNewArray($key, $tabAmount); //new array opened
-                $output .= $this->WriteNewArrayAndItsContents($value, TRUE, $tabAmount);
+                $output .= $this->WriteNewArrayAndItsContents($value, true, $tabAmount);
             } else {
                 $output .= $this->WriteAssociativeArrayValue($this->RemoveExtensionFileName($value, ".php"), $tabAmount);
             }

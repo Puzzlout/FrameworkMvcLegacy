@@ -47,8 +47,8 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
             BaseClassGenerator::ClassNameKey => "Framework" . $this->GeneratedClassPrefix,
             BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for framework dal module classes for autocompletion and easy coding.",
-            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
-            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE
+            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
         );
         $this->GenerateFrameworkFile($FrameworkControllers);
     }
@@ -60,8 +60,8 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
             BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
             "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application dal module classes for autocompletion and easy coding.",
-            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
-            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE
+            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
         );
         $this->GenerateApplicationFile($ApplicationControllers);
     }

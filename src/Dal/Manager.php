@@ -17,7 +17,7 @@ abstract class Manager {
         return $this->dbConfigList;
     }
 
-    public function addDbConfigItem($dbConfig, $addToList = FALSE) {
+    public function addDbConfigItem($dbConfig, $addToList = false) {
         if ($addToList) {
             array_push($this->dbConfigList, $dbConfig);
         } else {

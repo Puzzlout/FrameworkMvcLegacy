@@ -83,7 +83,7 @@ class Protect extends \WebDevJL\Framework\Core\ApplicationComponent {
      * The decrypted string. 
      */
     public function Decrypt($encryptedData) {
-        $decoded = base64_decode($encryptedData, TRUE);
+        $decoded = base64_decode($encryptedData, true);
         $decrypted = mcrypt_decrypt($this->encryptionType, $this->encryptionKey, $decoded, $this->encryptionMode, $this->iv);
         return $decrypted;
     }

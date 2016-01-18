@@ -23,10 +23,10 @@ class ConstantsAndListClassGenerator extends ConstantsClassGeneratorBase impleme
         parent::__construct($app, $params, $data);
         $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
                 $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
-                FALSE;
+                false;
         $this->DoGenerateGetListMethod = array_key_exists(ConstantsClassGeneratorBase::DoGenerateGetListMethodKey, $params) ?
                 $params[ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] :
-                FALSE;
+                false;
     }
 
     public function BuildClass() {
@@ -75,7 +75,7 @@ class ConstantsAndListClassGenerator extends ConstantsClassGeneratorBase impleme
             } else {
                 //write a new array and its contents
                 $output .= $this->WriteAssociativeArrayValueAsNewArray($key, 3);
-                $output .= $this->WriteNewArrayAndItsContents($value, TRUE, 4);
+                $output .= $this->WriteNewArrayAndItsContents($value, true, 4);
                 //$output .= $this->CloseArray(count($value), 4);
             }
             $output .= PhpCodeSnippets::LF;

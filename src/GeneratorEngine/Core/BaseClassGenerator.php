@@ -35,7 +35,7 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
         $this->data = $data;
         $templateHeader = TemplateFileNameConstants::GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
         $this->classTemplateContents = file_exists($templateHeader) ?
-                file_get_contents($templateHeader) : FALSE;
+                file_get_contents($templateHeader) : false;
     }
 
     /**
@@ -177,7 +177,7 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
     }
 
-    public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0) {
+    public function WriteNewArrayAndItsContents($array, $arrayOpened = false, $tabAmount = 0) {
         throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
     }
 

@@ -86,7 +86,7 @@ class Managers {
      * 
      *
      * A module is the name of the Dal Class, either found in Library/DAL/Modules
-     * if $isCoreModule = TRUE or in Applications/CurrentApp/Models/Dal otherwise.
+     * if $isCoreModule = true or in Applications/CurrentApp/Models/Dal otherwise.
      * 
      * @param string
      * $module: Name of the module to load. By default, it is null and load the
@@ -99,7 +99,7 @@ class Managers {
      * @throws \InvalidArgumentException
      * Thrown if the module isn't given in $module parameter. 
      */
-    public function getDalInstance($module = NULL, $isCoreModule = FALSE) {
+    public function getDalInstance($module = NULL, $isCoreModule = false) {
         if (is_null($module)) {
             $module = "Common";
             $isCoreModule = true;

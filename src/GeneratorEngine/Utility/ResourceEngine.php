@@ -43,8 +43,8 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
             \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey => NULL,
             \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey => NULL,
             \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
-            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE,
+            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true,
         );
     }
 
@@ -62,11 +62,11 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
                 NULL :
                 $culture[\WebDevJL\Framework\BO\F_culture::F_CULTURE_LANGUAGE] . "_" . $culture[\WebDevJL\Framework\BO\F_culture::F_CULTURE_REGION];
         if ($this->IsGeneratingBaseClass) {
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = TRUE;
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = FALSE;
+            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = true;
+            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = false;
         } else {
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = FALSE;
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = TRUE;
+            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = false;
+            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = true;
         }
     }
 
@@ -74,12 +74,12 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
         $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . "APP_NAME" . "\Resources\\Common";
         $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceCommonFolderName;
         foreach ($resources as $groupKey => $groupArray) {
-            $this->IsGeneratingBaseClass = TRUE;
+            $this->IsGeneratingBaseClass = true;
             foreach ($groupArray as $cultureKey => $cultureArray) {
                 //We need to generate the GroupBase resource file that will hold only the key to query the resources.
                 if ($this->IsGeneratingBaseClass) {
                     $baseClassNamespace = $this->GenerateCommonBaseClass($groupKey, $cultureArray);
-                    $this->IsGeneratingBaseClass = FALSE;
+                    $this->IsGeneratingBaseClass = false;
                 }
                 //Then we generate the Group_xx_XX resource file that will list the resources using the base class constant keys.
                 $culture = \WebDevJL\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \WebDevJL\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
@@ -95,11 +95,11 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
         $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . "APP_NAME" . "\Resources\\Controller";
         $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceControllerFolderName;
         foreach ($resources as $moduleKey => $moduleArray) {
-            $this->IsGeneratingBaseClass = TRUE;
+            $this->IsGeneratingBaseClass = true;
             foreach ($moduleArray as $cultureKey => $cultureArray) {
                 if ($this->IsGeneratingBaseClass) {
                     $baseClassNamespace = $this->GenerateControllerBaseClass($moduleKey, $cultureArray);
-                    $this->IsGeneratingBaseClass = FALSE;
+                    $this->IsGeneratingBaseClass = false;
                 }
                 $culture = \WebDevJL\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \WebDevJL\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
                 $this->UpdateTheParametersForGeneration($moduleKey, $culture);

@@ -60,7 +60,7 @@ class Error {
 
     //SETTERS
     public function setErrorId($errorId) {
-        $this->errorId = is_int($errorId) ? $errorId : FALSE;
+        $this->errorId = is_int($errorId) ? $errorId : false;
     }
 
     public function setErrorOrigin($errorOrigin) {

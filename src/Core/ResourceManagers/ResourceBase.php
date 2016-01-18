@@ -25,10 +25,10 @@ class ResourceBase {
 
     /**
      * Defines if the resources is a common resource or not. By default, it is true.
-     * It becomes FALSE when the GroupValue is not specified.
+     * It becomes false when the GroupValue is not specified.
      * @var bool
      */
-    public $IsCommon = TRUE;
+    public $IsCommon = true;
 
     /**
      * The value of the common resource group
@@ -64,7 +64,7 @@ class ResourceBase {
         } elseif (is_array($params) && (array_key_exists(self::ModuleKey, $params) && array_key_exists(self::ActionKey, $params))) {
             $this->ModuleValue = $params[self::ModuleKey];
             $this->ActionValue = $params[self::ActionKey];
-            $this->IsCommon = FALSE;
+            $this->IsCommon = false;
         } else {
             throw new Exception("You must specify either the group or the couple module/action.", 0, NULL); //todo: create error code
         }

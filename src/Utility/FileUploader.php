@@ -54,9 +54,9 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
     private function UploadAFile($tmp, $file) {
         if (move_uploaded_file($tmp, $file)) {
-            return TRUE;
+            return true;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -95,7 +95,7 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
 
     private function AddDocumentToDatabase($document) {
         $db = new \WebDevJL\Framework\Dal\Managers('PDO', $this->app());
-        $dal = $db->getDalInstance("Document", TRUE);
+        $dal = $db->getDalInstance("Document", true);
         $dal->add($document);
     }
 

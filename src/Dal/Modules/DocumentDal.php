@@ -167,17 +167,17 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
 
     private function UploadAFile($tmp, $file) {
         if (move_uploaded_file($tmp, $file)) {
-            return TRUE;
+            return true;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
     private function DeleteAFile($file) {
         if (unlink($file)) {
-            return TRUE;
+            return true;
         } else {
-            return FALSE;
+            return false;
         }
     }
 

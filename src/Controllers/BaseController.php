@@ -108,7 +108,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     public function FillInstance() {
         $this->viewModel = new \WebDevJL\Framework\ViewModels\BaseVm($this->app);
         $this->setView();
-        $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($this->app)->retrievePostAjaxData(FALSE));
+        $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($this->app)->retrievePostAjaxData(false));
         $this->setUploadingFiles();
     }
 

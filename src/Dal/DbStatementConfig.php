@@ -171,7 +171,7 @@ class DbStatementConfig {
 
     public function BuildInsertColumnsClause($columns) {
         if (!$columns) {
-            $this->insertColumnsClause = FALSE;
+            $this->insertColumnsClause = false;
             return;
         }
 
@@ -185,7 +185,7 @@ class DbStatementConfig {
 
     public function BuildInsertValuesClause($values) {
         if (!$values) {
-            $this->insertValuesClause = FALSE;
+            $this->insertValuesClause = false;
             return;
         }
 
@@ -199,7 +199,7 @@ class DbStatementConfig {
 
     public function BuildSelectClause($selectFilters) {
         if (!$selectFilters) {
-            $this->selectClause = FALSE;
+            $this->selectClause = false;
             return;
         }
 
@@ -214,7 +214,7 @@ class DbStatementConfig {
 
     public function BuildWhereClause($whereFilters) {
         if (!$whereFilters) {
-            $this->whereClause = FALSE;
+            $this->whereClause = false;
             return;
         }
 
@@ -228,7 +228,7 @@ class DbStatementConfig {
 
     public function BuildOrderClause($orderByFilters) {
         if (!$orderByFilters) {
-            $this->orderByClause = FALSE;
+            $this->orderByClause = false;
             return;
         }
 
@@ -242,7 +242,7 @@ class DbStatementConfig {
 
     public function BuildSetClause($setFilters) {
         if (!$setFilters) {
-            $this->setClause = FALSE;
+            $this->setClause = false;
             return;
         }
 

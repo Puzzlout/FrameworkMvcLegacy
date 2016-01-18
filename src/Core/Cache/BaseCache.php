@@ -61,7 +61,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
      */
     public function IsEnabled() {
-        $result = FALSE;
+        $result = false;
         switch ($this->cacheType) {
             case BaseCache::TYPE_APC:
                 $result = extension_loaded('apc') && ini_get('apc.enabled');
@@ -79,10 +79,10 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      */
     public function KeyExists($key) {
         if (!$this->IsEnabled()) {
-            return FALSE;
+            return false;
         }
 
-        $result = FALSE;
+        $result = false;
         switch ($this->cacheType) {
             case BaseCache::TYPE_APC:
                 $result = ApcCache::Init($this->app)->KeyExists($key);
@@ -101,10 +101,10 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      */
     public function Create($key, $value) {
         if (!$this->IsEnabled()) {
-            return FALSE;
+            return false;
         }
 
-        $result = FALSE;
+        $result = false;
         switch ($this->cacheType) {
             case BaseCache::TYPE_APC:
                 $result = ApcCache::Init($this->app)->Create($key, $value);
@@ -145,10 +145,10 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      */
     public function Update($key, $value) {
         if (!$this->IsEnabled()) {
-            return FALSE;
+            return false;
         }
 
-        $result = FALSE;
+        $result = false;
         switch ($this->cacheType) {
             case BaseCache::TYPE_APC:
                 $result = ApcCache::Init($this->app)->Update($key, $value);
@@ -166,10 +166,10 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      */
     public function Remove($key) {
         if (!$this->IsEnabled()) {
-            return FALSE;
+            return false;
         }
 
-        $result = FALSE;
+        $result = false;
         switch ($this->cacheType) {
             case BaseCache::TYPE_APC:
                 $result = ApcCache::Init($this->app)->Remove($key);

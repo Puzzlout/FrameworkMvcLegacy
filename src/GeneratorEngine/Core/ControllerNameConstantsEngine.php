@@ -44,8 +44,8 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
             BaseClassGenerator::ClassNameKey => "Framework" . $this->GeneratedClassPrefix,
             BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for framework controller classes to autocompletion and easy coding.",
-            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
-            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE
+            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
         );
         $this->GenerateFrameworkFile($FrameworkControllers);
     }
@@ -68,8 +68,8 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
             BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
             $Appname . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application controller classes to autocompletion and easy coding.",
-            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => TRUE,
-            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => TRUE
+            ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
         );
         $this->GenerateApplicationFile($ApplicationControllers);
     }

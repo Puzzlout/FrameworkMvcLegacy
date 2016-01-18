@@ -139,7 +139,7 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
             $this->xmlContent = $xmlReader->ReturnFileContents("resource");
             return $this->xmlContent;
         }
-        return FALSE;
+        return false;
     }
 
 }

@@ -57,7 +57,7 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
      * Please a new template if you add a new key/value pair in this list. The templates 
      * are stored in CodeGenerators/templates.
      * 
-     * @throws Exception Thrown if the function file_get_contents returns FALSE.
+     * @throws Exception Thrown if the function file_get_contents returns false.
      */
     public function GetTemplateContents() {
         $templateFileName = "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";

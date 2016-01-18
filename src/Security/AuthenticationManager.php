@@ -51,7 +51,7 @@ class AuthenticationManager extends \WebDevJL\Framework\Core\ApplicationComponen
         return $user;
     }
 
-    public function CheckPassword($passwordGiven, \WebDevJL\Framework\BO\F_user $user, $isFirstLogin = FALSE) {
+    public function CheckPassword($passwordGiven, \WebDevJL\Framework\BO\F_user $user, $isFirstLogin = false) {
         $userToCheck = new \WebDevJL\Framework\BO\F_user();
         $userToCheck->setF_user_password($passwordGiven);
         if ($user->F_user_password_is_hashed() || !$isFirstLogin) {
@@ -60,7 +60,7 @@ class AuthenticationManager extends \WebDevJL\Framework\Core\ApplicationComponen
             $userToCheck = $this->HashUserPassword($userToCheck);
         }
 
-        return strcmp($user->f_user_password(), $userToCheck->f_user_password()) === 0 ? $user : FALSE;
+        return strcmp($user->f_user_password(), $userToCheck->f_user_password()) === 0 ? $user : false;
     }
 
 }

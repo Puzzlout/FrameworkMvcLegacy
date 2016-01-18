@@ -98,8 +98,8 @@ class DaoClassGenerator {
         $this->fileName = $this->className . ".php";
         $this->placeholders = $this->InitPlaceholders();
         $this->isFrameworkClass = (preg_match("`" . \WebDevJL\Framework\Enums\GenericAppKeys::PREFIX_FRAMEWORK_TABLE . ".*$`", $tableName) ?
-                        TRUE :
-                        FALSE);
+                        true :
+                        false);
     }
 
     /**
@@ -302,7 +302,7 @@ class DaoClassGenerator {
     private function AddGetters($columnsMetadata) {
         $output = "";
         foreach ($columnsMetadata as $columnName => $columnMetadata) {
-            $output .= $this->AddPropertyPhpDoc($columnMetadata, FALSE);
+            $output .= $this->AddPropertyPhpDoc($columnMetadata, false);
             $placeholders = array(
                 CodeSnippetPlaceholders::PROPERTY_NAME_FIRST_CAP => ucfirst($columnMetadata["Field"]),
                 CodeSnippetPlaceholders::PROPERTY_NAME => $columnMetadata["Field"]);
@@ -325,7 +325,7 @@ class DaoClassGenerator {
      * 
      * @param type $columnMetadata : Metadata for a column.
      */
-    private function AddPropertyPhpDoc($columnMetadata, $isSetter = TRUE) {
+    private function AddPropertyPhpDoc($columnMetadata, $isSetter = true) {
         $output = $this->_TAB2 . \WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpDocSnippets::OPENING .
                 $this->_TAB2 . $this->_LF;
         $placeholders = array(

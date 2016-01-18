@@ -17,7 +17,7 @@ namespace WebDevJL\Framework\GeneratorEngine\Core;
 class BaseTemplateProcessor extends BaseClass {
 
     /**
-     * @var resource a file pointer resource on success, or <b>FALSE</b> on error. 
+     * @var resource a file pointer resource on success, or <b>false</b> on error. 
      */
     protected $writer;
 

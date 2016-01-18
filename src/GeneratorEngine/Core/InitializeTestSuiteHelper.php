@@ -25,7 +25,7 @@ class InitializeTestSuiteHelper extends InitializeTestSuiteBaseObject {
 
     public function checkTestFile($targetDir, $file) {
         if (is_null($file)) {
-            return $this->getResultArray(FALSE, 'Variable $file is null!');
+            return $this->getResultArray(false, 'Variable $file is null!');
         }
         $testfilePath = $targetDir . self::DIR_SEPARATOR . str_replace(".php", "Test.php", $file);
         $testClassExists = file_exists($testfilePath);
@@ -34,24 +34,24 @@ class InitializeTestSuiteHelper extends InitializeTestSuiteBaseObject {
             $testClassContents = file_get_contents($testfilePath);
         }
         if ($this->testIfTestClassIsLocked($testClassContents)) {
-            return $this->getResultArray(FALSE, "Test class is locked => $testfilePath");
+            return $this->getResultArray(false, "Test class is locked => $testfilePath");
         }
         if (!OVERWRITE_TEST_SUITE && $testClassExists) {
-            return $this->getResultArray(FALSE, "Test class already exists => $testfilePath");
+            return $this->getResultArray(false, "Test class already exists => $testfilePath");
         }
-        return array(self::CLASS_CREATION_STATE => TRUE);
+        return array(self::CLASS_CREATION_STATE => true);
     }
 
     public function checkSourceFile($sourceDir, $file) {
         $sourcefilePath = $sourceDir . self::DIR_SEPARATOR . $file;
         $sourceClassContents = file_get_contents($sourcefilePath);
         if (RegexHelper::Init($sourceClassContents)->IsMatch(CommonRegexes::IS_CLASS_ABSCTRACT)) {
-            return $this->getResultArray(FALSE, "Source class is abstract => $sourcefilePath");
+            return $this->getResultArray(false, "Source class is abstract => $sourcefilePath");
         }
         if (RegexHelper::Init($sourceClassContents)->IsMatch(CommonRegexes::IS_FILE_INTERFACE)) {
-            return $this->getResultArray(FALSE, "Source file is an interface => $sourcefilePath");
+            return $this->getResultArray(false, "Source file is an interface => $sourcefilePath");
         }
-        return array(self::CLASS_CREATION_STATE => TRUE);
+        return array(self::CLASS_CREATION_STATE => true);
     }
 
     public function getResultArray($state, $message) {

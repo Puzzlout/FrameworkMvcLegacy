@@ -140,7 +140,7 @@ class InitializeTestSuite extends InitializeTestSuiteBaseObject {
         $placeholders = $this->getPlaceholders($sourceDir, $targetDir, $file, $testClassName);
         if (SKIP_TEST_CLASSES_GENERATION) {
             var_dump($placeholders);
-            return InitializeTestSuiteHelper::init()->getResultArray(FALSE, $testClassFullPath);
+            return InitializeTestSuiteHelper::init()->getResultArray(false, $testClassFullPath);
             ;
         }
         $newTestClassContents = $this->generateTestClassContents($placeholders);

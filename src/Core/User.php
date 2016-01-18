@@ -48,13 +48,13 @@ class User extends ApplicationComponent {
      * \Application\YourApp\Resources\Enums\SessionKeys (Application) 
      * @return mixed
      * The value can any type: int, string, array, object instance of any class.
-     * If value is not set, then return FALSE. 
+     * If value is not set, then return false. 
      */
     public function getAttribute($sessionKey) {
         return
                 isset($_SESSION[$this->GetKey($sessionKey)]) ?
                 $_SESSION[$this->GetKey($sessionKey)] :
-                FALSE;
+                false;
     }
 
     /**
@@ -71,7 +71,7 @@ class User extends ApplicationComponent {
     /**
      * Checks if the current user is connected. 
      * @return bool
-     * Values: TRUE or FALSE 
+     * Values: true or false 
      */
     public function isConnected() {
         return $this->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected);

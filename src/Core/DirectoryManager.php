@@ -89,9 +89,9 @@ class DirectoryManager {
     public static function CreateDirectory($dir) {
         if (!file_exists($dir) && !is_dir($dir)) {
             mkdir($dir, 0777, true);
-            return FALSE;
+            return false;
         } else {
-            return TRUE;
+            return true;
         }
     }
 
@@ -107,9 +107,9 @@ class DirectoryManager {
      */
     public static function FileExists($filePath) {
         if (!file_exists($filePath)) {
-            return FALSE;
+            return false;
         } else {
-            return TRUE;
+            return true;
         }
     }
 

@@ -43,7 +43,7 @@ class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Int
         $actionExists = array_key_exists($actionLower, $resources);
         $keyExist = $actionExists ?
                 array_key_exists($keyLower, $resources[$actionLower]) :
-                FALSE;
+                false;
         if ($keyExist) {
             return $resources[$actionLower][$keyLower][\WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
         } else if (!$actionExists) {
@@ -69,7 +69,7 @@ class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Int
         $actionExists = array_key_exists($this->ActionValue, $resources);
         $keyExist = $actionExists ?
                 array_key_exists($key, $resources[$this->ActionValue]) :
-                FALSE;
+                false;
         if ($keyExist) {
             return $resources[$this->ActionValue][$key][\WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT];
         } else if (!$actionExists) {

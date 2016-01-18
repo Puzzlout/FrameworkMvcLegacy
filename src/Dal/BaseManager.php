@@ -50,9 +50,9 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
      * $where_filter_id: a string or integer value
      * representing the column name to filter the data on. It is used in the WHERE clause.
      * @param bool
-     * $filter_as_string: TRUE or FALSE to know if a where filter is a string or a integer 
+     * $filter_as_string: true or false to know if a where filter is a string or a integer 
      * @return mixed
-     * Can be a bool (TRUE,FALSE), a integer or a list of Dao objects (of type  $dao_class) 
+     * Can be a bool (true,false), a integer or a list of Dao objects (of type  $dao_class) 
      */
     public function selectMany($object, DbQueryFilters $filters) {
         $dbConfig = new DbStatementConfig($object, DbExecutionType::SELECT, $filters);
@@ -84,7 +84,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
         $select_clause = rtrim($select_clause, ", ");
         $select_clause.=" FROM " . $this->GetTableName($object);
         $order_by = "";
-        if ($object->getOrderByField() !== FALSE) {
+        if ($object->getOrderByField() !== false) {
             $order_by = "ORDER BY " . $object->getOrderByField();
         }
         $select_clause .= $where_clause . " " . $order_by;
@@ -169,7 +169,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
         return $this->ExecuteQuery($dbStatement, array("type" => DbExecutionType::MULTIROWSET));
     }
 
-    protected function BindParametersAndExecute($skipBinding = FALSE) {
+    protected function BindParametersAndExecute($skipBinding = false) {
         $allQueries = "";
         foreach ($this->dbConfigList() as $dbConfig) {
             $allQueries .= $dbConfig->query();
@@ -195,7 +195,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
         } else if (is_array($filters->setFilters()) && count($filters->setFilters()) > 0) {
             return in_array($propertyName, $filters->setFilters());
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -232,7 +232,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
                 $list = $dbStatement->fetchAll();
                 $result = count($list) > 0 ? $list : array();
             } elseif ($this->CheckType($dbConfig->type(), DbExecutionType::UPDATE)) {
-                $result = TRUE;
+                $result = true;
             } elseif ($this->CheckType($dbConfig->type(), DbExecutionType::INSERT)) {
                 $result = $this->dao->lastInsertId();
             } elseif ($this->CheckType($dbConfig->type(), DbExecutionType::SHOWTABLES)) {

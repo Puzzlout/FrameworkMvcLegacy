@@ -42,7 +42,7 @@ class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements 
      * @param string $key
      * @param mixed $value
      * @return bool The result storing $value with $key. If $key is already in the
-     * cache, the result is FALSE.
+     * cache, the result is false.
      * @throws \Exception
      * @todo Create exception and error code
      */

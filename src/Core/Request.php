@@ -81,9 +81,9 @@ class Request extends ApplicationComponent {
 
     public function IsPost() {
         if ($this->requestType() === "POST") {
-            return TRUE;
+            return true;
         } else {
-            return FALSE;
+            return false;
         }
     }
 
@@ -113,7 +113,7 @@ class Request extends ApplicationComponent {
      * @param	bool
      * @return array The POST data (associative array if necessary)
      */
-    public function retrievePostAjaxData($xss_clean = TRUE) {
+    public function retrievePostAjaxData($xss_clean = true) {
         $postData = $this->ParseDataFromPhpInput();
         if (count($postData) > 0) {
             return $postData;
@@ -156,7 +156,7 @@ class Request extends ApplicationComponent {
 
     private function FetchData($postDataRaw) {
         foreach (array_keys($postDataRaw) as $key) {
-            $postDataCleaned[$key] = $this->ValidateData($postDataRaw, $key, TRUE);
+            $postDataCleaned[$key] = $this->ValidateData($postDataRaw, $key, true);
         }
         return $postDataCleaned;
     }
@@ -174,12 +174,12 @@ class Request extends ApplicationComponent {
      * @param	bool
      * @return	string
      */
-    private function ValidateData(&$array, $index = '', $xss_clean = FALSE) {
+    private function ValidateData(&$array, $index = '', $xss_clean = false) {
         if (!isset($array[$index])) {
-            return FALSE;
+            return false;
         }
 
-        if ($xss_clean === TRUE && !($array[$index] instanceof \stdClass)) {
+        if ($xss_clean === true && !($array[$index] instanceof \stdClass)) {
             $array[$index] = strip_tags($array[$index]);
             $array[$index] = filter_var($array[$index]);
 //$security = new BL\Security\Security();

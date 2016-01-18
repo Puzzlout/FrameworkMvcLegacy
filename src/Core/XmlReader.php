@@ -77,7 +77,7 @@ class XmlReader {
 
             return $xml->getElementsByTagName($nodeName);
         }
-        return FALSE;
+        return false;
     }
 
 }

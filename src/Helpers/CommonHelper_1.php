@@ -91,10 +91,10 @@ class CommonHelper_1 {
      * @param array (of object) $listOfObjects
      * The list of objects of type T to look into. T is defined by the caller. 
      * @return mixed{boolean,object}
-     * The object if found or FALSE otherwise. 
+     * The object if found or false otherwise. 
      */
     public static function FindObjectByIntValue($idValue, $propName, $listOfObjects) {
-        $match = FALSE;
+        $match = false;
         foreach ($listOfObjects as $obj) {
             if (intval($obj->$propName()) === $idValue) {
                 $match = $obj;
@@ -117,10 +117,10 @@ class CommonHelper_1 {
      * The key to read the value in an associative array if the list of object
      * is a list of associative arrays.
      * @return mixed{boolean,object}
-     * The object if found or FALSE otherwise. 
+     * The object if found or false otherwise. 
      */
     public static function FindObjectByStringValue($filter, $propName, $listOfObjects, $key = NULL) {
-        $match = FALSE;
+        $match = false;
         if ($key === NULL) {
             foreach ($listOfObjects as $obj) {
                 if ($obj->$propName() === $filter) {
@@ -167,10 +167,10 @@ class CommonHelper_1 {
     public static function FilterObjectsToExcludeRelatedObject($objects, $related_objects, $prop_id) {
         $matches = array();
         foreach ($objects as $object) {
-            $to_add = TRUE;
+            $to_add = true;
             foreach ($related_objects as $related_object) {
                 if (intval($object->$prop_id()) === intval($related_object->$prop_id())) {
-                    $to_add = FALSE;
+                    $to_add = false;
                     break;
                 }
             }
@@ -215,7 +215,7 @@ class CommonHelper_1 {
         return $array[$key];
     }
 
-    public static function GetPropValueFromObjectByPropName($object, $propName, $isArray = TRUE) {
+    public static function GetPropValueFromObjectByPropName($object, $propName, $isArray = true) {
         return
                 $isArray ?
                 $object[$propName] :

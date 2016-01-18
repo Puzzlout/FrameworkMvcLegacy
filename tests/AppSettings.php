@@ -49,7 +49,7 @@ class AppSettings {
             AppSettingKeys::PasswordSalt => "g496lJL683yFiDzju2K94f1751Lo7WSw",
             AppSettingKeys::RootDocumentUpload => "ClientSide/upload/",
             AppSettingKeys::RootImageFolderPath => "../Web/images/",
-            AppSettingKeys::UseEmailLinkForFirstLogin => TRUE,
+            AppSettingKeys::UseEmailLinkForFirstLogin => true,
             AppSettingKeys::TooltipsXmlFileName => "Applications\{{app_name}}\Resources\Common\\tooltipandpopupstrings.{{culture}}.xml",
             AppSettingKeys::CacheTtl => 21600, //6 hours
             AppSettingKeys::CACHETYPEUSED => "TYPE_APC", //See possible value in constants of Library\Core\Cache\BaseCache.php

@@ -11,9 +11,9 @@ $testNamespacePrefix = VENDOR . "\\Framework\\Tests";
  * NO MODIFICATION ZONE (except if you take responsibility of your actions)
  */
 define("ROOT_DIR", dirname(dirname(__FILE__)) . "/" . PACKAGE . "/");
-define("TESTING_FILE_TREE", FALSE);
-define("SKIP_TEST_CLASSES_GENERATION", FALSE);
-define("OVERWRITE_TEST_SUITE", TRUE);
+define("TESTING_FILE_TREE", false);
+define("SKIP_TEST_CLASSES_GENERATION", false);
+define("OVERWRITE_TEST_SUITE", true);
 define("TEST_SUITE_VERSION", "v1.1.0");
 
 include_once("vendor/autoload.php");

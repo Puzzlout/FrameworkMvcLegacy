@@ -98,7 +98,7 @@ abstract class Application extends ApplicationBase {
         if (array_key_exists($controllerName, $FrameworkControllers)) {
             $frameworkCtrlFolderPath = NameSpaceName::LibFolderName . NameSpaceName::LibControllersFolderName;
             $controllerClass = $frameworkCtrlFolderPath . $controllerName;
-            $router->isWsCall = TRUE;
+            $router->isWsCall = true;
         } else if (array_key_exists($controllerName, $ApplicationControllers)) {
             $appCtrlFolderPath = NameSpaceName::AppsFolderName . "\\" . $this->name . NameSpaceName::AppsControllersFolderName;
             $controllerClass = $appCtrlFolderPath . $controllerName;

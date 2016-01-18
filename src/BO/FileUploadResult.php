@@ -17,8 +17,8 @@ class FileUploadResult {
             $filePath = "",
             $webPath = "",
             $tmpFilePath = "",
-            $doesExist = FALSE,
-            $isUploaded = FALSE;
+            $doesExist = false,
+            $isUploaded = false;
 
     public function __construct($tmpFilePath) {
         $this->setTmpFilePath($tmpFilePath);

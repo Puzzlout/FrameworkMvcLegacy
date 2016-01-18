@@ -73,17 +73,17 @@ class ArrayFilterFileSearch extends BaseFileSearch implements \WebDevJL\Framewor
 
     private function DoIncludeInResult($valueToCheck, $algorithmFilter) {
         if (is_null($valueToCheck)) {
-            return FALSE;
+            return false;
         }
         foreach ($algorithmFilter as $filter) {
             if (strcmp($valueToCheck, $filter) === 0) {
-                return FALSE;
+                return false;
             }
             if (\WebDevJL\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`^' . $filter . '$`')) {
-                return FALSE;
+                return false;
             }
         }
-        return TRUE;
+        return true;
     }
 
 }

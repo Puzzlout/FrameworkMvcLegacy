@@ -36,7 +36,7 @@ class RegexHelper {
 
     public function StringContainsWhiteSpace() {
         if (is_array($this->valueToTest)) {
-            return FALSE;
+            return false;
         }
         $result = preg_match(CommonRegexes::SEARCH_WHITE_SPACE, $this->valueToTest);
         return $result;

@@ -23,5 +23,5 @@ interface IClassGenerator {
 
     public function WriteContent();
 
-    public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0);
+    public function WriteNewArrayAndItsContents($array, $arrayOpened = false, $tabAmount = 0);
 }

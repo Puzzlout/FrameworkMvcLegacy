@@ -54,13 +54,13 @@ class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJ
     private function DoIncludeInResult($valueToCheck, $algorithmFilter) {
         foreach ($algorithmFilter as $filter) {
             if (strcmp($valueToCheck, $filter) === 0) {
-                return FALSE;
+                return false;
             }
             if (\WebDevJL\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`' . $filter . '`')) {
-                return FALSE;
+                return false;
             }
         }
-        return TRUE;
+        return true;
     }
 
 }

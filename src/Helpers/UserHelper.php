@@ -31,7 +31,7 @@ class UserHelper {
 
     public static function GetUserConnectedSession($user) {
         return $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected) ?
-                $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected) : FALSE;
+                $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected) : false;
     }
 
     public static function GetRoleFromType($userType) {
@@ -114,13 +114,13 @@ class UserHelper {
         );
     }
 
-    public static function PrepareUserObject($dataPost, $config, $setPass = FALSE) {
+    public static function PrepareUserObject($dataPost, $config, $setPass = false) {
         $user = new \WebDevJL\Framework\BO\User();
         $protect = new \WebDevJL\Framework\BL\Security\Protect($config);
         $user->setUser_hint($dataPost['user_hint']);
         $user->setUser_login($dataPost['user_login']);
         $user->setUser_email($dataPost['pm_email']);
-        if ($setPass == TRUE) {
+        if ($setPass == true) {
             $user->setUser_password($protect->HashValue($config->get("PaswordSalt"), $dataPost['user_password']));
         }
 

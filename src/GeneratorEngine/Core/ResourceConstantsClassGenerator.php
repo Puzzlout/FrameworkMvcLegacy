@@ -31,10 +31,10 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
             $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
             $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
                     $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
-                    FALSE;
+                    false;
             $this->DoGenerateGetListMethod = array_key_exists(ConstantsClassGeneratorBase::DoGenerateGetListMethodKey, $params) ?
                     $params[ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] :
-                    FALSE;
+                    false;
         }
     }
 
@@ -166,7 +166,7 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
             } else {
                 //write a new array and its contents
                 $output .= $this->WriteAssociativeArrayValueAsNewArray($key, 3);
-                $output .= $this->WriteNewArrayAndItsContents($value, TRUE, 4);
+                $output .= $this->WriteNewArrayAndItsContents($value, true, 4);
                 //$output .= $this->CloseArray(count($value), 4);
             }
             $output .= PhpCodeSnippets::LF;
@@ -187,12 +187,12 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
      * code.
      * @return string the code generated.
      */
-    public function WriteNewArrayAndItsContents($array, $arrayOpened = FALSE, $tabAmount = 0) {
+    public function WriteNewArrayAndItsContents($array, $arrayOpened = false, $tabAmount = 0) {
         $output = "";
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 $output .= $this->WriteAssociativeArrayValueAsNewArray($key, $tabAmount); //new array opened
-                $output .= $this->WriteNewArrayAndItsContents($value, TRUE, $tabAmount);
+                $output .= $this->WriteNewArrayAndItsContents($value, true, $tabAmount);
             } else {
                 $output .= $this->WriteAssociativeArrayValueWithKeyAndValue($key, $value, $tabAmount);
             }
