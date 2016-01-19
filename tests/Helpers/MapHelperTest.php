@@ -11,26 +11,23 @@ use WebDevJL\Framework\Helpers\MapHelper;
 
 class MapHelperTest extends \PHPUnit_Framework_TestCase {
 
-  protected $app;
+    protected $app;
 
-  /**
-   * Initialize the app object.
-   */
-  protected function setUp()
-  {
-      $this->app = new \WebDevJL\Framework\Tests\TestApplication();
-  }
-  
-  /**
-   * This method is generated.
-   */
-  public function testInstanceIsCorrect()
-  {
-    $this->assertNotNull($this->app);
-    $result = new MapHelper($this->app);
-    $this->assertInstanceOf('WebDevJL\Framework\Helpers\MapHelper', $result);
-  }
-  
-  //Write the next tests below...
-  
+    /**
+     * Initialize the app object.
+     */
+    protected function setUp() {
+        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+    }
+
+    /**
+     * This method is generated.
+     */
+    public function testInstanceIsCorrect() {
+        $this->assertNotNull($this->app);
+        $result = new MapHelper($this->app);
+        $this->assertInstanceOf('WebDevJL\Framework\Helpers\MapHelper', $result);
+    }
+
+    //Write the next tests below...
 }

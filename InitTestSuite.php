@@ -23,9 +23,7 @@ use WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite;
 
 $additionalFilters = array("Views");
 $TestSuite = InitializeTestSuite::init(
-        $additionalFilters, 
-        $soureNamespacePrefix, 
-        $testNamespacePrefix)->processSourceFolder();
+                $additionalFilters, $soureNamespacePrefix, $testNamespacePrefix)->processSourceFolder();
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +63,7 @@ $TestSuite = InitializeTestSuite::init(
     </head>
     <body>
         <h1>Starting generation of testing suite (<?php echo TEST_SUITE_VERSION; ?>)...</h1>
-<?php echo $TestSuite->output; ?>
+        <?php echo $TestSuite->output; ?>
         <h1>End of generation.</h1>
     </body>
 </html>

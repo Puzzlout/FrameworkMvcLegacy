@@ -31,7 +31,7 @@ class InitializeTestSuiteBaseObject {
     private $ExceptionFilters;
     public $output;
 
-        /**
+    /**
      * The constructor
      * @param array $exceptionFilters The list of exception filters to merge the common filters
      * @param string $soureNamespacePrefix The namespace prefix for the source classes
