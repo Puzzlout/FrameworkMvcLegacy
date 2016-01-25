@@ -26,9 +26,9 @@ class InitializeTestSuiteBaseObject {
     const CLASS_CREATION_FINAL_PATH = "test_class_filepath";
     const TEST_SUITE_VERSION = "{{test_suite_version}}";
 
-    private $SourceNamespacePrefix;
-    private $TestNamespacePrefix;
-    private $ExceptionFilters;
+    protected $SourceNamespacePrefix;
+    protected $TestNamespacePrefix;
+    protected $ExceptionFilters;
     public $output;
 
         /**

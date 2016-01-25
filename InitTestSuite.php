@@ -21,7 +21,7 @@ include_once("vendor/autoload.php");
 
 use WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite;
 
-$additionalFilters = array("Views");
+$additionalFilters = array("Views","ClientSide","Templates");
 $TestSuite = InitializeTestSuite::init(
         $additionalFilters, 
         $soureNamespacePrefix, 

@@ -11,26 +11,23 @@ use WebDevJL\Framework\Dal\PDOFactory;
 
 class PDOFactoryTest extends \PHPUnit_Framework_TestCase {
 
-  protected $app;
+    protected $app;
 
-  /**
-   * Initialize the app object.
-   */
-  protected function setUp()
-  {
-      $this->app = new \WebDevJL\Framework\Tests\TestApplication();
-  }
-  
-  /**
-   * This method is generated.
-   */
-  public function testInstanceIsCorrect()
-  {
-    $this->assertNotNull($this->app);
-    $result = new PDOFactory($this->app);
-    $this->assertInstanceOf('WebDevJL\Framework\Dal\PDOFactory', $result);
-  }
-  
-  //Write the next tests below...
-  
+    /**
+     * Initialize the app object.
+     */
+    protected function setUp() {
+        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+    }
+
+    /**
+     * This method is generated.
+     */
+    public function testInstanceIsCorrect() {
+        $this->assertNotNull($this->app);
+        $result = new PDOFactory($this->app);
+        $this->assertInstanceOf('WebDevJL\Framework\Dal\PDOFactory', $result);
+    }
+
+    //Write the next tests below...
 }
