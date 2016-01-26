@@ -1,5 +1,9 @@
 # Changelog
 
+1.0.0-alpha.3:
+
+- [issue #30](https://github.com/WebDevJLProjectsOrg/FrameworkMvc/issues/30)
+
 1.0.0-alpha.2:
 
 - [issue #29](https://github.com/WebDevJLProjectsOrg/FrameworkMvc/issues/29)
