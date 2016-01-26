@@ -19,7 +19,7 @@ use WebDevJL\Framework\Enums\CommonRegexes;
 class InitializeTestSuiteHelper extends InitializeTestSuiteBaseObject {
 
     public static function init() {
-        $instance = new InitializeTestSuiteHelper();
+        $instance = new InitializeTestSuiteHelper([],"","");
         return $instance;
     }
 
