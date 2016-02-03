@@ -24,7 +24,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums;
+namespace Puzzlout\Framework\Enums;
 
 abstract class SessionKeys {
     

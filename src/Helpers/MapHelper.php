@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class MapHelper {
 
@@ -31,7 +31,7 @@ class MapHelper {
      * to build an associative array in the Google Maps API format 
      * 
      * @param object $configManager
-     * The object of WebDevJL\Framework\Config that read the appconfig.xml
+     * The object of Puzzlout\Framework\Config that read the appconfig.xml
      * 
      * @return array  $coordinates
      * The array in Google Maps API format
@@ -39,8 +39,8 @@ class MapHelper {
      */
     public static function GetCoordinatesToCenterOverARegion($configManager) {
         return array(
-            "lat" => $configManager->get(\WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsCenterLat),
-            "lng" => $configManager->get(\WebDevJL\Framework\Enums\AppSettingKeys::GoogleMapsCenterLng)
+            "lat" => $configManager->get(\Puzzlout\Framework\Enums\AppSettingKeys::GoogleMapsCenterLat),
+            "lng" => $configManager->get(\Puzzlout\Framework\Enums\AppSettingKeys::GoogleMapsCenterLng)
         );
     }
 

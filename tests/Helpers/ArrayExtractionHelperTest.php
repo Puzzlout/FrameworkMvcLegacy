@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Helpers;
+namespace Puzzlout\Framework\Tests\Helpers;
 
-use WebDevJL\Framework\Helpers\ArrayExtractionHelper;
+use Puzzlout\Framework\Helpers\ArrayExtractionHelper;
 
 class ArrayExtractionHelperTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ArrayExtractionHelperTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ArrayExtractionHelperTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ArrayExtractionHelper($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Helpers\ArrayExtractionHelper', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Helpers\ArrayExtractionHelper', $result);
     }
 
     //Write the next tests below...

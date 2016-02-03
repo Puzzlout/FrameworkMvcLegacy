@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Core\ResourceManagers;
+namespace Puzzlout\Framework\Tests\Core\ResourceManagers;
 
-use WebDevJL\Framework\Core\ResourceManagers\ResourceBase;
+use Puzzlout\Framework\Core\ResourceManagers\ResourceBase;
 
 class ResourceBaseTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ResourceBaseTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ResourceBaseTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ResourceBase($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Core\ResourceManagers\ResourceBase', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\ResourceManagers\ResourceBase', $result);
     }
 
     //Write the next tests below...

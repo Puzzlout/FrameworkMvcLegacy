@@ -6,21 +6,21 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ApcCacher
  */
 
-namespace WebDevJL\Framework\Core\Cache;
+namespace Puzzlout\Framework\Core\Cache;
 
-class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements \WebDevJL\Framework\Interfaces\ICache {
+class BaseCache extends \Puzzlout\Framework\Core\ApplicationComponent implements \Puzzlout\Framework\Interfaces\ICache {
 
     /**
      * For each method of the contract, a switch is use to instanciate the proper
      * caching class to handle the request. 
      * 
      * @var int 
-     * @see \WebDevJL\Framework\Interfaces\ICache
+     * @see \Puzzlout\Framework\Interfaces\ICache
      */
     protected $cacheType;
 
@@ -43,22 +43,22 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      * Instanciate the class
      * 
      * 
-     * @param \WebDevJL\Framework\Core\Application $app
+     * @param \Puzzlout\Framework\Core\Application $app
      */
-    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app) {
         parent::__construct($app);
-        $typeOfCache = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::CACHETYPEUSED);
-        $this->cacheType = constant("\WebDevJL\Framework\Core\Cache\BaseCache::$typeOfCache");
+        $typeOfCache = \Puzzlout\Framework\Core\Config::Init($app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::CACHETYPEUSED);
+        $this->cacheType = constant("\Puzzlout\Framework\Core\Cache\BaseCache::$typeOfCache");
     }
 
-    public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    public static function Init(\Puzzlout\Framework\Core\Application $app) {
         $cacher = new BaseCache($app);
         return $cacher;
     }
 
     /**
      * 
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function IsEnabled() {
         $result = false;
@@ -67,7 +67,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = extension_loaded('apc') && ini_get('apc.enabled');
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }
@@ -75,7 +75,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
     /**
      * 
      * @param type $key
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function KeyExists($key) {
         if (!$this->IsEnabled()) {
@@ -88,7 +88,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = ApcCache::Init($this->app)->KeyExists($key);
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }
@@ -97,7 +97,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      * 
      * @param type $key
      * @param type $value
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function Create($key, $value) {
         if (!$this->IsEnabled()) {
@@ -110,7 +110,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = ApcCache::Init($this->app)->Create($key, $value);
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }
@@ -119,7 +119,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      * 
      * @param type $key
      * @param type $default
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function Read($key, $default) {
         if (!$this->IsEnabled()) {
@@ -132,7 +132,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = ApcCache::Init($this->app)->Read($key, $default);
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }
@@ -141,7 +141,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
      * 
      * @param type $key
      * @param type $value
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function Update($key, $value) {
         if (!$this->IsEnabled()) {
@@ -154,7 +154,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = ApcCache::Init($this->app)->Update($key, $value);
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }
@@ -162,7 +162,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
     /**
      * 
      * @param string $key
-     * @throws \WebDevJL\Framework\Exceptions\NotImplementedException
+     * @throws \Puzzlout\Framework\Exceptions\NotImplementedException
      */
     public function Remove($key) {
         if (!$this->IsEnabled()) {
@@ -175,7 +175,7 @@ class BaseCache extends \WebDevJL\Framework\Core\ApplicationComponent implements
                 $result = ApcCache::Init($this->app)->Remove($key);
                 break;
             default:
-                throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+                throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
         }
         return $result;
     }

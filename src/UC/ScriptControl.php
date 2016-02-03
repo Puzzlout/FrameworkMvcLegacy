@@ -6,17 +6,17 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ScriptControl
  */
 
-namespace WebDevJL\Framework\UC;
+namespace Puzzlout\Framework\UC;
 
-use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
-use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
+use Puzzlout\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
+use Puzzlout\Framework\Helpers\HtmlControlBuildHelper;
 
-class ScriptControl extends HtmlControlBase implements \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder {
+class ScriptControl extends HtmlControlBase implements \Puzzlout\Framework\Interfaces\IHtmlControlUrlBuilder {
 
     public function __construct() {
         $this->Attributes = array();
@@ -30,7 +30,7 @@ class ScriptControl extends HtmlControlBase implements \WebDevJL\Framework\Inter
 
     /**
      * 
-     * @see \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder
+     * @see \Puzzlout\Framework\Interfaces\IHtmlControlUrlBuilder
      * @return string
      */
     public function ForInternalResource($jsFilePath) {
@@ -41,7 +41,7 @@ class ScriptControl extends HtmlControlBase implements \WebDevJL\Framework\Inter
 
     /**
      * 
-     * @see \WebDevJL\Framework\Interfaces\IHtmlControlUrlBuilder
+     * @see \Puzzlout\Framework\Interfaces\IHtmlControlUrlBuilder
      * @return string
      */
     public function ForExternalResource($jsFileUrl) {

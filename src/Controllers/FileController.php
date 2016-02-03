@@ -6,22 +6,22 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package FileController
  */
 
-namespace WebDevJL\Framework\Controllers;
+namespace Puzzlout\Framework\Controllers;
 
-class FileController extends \WebDevJL\Framework\Controllers\BaseController {
+class FileController extends \Puzzlout\Framework\Controllers\BaseController {
 
     public function LoadOne() {
         $result = $this->InitResponseWS();
         $dataPost = $this->dataPost();
         $manager = $this->managers()->getDalInstance("Document");
-        $manager->setRootDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload));
-        $manager->setWebDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
-        $document = new \WebDevJL\Framework\BO\F_document();
+        $manager->setRootDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload));
+        $manager->setWebDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
+        $document = new \Puzzlout\Framework\BO\F_document();
         $document->setDocument_id($dataPost['id']);
         $document = $manager->selectOne($document);
         if (!is_null($document)) {
@@ -36,7 +36,7 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $this->SendResponseWS(
                 $result, array(
             "directory" => "common",
-            "resx_file" => \WebDevJL\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
+            "resx_file" => \Puzzlout\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
             "resx_key" => $this->action(),
             "step" => $result['success'] ? "success" : "error"
         ));
@@ -47,8 +47,8 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $dataPost = $this->dataPost();
 
         $manager = $this->managers()->getDalInstance("Document");
-        $manager->setRootDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload));
-        $manager->setWebDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
+        $manager->setRootDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload));
+        $manager->setWebDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
         $directory = str_replace("_id", "", $dataPost['itemCategory']);
         $manager->setObjectDirectory($directory);
         $fileList = $manager->selectManyByCategoryAndId($dataPost['itemCategory'], $dataPost['itemId']);
@@ -60,7 +60,7 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $this->SendResponseWS(
                 $result, array(
             "directory" => "common",
-            "resx_file" => \WebDevJL\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
+            "resx_file" => \Puzzlout\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
             "resx_key" => $this->action(),
             "step" => true ? "success" : "error"
         ));
@@ -71,8 +71,8 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $dataPost = $this->dataPost();
         $files = $this->files();
         $manager = $this->managers()->getDalInstance("Document");
-        $manager->setRootDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload));
-        $manager->setWebDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
+        $manager->setRootDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload));
+        $manager->setWebDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
         $directory = str_replace("_id", "", $dataPost['itemCategory']);
         $manager->setObjectDirectory($directory);
         if ($dataPost['itemReplace'] === "true") {
@@ -96,7 +96,7 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $this->SendResponseWS(
                 $result, array(
             "directory" => "common",
-            "resx_file" => \WebDevJL\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
+            "resx_file" => \Puzzlout\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
             "resx_key" => $this->action(),
             "step" => ($result["dataOut"] != -1) ? "success" : "error"
         ));
@@ -107,8 +107,8 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $dataPost = $this->dataPost();
 
         $manager = $this->managers()->getDalInstance("Document");
-        $manager->setRootDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload));
-        $manager->setWebDirectory($this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
+        $manager->setRootDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload));
+        $manager->setWebDirectory($this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::BaseUrl) . $this->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
         $directory = str_replace("_id", "", $dataPost['itemCategory']);
         $manager->setObjectDirectory($directory);
         $document = new \Applications\EasyMvc\Models\Dao\Document();
@@ -123,7 +123,7 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
         $this->SendResponseWS(
                 $result, array(
             "directory" => "common",
-            "resx_file" => \WebDevJL\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
+            "resx_file" => \Puzzlout\Framework\Enums\ResourceKeys\ResxFileNameKeys::File,
             "resx_key" => $this->action(),
             "step" => ($result["dataOut"] === true) ? "success" : "error"
         ));
@@ -137,8 +137,8 @@ class FileController extends \WebDevJL\Framework\Controllers\BaseController {
     public static function copyFile($files, $dataPost, $caller) {
 
         $manager = $caller->managers()->getDalInstance("Document");
-        $manager->setRootDirectory($caller->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload));
-        $manager->setWebDirectory($caller->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::BaseUrl) . $caller->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
+        $manager->setRootDirectory($caller->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload));
+        $manager->setWebDirectory($caller->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::BaseUrl) . $caller->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::RootUploadsFolderPath));
         $directory = str_replace("_id", "", $dataPost['itemCategory']);
         $manager->setObjectDirectory($directory);
         if ($dataPost['itemReplace'] === "true") {

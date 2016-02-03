@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Dal;
+namespace Puzzlout\Framework\Dal;
 
 /**
  * Handles the database queries.
@@ -8,11 +8,11 @@ namespace WebDevJL\Framework\Dal;
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package BaseManager
  */
-class BaseManager extends \WebDevJL\Framework\Dal\Manager {
+class BaseManager extends \Puzzlout\Framework\Dal\Manager {
 
     const INSERTCOLUMNS = "INSERTCOLUMNS";
     const INSERTVALUES = "INSERTVALUES";
@@ -28,7 +28,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
      */
     public function selectOne($item) {
         var_dump($item);
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     /**
@@ -38,7 +38,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
      */
     public function update($item) {
         var_dump($item);
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     /**
@@ -57,7 +57,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
     public function selectMany($object, DbQueryFilters $filters) {
         $dbConfig = new DbStatementConfig($object, DbExecutionType::SELECT, $filters);
         $dbConfig->setType(DbExecutionType::SELECT);
-        $dbConfig->setDaoClassName(\WebDevJL\Framework\Helpers\CommonHelper::GetFullClassName($object));
+        $dbConfig->setDaoClassName(\Puzzlout\Framework\Helpers\CommonHelper::GetFullClassName($object));
         $dbConfig->BuildSelectClause(!$filters->selectFilters() ? (array) $object : $filters->selectFilters());
         $dbConfig->BuildWhereClause($filters->whereFilters());
         $dbConfig->BuildOrderClause($filters->orderByFilters());
@@ -74,7 +74,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
      */
     public function selectManyComplex($object, $where_filters) {
         $this->dbConfig()->setType(DbExecutionType::SELECT);
-        $this->dbConfig()->setDaoClassName(\WebDevJL\Framework\Helpers\CommonHelper::GetFullClassName($object));
+        $this->dbConfig()->setDaoClassName(\Puzzlout\Framework\Helpers\CommonHelper::GetFullClassName($object));
         $select_clause = "SELECT ";
         //TODO: implement building the where clause with one or many filters
         $where_clause = ""; //$this->BuildWhereClause($where_filters);
@@ -100,7 +100,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
      */
     public function countById($id) {
         var_dump($id);
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     /**
@@ -200,7 +200,7 @@ class BaseManager extends \WebDevJL\Framework\Dal\Manager {
     }
 
     protected function GetTableName($object) {
-        return \WebDevJL\Framework\Helpers\CommonHelper::GetShortClassName($object);
+        return \Puzzlout\Framework\Helpers\CommonHelper::GetShortClassName($object);
     }
 
     protected function ExecuteQuery(\PDOStatement $dbStatement) {

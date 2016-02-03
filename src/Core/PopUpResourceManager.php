@@ -21,9 +21,9 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent {
+class PopUpResourceManager extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     private $xmlContent = null;
 
@@ -133,8 +133,8 @@ class PopUpResourceManager extends \WebDevJL\Framework\Core\ApplicationComponent
         $placeholders = array(
             "{{culture}}" => $this->app()->locale
         );
-        $filePath = "APP_ROOT_DIR" . strtr($this->app()->config()->Get(\WebDevJL\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
-        $xmlReader = new \WebDevJL\Framework\Core\XmlReader($filePath);
+        $filePath = "APP_ROOT_DIR" . strtr($this->app()->config()->Get(\Puzzlout\Framework\Enums\AppSettingKeys::TooltipsXmlFileName), $placeholders);
+        $xmlReader = new \Puzzlout\Framework\Core\XmlReader($filePath);
         if (!$this->xmlContent) {
             $this->xmlContent = $xmlReader->ReturnFileContents("resource");
             return $this->xmlContent;

@@ -10,7 +10,7 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package Globalization
  *
@@ -40,10 +40,10 @@
  *    + the value
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-use WebDevJL\Framework\BO\F_common_resource;
-use WebDevJL\Framework\BO\F_controller_resource;
+use Puzzlout\Framework\BO\F_common_resource;
+use Puzzlout\Framework\BO\F_controller_resource;
 
 class Globalization extends ApplicationComponent {
 
@@ -61,16 +61,16 @@ class Globalization extends ApplicationComponent {
         $this->context = new Context($app);
     }
 
-    public function Init($source = \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
+    public function Init($source = \Puzzlout\Framework\Core\ResourceManagers\ResourceBase::FROM_DB) {
         $dal = $this->app()->dal()->getDalInstance();
         switch ($source) {
             case ResourceManagers\ResourceBase::FROM_DB:
-                $logGuid = \WebDevJL\Framework\Utility\TimeLogger::StartLogInfo($this->app(), __CLASS__ . __METHOD__);
+                $logGuid = \Puzzlout\Framework\Utility\TimeLogger::StartLogInfo($this->app(), __CLASS__ . __METHOD__);
                 $objectLists = array();
-                $objectLists[self::COMMON_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_common_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
-                $objectLists[self::CONTROLLER_RESX_OBJ_LIST] = $dal->selectMany(new \WebDevJL\Framework\BO\F_controller_resource(), new \WebDevJL\Framework\Dal\DbQueryFilters());
+                $objectLists[self::COMMON_RESX_OBJ_LIST] = $dal->selectMany(new \Puzzlout\Framework\BO\F_common_resource(), new \Puzzlout\Framework\Dal\DbQueryFilters());
+                $objectLists[self::CONTROLLER_RESX_OBJ_LIST] = $dal->selectMany(new \Puzzlout\Framework\BO\F_controller_resource(), new \Puzzlout\Framework\Dal\DbQueryFilters());
                 $this->OrganizeResourcesIntoAssociativeArray($objectLists);
-                \WebDevJL\Framework\Utility\TimeLogger::EndLog($this->app, $logGuid);
+                \Puzzlout\Framework\Utility\TimeLogger::EndLog($this->app, $logGuid);
                 break;
 
             default:
@@ -111,12 +111,12 @@ class Globalization extends ApplicationComponent {
      *    )
      * );
      * 
-     * @param array(of WebDevJL\Framework\BO\F_common_resource) $resources the objects to loop through
+     * @param array(of Puzzlout\Framework\BO\F_common_resource) $resources the objects to loop through
      */
     private function OrganizeCommonResources($resources) {
         $assocArray = array(self::COMMON_RESX_ARRAY_KEY);
         foreach ($resources as $resourceObj) {
-            $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
+            $cleanArray = \Puzzlout\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
             if (isset($assocArray
                             [self::COMMON_RESX_ARRAY_KEY]
                             [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
@@ -134,10 +134,10 @@ class Globalization extends ApplicationComponent {
                 $assocArray
                         [self::COMMON_RESX_ARRAY_KEY]
                         [$cleanArray[F_common_resource::F_COMMON_RESOURCE_GROUP]]
-                        [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
+                        [$cleanArray[\Puzzlout\Framework\BO\F_common_resource::F_CULTURE_ID]]
                         [$cleanArray[F_common_resource::F_COMMON_RESOURCE_KEY]] = array(
-                    \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_VALUE => $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
-                    \WebDevJL\Framework\BO\F_common_resource::F_COMMON_RESOURCE_COMMENT => $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
+                    \Puzzlout\Framework\BO\F_common_resource::F_COMMON_RESOURCE_VALUE => $cleanArray[F_common_resource::F_COMMON_RESOURCE_VALUE],
+                    \Puzzlout\Framework\BO\F_common_resource::F_COMMON_RESOURCE_COMMENT => $cleanArray[F_common_resource::F_COMMON_RESOURCE_COMMENT]
                 );
             }
         }
@@ -181,12 +181,12 @@ class Globalization extends ApplicationComponent {
      *    ... repeat for other languages ...
      * );
      * 
-     * @param array(of WebDevJL\Framework\BO\F_controller_resource) $resources the objects to loop through
+     * @param array(of Puzzlout\Framework\BO\F_controller_resource) $resources the objects to loop through
      */
     private function OrganizeControllerResources($resources) {
         $assocArray = array(self::CONTROLLER_RESX_ARRAY_KEY);
         foreach ($resources as $resourceObj) {
-            $cleanArray = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
+            $cleanArray = \Puzzlout\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $resourceObj);
             if (isset($assocArray
                             [self::COMMON_RESX_ARRAY_KEY]
                             [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
@@ -199,18 +199,18 @@ class Globalization extends ApplicationComponent {
                         [$resourceObj->f_culture_id()]
                         [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
                         [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
-                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
-                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
+                    \Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
+                    \Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
                 ;
             } else {
                 $assocArray
                         [self::CONTROLLER_RESX_ARRAY_KEY]
                         [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_MODULE]]
-                        [$cleanArray[\WebDevJL\Framework\BO\F_common_resource::F_CULTURE_ID]]
+                        [$cleanArray[\Puzzlout\Framework\BO\F_common_resource::F_CULTURE_ID]]
                         [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_ACTION]]
                         [$cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_KEY]] = array(
-                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
-                    \WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
+                    \Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_VALUE],
+                    \Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT => $cleanArray[F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT])
                 ;
             }
         }

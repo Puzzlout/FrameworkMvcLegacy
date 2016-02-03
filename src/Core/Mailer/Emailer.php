@@ -33,7 +33,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Core\Mailer;
+namespace Puzzlout\Framework\Core\Mailer;
 
 class Emailer {
 

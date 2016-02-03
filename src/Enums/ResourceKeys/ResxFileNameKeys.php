@@ -23,7 +23,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums\ResourceKeys;
+namespace Puzzlout\Framework\Enums\ResourceKeys;
 
 abstract class ResxFileNameKeys {
 

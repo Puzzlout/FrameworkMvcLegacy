@@ -1,16 +1,16 @@
 <?php
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
 /**
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.2.1
  * @package F_common_resource
  */
-class F_common_resource extends \WebDevJL\Framework\Core\Entity {
+class F_common_resource extends \Puzzlout\Framework\Core\Entity {
 
     const F_COMMON_RESOURCE_GROUP = "f_common_resource_group";
     const F_COMMON_RESOURCE_KEY = "f_common_resource_key";

@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Dal;
+namespace Puzzlout\Framework\Dal;
 
 abstract class Manager {
 

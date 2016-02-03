@@ -22,9 +22,9 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\UC;
+namespace Puzzlout\Framework\UC;
 
-class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
+class LeftMenu extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     protected $app = null;
     protected $base_url = "";
@@ -37,7 +37,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
         //@todo: rethink how to setup the left menu: xml, php array or db table?
         //$this->resx_left_menu = $resx_left_menu;
         //@todo: move the following to a method that can be called at a later time. Not required in the constructor
-        //$this->base_url = str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, "APP_NAME", $this->app->config->get("base_url"));
+        //$this->base_url = str_replace(\Puzzlout\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, "APP_NAME", $this->app->config->get("base_url"));
     }
 
     /**
@@ -62,7 +62,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
      */
     private function _LoadXml() {
         $xml = new \DOMDocument;
-        $filename = "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
+        $filename = "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName . $this->app->name() . '/Config/menus.xml';
         if (file_exists($filename)) {
             $xml->load($filename);
         } else {
@@ -102,27 +102,27 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
     }
 
     private function ProcessMainMenuOutputResult($menuHeaderOutput, $menuSubsOutput) {
-        $finalOutput = \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_LI_START . \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_TAG;
+        $finalOutput = \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_LI_START . \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_TAG;
         if ($menuHeaderOutput["output"] !== $this->NOHEADERMENU && $menuSubsOutput !== $this->NOSUBMENUS) {
-            $finalOutput .= $menuHeaderOutput["output"] . $menuSubsOutput . \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_LI;
+            $finalOutput .= $menuHeaderOutput["output"] . $menuSubsOutput . \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_LI;
         } else if (!$menuHeaderOutput["hasLink"] && $menuHeaderOutput["output"] !== $this->NOHEADERMENU && $menuSubsOutput === $this->NOSUBMENUS) {
             $finalOutput = "";
         } else if ($menuHeaderOutput["output"] === $this->NOHEADERMENU && $menuSubsOutput === $this->NOSUBMENUS) {
             $finalOutput = "";
         } else if ($menuHeaderOutput["hasLink"] && $menuSubsOutput === $this->NOSUBMENUS) {
-            $finalOutput .= $menuHeaderOutput["output"] . \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_LI;
+            $finalOutput .= $menuHeaderOutput["output"] . \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_LI;
         }
         return $finalOutput;
     }
 
     private function _AddSubMenus($main_menu) {
-        $ulElement = \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_UL;
+        $ulElement = \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_UL;
         $subMenusXml = $main_menu->getElementsByTagName("submenu");
         $menuSubsOutput = $this->_ProcessSubMenus($subMenusXml);
         if ($menuSubsOutput === $this->NOSUBMENUS) {
             $ulElement = $menuSubsOutput;
         } else {
-            $ulElement .= $menuSubsOutput . \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_UL;
+            $ulElement .= $menuSubsOutput . \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_UL;
         }
 
         return $ulElement;
@@ -149,7 +149,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
     private function _CanDisplayMenuItem($menuItem) {
         if ($menuItem->getAttribute('href')) {
             $href = $this->base_url . current(explode('?', $menuItem->getAttribute('href')));
-            $routes = $this->app->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserRoutes);
+            $routes = $this->app->user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserRoutes);
             $result = $routes && $menuItem->getAttribute('active') === "true" ?
                     array_reduce(
                             $routes, function ($carry, $route) use ($href) {
@@ -164,7 +164,7 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
     private function _AddLinkHeader($link) {
         $elementCssClass = $link->getAttribute("cssClass");
         $cssClassPrintedOut = $elementCssClass ?
-                'class="' . \WebDevJL\Framework\Enums\LeftMenuConstants::cssClassValue . '"' :
+                'class="' . \Puzzlout\Framework\Enums\LeftMenuConstants::cssClassValue . '"' :
                 "";
         $placeholders = $this->_BuildPlaceholderList($link);
         $formattedString = $this->_GetStringForLinkHeader($cssClassPrintedOut);
@@ -173,23 +173,23 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
             $html["output"] = strtr($formattedString, $placeholders);
             $html["hasLink"] = true;
         } else {
-            $html["output"] = \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_SPAN .
+            $html["output"] = \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_SPAN .
                     $this->resx_left_menu[$link->getAttribute("resourcekey")] .
-                    \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_SPAN;
+                    \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_SPAN;
         }
         return $html;
     }
 
     private function _GetStringForLinkHeader($cssClassPrintedOut) {
         return
-                '<a href="' . \WebDevJL\Framework\Enums\LeftMenuConstants::href . '">' .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_SPAN_START .
+                '<a href="' . \Puzzlout\Framework\Enums\LeftMenuConstants::href . '">' .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_SPAN_START .
                 $cssClassPrintedOut .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_TAG .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_SPAN .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_SPAN .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::linkText .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_SPAN .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_TAG .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_SPAN .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_SPAN .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::linkText .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_SPAN .
                 '</a>';
     }
 
@@ -201,21 +201,21 @@ class LeftMenu extends \WebDevJL\Framework\Core\ApplicationComponent {
 
     private function _GetStringForSubMenuLink() {
         return
-                \WebDevJL\Framework\Enums\LeftMenuConstants::OPEN_LI .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::OPEN_LI .
                 '<a ' .
-                'href="' . \WebDevJL\Framework\Enums\LeftMenuConstants::href . '"' .
-                'id="' . \WebDevJL\Framework\Enums\LeftMenuConstants::itemId . '">' .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::linkText .
+                'href="' . \Puzzlout\Framework\Enums\LeftMenuConstants::href . '"' .
+                'id="' . \Puzzlout\Framework\Enums\LeftMenuConstants::itemId . '">' .
+                \Puzzlout\Framework\Enums\LeftMenuConstants::linkText .
                 '</a>' .
-                \WebDevJL\Framework\Enums\LeftMenuConstants::CLOSE_LI;
+                \Puzzlout\Framework\Enums\LeftMenuConstants::CLOSE_LI;
     }
 
     private function _BuildPlaceholderList($link) {
         $elementCssClass = $link->getAttribute("cssClass");
         return array(
-            \WebDevJL\Framework\Enums\LeftMenuConstants::href => $this->base_url . $link->getAttribute("href"),
-            \WebDevJL\Framework\Enums\LeftMenuConstants::linkText => $this->resx_left_menu[$link->getAttribute("resourcekey")],
-            \WebDevJL\Framework\Enums\LeftMenuConstants::cssClassValue => $elementCssClass ? $elementCssClass : ""
+            \Puzzlout\Framework\Enums\LeftMenuConstants::href => $this->base_url . $link->getAttribute("href"),
+            \Puzzlout\Framework\Enums\LeftMenuConstants::linkText => $this->resx_left_menu[$link->getAttribute("resourcekey")],
+            \Puzzlout\Framework\Enums\LeftMenuConstants::cssClassValue => $elementCssClass ? $elementCssClass : ""
         );
     }
 

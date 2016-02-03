@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\BO;
+namespace Puzzlout\Framework\Tests\BO;
 
-use WebDevJL\Framework\BO\FileUploadResult;
+use Puzzlout\Framework\BO\FileUploadResult;
 
 class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class FileUploadResultTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new FileUploadResult("");
-        $this->assertInstanceOf('WebDevJL\Framework\BO\FileUploadResult', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\BO\FileUploadResult', $result);
     }
 
     //Write the next tests below...

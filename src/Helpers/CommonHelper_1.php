@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class CommonHelper_1 {
 
@@ -56,7 +56,7 @@ class CommonHelper_1 {
 
     public static function GetListObjectsInSessionByKey($user, $key) {
         $objects = array();
-        $projects = $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserSessionProjects);
+        $projects = $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserSessionProjects);
         if ($projects === NULL) {
             $projects = array();
         }
@@ -181,7 +181,7 @@ class CommonHelper_1 {
         return $matches;
     }
 
-    public static function SetActiveTab(\WebDevJL\Framework\User $user, $tab_name, $sessionKey) {
+    public static function SetActiveTab(\Puzzlout\Framework\User $user, $tab_name, $sessionKey) {
         $tabs = $user->getAttribute($sessionKey);
         foreach ($tabs as $key => $value) {
             $tabs[$key] = "";
@@ -191,7 +191,7 @@ class CommonHelper_1 {
     }
 
     //TODO: replace with GetValueInSession
-    public static function GetTabsStatus(\WebDevJL\Framework\User $user, $sessionKey) {
+    public static function GetTabsStatus(\Puzzlout\Framework\User $user, $sessionKey) {
         return $user->getAttribute($sessionKey);
     }
 

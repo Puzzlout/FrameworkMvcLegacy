@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\ViewModels;
+namespace Puzzlout\Framework\Tests\ViewModels;
 
-use WebDevJL\Framework\ViewModels\BaseJsonVm;
+use Puzzlout\Framework\ViewModels\BaseJsonVm;
 
 class BaseJsonVmTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class BaseJsonVmTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class BaseJsonVmTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new BaseJsonVm($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\ViewModels\BaseJsonVm', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\ViewModels\BaseJsonVm', $result);
     }
 
     //Write the next tests below...

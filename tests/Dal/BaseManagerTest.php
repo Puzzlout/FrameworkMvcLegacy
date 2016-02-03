@@ -5,10 +5,10 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Dal;
+namespace Puzzlout\Framework\Tests\Dal;
 
-use WebDevJL\Framework\Dal\BaseManager;
-use WebDevJL\Framework\Dal\DbQueryFilters;
+use Puzzlout\Framework\Dal\BaseManager;
+use Puzzlout\Framework\Dal\DbQueryFilters;
 
 class BaseManagerTest extends \PHPUnit_Framework_TestCase {
 
@@ -18,7 +18,7 @@ class BaseManagerTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -27,7 +27,7 @@ class BaseManagerTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new BaseManager(null, new DbQueryFilters());
-        $this->assertInstanceOf('WebDevJL\Framework\Dal\BaseManager', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Dal\BaseManager', $result);
     }
 
     //Write the next tests below...

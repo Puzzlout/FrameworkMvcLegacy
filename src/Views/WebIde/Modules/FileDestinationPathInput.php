@@ -1,5 +1,5 @@
 <?php
-echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/webide.solution.autocomplete.js");
+echo Puzzlout\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/webide.solution.autocomplete.js");
 ?>
 <div class="form-group">
     <label for="fileDirPath">Type file destination</label>

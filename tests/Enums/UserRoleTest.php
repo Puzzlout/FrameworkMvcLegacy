@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Enums;
+namespace Puzzlout\Framework\Tests\Enums;
 
-use WebDevJL\Framework\Enums\UserRole;
+use Puzzlout\Framework\Enums\UserRole;
 
 class UserRoleTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class UserRoleTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class UserRoleTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new UserRole($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Enums\UserRole', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Enums\UserRole', $result);
     }
 
     //Write the next tests below...

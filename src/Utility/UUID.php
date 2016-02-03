@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Utility;
+namespace Puzzlout\Framework\Utility;
 
 class UUID {
 

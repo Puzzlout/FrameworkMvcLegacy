@@ -1,16 +1,16 @@
 <?php
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
 /**
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0.2
  * @package F_document
  */
-class F_document extends \WebDevJL\Framework\Core\Entity {
+class F_document extends \Puzzlout\Framework\Core\Entity {
 
     const F_DOCUMENT_ID = "f_document_id";
     const F_DOCUMENT_CONTENT_TYPE = "f_document_content_type";

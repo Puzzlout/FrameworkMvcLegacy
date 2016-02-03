@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc/blob/master/README.md
+ * @link https://github.com/Puzzlout/EasyMvc/blob/master/README.md
  * @since Version 1.0.2.1
  * @package FrameworkDalModules
  */
 
-namespace WebDevJL\Framework\Generated;
+namespace Puzzlout\Framework\Generated;
 
 class FrameworkDalModules {
 

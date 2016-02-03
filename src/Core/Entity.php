@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 abstract class Entity implements \ArrayAccess {
 

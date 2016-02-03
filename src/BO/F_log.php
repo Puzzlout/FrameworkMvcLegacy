@@ -1,16 +1,16 @@
 <?php
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
 /**
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.2.1
  * @package F_log
  */
-class F_log extends \WebDevJL\Framework\Core\Entity {
+class F_log extends \Puzzlout\Framework\Core\Entity {
 
     const F_LOG_ID = "f_log_id";
     const F_LOG_GUID = "f_log_guid";

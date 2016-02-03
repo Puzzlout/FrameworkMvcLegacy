@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Helpers;
+namespace Puzzlout\Framework\Tests\Helpers;
 
-use WebDevJL\Framework\Helpers\DebugHelper;
+use Puzzlout\Framework\Helpers\DebugHelper;
 
 class DebugHelperTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class DebugHelperTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class DebugHelperTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new DebugHelper($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Helpers\DebugHelper', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Helpers\DebugHelper', $result);
     }
 
     //Write the next tests below...

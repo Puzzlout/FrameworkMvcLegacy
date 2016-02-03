@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\GeneratorEngine\Templates;
+namespace Puzzlout\Framework\Tests\GeneratorEngine\Templates;
 
-use WebDevJL\Framework\GeneratorEngine\Templates\TemplateFileNameConstants;
+use Puzzlout\Framework\GeneratorEngine\Templates\TemplateFileNameConstants;
 
 class TemplateFileNameConstantsTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class TemplateFileNameConstantsTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class TemplateFileNameConstantsTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new TemplateFileNameConstants($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Templates\TemplateFileNameConstants', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\GeneratorEngine\Templates\TemplateFileNameConstants', $result);
     }
 
     //Write the next tests below...

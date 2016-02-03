@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Helpers;
+namespace Puzzlout\Framework\Tests\Helpers;
 
-use WebDevJL\Framework\Helpers\CommonHelper_1;
+use Puzzlout\Framework\Helpers\CommonHelper_1;
 
 class CommonHelper_1Test extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class CommonHelper_1Test extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class CommonHelper_1Test extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new CommonHelper_1($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Helpers\CommonHelper_1', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Helpers\CommonHelper_1', $result);
     }
 
     //Write the next tests below...

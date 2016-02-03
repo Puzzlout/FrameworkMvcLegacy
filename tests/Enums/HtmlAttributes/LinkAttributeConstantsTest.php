@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Enums\HtmlAttributes;
+namespace Puzzlout\Framework\Tests\Enums\HtmlAttributes;
 
-use WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
+use Puzzlout\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
 
 class LinkAttributeConstantsTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class LinkAttributeConstantsTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class LinkAttributeConstantsTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new LinkAttributeConstants($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Enums\HtmlAttributes\LinkAttributeConstants', $result);
     }
 
     //Write the next tests below...

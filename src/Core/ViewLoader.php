@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ViewLoader
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
+class ViewLoader implements \Puzzlout\Framework\Interfaces\IViewLoader {
 
     /**
      * The extension of a view file.
@@ -28,17 +28,17 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
 
     /**
      * 
-     * @var \WebDevJL\Framework\Controllers\BaseController $controller The controller object 
+     * @var \Puzzlout\Framework\Controllers\BaseController $controller The controller object 
      */
     public $controller;
 
     /**
      * Instantiate the class.
      * 
-     * @param \WebDevJL\Framework\Controllers\BaseController $controller The controller to find the view.
-     * @return \WebDevJL\Framework\Core\ViewLoader The instance of the class.
+     * @param \Puzzlout\Framework\Controllers\BaseController $controller The controller to find the view.
+     * @return \Puzzlout\Framework\Core\ViewLoader The instance of the class.
      */
-    public static function Init(\WebDevJL\Framework\Controllers\BaseController $controller) {
+    public static function Init(\Puzzlout\Framework\Controllers\BaseController $controller) {
         $viewLoader = new ViewLoader();
         $viewLoader->controller = $controller;
         return $viewLoader;
@@ -47,9 +47,9 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
     /**
      * Retrieve the view from either the Framework folder or the current Application folder.
      * 
-     * @throws \WebDevJL\Framework\Exceptions\ViewNotFoundException Throws an exception if the view is not found 
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetFrameworkRootDir()
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetApplicationRootDir()
+     * @throws \Puzzlout\Framework\Exceptions\ViewNotFoundException Throws an exception if the view is not found 
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetFrameworkRootDir()
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetApplicationRootDir()
      * @todo create error code.
      */
     public function GetView() {
@@ -63,16 +63,16 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
             return $ApplicationView;
         }
 
-        throw new \WebDevJL\Framework\Exceptions\ViewNotFoundException("View " . $FrameworkView . " or " . $ApplicationView . " doesn't exists", 0, NULL);
+        throw new \Puzzlout\Framework\Exceptions\ViewNotFoundException("View " . $FrameworkView . " or " . $ApplicationView . " doesn't exists", 0, NULL);
     }
 
     /**
      * Retrieve the partial view from either the Framework folder or the current Application folder.
      * 
      * @param string $viewName The name of view to load
-     * @throws \WebDevJL\Framework\Exceptions\ViewNotFoundException Throws an exception if the view is not found 
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetFrameworkRootDir()
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetApplicationRootDir()
+     * @throws \Puzzlout\Framework\Exceptions\ViewNotFoundException Throws an exception if the view is not found 
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetFrameworkRootDir()
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetApplicationRootDir()
      */
     public function GetPartialView($viewName) {
         $ListOfPathToCheck = array(
@@ -87,15 +87,15 @@ class ViewLoader implements \WebDevJL\Framework\Interfaces\IViewLoader {
                 return $fileToCheck;
             }
         }
-        throw new \WebDevJL\Framework\Exceptions\ViewNotFoundException("Partial view \"" . $viewName . "\" not found in " . var_dump($ListOfPathToCheck));
+        throw new \Puzzlout\Framework\Exceptions\ViewNotFoundException("Partial view \"" . $viewName . "\" not found in " . var_dump($ListOfPathToCheck));
     }
 
     /**
      * Computes the path of the view.
      * 
      * @param string $rootDir
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetFrameworkRootDir()
-     * @see \WebDevJL\Framework\Core\ViewLoader::GetApplicationRootDir()
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetFrameworkRootDir()
+     * @see \Puzzlout\Framework\Core\ViewLoader::GetApplicationRootDir()
      * @return string The directory where to find the view.
      */
     public function GetPathForView($rootDir) {

@@ -7,14 +7,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package DalModuleNameConstantsGenerator
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\DirectoryManager;
+use Puzzlout\Framework\Core\DirectoryManager;
 
 class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
 
@@ -28,13 +28,13 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
      */
     public function Run($data = NULL) {
         $FrameworkDalModules = DirectoryManager::GetFileNames(
-                        "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::DalModulesFolderName);
+                        "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::DalModulesFolderName);
 
         $ApplicationDalModules = DirectoryManager::GetFileNames(
                         "APP_ROOT_DIR" .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
                         "APP_NAME" .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::DalModulesFolderName);
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::DalModulesFolderName);
 
 
         $this->InitGenerateFrameworkFile($FrameworkDalModules);
@@ -43,9 +43,9 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
 
     function InitGenerateFrameworkFile($FrameworkControllers) {
         $this->params = array(
-            BaseClassGenerator::NameSpaceKey => "WebDevJL\Framework\Generated",
+            BaseClassGenerator::NameSpaceKey => "Puzzlout\Framework\Generated",
             BaseClassGenerator::ClassNameKey => "Framework" . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for framework dal module classes for autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
@@ -57,8 +57,8 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
         $this->params = array(
             BaseClassGenerator::NameSpaceKey => "Applications\\" . "APP_NAME" . "\Generated",
             BaseClassGenerator::ClassNameKey => "APP_NAME" . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-            "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
+            "APP_NAME" . \Puzzlout\Framework\Enums\ApplicationFolderName::Generated,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application dal module classes for autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true

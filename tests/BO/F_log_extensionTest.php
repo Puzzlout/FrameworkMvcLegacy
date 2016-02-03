@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\BO;
+namespace Puzzlout\Framework\Tests\BO;
 
-use WebDevJL\Framework\BO\F_log_extension;
+use Puzzlout\Framework\BO\F_log_extension;
 
 class F_log_extensionTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class F_log_extensionTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class F_log_extensionTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new F_log_extension([]);
-        $this->assertInstanceOf('WebDevJL\Framework\BO\F_log_extension', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\BO\F_log_extension', $result);
     }
 
     //Write the next tests below...

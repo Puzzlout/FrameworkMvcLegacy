@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Utility;
+namespace Puzzlout\Framework\Tests\Utility;
 
-use WebDevJL\Framework\Utility\DateTimeHelper;
+use Puzzlout\Framework\Utility\DateTimeHelper;
 
 class DateTimeHelperTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class DateTimeHelperTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class DateTimeHelperTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new DateTimeHelper($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Utility\DateTimeHelper', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Utility\DateTimeHelper', $result);
     }
 
     //Write the next tests below...

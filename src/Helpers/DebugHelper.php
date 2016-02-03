@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class DebugHelper {
 

@@ -5,10 +5,10 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Dal\Modules;
+namespace Puzzlout\Framework\Tests\Dal\Modules;
 
-use WebDevJL\Framework\Dal\Modules\DocumentDal;
-use WebDevJL\Framework\Dal\DbQueryFilters;
+use Puzzlout\Framework\Dal\Modules\DocumentDal;
+use Puzzlout\Framework\Dal\DbQueryFilters;
 
 class DocumentDalTest extends \PHPUnit_Framework_TestCase {
 
@@ -18,7 +18,7 @@ class DocumentDalTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -27,7 +27,7 @@ class DocumentDalTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new DocumentDal(null, new DbQueryFilters());
-        $this->assertInstanceOf('WebDevJL\Framework\Dal\Modules\DocumentDal', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Dal\Modules\DocumentDal', $result);
     }
 
     //Write the next tests below...

@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Exceptions;
+namespace Puzzlout\Framework\Tests\Exceptions;
 
-use WebDevJL\Framework\Exceptions\InvalidViewModelTypeException;
+use Puzzlout\Framework\Exceptions\InvalidViewModelTypeException;
 
 class InvalidViewModelTypeExceptionTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class InvalidViewModelTypeExceptionTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class InvalidViewModelTypeExceptionTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new InvalidViewModelTypeException();
-        $this->assertInstanceOf('WebDevJL\Framework\Exceptions\InvalidViewModelTypeException', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Exceptions\InvalidViewModelTypeException', $result);
     }
 
     //Write the next tests below...

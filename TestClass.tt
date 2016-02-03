@@ -18,7 +18,7 @@ class {{test_class_name}} extends \PHPUnit_Framework_TestCase {
    */
   protected function setUp()
   {
-      $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+      $this->app = new \Puzzlout\Framework\Tests\TestApplication();
   }
   
   /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace WebDevJL\Framework\Utility;
+namespace Puzzlout\Framework\Utility;
 
-use WebDevJL\Framework\Core\Config;
+use Puzzlout\Framework\Core\Config;
 
-class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
+class FileUploader extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     public
             $rootDirectory = "",
@@ -14,9 +14,9 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
             $dataPost = array(),
             $resultJson = array();
 
-    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app) {
         parent::__construct($app);
-        $this->rootDirectory = Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::RootDocumentUpload);
+        $this->rootDirectory = Config::Init($this->app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::RootDocumentUpload);
     }
 
     public function FillInstance($data) {
@@ -29,13 +29,13 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
         $this->uploadDirectory = $this->GetUploadDirectory();
         $this->resultJson["fileUploadResults"] = array();
         foreach ($this->files as $file) {
-            $this->currentFile = new \WebDevJL\Framework\Core\BO\FileUploadResult($file["tmp_name"]);
+            $this->currentFile = new \Puzzlout\Framework\Core\BO\FileUploadResult($file["tmp_name"]);
             //Init object
             $document = $this->InitDocumentObject();
             //Check if file exist before adding a row in DB
             $this->currentFile->setFilePath($this->uploadDirectory . "/" . $document->document_value());
-            \WebDevJL\Framework\Core\DirectoryManager::CreateDirectory($this->uploadDirectory);
-            $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($this->currentFile->filePath());
+            \Puzzlout\Framework\Core\DirectoryManager::CreateDirectory($this->uploadDirectory);
+            $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($this->currentFile->filePath());
             $this->currentFile->setDoesExist($fileExists);
             //Add document to DB
             if (!$fileExists) {//Don't add the document in DB if already added
@@ -94,7 +94,7 @@ class FileUploader extends \WebDevJL\Framework\Core\ApplicationComponent {
     }
 
     private function AddDocumentToDatabase($document) {
-        $db = new \WebDevJL\Framework\Dal\Managers('PDO', $this->app());
+        $db = new \Puzzlout\Framework\Dal\Managers('PDO', $this->app());
         $dal = $db->getDalInstance("Document", true);
         $dal->add($document);
     }

@@ -21,36 +21,36 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class UserHelper {
 
     public static function SaveRoutes($user, $routes) {
-        $user->setAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserRoutes, $routes);
+        $user->setAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserRoutes, $routes);
     }
 
     public static function GetUserConnectedSession($user) {
-        return $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected) ?
-                $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected) : false;
+        return $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserConnected) ?
+                $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserConnected) : false;
     }
 
     public static function GetRoleFromType($userType) {
         $roleId = 1;
         switch ($userType) {
-            case \WebDevJL\Framework\Enums\UserRoleType::Admin:
-                $roleId = \WebDevJL\Framework\Enums\UserRole::Admin;
+            case \Puzzlout\Framework\Enums\UserRoleType::Admin:
+                $roleId = \Puzzlout\Framework\Enums\UserRole::Admin;
                 break;
-            case \WebDevJL\Framework\Enums\UserRoleType::ProjectManager:
-                $roleId = \WebDevJL\Framework\Enums\UserRole::ProjectManager;
+            case \Puzzlout\Framework\Enums\UserRoleType::ProjectManager:
+                $roleId = \Puzzlout\Framework\Enums\UserRole::ProjectManager;
                 break;
-            case \WebDevJL\Framework\Enums\UserRoleType::Technician:
-                $roleId = \WebDevJL\Framework\Enums\UserRole::Technician;
+            case \Puzzlout\Framework\Enums\UserRoleType::Technician:
+                $roleId = \Puzzlout\Framework\Enums\UserRole::Technician;
                 break;
-            case \WebDevJL\Framework\Enums\UserRoleType::Client:
-                $roleId = \WebDevJL\Framework\Enums\UserRole::Client;
+            case \Puzzlout\Framework\Enums\UserRoleType::Client:
+                $roleId = \Puzzlout\Framework\Enums\UserRole::Client;
                 break;
-            case \WebDevJL\Framework\Enums\UserRoleType::Service:
-                $roleId = \WebDevJL\Framework\Enums\UserRole::Service;
+            case \Puzzlout\Framework\Enums\UserRoleType::Service:
+                $roleId = \Puzzlout\Framework\Enums\UserRole::Service;
                 break;
             default:
                 $roleId = 0;
@@ -69,15 +69,15 @@ class UserHelper {
      */
     public static function GetAndStoreUsersInSession($caller) {
         $users = array();
-        if (!$caller->app()->user()->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::AllUsers)) {
+        if (!$caller->app()->user()->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::AllUsers)) {
             $manager = $caller->managers()->getDalInstance($caller->module());
             $users = $manager->selectAllUsers();
 
             $caller->app()->user->setAttribute(
-                    \WebDevJL\Framework\Enums\SessionKeys::AllUsers, $users
+                    \Puzzlout\Framework\Enums\SessionKeys::AllUsers, $users
             );
         } else {
-            $users = $caller->app()->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::AllUsers);
+            $users = $caller->app()->user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::AllUsers);
         }
         return $users;
     }
@@ -89,7 +89,7 @@ class UserHelper {
         $users = self::GetAndStoreUsersInSession($caller);
         $users[] = $user;
         $caller->app()->user->setAttribute(
-                \WebDevJL\Framework\Enums\SessionKeys::AllUsers, $users
+                \Puzzlout\Framework\Enums\SessionKeys::AllUsers, $users
         );
     }
 
@@ -109,14 +109,14 @@ class UserHelper {
 
     public static function SetPropertyNamesForDualList() {
         return array(
-            \WebDevJL\Framework\Enums\GenericViewVariablesKeys::property_id => "user_id",
-            \WebDevJL\Framework\Enums\GenericViewVariablesKeys::property_name => "user_login"
+            \Puzzlout\Framework\Enums\GenericViewVariablesKeys::property_id => "user_id",
+            \Puzzlout\Framework\Enums\GenericViewVariablesKeys::property_name => "user_login"
         );
     }
 
     public static function PrepareUserObject($dataPost, $config, $setPass = false) {
-        $user = new \WebDevJL\Framework\BO\User();
-        $protect = new \WebDevJL\Framework\BL\Security\Protect($config);
+        $user = new \Puzzlout\Framework\BO\User();
+        $protect = new \Puzzlout\Framework\BL\Security\Protect($config);
         $user->setUser_hint($dataPost['user_hint']);
         $user->setUser_login($dataPost['user_login']);
         $user->setUser_email($dataPost['pm_email']);
@@ -147,15 +147,15 @@ class UserHelper {
             'user_type' => $user_type,
             'user_value' => $user_value
         );
-        $user = CommonHelper::PrepareUserObject($generatedDataPost, new \WebDevJL\Framework\BO\User());
-        $protect = new \WebDevJL\Framework\BL\Security\Protect($caller->app()->config());
+        $user = CommonHelper::PrepareUserObject($generatedDataPost, new \Puzzlout\Framework\BO\User());
+        $protect = new \Puzzlout\Framework\BL\Security\Protect($caller->app()->config());
         $user->setUser_password($protect->HashValue($caller->app()->config()->get("PaswordSalt"), $user->user_password()));
         return $manager->add($user);
     }
 
     public static function GetEmailForUser($caller, $dataPost, $user_type, $user_value) {
         if (is_null($dataPost['user_email']) || $dataPost['user_email'] == '') {
-            return ($user_type . '_' . $user_value . '@' . $caller->app()->config()->get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultEmailDomainValue));
+            return ($user_type . '_' . $user_value . '@' . $caller->app()->config()->get(\Puzzlout\Framework\Enums\AppSettingKeys::DefaultEmailDomainValue));
         } else {
             return $dataPost['user_email'];
         }

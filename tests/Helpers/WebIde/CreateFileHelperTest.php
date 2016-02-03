@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Helpers\WebIde;
+namespace Puzzlout\Framework\Tests\Helpers\WebIde;
 
-use WebDevJL\Framework\Helpers\WebIde\CreateFileHelper;
+use Puzzlout\Framework\Helpers\WebIde\CreateFileHelper;
 
 class CreateFileHelperTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class CreateFileHelperTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class CreateFileHelperTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new CreateFileHelper($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Helpers\WebIde\CreateFileHelper', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Helpers\WebIde\CreateFileHelper', $result);
     }
 
     //Write the next tests below...

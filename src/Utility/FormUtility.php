@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Utility;
+namespace Puzzlout\Framework\Utility;
 
 class FormUtility {
 

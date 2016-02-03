@@ -1,10 +1,10 @@
 <?php
 
-namespace WebDevJL\Framework\Interfaces;
+namespace Puzzlout\Framework\Interfaces;
 
 interface IViewLoader {
 
-    public static function Init(\WebDevJL\Framework\Controllers\BaseController $controller);
+    public static function Init(\Puzzlout\Framework\Controllers\BaseController $controller);
 
     public function GetView();
 

@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Core\DirectoryManager;
+namespace Puzzlout\Framework\Tests\Core\DirectoryManager;
 
-use WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch;
+use Puzzlout\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch;
 
 class ArrayFilterDirectorySearchTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ArrayFilterDirectorySearchTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ArrayFilterDirectorySearchTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ArrayFilterDirectorySearch($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch', $result);
     }
 
     //Write the next tests below...

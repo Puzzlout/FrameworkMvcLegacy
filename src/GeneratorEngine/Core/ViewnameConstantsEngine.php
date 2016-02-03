@@ -7,14 +7,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMVC
+ * @link https://github.com/Puzzlout/EasyMVC
  * @since Version 1.0.0
  * @package ViewnameConstantsEngine
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\DirectoryManager;
+use Puzzlout\Framework\Core\DirectoryManager;
 
 class ViewnameConstantsEngine extends ConstantsClassEngineBase {
 
@@ -25,21 +25,21 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
      */
     public function Run($data = NULL) {
         $FrameworkList = DirectoryManager::GetFilesNamesRecursively(
-                        "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName);
+                        "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::ViewsFolderName);
         $ApplicationList = DirectoryManager::GetFilesNamesRecursively(
                         "APP_ROOT_DIR" .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
                         "APP_NAME" .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName);
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::ViewsFolderName);
         $this->InitGenerateFrameworkFile($FrameworkList);
         $this->InitGenerateApplicationFile($ApplicationList);
     }
 
     function InitGenerateFrameworkFile($FrameworkControllers) {
         $this->params = array(
-            BaseClassGenerator::NameSpaceKey => "WebDevJL\Framework\Generated",
+            BaseClassGenerator::NameSpaceKey => "Puzzlout\Framework\Generated",
             BaseClassGenerator::ClassNameKey => "Framework" . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for framework viewnames to use for autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
@@ -51,8 +51,8 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
         $this->params = array(
             BaseClassGenerator::NameSpaceKey => "Applications\\" . "APP_NAME" . "\Generated",
             BaseClassGenerator::ClassNameKey => "APP_NAME" . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-            "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
+            "APP_NAME" . \Puzzlout\Framework\Enums\ApplicationFolderName::Generated,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application viewnames to use for autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true

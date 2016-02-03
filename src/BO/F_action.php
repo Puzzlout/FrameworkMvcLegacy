@@ -4,14 +4,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package F_action
  */
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
-class F_action extends \WebDevJL\Framework\Core\Entity {
+class F_action extends \Puzzlout\Framework\Core\Entity {
 
     const F_ACTION_KEY = "f_action_key";
     const F_ACTION_DESCRIPTION = "f_action_description";

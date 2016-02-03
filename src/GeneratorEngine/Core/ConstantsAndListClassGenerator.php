@@ -7,15 +7,15 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ConstantsAndListClassGenerator
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
+use Puzzlout\Framework\Core\Application;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ConstantsAndListClassGenerator extends ConstantsClassGeneratorBase implements IClassGenerator, IConstantClass {
 

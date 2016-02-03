@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\GeneratorEngine\Placeholders;
+namespace Puzzlout\Framework\Tests\GeneratorEngine\Placeholders;
 
-use WebDevJL\Framework\GeneratorEngine\Placeholders\ClassFilePlaceholders;
+use Puzzlout\Framework\GeneratorEngine\Placeholders\ClassFilePlaceholders;
 
 class ClassFilePlaceholdersTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ClassFilePlaceholdersTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ClassFilePlaceholdersTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ClassFilePlaceholders($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Placeholders\ClassFilePlaceholders', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\GeneratorEngine\Placeholders\ClassFilePlaceholders', $result);
     }
 
     //Write the next tests below...

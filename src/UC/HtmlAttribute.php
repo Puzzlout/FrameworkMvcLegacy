@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package HtmlAttribute
  */
 
-namespace WebDevJL\Framework\UC;
+namespace Puzzlout\Framework\UC;
 
 class HtmlAttribute {
 
@@ -43,7 +43,7 @@ class HtmlAttribute {
      * 
      * @param string $name The name of the attribute
      * @param string $value The value of the attribute
-     * @return \WebDevJL\Framework\UC\HtmlAttribute
+     * @return \Puzzlout\Framework\UC\HtmlAttribute
      */
     public static function Instanciate($name, $value) {
         $attr = new HtmlAttribute($name, $value);

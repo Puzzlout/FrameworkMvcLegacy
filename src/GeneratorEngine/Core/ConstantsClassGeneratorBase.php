@@ -6,15 +6,15 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ConstantsClassGeneratorBase
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
+use Puzzlout\Framework\Core\Application;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGenerator, IConstantClass {
 
@@ -69,7 +69,7 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
     }
 
     public function WriteAssociativeArrayValueWithKeyAndValue($key, $value, $tabAmount = 0) {
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     /**
@@ -79,10 +79,10 @@ class ConstantsClassGeneratorBase extends BaseClassGenerator implements IClassGe
      * $this->data array.
      */
     public function WriteConstants($valueToTrim = ".php") {
-        $extractor = \WebDevJL\Framework\Helpers\ArrayExtractionHelper::Init()->ExtractDistinctValues($this->data);
+        $extractor = \Puzzlout\Framework\Helpers\ArrayExtractionHelper::Init()->ExtractDistinctValues($this->data);
         $output = "";
         foreach ($extractor->List as $constant) {
-            if (\WebDevJL\Framework\Helpers\RegexHelper::Init($constant)->IsAPhpFilename()) {
+            if (\Puzzlout\Framework\Helpers\RegexHelper::Init($constant)->IsAPhpFilename()) {
                 $output .= $this->WriteConstant($this->BuildConstantKeyValue($constant, $valueToTrim));
             } else {
                 $output .= $this->WriteConstant($this->BuildConstantForFolderValue($constant));

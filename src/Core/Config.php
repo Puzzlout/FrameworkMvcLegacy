@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class Config extends ApplicationComponent {
 
@@ -9,8 +9,8 @@ class Config extends ApplicationComponent {
     /**
      * Initialize the class instance.
      * 
-     * @param \WebDevJL\Framework\Core\Application $app
-     * @return \WebDevJL\Framework\Core\Config
+     * @param \Puzzlout\Framework\Core\Application $app
+     * @return \Puzzlout\Framework\Core\Config
      */
     public static function Init(Application $app) {
         $instance = new Config($app);
@@ -20,7 +20,7 @@ class Config extends ApplicationComponent {
 
     /**
      * Constructor stores the current application instance in class object.
-     * @param \WebDevJL\Framework\Core\Application $app
+     * @param \Puzzlout\Framework\Core\Application $app
      */
     public function __construct(Application $app) {
         parent::__construct($app);
@@ -34,7 +34,7 @@ class Config extends ApplicationComponent {
     private function AssignSettingsToArray() {
         try {
             if ($this->app->UnitTestingEnabled) {
-                $SettingsClass = "\\WebDevJL\\Framework\\Tests\\AppSettings";
+                $SettingsClass = "\\Puzzlout\\Framework\\Tests\\AppSettings";
                 $this->settings[$this->app->name] = $SettingsClass::Init()->GetSettings();
                 return;
             }

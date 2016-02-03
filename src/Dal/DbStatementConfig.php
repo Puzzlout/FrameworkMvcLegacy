@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package DbStatementConfig
  */
 
-namespace WebDevJL\Framework\Dal;
+namespace Puzzlout\Framework\Dal;
 
 class DbStatementConfig {
 
@@ -33,8 +33,8 @@ class DbStatementConfig {
 
     public function __construct($daoObject, $queryAction, DbQueryFilters $filters) {
         $this->setDaoObject($daoObject);
-        $this->setDaoClassName(\WebDevJL\Framework\Helpers\CommonHelper::GetFullClassName($daoObject));
-        $this->setTableName(\WebDevJL\Framework\Helpers\CommonHelper::GetShortClassName($daoObject));
+        $this->setDaoClassName(\Puzzlout\Framework\Helpers\CommonHelper::GetFullClassName($daoObject));
+        $this->setTableName(\Puzzlout\Framework\Helpers\CommonHelper::GetShortClassName($daoObject));
         $this->setType($queryAction);
         //$this->BuildSelectClause((array) $daoObject);
         //$this->BuildWhereClause($filters->whereFilters());
@@ -203,7 +203,7 @@ class DbStatementConfig {
             return;
         }
 
-        $this->selectClause = \WebDevJL\Framework\Dal\DbExecutionType::SELECT . " ";
+        $this->selectClause = \Puzzlout\Framework\Dal\DbExecutionType::SELECT . " ";
         foreach ($selectFilters as $filter => $value) {
             $filterClean = str_replace("\0*\0", "", $filter);
             $this->selectClause .= "`$filterClean`, ";

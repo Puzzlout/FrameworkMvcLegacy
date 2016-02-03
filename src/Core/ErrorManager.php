@@ -21,9 +21,9 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-use WebDevJL\Framework\Enums\ErrorLoggingMethod;
+use Puzzlout\Framework\Enums\ErrorLoggingMethod;
 
 class ErrorManager {
 
@@ -43,7 +43,7 @@ class ErrorManager {
         $this->exception = $exc;
 
         switch ($this->errorLoggingMethod) {
-            case \WebDevJL\Framework\Enums\ErrorLoggingMethod::EchoString:
+            case \Puzzlout\Framework\Enums\ErrorLoggingMethod::EchoString:
                 $this->LogErrorEchoString();
                 break;
 

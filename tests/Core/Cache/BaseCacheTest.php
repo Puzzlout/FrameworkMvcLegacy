@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Core\Cache;
+namespace Puzzlout\Framework\Tests\Core\Cache;
 
-use WebDevJL\Framework\Core\Cache\BaseCache;
+use Puzzlout\Framework\Core\Cache\BaseCache;
 
 class BaseCacheTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class BaseCacheTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class BaseCacheTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new BaseCache($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Core\Cache\BaseCache', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\Cache\BaseCache', $result);
     }
 
     //Write the next tests below...

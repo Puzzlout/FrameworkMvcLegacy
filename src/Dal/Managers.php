@@ -1,8 +1,8 @@
 <?php
 
-namespace WebDevJL\Framework\Dal;
+namespace Puzzlout\Framework\Dal;
 
-use WebDevJL\Framework\FrameworkConstants;
+use Puzzlout\Framework\FrameworkConstants;
 
 class Managers {
 
@@ -59,23 +59,23 @@ class Managers {
      * Magic method construct.
      * @param string $api
      * The SQL API to use. 
-     * @param \WebDevJL\Framework\Core\Application $app
-     * Instance of \WebDevJL\Framework\Core\Application to 
+     * @param \Puzzlout\Framework\Core\Application $app
+     * Instance of \Puzzlout\Framework\Core\Application to 
      * @todo Build an interface to use any API. Basically a MYSQL factory or a 
      * MYSQLI factory class must be built to use those API. The default is PDO.
      */
-    public function __construct($api, \WebDevJL\Framework\Core\Application $app) {
+    public function __construct($api, \Puzzlout\Framework\Core\Application $app) {
         $this->databaseApi = $api;
         $this->databaseConnection = PDOFactory::getMysqlConnexion($app);
-        $this->dalApplicationFolderPath = \WebDevJL\Framework\Core\Config::Init($app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath);
+        $this->dalApplicationFolderPath = \Puzzlout\Framework\Core\Config::Init($app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::ApplicationsDalFolderPath);
         $this->dalApplicationsNamespace = $this->GetDalApplicationNamespace();
-        $this->dalFrameworkNameSpace = "\WebDevJL\Framework\Dal\Modules\\";
+        $this->dalFrameworkNameSpace = "\Puzzlout\Framework\Dal\Modules\\";
     }
 
     private function GetDalApplicationNamespace() {
         $resultString = defined(FrameworkConstants::FrameworkConstants_TestAppName) ?
-                str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_TestAppName, $this->dalApplicationFolderPath) :
-                str_replace(\WebDevJL\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, "APP_NAME", $this->dalApplicationFolderPath);
+                str_replace(\Puzzlout\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, FrameworkConstants_TestAppName, $this->dalApplicationFolderPath) :
+                str_replace(\Puzzlout\Framework\Enums\FrameworkPlaceholders::ApplicationNamePlaceHolder, "APP_NAME", $this->dalApplicationFolderPath);
         return $resultString;
     }
 
@@ -95,7 +95,7 @@ class Managers {
      * $isCoreModule: Define if the module is to be load from the Library/DAL/Modules 
      * directory instead of the Applications/CurrentApp/Models/Dal. 
      * @return object
-     * Variable of type \WebDevJL\Framework\Dal\BaseManager for the requested module. 
+     * Variable of type \Puzzlout\Framework\Dal\BaseManager for the requested module. 
      * @throws \InvalidArgumentException
      * Thrown if the module isn't given in $module parameter. 
      */

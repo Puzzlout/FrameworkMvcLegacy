@@ -1,16 +1,16 @@
 <?php
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
 /**
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package F_user
  */
-class F_user extends \WebDevJL\Framework\Core\Entity implements \WebDevJL\Framework\Interfaces\IUser {
+class F_user extends \Puzzlout\Framework\Core\Entity implements \Puzzlout\Framework\Interfaces\IUser {
 
     const F_USER_ID = "f_user_id";
     const F_USER_LOGIN = "f_user_login";

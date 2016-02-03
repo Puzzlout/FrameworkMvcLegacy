@@ -6,26 +6,26 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package BaseVm
  */
 
-namespace WebDevJL\Framework\ViewModels;
+namespace Puzzlout\Framework\ViewModels;
 
-class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel {
+class BaseVm implements \Puzzlout\Framework\Interfaces\IViewModel {
 
     /**
      * The instance of Application class.
      * 
-     * @var \WebDevJL\Framework\Core\Application 
+     * @var \Puzzlout\Framework\Core\Application 
      */
     public $app;
 
     /**
      * The instance of the Error VM.
      * 
-     * @var \WebDevJL\Framework\ViewModels\Error
+     * @var \Puzzlout\Framework\ViewModels\Error
      */
     public $errorVm;
 
@@ -51,7 +51,7 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel {
     /**
      * Init the base VM object.
      */
-    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app) {
         $this->errorVm = new ErrorVm();
         $this->app = $app;
     }
@@ -82,15 +82,15 @@ class BaseVm implements \WebDevJL\Framework\Interfaces\IViewModel {
     }
 
     public function GetResourceObject() {
-        $context = new \WebDevJL\Framework\Core\Context($this->app);
-        $route = \WebDevJL\Framework\Core\Router::Init($this->app)->currentRoute();
+        $context = new \Puzzlout\Framework\Core\Context($this->app);
+        $route = \Puzzlout\Framework\Core\Router::Init($this->app)->currentRoute();
         $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
 
-        $resxController = new \WebDevJL\Framework\Core\ResourceManagers\ControllerResxBase($this->app);
+        $resxController = new \Puzzlout\Framework\Core\ResourceManagers\ControllerResxBase($this->app);
         $resxController->Instantiate(array(
-            \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ModuleKey => $route->module(),
-            \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::ActionKey => $route->action(),
-            \WebDevJL\Framework\Core\ResourceManagers\ResourceBase::CultureKey => $culture));
+            \Puzzlout\Framework\Core\ResourceManagers\ResourceBase::ModuleKey => $route->module(),
+            \Puzzlout\Framework\Core\ResourceManagers\ResourceBase::ActionKey => $route->action(),
+            \Puzzlout\Framework\Core\ResourceManagers\ResourceBase::CultureKey => $culture));
         return $resxController;
     }
 

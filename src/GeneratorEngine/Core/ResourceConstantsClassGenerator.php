@@ -6,15 +6,15 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ConstantsClassGeneratorBase
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
+use Puzzlout\Framework\Core\Application;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
 
 class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implements IClassGenerator, IConstantClass {
 
@@ -28,7 +28,7 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
                     str_replace(".php", "", $this->fileName) . " extends " . $params[self::ClassDerivation] :
                     str_replace(".php", "", $this->fileName);
             $params[self::ClassNameKey] = $this->className;
-            $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
+            $this->placeholders = \Puzzlout\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
             $this->DoGenerateConstantKeys = array_key_exists(ConstantsClassGeneratorBase::DoGenerateConstantKeysKey, $params) ?
                     $params[ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] :
                     false;
@@ -128,10 +128,10 @@ class ResourceConstantsClassGenerator extends ConstantsClassGeneratorBase implem
      * $this->data array.
      */
     public function WriteConstants($valueToTrim = ".php") {
-        $extrator = \WebDevJL\Framework\Helpers\ArrayExtractionHelper::Init()->ExtractDistinctValues($this->data);
+        $extrator = \Puzzlout\Framework\Helpers\ArrayExtractionHelper::Init()->ExtractDistinctValues($this->data);
         $output = "";
         foreach ($extrator->List as $constant) {
-            if (\WebDevJL\Framework\Helpers\RegexHelper::Init($constant)->IsResoureKeyValid()) {
+            if (\Puzzlout\Framework\Helpers\RegexHelper::Init($constant)->IsResoureKeyValid()) {
                 $output .= $this->WriteConstant($constant);
             }
         }

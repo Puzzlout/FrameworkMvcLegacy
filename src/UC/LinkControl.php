@@ -6,16 +6,16 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package LinkControl
  */
 
-namespace WebDevJL\Framework\UC;
+namespace Puzzlout\Framework\UC;
 
-use WebDevJL\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
-use WebDevJL\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
-use WebDevJL\Framework\Helpers\HtmlControlBuildHelper;
+use Puzzlout\Framework\Enums\HtmlAttributes\HtmlAttributeConstants;
+use Puzzlout\Framework\Enums\HtmlAttributes\LinkAttributeConstants;
+use Puzzlout\Framework\Helpers\HtmlControlBuildHelper;
 
 class LinkControl extends HtmlControlBase {
 
@@ -36,7 +36,7 @@ class LinkControl extends HtmlControlBase {
         if (is_null($linkText) || empty($linkText)) {
             throw new \InvalidArgumentException('$linkText must be provided.', 0, NULL);
         }
-        if (!\WebDevJL\Framework\Helpers\RegexHelper::Init($linkUrl)->IsMatch("`\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]`")) {
+        if (!\Puzzlout\Framework\Helpers\RegexHelper::Init($linkUrl)->IsMatch("`\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]`")) {
             throw new \InvalidArgumentException('$linkUrl ' . $linkUrl . ' is not valid.', 0, NULL);
         }
 

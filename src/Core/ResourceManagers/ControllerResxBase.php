@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ControllerResxBase
  */
 
-namespace WebDevJL\Framework\Core\ResourceManagers;
+namespace Puzzlout\Framework\Core\ResourceManagers;
 
-class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Interfaces\IResource {
+class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Interfaces\IResource {
 
     /**
      * Method that retrieve the array of resources.
@@ -45,13 +45,13 @@ class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Int
                 array_key_exists($keyLower, $resources[$actionLower]) :
                 false;
         if ($keyExist) {
-            return $resources[$actionLower][$keyLower][\WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
+            return $resources[$actionLower][$keyLower][\Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
         } else if (!$actionExists) {
-//      throw new \WebDevJL\Framework\Exceptions\ResourceNotFoundException(
+//      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
 //      "The resource value doesn't exist for Module => " . $this->ModuleValue . " and Action => " . $this->ActionValue, 0, NULL);
             return "???";
         } else {
-//      throw new \WebDevJL\Framework\Exceptions\ResourceNotFoundException(
+//      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
 //      "The resource value doesn't exist for Module => " . $this->ModuleValue . ", Action => " . $this->ActionValue . " and Key => " . $key, 0, NULL);
             return "???";
         }
@@ -71,12 +71,12 @@ class ControllerResxBase extends ResourceBase implements \WebDevJL\Framework\Int
                 array_key_exists($key, $resources[$this->ActionValue]) :
                 false;
         if ($keyExist) {
-            return $resources[$this->ActionValue][$key][\WebDevJL\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT];
+            return $resources[$this->ActionValue][$key][\Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT];
         } else if (!$actionExists) {
-            throw new \WebDevJL\Framework\Exceptions\ResourceNotFoundException(
+            throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
             "The resource comment doesn't exist for Module => " . $this->ModuleValue . " and Action => " . $this->ActionValue, 0, NULL);
         } else {
-            throw new \WebDevJL\Framework\Exceptions\ResourceNotFoundException(
+            throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
             "The resource comment doesn't exist for Module => " . $this->ModuleValue . ", Action => " . $this->ActionValue . " and Key => " . $key, 0, NULL);
         }
     }

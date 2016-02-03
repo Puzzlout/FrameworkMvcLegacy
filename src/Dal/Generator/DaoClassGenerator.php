@@ -4,15 +4,15 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package DaoClassGenerator
  */
 
-namespace WebDevJL\Framework\Dal\Generator;
+namespace Puzzlout\Framework\Dal\Generator;
 
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets;
-use WebDevJL\Framework\GeneratorEngine\Placeholders;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets;
+use Puzzlout\Framework\GeneratorEngine\Placeholders;
 
 class DaoClassGenerator {
 
@@ -70,7 +70,7 @@ class DaoClassGenerator {
             /**
              * The base class from which the class extends.
              */
-            $baseClass = "\WebDevJL\Framework\Core\Entity";
+            $baseClass = "\Puzzlout\Framework\Core\Entity";
 
     /**
      * Initializes the object:
@@ -97,7 +97,7 @@ class DaoClassGenerator {
         $this->className = ucfirst($tableName);
         $this->fileName = $this->className . ".php";
         $this->placeholders = $this->InitPlaceholders();
-        $this->isFrameworkClass = (preg_match("`" . \WebDevJL\Framework\Enums\GenericAppKeys::PREFIX_FRAMEWORK_TABLE . ".*$`", $tableName) ?
+        $this->isFrameworkClass = (preg_match("`" . \Puzzlout\Framework\Enums\GenericAppKeys::PREFIX_FRAMEWORK_TABLE . ".*$`", $tableName) ?
                         true :
                         false);
     }
@@ -112,11 +112,11 @@ class DaoClassGenerator {
             Placeholders\PhpDocPlaceholders::AUTHOR => "Jeremie Litzler",
             Placeholders\PhpDocPlaceholders::COPYRIGHT_YEAR => date("Y"),
             Placeholders\PhpDocPlaceholders::LICENCE => "http://opensource.org/licenses/gpl-license.php GNU Public License",
-            Placeholders\PhpDocPlaceholders::LINK => "https://github.com/WebDevJL/",
+            Placeholders\PhpDocPlaceholders::LINK => "https://github.com/Puzzlout/",
             Placeholders\PhpDocPlaceholders::PACKAGE => $this->className,
             Placeholders\PhpDocPlaceholders::SUBPACKAGE => "",
             Placeholders\PhpDocPlaceholders::VERSION_NUMBER => "PACKAGE_VERSION",
-            Placeholders\ClassFilePlaceholders::NAMESPACE_FRAMEWORK => "WebDevJL\Framework\BO",
+            Placeholders\ClassFilePlaceholders::NAMESPACE_FRAMEWORK => "Puzzlout\Framework\BO",
             Placeholders\ClassFilePlaceholders::NAMESPACE_APP => "\Applications\"" . "APP_NAME" . "\Models\Dao",
             Placeholders\ClassFilePlaceholders::CLASS_NAME => $this->className
         );
@@ -326,7 +326,7 @@ class DaoClassGenerator {
      * @param type $columnMetadata : Metadata for a column.
      */
     private function AddPropertyPhpDoc($columnMetadata, $isSetter = true) {
-        $output = $this->_TAB2 . \WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpDocSnippets::OPENING .
+        $output = $this->_TAB2 . \Puzzlout\Framework\GeneratorEngine\CodeSnippets\PhpDocSnippets::OPENING .
                 $this->_TAB2 . $this->_LF;
         $placeholders = array(
             "{{set_dynamic_code}}" => strtr(CodeSnippets\PhpDocSnippets::SET_PROPERTY_SUMMARY, array(Placeholders\PhpDocPlaceholders::SET_PROPERTY => $columnMetadata["Field"])),

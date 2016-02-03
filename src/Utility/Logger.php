@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Utility;
+namespace Puzzlout\Framework\Utility;
 
 class Logger {
 
@@ -30,12 +30,12 @@ class Logger {
         $user->setAttribute("time_live_logs", $logs);
     }
 
-    public static function GetLogs(\WebDevJL\Framework\Core\User $user) {
+    public static function GetLogs(\Puzzlout\Framework\Core\User $user) {
         return $user->getAttribute("time_live_logs");
     }
 
     public static function PrintOutLogs($logs) {
-        \WebDevJL\Framework\Helpers\DebugHelper::WriteString(var_export($logs));
+        \Puzzlout\Framework\Helpers\DebugHelper::WriteString(var_export($logs));
     }
 
     public static function AddLogToDatabase($app, $log) {

@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\BO;
+namespace Puzzlout\Framework\Tests\BO;
 
-use WebDevJL\Framework\BO\F_ip_blacklist;
+use Puzzlout\Framework\BO\F_ip_blacklist;
 
 class F_ip_blacklistTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class F_ip_blacklistTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class F_ip_blacklistTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new F_ip_blacklist([]);
-        $this->assertInstanceOf('WebDevJL\Framework\BO\F_ip_blacklist', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\BO\F_ip_blacklist', $result);
     }
 
     //Write the next tests below...

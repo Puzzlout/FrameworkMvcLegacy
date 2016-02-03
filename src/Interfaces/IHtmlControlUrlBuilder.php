@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Interfaces;
+namespace Puzzlout\Framework\Interfaces;
 
 interface IHtmlControlUrlBuilder {
 

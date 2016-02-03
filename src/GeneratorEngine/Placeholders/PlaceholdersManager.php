@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package 
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Placeholders;
+namespace Puzzlout\Framework\GeneratorEngine\Placeholders;
 
-use WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator;
+use Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator;
 
 class PlaceholdersManager {
 
@@ -22,7 +22,7 @@ class PlaceholdersManager {
             PhpDocPlaceholders::AUTHOR => "Jeremie Litzler",
             PhpDocPlaceholders::COPYRIGHT_YEAR => date("Y"),
             PhpDocPlaceholders::LICENCE => "http://opensource.org/licenses/gpl-license.php GNU Public License",
-            PhpDocPlaceholders::LINK => "https://github.com/WebDevJL/EasyMvc/blob/master/README.md",
+            PhpDocPlaceholders::LINK => "https://github.com/Puzzlout/EasyMvc/blob/master/README.md",
             PhpDocPlaceholders::PACKAGE => (array_key_exists(BaseClassGenerator::ClassNameKey, $params) ? $params[BaseClassGenerator::ClassNameKey] : ""),
             PhpDocPlaceholders::SUBPACKAGE => "",
             PhpDocPlaceholders::VERSION_NUMBER => "PACKAGE_VERSION",

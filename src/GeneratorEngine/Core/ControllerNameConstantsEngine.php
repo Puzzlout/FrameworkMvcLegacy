@@ -7,14 +7,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ControllerListsGenerator
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\DirectoryManager;
+use Puzzlout\Framework\Core\DirectoryManager;
 
 class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
 
@@ -29,7 +29,7 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
     public function Run($data = NULL) {
         $this->ProcessFrameworkData();
 
-        $ApplicationList = \WebDevJL\Framework\GeneratorEngine\Constants\ApplicationList::Init()->GetList();
+        $ApplicationList = \Puzzlout\Framework\GeneratorEngine\Constants\ApplicationList::Init()->GetList();
         foreach ($ApplicationList as $Appname) {
             $this->ProcessApplicationData($Appname);
         }
@@ -37,12 +37,12 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
 
     private function ProcessFrameworkData() {
         $FrameworkControllers = DirectoryManager::GetFileNames(
-                        "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::ControllersFolderName, array("BaseController.php"));
+                        "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::ControllersFolderName, array("BaseController.php"));
 
         $this->params = array(
-            BaseClassGenerator::NameSpaceKey => "WebDevJL\Framework\Generated",
+            BaseClassGenerator::NameSpaceKey => "Puzzlout\Framework\Generated",
             BaseClassGenerator::ClassNameKey => "Framework" . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\FrameworkFolderName::GeneratedFolderName,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for framework controller classes to autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true
@@ -58,15 +58,15 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
     function ProcessApplicationData($Appname) {
         $ApplicationControllers = DirectoryManager::GetFileNames(
                         "APP_ROOT_DIR" .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
                         $Appname .
-                        \WebDevJL\Framework\Enums\ApplicationFolderName::ControllersFolderName);
+                        \Puzzlout\Framework\Enums\ApplicationFolderName::ControllersFolderName);
 
         $this->params = array(
             BaseClassGenerator::NameSpaceKey => "Applications\\" . $Appname . "\Generated",
             BaseClassGenerator::ClassNameKey => $Appname . $this->GeneratedClassPrefix,
-            BaseClassGenerator::DestinationDirKey => \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
-            $Appname . \WebDevJL\Framework\Enums\ApplicationFolderName::Generated,
+            BaseClassGenerator::DestinationDirKey => \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
+            $Appname . \Puzzlout\Framework\Enums\ApplicationFolderName::Generated,
             BaseClassGenerator::ClassDescriptionKey => "Lists the constants for application controller classes to autocompletion and easy coding.",
             ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true

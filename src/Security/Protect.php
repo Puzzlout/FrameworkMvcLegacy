@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package Protect 
  */
 
-namespace WebDevJL\Framework\Security;
+namespace Puzzlout\Framework\Security;
 
-class Protect extends \WebDevJL\Framework\Core\ApplicationComponent {
+class Protect extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     private $hashSalt = null;
     private $encryptionKey = null;
@@ -22,19 +22,19 @@ class Protect extends \WebDevJL\Framework\Core\ApplicationComponent {
     const ENCRYPTION_TYPE = MCRYPT_RIJNDAEL_128;
     const ENCRYPTION_MODE = MCRYPT_MODE_CBC;
 
-    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app) {
         parent::__construct($app);
     }
 
-    public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    public static function Init(\Puzzlout\Framework\Core\Application $app) {
         $instance = new Protect($app);
         return $instance;
     }
 
     public function SetEncryption() {
         $this->iv = mcrypt_create_iv(mcrypt_get_iv_size(self::ENCRYPTION_TYPE, self::ENCRYPTION_MODE), MCRYPT_DEV_URANDOM);
-        $this->encryptionKey = strrev(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::EncryptionKey));
-        $this->hashSalt = strrev(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::PasswordSalt));
+        $this->encryptionKey = strrev(Config::Init($this->app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::EncryptionKey));
+        $this->hashSalt = strrev(Config::Init($this->app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::PasswordSalt));
         return $this;
     }
 

@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class ConfigHelper {
 
@@ -30,11 +30,11 @@ class ConfigHelper {
         if (!$caller->dataPost()) {
             $dataPost = $caller->dataPost();
             $result[$dataPost["key"]] = $caller->app()->config()->get($dataPost["key"]);
-            $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::POST_METHOD;
+            $result["method"] = \Puzzlout\Framework\Enums\GenericAppKeys::POST_METHOD;
         }
         if ($rq->getExists("key")) {
             $result[$rq->getData("key")] = $caller->app()->config()->get($rq->getData("key"));
-            $result["method"] = \WebDevJL\Framework\Enums\GenericAppKeys::GET_METHOD;
+            $result["method"] = \Puzzlout\Framework\Enums\GenericAppKeys::GET_METHOD;
         }
         return $result;
     }

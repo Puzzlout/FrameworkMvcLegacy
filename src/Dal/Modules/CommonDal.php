@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Dal\Modules;
+namespace Puzzlout\Framework\Dal\Modules;
 
 /**
  * Provides methods to query the database for some generic queries that have
@@ -9,11 +9,11 @@ namespace WebDevJL\Framework\Dal\Modules;
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package CommonDal
  */
-class CommonDal extends \WebDevJL\Framework\Dal\BaseManager {
+class CommonDal extends \Puzzlout\Framework\Dal\BaseManager {
 
     /**
      * Gets the list of table names in a database.
@@ -21,7 +21,7 @@ class CommonDal extends \WebDevJL\Framework\Dal\BaseManager {
      * @return array The list of table names.
      */
     public function GetListOfTablesInDatabase() {
-        $dbConfig = new \WebDevJL\Framework\Dal\DbStatementConfig(NULL, \WebDevJL\Framework\Dal\DbExecutionType::SHOWTABLES, new \WebDevJL\Framework\Dal\DbQueryFilters());
+        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::SHOWTABLES, new \Puzzlout\Framework\Dal\DbQueryFilters());
         $dbConfig->setQuery("SHOW TABLES;");
         $this->addDbConfigItem($dbConfig);
         return $this->BindParametersAndExecute();
@@ -38,7 +38,7 @@ class CommonDal extends \WebDevJL\Framework\Dal\BaseManager {
         $tableColumnsMetadata = array();
         foreach ($columnNames as $columnName) {
             $this->setDbConfigList(array());
-            $dbConfig = new \WebDevJL\Framework\Dal\DbStatementConfig(NULL, \WebDevJL\Framework\Dal\DbExecutionType::COLUMNMETAS, new \WebDevJL\Framework\Dal\DbQueryFilters());
+            $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNMETAS, new \Puzzlout\Framework\Dal\DbQueryFilters());
             $dbConfig->setQuery("SHOW COLUMNS FROM `$tableName` WHERE `Field` = '$columnName';");
             $this->addDbConfigItem($dbConfig);
             $tableColumnsMetadata[$columnName] = $this->BindParametersAndExecute();
@@ -54,7 +54,7 @@ class CommonDal extends \WebDevJL\Framework\Dal\BaseManager {
      */
     public function GetTableColumnNames($tableName) {
         $this->setDbConfigList(array());
-        $dbConfig = new \WebDevJL\Framework\Dal\DbStatementConfig(NULL, \WebDevJL\Framework\Dal\DbExecutionType::COLUMNNAMES, new \WebDevJL\Framework\Dal\DbQueryFilters());
+        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNNAMES, new \Puzzlout\Framework\Dal\DbQueryFilters());
         $dbConfig->setQuery("DESCRIBE `$tableName`;");
         $this->addDbConfigItem($dbConfig);
         return $this->BindParametersAndExecute();

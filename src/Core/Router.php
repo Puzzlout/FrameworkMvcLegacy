@@ -1,8 +1,8 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-use WebDevJL\Framework\FrameworkConstants;
+use Puzzlout\Framework\FrameworkConstants;
 
 class Router extends ApplicationComponent {
 
@@ -17,9 +17,9 @@ class Router extends ApplicationComponent {
 
     /**
      * 
-     * @param \WebDevJL\Framework\Core\Application $app
+     * @param \Puzzlout\Framework\Core\Application $app
      * @param string $url
-     * @return \WebDevJL\Framework\Core\Router
+     * @return \Puzzlout\Framework\Core\Router
      */
     public static function Init(Application $app) {
         $instance = new Router($app);
@@ -28,7 +28,7 @@ class Router extends ApplicationComponent {
 
     /**
      * 
-     * @param \WebDevJL\Framework\Core\Application $app
+     * @param \Puzzlout\Framework\Core\Application $app
      * @param string $url
      * @throws \Exception
      */
@@ -43,7 +43,7 @@ class Router extends ApplicationComponent {
 
     /**
      * Set the route of the current request. 
-     * @param \WebDevJL\Framework\Core\Route $route
+     * @param \Puzzlout\Framework\Core\Route $route
      */
     public function setCurrentRoute() {
         $this->currentRoute = $this->FindRouteMatch();
@@ -51,7 +51,7 @@ class Router extends ApplicationComponent {
 
     /**
      * Get the route of the current request. 
-     * @param \WebDevJL\Framework\Core\Route $route
+     * @param \Puzzlout\Framework\Core\Route $route
      */
     public function currentRoute() {
         if (is_null($this->currentRoute)) {
@@ -79,7 +79,7 @@ class Router extends ApplicationComponent {
     /**
      * Add a route to the array of routes if not already in the array.
      * 
-     * @param \WebDevJL\Framework\Core\Route $route
+     * @param \Puzzlout\Framework\Core\Route $route
      */
     public function addRoute(Route $route) {
         if (!in_array($route, $this->routes)) {
@@ -90,11 +90,11 @@ class Router extends ApplicationComponent {
     /**
      * Instanciate the Route object from the current request.
      * 
-     * @return \WebDevJL\Framework\Core\Route the Route instance
+     * @return \Puzzlout\Framework\Core\Route the Route instance
      */
     private function FindRouteMatch() {
         $route = new Route();
-        $route->setDefaultUrl(Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultUrl));
+        $route->setDefaultUrl(Config::Init($this->app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::DefaultUrl));
         $this->getRoute($route, $this->url);
         return $route;
     }
@@ -105,7 +105,7 @@ class Router extends ApplicationComponent {
      * 
      * @param Route $route the instance of the Route to use in the current request.
      * @param string $url relative url of the current request. 
-     * @return mixed \WebDevJL\Framework\Core\Route | \Exception
+     * @return mixed \Puzzlout\Framework\Core\Route | \Exception
      * @throws \Exception Is thrown if FrameworkConstants::"APP_BASE_URL" is not set. 
      */
     public function getRoute(Route $route, $url) {

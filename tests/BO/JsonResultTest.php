@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\BO;
+namespace Puzzlout\Framework\Tests\BO;
 
-use WebDevJL\Framework\BO\JsonResult;
+use Puzzlout\Framework\BO\JsonResult;
 
 class JsonResultTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class JsonResultTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class JsonResultTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new JsonResult();
-        $this->assertInstanceOf('WebDevJL\Framework\BO\JsonResult', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\BO\JsonResult', $result);
     }
 
     //Write the next tests below...

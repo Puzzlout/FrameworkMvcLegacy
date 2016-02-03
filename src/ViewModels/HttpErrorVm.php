@@ -6,15 +6,15 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package HttpErrorVm
  */
 
-namespace WebDevJL\Framework\ViewModels;
+namespace Puzzlout\Framework\ViewModels;
 
 /**
- * @see \WebDevJL\Framework\ViewModels\BaseVm for the guidelines to create a View Models.
+ * @see \Puzzlout\Framework\ViewModels\BaseVm for the guidelines to create a View Models.
  */
 class HttpErrorVm extends BaseVm {
     

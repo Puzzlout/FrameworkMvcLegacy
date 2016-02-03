@@ -22,11 +22,11 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums;
+namespace Puzzlout\Framework\Enums;
 
 abstract class NameSpaceName {
 
-    const VENDOR = "\\WebDevJL";
+    const VENDOR = "\\Puzzlout";
     const FRAMEWORK = "\\Framework\\";
     const LibFolderName = "\\Library";
     const LibControllersFolderName = "\\Controllers\\";

@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Dal;
+namespace Puzzlout\Framework\Tests\Dal;
 
-use WebDevJL\Framework\Dal\DbStatementConfig;
+use Puzzlout\Framework\Dal\DbStatementConfig;
 
 class DbStatementConfigTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class DbStatementConfigTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -25,8 +25,8 @@ class DbStatementConfigTest extends \PHPUnit_Framework_TestCase {
      */
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
-        $result = new DbStatementConfig(null, "", new \WebDevJL\Framework\Dal\DbQueryFilters());
-        $this->assertInstanceOf('WebDevJL\Framework\Dal\DbStatementConfig', $result);
+        $result = new DbStatementConfig(null, "", new \Puzzlout\Framework\Dal\DbQueryFilters());
+        $this->assertInstanceOf('Puzzlout\Framework\Dal\DbStatementConfig', $result);
     }
 
     //Write the next tests below...

@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\GeneratorEngine\Constants;
+namespace Puzzlout\Framework\Tests\GeneratorEngine\Constants;
 
-use WebDevJL\Framework\GeneratorEngine\Constants\ApplicationList;
+use Puzzlout\Framework\GeneratorEngine\Constants\ApplicationList;
 
 class ApplicationListTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ApplicationListTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ApplicationListTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ApplicationList($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Constants\ApplicationList', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\GeneratorEngine\Constants\ApplicationList', $result);
     }
 
     //Write the next tests below...

@@ -4,24 +4,24 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/
+ * @link https://github.com/Puzzlout/
  * @since Version 1.0.0
  * @package Error
  */
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
 class Error {
 
     public
     /**
      * Error identifier
-     * See: WebDevJL\Framework\Enums\ErrorCode.php
+     * See: Puzzlout\Framework\Enums\ErrorCode.php
      */
             $errorId = 0,
             /**
              * Error origin
-             * See: WebDevJL\Framework\Enums\ErrorOrigin.php
+             * See: Puzzlout\Framework\Enums\ErrorOrigin.php
              */
             $errorOrigin = "",
             /**

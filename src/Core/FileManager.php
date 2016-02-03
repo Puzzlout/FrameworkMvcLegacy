@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class FileManager {
 

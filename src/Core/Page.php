@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package Page
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class Page extends ApplicationComponent {
 
@@ -70,7 +70,7 @@ class Page extends ApplicationComponent {
         include_once $this->contentFile;
         $content = ob_get_clean();
         ob_start();
-        include_once "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName . \WebDevJL\Framework\Enums\FileNameConst::LayoutTemplate;
+        include_once "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::ViewsFolderName . \Puzzlout\Framework\Enums\FileNameConst::LayoutTemplate;
         return ob_get_clean();
     }
 

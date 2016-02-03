@@ -1,8 +1,8 @@
 {
-    "name": "webdevjl/framework-mvc",
-    "description": "The EasyMvc framework to be used to build MVC websites",
+    "name": "puzzlout/framework-mvc",
+    "description": "The Puzzleout framework to be used to build MVC websites",
     "license": "MIT",
-    "keywords": ["webdevjl", "web", "dev", "jl", "easymvc"],
+    "keywords": ["Puzzlout", "web", "dev", "jl", "easymvc"],
     "authors": [
         {
             "name": "Jeremie Litzler",
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WebDevJL\\Framework\\": "src"
+            "Puzzlout\\Framework\\": "src"
         }
     }
 }

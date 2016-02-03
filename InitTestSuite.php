@@ -2,7 +2,7 @@
 /**
  * You must change the following values according to your case.
  */
-define("VENDOR", "WebDevJL");
+define("VENDOR", "Puzzlout");
 define("PACKAGE", "FrameworkMvc");
 $soureNamespacePrefix = VENDOR . "\\Framework\\";
 $testNamespacePrefix = VENDOR . "\\Framework\\Tests";
@@ -19,7 +19,7 @@ define("TEST_SUITE_VERSION", "v1.2.0");
 
 include_once("vendor/autoload.php");
 
-use WebDevJL\Framework\GeneratorEngine\Core\InitializeTestSuite;
+use Puzzlout\Framework\GeneratorEngine\Core\InitializeTestSuite;
 
 $additionalFilters = array("Views");
 $TestSuite = InitializeTestSuite::init(

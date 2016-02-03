@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Security;
+namespace Puzzlout\Framework\Tests\Security;
 
-use WebDevJL\Framework\Security\Protect;
+use Puzzlout\Framework\Security\Protect;
 
 class ProtectTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ProtectTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ProtectTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new Protect($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Security\Protect', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Security\Protect', $result);
     }
 
     //Write the next tests below...

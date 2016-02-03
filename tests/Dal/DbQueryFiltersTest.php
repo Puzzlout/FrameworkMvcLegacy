@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Dal;
+namespace Puzzlout\Framework\Tests\Dal;
 
-use WebDevJL\Framework\Dal\DbQueryFilters;
+use Puzzlout\Framework\Dal\DbQueryFilters;
 
 class DbQueryFiltersTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class DbQueryFiltersTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class DbQueryFiltersTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new DbQueryFilters($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Dal\DbQueryFilters', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Dal\DbQueryFilters', $result);
     }
 
     //Write the next tests below...

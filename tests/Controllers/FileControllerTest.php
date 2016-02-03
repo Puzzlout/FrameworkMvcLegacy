@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Controllers;
+namespace Puzzlout\Framework\Tests\Controllers;
 
-use WebDevJL\Framework\Controllers\FileController;
+use Puzzlout\Framework\Controllers\FileController;
 
 class FileControllerTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class FileControllerTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class FileControllerTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new FileController($this->app, "Test", "Test");
-        $this->assertInstanceOf('WebDevJL\Framework\Controllers\FileController', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Controllers\FileController', $result);
     }
 
     //Write the next tests below...

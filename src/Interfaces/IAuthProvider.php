@@ -1,8 +1,8 @@
 <?php
 
-namespace WebDevJL\Framework\Interfaces;
+namespace Puzzlout\Framework\Interfaces;
 
-use WebDevJL\Framework\Interfaces\IUser;
+use Puzzlout\Framework\Interfaces\IUser;
 
 interface IAuthProvider {
 

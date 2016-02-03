@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\ViewModels;
+namespace Puzzlout\Framework\Tests\ViewModels;
 
-use WebDevJL\Framework\ViewModels\GeneratorVm;
+use Puzzlout\Framework\ViewModels\GeneratorVm;
 
 class GeneratorVmTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class GeneratorVmTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class GeneratorVmTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new GeneratorVm($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\ViewModels\GeneratorVm', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\ViewModels\GeneratorVm', $result);
     }
 
     //Write the next tests below...

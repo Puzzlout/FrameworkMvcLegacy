@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ArrayExtractionHelper
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class ArrayExtractionHelper {
 
@@ -30,7 +30,7 @@ class ArrayExtractionHelper {
      * Extracts distinct values from the array that don't contain whitespace.
      * 
      * @param array $array The array to extract the values from
-     * @return \WebDevJL\Framework\Helpers\ArrayExtractionHelper The extrator instance.
+     * @return \Puzzlout\Framework\Helpers\ArrayExtractionHelper The extrator instance.
      */
     public function ExtractDistinctValues($array) {
         foreach ($array as $key => $value) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-use WebDevJL\Framework\BO\F_culture;
+use Puzzlout\Framework\BO\F_culture;
 
 class Context extends ApplicationComponent {
 
@@ -18,7 +18,7 @@ class Context extends ApplicationComponent {
     }
 
     public function setLanguage() {
-        $this->defaultLang = $this->app->cultures[Config::Init($this->app)->Get(\WebDevJL\Framework\Enums\AppSettingKeys::DefaultCulture)];
+        $this->defaultLang = $this->app->cultures[Config::Init($this->app)->Get(\Puzzlout\Framework\Enums\AppSettingKeys::DefaultCulture)];
     }
 
     public function GetCultureLang() {

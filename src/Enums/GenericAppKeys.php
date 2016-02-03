@@ -21,7 +21,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums;
+namespace Puzzlout\Framework\Enums;
 
 /**
  * Lists all the SessionKeys used throughout the applications so that we don't use hard-coded strings.

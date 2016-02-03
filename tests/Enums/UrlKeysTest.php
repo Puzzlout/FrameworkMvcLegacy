@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Enums;
+namespace Puzzlout\Framework\Tests\Enums;
 
-use WebDevJL\Framework\Enums\UrlKeys;
+use Puzzlout\Framework\Enums\UrlKeys;
 
 class UrlKeysTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class UrlKeysTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class UrlKeysTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new UrlKeys($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Enums\UrlKeys', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Enums\UrlKeys', $result);
     }
 
     //Write the next tests below...

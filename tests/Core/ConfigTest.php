@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Core;
+namespace Puzzlout\Framework\Tests\Core;
 
-use WebDevJL\Framework\Core\Config;
+use Puzzlout\Framework\Core\Config;
 
 class ConfigTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new Config($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Core\Config', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\Config', $result);
     }
 
     //Write the next tests below...

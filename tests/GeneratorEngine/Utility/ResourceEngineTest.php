@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\GeneratorEngine\Utility;
+namespace Puzzlout\Framework\Tests\GeneratorEngine\Utility;
 
-use WebDevJL\Framework\GeneratorEngine\Utility\ResourceEngine;
+use Puzzlout\Framework\GeneratorEngine\Utility\ResourceEngine;
 
 class ResourceEngineTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ResourceEngineTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ResourceEngineTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ResourceEngine($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\Utility\ResourceEngine', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\GeneratorEngine\Utility\ResourceEngine', $result);
     }
 
     //Write the next tests below...

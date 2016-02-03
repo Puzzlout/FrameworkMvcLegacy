@@ -22,7 +22,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class DirectoryManager {
 
@@ -140,7 +140,7 @@ class DirectoryManager {
      * @return string The directory
      */
     public static function GetFrameworkRootDir() {
-        return \WebDevJL\Framework\Enums\FrameworkFolderName::ViewsFolderName;
+        return \Puzzlout\Framework\Enums\FrameworkFolderName::ViewsFolderName;
     }
 
     /**
@@ -149,9 +149,9 @@ class DirectoryManager {
      * @return string The directory
      */
     public static function GetApplicationRootDir() {
-        return \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName .
+        return \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName .
                 "APP_NAME" .
-                \WebDevJL\Framework\Enums\ApplicationFolderName::ViewsFolderName;
+                \Puzzlout\Framework\Enums\ApplicationFolderName::ViewsFolderName;
     }
 
 }

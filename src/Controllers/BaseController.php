@@ -6,17 +6,17 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package BaseController
  */
 
-namespace WebDevJL\Framework\Controllers;
+namespace Puzzlout\Framework\Controllers;
 
-use WebDevJL\Framework\Core\Context;
-use WebDevJL\Framework\Core\Router;
+use Puzzlout\Framework\Core\Context;
+use Puzzlout\Framework\Core\Router;
 
-abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationComponent {
+abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     /**
      * The Action.
@@ -35,8 +35,8 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     /**
      * The Page instance.
      * 
-     * @var \WebDevJL\Framework\Core\Page 
-     * @see \WebDevJL\Framework\Core\Page
+     * @var \Puzzlout\Framework\Core\Page 
+     * @see \Puzzlout\Framework\Core\Page
      */
     protected $page;
 
@@ -51,7 +51,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
      * Shortcut of $app->dal().
      * 
      * @var Object
-     * @see \WebDevJL\Framework\Dal\Managers
+     * @see \Puzzlout\Framework\Dal\Managers
      */
     protected $managers;
 
@@ -65,7 +65,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     /**
      * Shortcut from $app->user() also used as $this->app()->user() in controllers.
      * 
-     * @var \WebDevJL\Framework\BO\F_user 
+     * @var \Puzzlout\Framework\BO\F_user 
      */
     protected $user;
 
@@ -85,37 +85,37 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
 
     /**
      * The View Model instance for the current request.
-     * @var \WebDevJL\Framework\ViewModels\BaseVm
+     * @var \Puzzlout\Framework\ViewModels\BaseVm
      */
     public $viewModel;
 
     /**
      * Instantiate the class.
      * 
-     * @param \WebDevJL\Framework\Core\Application $app The application object
+     * @param \Puzzlout\Framework\Core\Application $app The application object
      * @param string $module The current module
      * @param string $action The current action
      */
-    public function __construct(\WebDevJL\Framework\Core\Application $app, $module, $action) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app, $module, $action) {
         parent::__construct($app);
         $this->managers = $app->dal();
-        $this->page = new \WebDevJL\Framework\Core\Page($app);
+        $this->page = new \Puzzlout\Framework\Core\Page($app);
         $this->user = $app->user();
         $this->setModule($module);
         $this->setAction($action);
     }
 
     public function FillInstance() {
-        $this->viewModel = new \WebDevJL\Framework\ViewModels\BaseVm($this->app);
+        $this->viewModel = new \Puzzlout\Framework\ViewModels\BaseVm($this->app);
         $this->setView();
-        $this->setDataPost(\WebDevJL\Framework\Core\Request::Init($this->app)->retrievePostAjaxData(false));
+        $this->setDataPost(\Puzzlout\Framework\Core\Request::Init($this->app)->retrievePostAjaxData(false));
         $this->setUploadingFiles();
     }
 
     /**
      * Execute the Controller action.
      * 
-     * @return \WebDevJL\Framework\ViewModels\BaseVm The output View Model
+     * @return \Puzzlout\Framework\ViewModels\BaseVm The output View Model
      * @throws \RuntimeException Handle the non-existing action in the current controller
      * @todo create an error code
      */
@@ -124,9 +124,9 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
         if (!is_callable(array($this, $action))) {
             throw new \RuntimeException('The action <b>' . $this->action . '</b> is not defined for the module <b>' . ucfirst($this->module) . '</b>', 0, NULL);
         }
-        $logGuid = \WebDevJL\Framework\Utility\TimeLogger::StartLogInfo($this->app(), get_class($this) . "->" . ucfirst($action));
+        $logGuid = \Puzzlout\Framework\Utility\TimeLogger::StartLogInfo($this->app(), get_class($this) . "->" . ucfirst($action));
         $viewModelObject = $this->$action();
-        \WebDevJL\Framework\Utility\TimeLogger::EndLog($this->app(), $logGuid);
+        \Puzzlout\Framework\Utility\TimeLogger::EndLog($this->app(), $logGuid);
         return $viewModelObject;
     }
 
@@ -177,7 +177,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
     /**
      * This is a shortcut to $this->app()->user()
      * 
-     * @return \WebDevJL\Framework\Core\User
+     * @return \Puzzlout\Framework\Core\User
      */
     public function user() {
         return $this->user;
@@ -235,11 +235,11 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
         if (!is_string($this->action) || empty($this->action)) {
             throw new \InvalidArgumentException('The action value must be a string and not be empty', 0);
         }
-        if (\WebDevJL\Framework\Core\Request::Init($this->app)->IsPost()) {
+        if (\Puzzlout\Framework\Core\Request::Init($this->app)->IsPost()) {
             //No view needed for Ajax calls.
             return;
         }
-        $this->view = \WebDevJL\Framework\Core\ViewLoader::Init($this)->GetView();
+        $this->view = \Puzzlout\Framework\Core\ViewLoader::Init($this)->GetView();
         $this->page->setContentFile($this->view);
     }
 
@@ -270,7 +270,7 @@ abstract class BaseController extends \WebDevJL\Framework\Core\ApplicationCompon
         $context = new Context($this->app);
         $culture = $context->GetCultureLang() . "_" . $context->GetCultureRegion();
         $this->page()->addVar('culture', $culture);
-        $user = $this->app()->user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserConnected);
+        $user = $this->app()->user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserConnected);
         $this->page()->addVar('user', $user[0]);
         $this->page()->addVar(Router::CurrentRouteVarKey, Router::Init($this->app)->currentRoute());
     }

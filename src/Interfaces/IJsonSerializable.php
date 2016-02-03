@@ -21,7 +21,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Interfaces;
+namespace Puzzlout\Framework\Interfaces;
 
 /**
  * Objects implementing JsonSerializable

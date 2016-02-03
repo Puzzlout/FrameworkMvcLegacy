@@ -6,19 +6,19 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package HtmlControlBuildHelper
  */
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class HtmlControlBuildHelper {
 
     /**
      * Create an instance of the class.
      * 
-     * @return \WebDevJL\Framework\Helpers\HtmlControlBuildHelper The instance of the class
+     * @return \Puzzlout\Framework\Helpers\HtmlControlBuildHelper The instance of the class
      */
     public static function Init() {
         $HtmlControllBuildHelper = new HtmlControlBuildHelper();
@@ -29,13 +29,13 @@ class HtmlControlBuildHelper {
      * Replace the placeholders in a HTML control with the ordered attributes found
      * in $control->Attributes list. The attribute 0 will replace the placeholder {0} 
      * and so on.
-     * @param \WebDevJL\Framework\UC\HtmlControlBase $control The control to process
+     * @param \Puzzlout\Framework\UC\HtmlControlBase $control The control to process
      * @throws Exception When a placeholder is not replaced.
      * @throws Exception When a placeholder is not found in $control->HtmlOutput.
      * @todo create error codes for exceptions
      * @todo create custom exception class for exceptions
      */
-    public function GenerateAttributes(\WebDevJL\Framework\UC\HtmlControlBase $control) {
+    public function GenerateAttributes(\Puzzlout\Framework\UC\HtmlControlBase $control) {
         foreach ($control->Attributes as $index => $attribute) {
             if (!preg_match('`[\{' . $index . '\}]`', $control->HtmlOutput)) {
                 throw new \Exception(

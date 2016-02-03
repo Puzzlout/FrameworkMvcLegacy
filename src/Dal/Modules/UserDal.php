@@ -1,14 +1,14 @@
 <?php
 
-namespace WebDevJL\Framework\Dal\Modules;
+namespace Puzzlout\Framework\Dal\Modules;
 
-class UserDal extends \WebDevJL\Framework\Dal\BaseManager {
+class UserDal extends \Puzzlout\Framework\Dal\BaseManager {
 
     public $userClassName = "";
 
     public function __construct($dao, $filters) {
         parent::__construct($dao, $filters);
-        $this->userClassName = get_class(new \WebDevJL\Framework\BO\F_user());
+        $this->userClassName = get_class(new \Puzzlout\Framework\BO\F_user());
     }
 
     public function selectAllUsers() {
@@ -42,7 +42,7 @@ class UserDal extends \WebDevJL\Framework\Dal\BaseManager {
         $sth->execute();
         $sth->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $this->userClassName);
         $user_out = $sth->fetch();
-        if ($user_out instanceof \WebDevJL\Framework\BO\User) {
+        if ($user_out instanceof \Puzzlout\Framework\BO\User) {
             switch ($user_out->user_type()) {
                 case 'technician_id':
                     $sql = "SELECT t.* FROM `technician` t WHERE t.`technician_id` = :user_value_id";

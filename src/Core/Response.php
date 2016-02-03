@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class Response extends ApplicationComponent {
 
@@ -15,7 +15,7 @@ class Response extends ApplicationComponent {
         exit;
     }
 
-    public function displayError(\WebDevJL\Framework\BO\Error $error) {
+    public function displayError(\Puzzlout\Framework\BO\Error $error) {
         $this->page = new Page($this->app);
         $this->page->addVar("error", $error);
         $this->page->setContentFile("APP_ROOT_DIR" . 'Errors/' . $error->errorId() . '.php');
@@ -25,17 +25,17 @@ class Response extends ApplicationComponent {
         $this->send();
     }
 
-    public function send(\WebDevJL\Framework\ViewModels\BaseVm $ControllerVm) {
+    public function send(\Puzzlout\Framework\ViewModels\BaseVm $ControllerVm) {
         if (!$this->app()->request()->IsPost()) {
             $this->page->addVar(\Applications\EasyMvc\Resources\Enums\ViewVariablesKeys::ControllerVm, $ControllerVm);
             return $this->page->GetOutput();
         }
 
-        if (!($ControllerVm instanceof \WebDevJL\Framework\ViewModels\BaseJsonVm)) {
-            throw new \InvalidArgumentException('$ControllerVm must be a valid \WebDevJL\Framework\ViewModels\BaseJsonVm object. See above dump.' . var_dump($ControllerVm), 0, NULL);
+        if (!($ControllerVm instanceof \Puzzlout\Framework\ViewModels\BaseJsonVm)) {
+            throw new \InvalidArgumentException('$ControllerVm must be a valid \Puzzlout\Framework\ViewModels\BaseJsonVm object. See above dump.' . var_dump($ControllerVm), 0, NULL);
         }
 
-        $VmJson = new \WebDevJL\Framework\ViewModels\BaseJsonVm($this->app());
+        $VmJson = new \Puzzlout\Framework\ViewModels\BaseJsonVm($this->app());
         $VmJson = clone $ControllerVm;
         self::SetJsonResponseHeader();
         return $VmJson->Response();

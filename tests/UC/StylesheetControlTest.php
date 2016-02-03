@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\UC;
+namespace Puzzlout\Framework\Tests\UC;
 
-use WebDevJL\Framework\UC\StylesheetControl;
+use Puzzlout\Framework\UC\StylesheetControl;
 
 class StylesheetControlTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class StylesheetControlTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class StylesheetControlTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new StylesheetControl($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\UC\StylesheetControl', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\UC\StylesheetControl', $result);
     }
 
     //Write the next tests below...

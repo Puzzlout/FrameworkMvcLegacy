@@ -6,18 +6,18 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package BaseClassGenerator
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Core;
+namespace Puzzlout\Framework\GeneratorEngine\Core;
 
-use WebDevJL\Framework\Core\Application;
-use WebDevJL\Framework\Core\Config;
-use WebDevJL\Framework\Enums\AppSettingKeys;
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
-use WebDevJL\Framework\GeneratorEngine\Templates\TemplateFileNameConstants;
+use Puzzlout\Framework\Core\Application;
+use Puzzlout\Framework\Core\Config;
+use Puzzlout\Framework\Enums\AppSettingKeys;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets\PhpCodeSnippets;
+use Puzzlout\Framework\GeneratorEngine\Templates\TemplateFileNameConstants;
 
 class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerator {
 
@@ -31,7 +31,7 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
     public function __construct(Application $app, $params, $data) {
         parent::__construct($app);
         $this->destinationDir = array_key_exists(BaseClassGenerator::DestinationDirKey, $params) ? "APP_ROOT_DIR" . $params[BaseClassGenerator::DestinationDirKey] : "";
-        $this->placeholders = \WebDevJL\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
+        $this->placeholders = \Puzzlout\Framework\GeneratorEngine\Placeholders\PlaceholdersManager::InitPlaceholdersForPhpDoc($params);
         $this->data = $data;
         $templateHeader = TemplateFileNameConstants::GetFullNameForConst(TemplateFileNameConstants::ClassTemplate);
         $this->classTemplateContents = file_exists($templateHeader) ?
@@ -148,7 +148,7 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
     }
 
     public function WriteAssociativeArrayValueWithKeyAndValue($key, $value, $tabAmount = 0) {
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     /**
@@ -174,11 +174,11 @@ class BaseClassGenerator extends BaseTemplateProcessor implements IClassGenerato
     }
 
     public function WriteContent() {
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
     public function WriteNewArrayAndItsContents($array, $arrayOpened = false, $tabAmount = 0) {
-        throw new \WebDevJL\Framework\Exceptions\NotImplementedException();
+        throw new \Puzzlout\Framework\Exceptions\NotImplementedException();
     }
 
 }

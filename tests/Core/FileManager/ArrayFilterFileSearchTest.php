@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\Core\FileManager;
+namespace Puzzlout\Framework\Tests\Core\FileManager;
 
-use WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch;
+use Puzzlout\Framework\Core\FileManager\ArrayFilterFileSearch;
 
 class ArrayFilterFileSearchTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ArrayFilterFileSearchTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ArrayFilterFileSearchTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ArrayFilterFileSearch($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Core\FileManager\ArrayFilterFileSearch', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\FileManager\ArrayFilterFileSearch', $result);
     }
 
     //Write the next tests below...

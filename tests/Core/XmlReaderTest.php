@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Core;
+namespace Puzzlout\Framework\Tests\Core;
 
-use WebDevJL\Framework\Core\XmlReader;
+use Puzzlout\Framework\Core\XmlReader;
 
 class XmlReaderTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class XmlReaderTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class XmlReaderTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new XmlReader();
-        $this->assertInstanceOf('WebDevJL\Framework\Core\XmlReader', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Core\XmlReader', $result);
     }
 
     //Write the next tests below...

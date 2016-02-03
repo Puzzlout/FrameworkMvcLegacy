@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\GeneratorEngine\CodeSnippets;
+namespace Puzzlout\Framework\Tests\GeneratorEngine\CodeSnippets;
 
-use WebDevJL\Framework\GeneratorEngine\CodeSnippets\ClassFileSnippets;
+use Puzzlout\Framework\GeneratorEngine\CodeSnippets\ClassFileSnippets;
 
 class ClassFileSnippetsTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ClassFileSnippetsTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ClassFileSnippetsTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ClassFileSnippets($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\GeneratorEngine\CodeSnippets\ClassFileSnippets', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\GeneratorEngine\CodeSnippets\ClassFileSnippets', $result);
     }
 
     //Write the next tests below...

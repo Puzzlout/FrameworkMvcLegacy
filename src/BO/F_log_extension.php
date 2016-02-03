@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.2
  * @package F_log_extension
  */
 
-namespace WebDevJL\Framework\BO;
+namespace Puzzlout\Framework\BO;
 
-class F_log_extension extends \WebDevJL\Framework\BO\F_log {
+class F_log_extension extends \Puzzlout\Framework\BO\F_log {
 
     const LEVEL_INFO = "LEVEL_INFO";
     const LEVEL_DEBUG = "LEVEL_DEBUG";

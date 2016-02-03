@@ -5,9 +5,9 @@
  * @since Test Suite v1.1.0
  */
 
-namespace WebDevJL\Framework\Tests\BO;
+namespace Puzzlout\Framework\Tests\BO;
 
-use WebDevJL\Framework\BO\NewFileItem;
+use Puzzlout\Framework\BO\NewFileItem;
 
 class NewFileItemTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class NewFileItemTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class NewFileItemTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new NewFileItem($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\BO\NewFileItem', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\BO\NewFileItem', $result);
     }
 
     //Write the next tests below...

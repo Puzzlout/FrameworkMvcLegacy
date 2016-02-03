@@ -21,7 +21,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums;
+namespace Puzzlout\Framework\Enums;
 
 class LeftMenuConstants {
     /* Placeholders used at execution to build the menu items */

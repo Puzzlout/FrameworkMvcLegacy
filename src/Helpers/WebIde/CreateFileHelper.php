@@ -6,17 +6,17 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package CreateFileHelper
  */
 
-namespace WebDevJL\Framework\Helpers\WebIde;
+namespace Puzzlout\Framework\Helpers\WebIde;
 
-use WebDevJL\Framework\BO\NewFileItem;
-use WebDevJL\Framework\BO\JsonResult;
+use Puzzlout\Framework\BO\NewFileItem;
+use Puzzlout\Framework\BO\JsonResult;
 
-class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
+class CreateFileHelper extends \Puzzlout\Framework\Helpers\WebIdeAjaxHelper {
 
     /**
      *
@@ -49,7 +49,7 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
      * 
      * @return string
      * @throws Exception Thrown if the template doesn't not exists.
-     * The class WebDevJL\Framework\GeneratorEngine\Constants\FileTypes constains the list of
+     * The class Puzzlout\Framework\GeneratorEngine\Constants\FileTypes constains the list of
      * file that needs a template. The key is used to build the template file name
      * 
      * Ex: MyKeyTemplate.tt
@@ -60,7 +60,7 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
      * @throws Exception Thrown if the function file_get_contents returns false.
      */
     public function GetTemplateContents() {
-        $templateFileName = "APP_ROOT_DIR" . \WebDevJL\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
+        $templateFileName = "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
         if (!file_exists($templateFileName)) {
             throw new Exception("The template $templateFileName was not found. Please the template type" . $this->templateType . " or add a new template.", 0, NULL);
         }
@@ -71,7 +71,7 @@ class CreateFileHelper extends \WebDevJL\Framework\Helpers\WebIdeAjaxHelper {
         return $contents;
     }
 
-    public function SaveFile(\WebDevJL\Framework\Controllers\BaseController $controller) {
+    public function SaveFile(\Puzzlout\Framework\Controllers\BaseController $controller) {
         $result = JsonResult::Init()->SetDefault();
         if (count($controller->dataPost()) === 0) {
             throw new Exception("dataPost is empty! Please the form submission", 0, NULL);

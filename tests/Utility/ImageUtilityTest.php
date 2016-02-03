@@ -5,9 +5,9 @@
  * @since Test Suite v1.0.0
  */
 
-namespace WebDevJL\Framework\Tests\Utility;
+namespace Puzzlout\Framework\Tests\Utility;
 
-use WebDevJL\Framework\Utility\ImageUtility;
+use Puzzlout\Framework\Utility\ImageUtility;
 
 class ImageUtilityTest extends \PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class ImageUtilityTest extends \PHPUnit_Framework_TestCase {
      * Initialize the app object.
      */
     protected function setUp() {
-        $this->app = new \WebDevJL\Framework\Tests\TestApplication();
+        $this->app = new \Puzzlout\Framework\Tests\TestApplication();
     }
 
     /**
@@ -26,7 +26,7 @@ class ImageUtilityTest extends \PHPUnit_Framework_TestCase {
     public function testInstanceIsCorrect() {
         $this->assertNotNull($this->app);
         $result = new ImageUtility($this->app);
-        $this->assertInstanceOf('WebDevJL\Framework\Utility\ImageUtility', $result);
+        $this->assertInstanceOf('Puzzlout\Framework\Utility\ImageUtility', $result);
     }
 
     //Write the next tests below...

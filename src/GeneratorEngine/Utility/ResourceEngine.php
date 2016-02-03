@@ -6,17 +6,17 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ResourceHelper
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Utility;
+namespace Puzzlout\Framework\GeneratorEngine\Utility;
 
-class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceConstantsClassEngine {
+class ResourceEngine extends \Puzzlout\Framework\GeneratorEngine\Core\ResourceConstantsClassEngine {
 
-    const CommonClassDerivationNamespace = "\WebDevJL\Framework\Core\ResourceManagers\CommonResxBase";
-    const ControllerClassDerivationNamespace = "\WebDevJL\Framework\Core\ResourceManagers\ControllerResxBase";
+    const CommonClassDerivationNamespace = "\Puzzlout\Framework\Core\ResourceManagers\CommonResxBase";
+    const ControllerClassDerivationNamespace = "\Puzzlout\Framework\Core\ResourceManagers\ControllerResxBase";
 
     public $NamespaceApplicationRootGeneratedFolder = "";
     public $DestinationFolder = "";
@@ -28,8 +28,8 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
 
     public function Run($data = NULL) {
         $this->PrepareTheDefaultParametersForGeneration(); //todo: put method in Interface.
-        $this->GenerateCommonResxFiles($data[\WebDevJL\Framework\Core\Globalization::COMMON_RESX_ARRAY_KEY]);
-        $this->GenerateControllerResxFiles($data[\WebDevJL\Framework\Core\Globalization::CONTROLLER_RESX_ARRAY_KEY]);
+        $this->GenerateCommonResxFiles($data[\Puzzlout\Framework\Core\Globalization::COMMON_RESX_ARRAY_KEY]);
+        $this->GenerateControllerResxFiles($data[\Puzzlout\Framework\Core\Globalization::CONTROLLER_RESX_ARRAY_KEY]);
     }
 
     /**
@@ -37,14 +37,14 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
      */
     public function PrepareTheDefaultParametersForGeneration() {
         $this->params = array(
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation => NULL,
-            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
-            \WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
+            \Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true,
         );
     }
 
@@ -55,24 +55,24 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
      * @param associative array $culture the object F_culture transformed into an array
      */
     public function UpdateTheParametersForGeneration($key, $culture) {
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey] = $this->NamespaceApplicationRootGeneratedFolder;
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey] = ucfirst($key) . $this->GeneratedClassPrefix;
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey] = $this->DestinationFolder;
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey] = is_null($culture) ?
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey] = $this->NamespaceApplicationRootGeneratedFolder;
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey] = ucfirst($key) . $this->GeneratedClassPrefix;
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey] = $this->DestinationFolder;
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey] = is_null($culture) ?
                 NULL :
-                $culture[\WebDevJL\Framework\BO\F_culture::F_CULTURE_LANGUAGE] . "_" . $culture[\WebDevJL\Framework\BO\F_culture::F_CULTURE_REGION];
+                $culture[\Puzzlout\Framework\BO\F_culture::F_CULTURE_LANGUAGE] . "_" . $culture[\Puzzlout\Framework\BO\F_culture::F_CULTURE_REGION];
         if ($this->IsGeneratingBaseClass) {
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = true;
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = false;
+            $this->params[\Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = true;
+            $this->params[\Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = false;
         } else {
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = false;
-            $this->params[\WebDevJL\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = true;
+            $this->params[\Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = false;
+            $this->params[\Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey] = true;
         }
     }
 
     private function GenerateCommonResxFiles($resources) {
         $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . "APP_NAME" . "\Resources\\Common";
-        $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceCommonFolderName;
+        $this->DestinationFolder = \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \Puzzlout\Framework\Enums\ApplicationFolderName::ResourceCommonFolderName;
         foreach ($resources as $groupKey => $groupArray) {
             $this->IsGeneratingBaseClass = true;
             foreach ($groupArray as $cultureKey => $cultureArray) {
@@ -82,10 +82,10 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
                     $this->IsGeneratingBaseClass = false;
                 }
                 //Then we generate the Group_xx_XX resource file that will list the resources using the base class constant keys.
-                $culture = \WebDevJL\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \WebDevJL\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
+                $culture = \Puzzlout\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \Puzzlout\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
                 $this->UpdateTheParametersForGeneration($groupKey, $culture);
-                $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey] = "List of the resources values for the group " . $groupKey;
-                $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = $baseClassNamespace;
+                $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey] = "List of the resources values for the group " . $groupKey;
+                $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = $baseClassNamespace;
                 $this->GenerateApplicationFile($cultureArray);
             }
         }
@@ -93,7 +93,7 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
 
     private function GenerateControllerResxFiles($resources) {
         $this->NamespaceApplicationRootGeneratedFolder = "Applications\\" . "APP_NAME" . "\Resources\\Controller";
-        $this->DestinationFolder = \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \WebDevJL\Framework\Enums\ApplicationFolderName::ResourceControllerFolderName;
+        $this->DestinationFolder = \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName . "APP_NAME" . \Puzzlout\Framework\Enums\ApplicationFolderName::ResourceControllerFolderName;
         foreach ($resources as $moduleKey => $moduleArray) {
             $this->IsGeneratingBaseClass = true;
             foreach ($moduleArray as $cultureKey => $cultureArray) {
@@ -101,10 +101,10 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
                     $baseClassNamespace = $this->GenerateControllerBaseClass($moduleKey, $cultureArray);
                     $this->IsGeneratingBaseClass = false;
                 }
-                $culture = \WebDevJL\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \WebDevJL\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
+                $culture = \Puzzlout\Framework\Helpers\CommonHelper::FindArrayFromAContainingValue($this->app->cultures, \Puzzlout\Framework\BO\F_culture::F_CULTURE_ID, (string) $cultureKey);
                 $this->UpdateTheParametersForGeneration($moduleKey, $culture);
-                $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey] = "List of the resources values for the module " . $moduleKey;
-                $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = $baseClassNamespace;
+                $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey] = "List of the resources values for the module " . $moduleKey;
+                $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = $baseClassNamespace;
                 $this->GenerateApplicationFile($cultureArray);
             }
         }
@@ -112,13 +112,13 @@ class ResourceEngine extends \WebDevJL\Framework\GeneratorEngine\Core\ResourceCo
 
     private function GenerateCommonBaseClass($groupKey, $cultureArray) {
         $this->UpdateTheParametersForGeneration($groupKey, NULL);
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::CommonClassDerivationNamespace;
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::CommonClassDerivationNamespace;
         return $this->GenerateApplicationFile($cultureArray);
     }
 
     private function GenerateControllerBaseClass($moduleKey, $cultureArray) {
         $this->UpdateTheParametersForGeneration($moduleKey, NULL);
-        $this->params[\WebDevJL\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::ControllerClassDerivationNamespace;
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::ControllerClassDerivationNamespace;
         return $this->GenerateApplicationFile($cultureArray);
     }
 

@@ -6,21 +6,21 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package AuthenticationManager
  */
 
-namespace WebDevJL\Framework\Security;
+namespace Puzzlout\Framework\Security;
 
-use WebDevJL\Framework\Interfaces\IUser;
-use WebDevJL\Framework\Enums\SessionKeys;
+use Puzzlout\Framework\Interfaces\IUser;
+use Puzzlout\Framework\Enums\SessionKeys;
 
-class AuthenticationManager extends \WebDevJL\Framework\Core\ApplicationComponent {
+class AuthenticationManager extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     /**
      * Authenticates a user from the given object. 
-     * @param \WebDevJL\Framework\Interfaces\IUser $user
+     * @param \Puzzlout\Framework\Interfaces\IUser $user
      * User object holding all the values necessary to connect the user.  
      */
     public function authenticate(IUser $user) {
@@ -41,18 +41,18 @@ class AuthenticationManager extends \WebDevJL\Framework\Core\ApplicationComponen
 
     /**
      * Retrieve the hash of the user password. 
-     * @param \WebDevJL\Framework\BO\F_user $user
-     * @return \WebDevJL\Framework\BO\F_user
+     * @param \Puzzlout\Framework\BO\F_user $user
+     * @return \Puzzlout\Framework\BO\F_user
      */
-    public function HashUserPassword(\WebDevJL\Framework\BO\F_user $user) {
-        $user->setF_user_salt($user->F_user_password_is_hashed() ? $user->F_user_salt() : \WebDevJL\Framework\Utility\UUID::v4());
+    public function HashUserPassword(\Puzzlout\Framework\BO\F_user $user) {
+        $user->setF_user_salt($user->F_user_password_is_hashed() ? $user->F_user_salt() : \Puzzlout\Framework\Utility\UUID::v4());
         $user->setF_user_password($this->app->security()->HashValue($user->F_user_salt(), $user->F_user_password()));
         $user->setF_user_password_is_hashed(1);
         return $user;
     }
 
-    public function CheckPassword($passwordGiven, \WebDevJL\Framework\BO\F_user $user, $isFirstLogin = false) {
-        $userToCheck = new \WebDevJL\Framework\BO\F_user();
+    public function CheckPassword($passwordGiven, \Puzzlout\Framework\BO\F_user $user, $isFirstLogin = false) {
+        $userToCheck = new \Puzzlout\Framework\BO\F_user();
         $userToCheck->setF_user_password($passwordGiven);
         if ($user->F_user_password_is_hashed() || !$isFirstLogin) {
             $userToCheck->setF_user_salt($user->F_user_salt());

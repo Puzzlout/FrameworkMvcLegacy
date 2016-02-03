@@ -1,5 +1,5 @@
 <?php
-echo WebDevJL\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/webide.solution.templates.js");
+echo Puzzlout\Framework\UC\ScriptControl::Init()->ForInternalResource("Web/library/js/webide.solution.templates.js");
 ?>
 <div class="form-group">
     <label for="fileContents">Modify the file template to suit your needs</label>

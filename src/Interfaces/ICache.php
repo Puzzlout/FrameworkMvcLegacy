@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ICache
  */
 
-namespace WebDevJL\Framework\Interfaces;
+namespace Puzzlout\Framework\Interfaces;
 
 interface ICache {
 
@@ -19,9 +19,9 @@ interface ICache {
      * The instanciater of the cache class using the config instance in order to 
      * retrieve some default values for ttl and other caching settings.
      * 
-     * @param \WebDevJL\Framework\Core\Application $app The instance of application class
+     * @param \Puzzlout\Framework\Core\Application $app The instance of application class
      */
-    public static function Init(\WebDevJL\Framework\Core\Application $app);
+    public static function Init(\Puzzlout\Framework\Core\Application $app);
 
     /**
      * Check if the given $key exists in the cache store.

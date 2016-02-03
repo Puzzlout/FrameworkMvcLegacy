@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
 class Request extends ApplicationComponent {
 
@@ -13,7 +13,7 @@ class Request extends ApplicationComponent {
 
     public function __construct(Application $app) {
         parent::__construct($app);
-        $this->requestId = \WebDevJL\Framework\Utility\UUID::v4();
+        $this->requestId = \Puzzlout\Framework\Utility\UUID::v4();
     }
 
     public function requestId() {

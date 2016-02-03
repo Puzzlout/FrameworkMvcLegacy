@@ -1,8 +1,8 @@
 <?php
 
-namespace WebDevJL\Framework\Dal;
+namespace Puzzlout\Framework\Dal;
 
-class PDOFactory extends \WebDevJL\Framework\Core\ApplicationComponent {
+class PDOFactory extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     public static function getMysqlConnexion($currentApp) {
         $host = $currentApp->config()->get("Myslq_host");

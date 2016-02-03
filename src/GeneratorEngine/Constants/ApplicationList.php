@@ -6,12 +6,12 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ApplicationList
  */
 
-namespace WebDevJL\Framework\GeneratorEngine\Constants;
+namespace Puzzlout\Framework\GeneratorEngine\Constants;
 
 class ApplicationList {
     /*     * *
@@ -30,7 +30,7 @@ class ApplicationList {
      */
     public function GetList() {
         //Get the list of applications in the folder "Applications"
-        //$list = scandir("APP_ROOT_DIR" . \WebDevJL\Framework\Enums\ApplicationFolderName::AppsFolderName);
+        //$list = scandir("APP_ROOT_DIR" . \Puzzlout\Framework\Enums\ApplicationFolderName::AppsFolderName);
         $list = array("EasyMvc", "Ide");
         return $list;
     }

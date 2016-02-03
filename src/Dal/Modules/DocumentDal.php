@@ -23,9 +23,9 @@
  * @link
  */
 
-namespace WebDevJL\Framework\Dal\Modules;
+namespace Puzzlout\Framework\Dal\Modules;
 
-class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
+class DocumentDal extends \Puzzlout\Framework\Dal\BaseManager {
 
     public $rootDirectory, $webDirectory;
     public $filenamePrefix = "";
@@ -59,9 +59,9 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     //}
 
     public function addWithFile($object, $file) {
-        if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
+        if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
             $object->setFilename($this->GetFileNameToSaveInDatabase($file));
-            $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
+            $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
             $extensions = $object->ValidExtensions();
             if (is_array($extensions)) {
                 $validExtension = $this->CheckExtension($file, $extensions);
@@ -69,7 +69,7 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
                 $validExtension = true;
             }
             if (!$fileExists && $validExtension) {
-                \WebDevJL\Framework\Core\DirectoryManager::CreateDirectory($this->GetUploadDirectory($object));
+                \Puzzlout\Framework\Core\DirectoryManager::CreateDirectory($this->GetUploadDirectory($object));
                 $object->setContentSize($this->GetSizeInKb($file));
                 $object->setContentType($this->GetExtension($file));
                 $this->UploadAFile($file['tmp_name'], $this->GetUploadDirectory($object) . "/" . $object->Filename());
@@ -86,9 +86,9 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
      * the generated name
      */
     public function copyWithFile($object, $file) {
-        if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
+        if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
             $object->setFilename($this->GetFileNameToSaveInDatabase($file));
-            $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
+            $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
             $extensions = $object->ValidExtensions();
             if (is_array($extensions)) {
                 $validExtension = $this->CheckExtension($file, $extensions);
@@ -96,7 +96,7 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
                 $validExtension = true;
             }
             if (!$fileExists && $validExtension) {
-                \WebDevJL\Framework\Core\DirectoryManager::CreateDirectory($this->GetUploadDirectory($object));
+                \Puzzlout\Framework\Core\DirectoryManager::CreateDirectory($this->GetUploadDirectory($object));
                 $object->setContentSize($this->GetSizeInKb($file));
                 $object->setContentType($this->GetExtension($file));
 
@@ -111,8 +111,8 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     }
 
     public function deleteWithFile($object, $where_filter_id) {
-        if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
-            $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
+        if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
+            $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
             if ($fileExists) {
                 $this->DeleteAFile($this->GetUploadDirectory($object) . "/" . $object->Filename());
             }
@@ -124,8 +124,8 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
      * V2 is used to separate it from deleteWithFile 
      */
     public function deleteWithFileV2($object, $where_filter_id) {
-        if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
-            $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists('./uploads/' . $this->GetUploadDirectory($object) . "/" . $object->Filename());
+        if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
+            $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists('./uploads/' . $this->GetUploadDirectory($object) . "/" . $object->Filename());
             if ($fileExists) {
                 $this->DeleteAFile('./uploads/' . $this->GetUploadDirectory($object) . "/" . $object->Filename());
             }
@@ -136,8 +136,8 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     public function DeleteObjectsWithFile($objects, $where_filter_id) {
         $return = array();
         foreach ($objects as $object) {
-            if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
-                $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
+            if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
+                $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($this->GetUploadDirectory($object) . "/" . $object->Filename());
                 if ($fileExists) {
                     $this->DeleteAFile($this->GetUploadDirectory($object) . "/" . $object->Filename());
                 }
@@ -186,7 +186,7 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     }
 
     private function GetFileNameToSaveInDatabase($file) {
-        return $this->filenamePrefix . \WebDevJL\Framework\Core\Utility\UUID::v4() . "." . $this->GetExtension($file);
+        return $this->filenamePrefix . \Puzzlout\Framework\Core\Utility\UUID::v4() . "." . $this->GetExtension($file);
     }
 
     private function GetSizeInKb($file) {
@@ -211,9 +211,9 @@ class DocumentDal extends \WebDevJL\Framework\Dal\BaseManager {
     protected function AddFilePathToObjectList($list) {
         if (is_array($list)) {
             foreach ($list as &$object) {
-                if ($object instanceof \WebDevJL\Framework\Interfaces\IDocument) {
+                if ($object instanceof \Puzzlout\Framework\Interfaces\IDocument) {
                     $filePath = $this->GetUploadDirectory($object) . "/" . $object->Filename();
-                    $fileExists = \WebDevJL\Framework\Core\DirectoryManager::FileExists($filePath);
+                    $fileExists = \Puzzlout\Framework\Core\DirectoryManager::FileExists($filePath);
                     if ($fileExists) {
                         $object->setWebPath($this->GetWebUploadDirectory($object) . "/" . $object->Filename());
                     }

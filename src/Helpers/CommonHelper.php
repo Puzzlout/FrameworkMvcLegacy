@@ -1,6 +1,6 @@
 <?php
 
-namespace WebDevJL\Framework\Helpers;
+namespace Puzzlout\Framework\Helpers;
 
 class CommonHelper {
 
@@ -47,7 +47,7 @@ class CommonHelper {
 
     public static function GetListObjectsInSessionByKey($user, $key) {
         $objects = array();
-        $projects = $user->getAttribute(\WebDevJL\Framework\Enums\SessionKeys::UserSessionProjects);
+        $projects = $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserSessionProjects);
         if ($projects === NULL) {
             $projects = array();
         }
@@ -172,7 +172,7 @@ class CommonHelper {
         return $matches;
     }
 
-    public static function SetActiveTab(\WebDevJL\Framework\Core\User $user, $tab_name, $sessionKey) {
+    public static function SetActiveTab(\Puzzlout\Framework\Core\User $user, $tab_name, $sessionKey) {
         $tabs = $user->getAttribute($sessionKey);
         foreach ($tabs as $key => $value) {
             $tabs[$key] = "";
@@ -182,7 +182,7 @@ class CommonHelper {
     }
 
     //TODO: replace with GetValueInSession
-    public static function GetTabsStatus(\WebDevJL\Framework\Core\User $user, $sessionKey) {
+    public static function GetTabsStatus(\Puzzlout\Framework\Core\User $user, $sessionKey) {
         return $user->getAttribute($sessionKey);
     }
 
@@ -244,7 +244,7 @@ class CommonHelper {
     }
 
     public static function EncryptDataHelper($data) {
-        $security = new \WebDevJL\Framework\Security\Protect ();
+        $security = new \Puzzlout\Framework\Security\Protect ();
         return $security->Encrypt($data);
     }
 
@@ -270,15 +270,15 @@ class CommonHelper {
         if (!isset($fileName)) {
             $fileName = substr($filePath, strrpos($filePath, "/") + 1);
         }
-        $xmlFilesLoaded = apc_fetch(\WebDevJL\Framework\Enums\CacheKeys::XmlFilesLoaded);
+        $xmlFilesLoaded = apc_fetch(\Puzzlout\Framework\Enums\CacheKeys::XmlFilesLoaded);
         if (array_key_exists($fileName, $xmlFilesLoaded)) {
             $this->xmlReader = $xmlFilesLoaded[$fileName];
         } else {
             $this->xmlReader = isset($fileName) ?
-                    new \WebDevJL\Framework\Core\XmlReader(NULL, $configFileName) :
-                    new \WebDevJL\Framework\Core\XmlReader($filePath);
+                    new \Puzzlout\Framework\Core\XmlReader(NULL, $configFileName) :
+                    new \Puzzlout\Framework\Core\XmlReader($filePath);
             $xmlFilesLoaded[$configFileName] = $this->xmlReader;
-            apc_add(\WebDevJL\Framework\Enums\CacheKeys::XmlFilesLoaded, $xmlFilesLoaded);
+            apc_add(\Puzzlout\Framework\Enums\CacheKeys::XmlFilesLoaded, $xmlFilesLoaded);
         }
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace WebDevJL\Framework\Core;
+namespace Puzzlout\Framework\Core;
 
-use WebDevJL\Framework\Enums;
-use WebDevJL\Framework\Enums\NameSpaceName;
+use Puzzlout\Framework\Enums;
+use Puzzlout\Framework\Enums\NameSpaceName;
 
 abstract class Application extends ApplicationBase {
 
@@ -14,11 +14,11 @@ abstract class Application extends ApplicationBase {
             $this->request = new Request($this);
             $this->response = new Response($this);
             $this->user = new User($this);
-            $this->dal = new \WebDevJL\Framework\Dal\Managers('PDO', $this);
+            $this->dal = new \Puzzlout\Framework\Dal\Managers('PDO', $this);
             $this->cultures = $this->GetCultureArray();
-            $this->imageUtil = new \WebDevJL\Framework\Utility\ImageUtility($this);
+            $this->imageUtil = new \Puzzlout\Framework\Utility\ImageUtility($this);
             $this->locale = $this->request->initLanguage($this, "browser");
-            $this->auth = new \WebDevJL\Framework\Security\AuthenticationManager($this);
+            $this->auth = new \Puzzlout\Framework\Security\AuthenticationManager($this);
             $this->toolTip = new PopUpResourceManager($this);
         }
     }
@@ -37,23 +37,23 @@ abstract class Application extends ApplicationBase {
      */
     public function GetCultureArray() {
         $dal = $this->dal->getDalInstance();
-        $dbFilters = new \WebDevJL\Framework\Dal\DbQueryFilters();
-        $dbFilters->setOrderByFilters(array(\WebDevJL\Framework\BO\F_culture_extension::F_CULTURE_ID));
-        $cultureObjects = $dal->selectMany(new \WebDevJL\Framework\BO\F_culture_extension(), $dbFilters);
-        $cultureAssocArray = array(\WebDevJL\Framework\BO\F_culture_extension::FullArrayCultureKey => null);
+        $dbFilters = new \Puzzlout\Framework\Dal\DbQueryFilters();
+        $dbFilters->setOrderByFilters(array(\Puzzlout\Framework\BO\F_culture_extension::F_CULTURE_ID));
+        $cultureObjects = $dal->selectMany(new \Puzzlout\Framework\BO\F_culture_extension(), $dbFilters);
+        $cultureAssocArray = array(\Puzzlout\Framework\BO\F_culture_extension::FullArrayCultureKey => null);
         if (count($cultureObjects) > 0) {
             foreach ($cultureObjects as $cultureObj) {
                 $cultureAssocArray
-                        [\WebDevJL\Framework\BO\F_culture_extension::FullArrayCultureKey]
-                        [$cultureObj->F_culture_language() . '-' . $cultureObj->F_culture_region()] = \WebDevJL\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $cultureObj);
+                        [\Puzzlout\Framework\BO\F_culture_extension::FullArrayCultureKey]
+                        [$cultureObj->F_culture_language() . '-' . $cultureObj->F_culture_region()] = \Puzzlout\Framework\Helpers\CommonHelper::CleanPrefixedkeyInAssocArray((array) $cultureObj);
             }
         }
-        return $cultureAssocArray[\WebDevJL\Framework\BO\F_culture_extension::FullArrayCultureKey];
+        return $cultureAssocArray[\Puzzlout\Framework\BO\F_culture_extension::FullArrayCultureKey];
     }
 
     /**
      * Retrieve the Controller instance that matches the Route instance.
-     * @return \WebDevJL\Framework\Controllers\BaseController the Controller object
+     * @return \Puzzlout\Framework\Controllers\BaseController the Controller object
      */
     public function getController() {
         $router = new Router($this);
@@ -66,12 +66,12 @@ abstract class Application extends ApplicationBase {
     /**
      * Builds the controller object from a route object.
      * 
-     * @param \WebDevJL\Framework\Core\Route $route : the current route
-     * @return \WebDevJL\Framework\Controllers\BaseController
+     * @param \Puzzlout\Framework\Core\Route $route : the current route
+     * @return \Puzzlout\Framework\Controllers\BaseController
      */
-    private function GetControllerObject(\WebDevJL\Framework\Core\Router $router) {
+    private function GetControllerObject(\Puzzlout\Framework\Core\Router $router) {
         $controllerName = $this->BuildControllerName($router->currentRoute());
-        $FrameworkControllers = "\WebDevJL\Framework\Generated\FrameworkControllers";
+        $FrameworkControllers = "\Puzzlout\Framework\Generated\FrameworkControllers";
         $ApplicationControllers = "\Applications\\" .
                 "APP_NAME" .
                 "\Generated\\" .
@@ -89,12 +89,12 @@ abstract class Application extends ApplicationBase {
      * @param string $controllerName : the controller to find
      * @param string $FrameworkControllersListClass : class name to the list of framework controllers list
      * @param string $ApplicationControllersListClass : class name to the list of current application controllers list
-     * @param \WebDevJL\Framework\Core\Route $route : the current route
+     * @param \Puzzlout\Framework\Core\Route $route : the current route
      */
-    public function FindControllerClassName($controllerName, $FrameworkControllers, $ApplicationControllers, \WebDevJL\Framework\Core\Router $router) {
+    public function FindControllerClassName($controllerName, $FrameworkControllers, $ApplicationControllers, \Puzzlout\Framework\Core\Router $router) {
         $FrameworkControllers = $FrameworkControllers::GetList();
         $ApplicationControllers = $ApplicationControllers::GetList();
-        $controllerClass = "\WebDevJL\Framework\Controllers\ErrorController";
+        $controllerClass = "\Puzzlout\Framework\Controllers\ErrorController";
         if (array_key_exists($controllerName, $FrameworkControllers)) {
             $frameworkCtrlFolderPath = NameSpaceName::LibFolderName . NameSpaceName::LibControllersFolderName;
             $controllerClass = $frameworkCtrlFolderPath . $controllerName;
@@ -113,7 +113,7 @@ abstract class Application extends ApplicationBase {
     /**
      * Builds the controller name.
      * 
-     * @param \WebDevJL\Framework\Core\Route $route
+     * @param \Puzzlout\Framework\Core\Route $route
      * @return string
      */
     private function BuildControllerName(Route $route) {
@@ -124,8 +124,8 @@ abstract class Application extends ApplicationBase {
      * Instanciate a controller from a name.
      * 
      * @param string $controllerClass
-     * @param \WebDevJL\Framework\Core\Route $route
-     * @return \WebDevJL\Framework\Controllers\BaseController
+     * @param \Puzzlout\Framework\Core\Route $route
+     * @return \Puzzlout\Framework\Controllers\BaseController
      * @throws \Exception : when the controller class can't be instanciated.
      */
     protected function InstanciateController($controllerClass, Route $route) {
@@ -138,7 +138,7 @@ abstract class Application extends ApplicationBase {
     }
 
     public function IsUnitTested() {
-        $result = $this instanceof \WebDevJL\Framework\Tests\TestApplication;
+        $result = $this instanceof \Puzzlout\Framework\Tests\TestApplication;
         return $result;
     }
 

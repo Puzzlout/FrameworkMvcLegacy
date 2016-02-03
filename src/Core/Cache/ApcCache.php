@@ -6,28 +6,28 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ApcCache
  */
 
-namespace WebDevJL\Framework\Core\Cache;
+namespace Puzzlout\Framework\Core\Cache;
 
-class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements \WebDevJL\Framework\Interfaces\ICache {
+class ApcCache extends \Puzzlout\Framework\Core\ApplicationComponent implements \Puzzlout\Framework\Interfaces\ICache {
 
     protected $config;
 
-    public function __construct(\WebDevJL\Framework\Core\Application $app) {
+    public function __construct(\Puzzlout\Framework\Core\Application $app) {
         parent::__construct($app);
     }
 
-    public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    public static function Init(\Puzzlout\Framework\Core\Application $app) {
         $cacher = new ApcCache($app);
         return $cacher;
     }
 
     /**
-     * @see \WebDevJL\Framework\Interfaces\ICacher
+     * @see \Puzzlout\Framework\Interfaces\ICacher
      * @param string $key
      * @return bool
      */
@@ -38,7 +38,7 @@ class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements 
 
     /**
      * 
-     * @see \WebDevJL\Framework\Interfaces\ICacher
+     * @see \Puzzlout\Framework\Interfaces\ICacher
      * @param string $key
      * @param mixed $value
      * @return bool The result storing $value with $key. If $key is already in the
@@ -52,12 +52,12 @@ class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements 
             throw new \Exception("key is already found the store. You need to use the Update method.", 0, NULL);
         }
 
-        $isValueCached = apc_add($key, $value, \WebDevJL\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
+        $isValueCached = apc_add($key, $value, \Puzzlout\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
         return $isValueCached;
     }
 
     /**
-     * @see \WebDevJL\Framework\Interfaces\ICacher
+     * @see \Puzzlout\Framework\Interfaces\ICacher
      * @param string $key
      * @param mixed $default
      * @return mixed
@@ -74,7 +74,7 @@ class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements 
     }
 
     /**
-     * @see \WebDevJL\Framework\Interfaces\ICacher
+     * @see \Puzzlout\Framework\Interfaces\ICacher
      * @param string $key
      * @param mixed $value
      * @return bool
@@ -87,14 +87,14 @@ class ApcCache extends \WebDevJL\Framework\Core\ApplicationComponent implements 
             throw new \Exception("key is not found the store. You need to use the Create method.", 0, NULL);
         }
 
-        $isValueCached = apc_store($key, $value, \WebDevJL\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
+        $isValueCached = apc_store($key, $value, \Puzzlout\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
         return $isValueCached;
     }
 
     public function Remove($key) {
         $isKeyDeleted = apc_delete($key);
         if (!$isKeyDeleted) {
-            \WebDevJL\Framework\Helpers\DebugHelper::WriteString("The key $key was not deleted. Did it exist? " . $this->KeyExists($key));
+            \Puzzlout\Framework\Helpers\DebugHelper::WriteString("The key $key was not deleted. Did it exist? " . $this->KeyExists($key));
         }
     }
 

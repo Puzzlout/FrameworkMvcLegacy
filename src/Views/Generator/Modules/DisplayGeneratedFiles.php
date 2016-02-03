@@ -1,7 +1,7 @@
 <?php
-$ViewModel = new WebDevJL\Framework\ViewModels\GeneratorVm($this->app);
-if (!($ControllerVm instanceof WebDevJL\Framework\ViewModels\GeneratorVm)) {
-    throw new WebDevJL\Framework\Exceptions\InvalidViewModelTypeException();
+$ViewModel = new Puzzlout\Framework\ViewModels\GeneratorVm($this->app);
+if (!($ControllerVm instanceof Puzzlout\Framework\ViewModels\GeneratorVm)) {
+    throw new Puzzlout\Framework\Exceptions\InvalidViewModelTypeException();
 } else {
     $ViewModel = clone $ControllerVm;
 }

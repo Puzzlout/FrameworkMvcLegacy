@@ -6,20 +6,20 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ArrayFilterDirectorySearch
  */
 
-namespace WebDevJL\Framework\Core\DirectoryManager;
+namespace Puzzlout\Framework\Core\DirectoryManager;
 
-class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJL\Framework\Interfaces\IRecursiveDirectorySearch {
+class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \Puzzlout\Framework\Interfaces\IRecursiveDirectorySearch {
 
     /**
-     * @see \WebDevJL\Framework\Interfaces\IObjectInitialization
-     * @return \WebDevJL\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch
+     * @see \Puzzlout\Framework\Interfaces\IObjectInitialization
+     * @return \Puzzlout\Framework\Core\DirectoryManager\ArrayFilterDirectorySearch
      */
-    public static function Init(\WebDevJL\Framework\Core\Application $app) {
+    public static function Init(\Puzzlout\Framework\Core\Application $app) {
         $instance = new ArrayFilterDirectorySearch();
         $instance->DirectoryList = array();
         $instance->ContextApp = $app;
@@ -39,13 +39,13 @@ class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJ
         $scanResult = scandir($directory);
         foreach ($scanResult as $key => $value) {
             $includeValueInResult = $this->DoIncludeInResult($value, $algorithmFilter);
-            $isValueADirectory = is_dir($directory . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR . $value);
+            $isValueADirectory = is_dir($directory . \Puzzlout\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR . $value);
             if (!$includeValueInResult) {
                 continue;
             }
             if ($isValueADirectory) {
-                array_push($this->DirectoryList, $directory . $value . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR);
-                $this->RecursiveScanOf($directory . $value . \WebDevJL\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR, $algorithmFilter);
+                array_push($this->DirectoryList, $directory . $value . \Puzzlout\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR);
+                $this->RecursiveScanOf($directory . $value . \Puzzlout\Framework\Core\DirectoryManager::DIRECTORY_SEPARATOR, $algorithmFilter);
             }
         }
         return $this->DirectoryList;
@@ -56,7 +56,7 @@ class ArrayFilterDirectorySearch extends BaseDirectorySearch implements \WebDevJ
             if (strcmp($valueToCheck, $filter) === 0) {
                 return false;
             }
-            if (\WebDevJL\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`' . $filter . '`')) {
+            if (\Puzzlout\Framework\Helpers\RegexHelper::Init($valueToCheck)->IsMatch('`' . $filter . '`')) {
                 return false;
             }
         }

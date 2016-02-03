@@ -21,7 +21,7 @@
  * @link		
  */
 
-namespace WebDevJL\Framework\Enums;
+namespace Puzzlout\Framework\Enums;
 
 class UserRoleType {
 

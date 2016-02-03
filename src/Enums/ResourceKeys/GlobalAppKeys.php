@@ -13,7 +13,7 @@
  * @author jl
  */
 
-namespace WebDevJL\Framework\Enums\ResourceKeys;
+namespace Puzzlout\Framework\Enums\ResourceKeys;
 
 abstract class GlobalAppKeys {
 

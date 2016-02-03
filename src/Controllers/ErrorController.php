@@ -6,14 +6,14 @@
  * @author Jeremie Litzler
  * @copyright Copyright (c) 2015
  * @licence http://opensource.org/licenses/gpl-license.php GNU Public License
- * @link https://github.com/WebDevJL/EasyMvc
+ * @link https://github.com/Puzzlout/EasyMvc
  * @since Version 1.0.0
  * @package ErrorController
  */
 
-namespace WebDevJL\Framework\Controllers;
+namespace Puzzlout\Framework\Controllers;
 
-class ErrorController extends \WebDevJL\Framework\Controllers\BaseController {
+class ErrorController extends \Puzzlout\Framework\Controllers\BaseController {
 
     public function ControllerNotFound() {
         $this->viewModel->errorVm->errorId(0);
@@ -21,7 +21,7 @@ class ErrorController extends \WebDevJL\Framework\Controllers\BaseController {
     }
 
     public function Http404() {
-        $this->viewModel = new \WebDevJL\Framework\ViewModels\HttpErrorVm($this->app());
+        $this->viewModel = new \Puzzlout\Framework\ViewModels\HttpErrorVm($this->app());
         $this->viewModel->errorVm->errorId(404);
         $this->viewModel->errorVm->errorMessage("Page not found");
     }

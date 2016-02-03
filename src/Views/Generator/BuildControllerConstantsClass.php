@@ -1,4 +1,4 @@
 <?php
 
-include_once WebDevJL\Framework\Core\ViewLoader::Init($this->app->controller())->GetPartialView(\WebDevJL\Framework\Generated\FrameworkViewnames::DISPLAYGENERATEDFILES);
+include_once Puzzlout\Framework\Core\ViewLoader::Init($this->app->controller())->GetPartialView(\Puzzlout\Framework\Generated\FrameworkViewnames::DISPLAYGENERATEDFILES);
 
