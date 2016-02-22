@@ -13,8 +13,6 @@
 
 namespace Puzzlout\Framework\Tests;
 
-use Puzzlout\Framework\FrameworkConstants;
-
 class TestApplication extends \Puzzlout\Framework\Core\Application {
 
     public function __construct() {

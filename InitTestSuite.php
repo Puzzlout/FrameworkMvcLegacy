@@ -4,8 +4,8 @@
  */
 define("VENDOR", "Puzzlout");
 define("PACKAGE", "FrameworkMvc");
-$soureNamespacePrefix = VENDOR . "\\Framework\\";
-$testNamespacePrefix = VENDOR . "\\Framework\\Tests";
+$soureNamespacePrefix = VENDOR . "\\" . PACKAGE . "\\";
+$testNamespacePrefix = VENDOR . "\\" . PACKAGE . "\\Tests";
 
 /**
  * NO MODIFICATION ZONE (except if you take responsibility of your actions)

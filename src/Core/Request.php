@@ -2,17 +2,16 @@
 
 namespace Puzzlout\Framework\Core;
 
-class Request extends ApplicationComponent {
+class Request {
 
     public $requestId;
 
-    public static function Init(Application $app) {
-        $instance = new Request($app);
+    public static function Init() {
+        $instance = new Request();
         return $instance;
     }
 
-    public function __construct(Application $app) {
-        parent::__construct($app);
+    public function __construct() {
         $this->requestId = \Puzzlout\Framework\Utility\UUID::v4();
     }
 
@@ -84,22 +83,6 @@ class Request extends ApplicationComponent {
             return true;
         } else {
             return false;
-        }
-    }
-
-    public function initLanguage(Application $currentApp, $type) {
-        if ($type === "default") {
-            return $currentApp->config()->get(Enums\AppSettingKeys::DefaultLanguage);
-        }
-        if ($type === "browser") {
-            //Get the first culture
-            $culture = substr(strtok($_SERVER['HTTP_ACCEPT_LANGUAGE'], '?'), 0, 5);
-            //Check if the first culture is a short or long version, i.e. en ou en-US.
-            //If it is the short version, we update the culture to return.
-            if (!strpos($culture, "-")) {
-                $culture = substr($culture, 0, 2);
-            }
-            return $culture;
         }
     }
 

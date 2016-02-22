@@ -1,6 +1,6 @@
 {
     "name": "puzzlout/framework-mvc",
-    "description": "The Puzzleout framework to be used to build MVC websites",
+    "description": "The Puzzlout framework to be used to build MVC websites",
     "license": "MIT",
     "keywords": ["Puzzlout", "web", "dev", "jl", "easymvc"],
     "authors": [
