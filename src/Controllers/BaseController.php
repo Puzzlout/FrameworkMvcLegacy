@@ -13,6 +13,8 @@
 
 namespace Puzzlout\Framework\Controllers;
 
+use Puzzlout\Exceptions\Codes\GeneralErrors;
+use Puzzlout\Exceptions\Codes\MvcErrors;
 use Puzzlout\Framework\Core\Context;
 use Puzzlout\Framework\Core\Router;
 
@@ -117,14 +119,20 @@ abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationCompon
      * 
      * @return \Puzzlout\Framework\ViewModels\BaseVm The output View Model
      * @throws \RuntimeException Handle the non-existing action in the current controller
-     * @todo create an error code
      */
     public function execute() {
         $action = $this->action();
         if (!is_callable(array($this, $action))) {
-            throw new \RuntimeException('The action <b>' . $this->action . '</b> is not defined for the module <b>' . ucfirst($this->module) . '</b>', 0, NULL);
+            $errorMessage = 'The action <b>' .
+                    $this->action .
+                    '</b> is not defined for the module <b>' .
+                    ucfirst($this->module) .
+                    '</b>';
+            throw new \RuntimeException($errorMessage, MvcErrors::ACTION_NOT_FOUND_FOR_CONTROLLER, NULL);
         }
-        $logGuid = \Puzzlout\Framework\Utility\TimeLogger::StartLogInfo($this->app(), get_class($this) . "->" . ucfirst($action));
+        $logGuid = \Puzzlout\Framework\Utility\TimeLogger::StartLogInfo(
+                $this->app(), 
+                get_class($this) . "->" . ucfirst($action));
         $viewModelObject = $this->$action();
         \Puzzlout\Framework\Utility\TimeLogger::EndLog($this->app(), $logGuid);
         return $viewModelObject;
@@ -200,11 +208,11 @@ abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationCompon
      * 
      * @param string $module The module, a.k.a controller name
      * @throws \InvalidArgumentException
-     * @todo create error code for exception
      */
     public function setModule($module) {
         if (!is_string($module) || empty($module)) {
-            throw new \InvalidArgumentException('The module value must be a string and not be empty');
+            $errMessage = "The module value must be a string and not be empty";
+            throw new \InvalidArgumentException($errMessage, GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE);
         }
 
         $this->module = $module;
@@ -215,11 +223,11 @@ abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationCompon
      * 
      * @param string $action The action
      * @throws \InvalidArgumentException
-     * @todo create error code for exception
      */
     public function setAction($action) {
         if (!is_string($action) || empty($action)) {
-            throw new \InvalidArgumentException('The action value must be a string and not be empty');
+            $errMessage = "The action value must be a string and not be empty";
+            throw new \InvalidArgumentException($errMessage, GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE);
         }
 
         $this->action = $action;
@@ -229,11 +237,11 @@ abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationCompon
      * Set the view filename for the current request.
      * 
      * @throws \InvalidArgumentException thrown when the $action parameter is null or empty.
-     * @todo create a error code.
      */
     public function setView() {
         if (!is_string($this->action) || empty($this->action)) {
-            throw new \InvalidArgumentException('The action value must be a string and not be empty', 0);
+            $errMessage = 'The action value must be a string and not be empty';
+            throw new \InvalidArgumentException($errMessage, GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE);
         }
         if (\Puzzlout\Framework\Core\Request::Init($this->app)->IsPost()) {
             //No view needed for Ajax calls.
