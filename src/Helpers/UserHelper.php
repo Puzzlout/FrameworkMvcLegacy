@@ -131,8 +131,8 @@ class UserHelper {
         return '';
     }
 
-    public static function AddUser($caller, $user_value, $user_role_id, $user_type = NULL) {
-        if ($user_type === NULL) {
+    public static function AddUser($caller, $user_value, $user_role_id, $user_type = null) {
+        if ($user_type === null) {
             $user_type = self::GetTypeFromRoleId($user_role_id);
         }
         $dataPost = $caller->dataPost();

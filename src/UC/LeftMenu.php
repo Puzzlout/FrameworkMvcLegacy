@@ -84,7 +84,7 @@ class LeftMenu extends \Puzzlout\Framework\Core\ApplicationComponent {
     private function _AddMainMenu($main_menu) {
         $menuHeaderOutput = array();
         $headers = $main_menu->getElementsByTagName("header");
-        if ($headers !== NULL) {
+        if ($headers !== null) {
             foreach ($headers as $link) {
                 $isAvailable = $this->_CanDisplayMenuItem($link);
                 if ($isAvailable) {
@@ -130,7 +130,7 @@ class LeftMenu extends \Puzzlout\Framework\Core\ApplicationComponent {
 
     private function _ProcessSubMenus($subMenusXml) {
         $output = "";
-        if ($subMenusXml !== NULL) {
+        if ($subMenusXml !== null) {
             foreach ($subMenusXml as $subMenuXml) {
                 $isAvailable = $this->_CanDisplayMenuItem($subMenuXml);
                 if ($isAvailable) {

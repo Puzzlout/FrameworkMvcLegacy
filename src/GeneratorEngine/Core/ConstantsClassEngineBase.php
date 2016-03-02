@@ -62,7 +62,7 @@ abstract class ConstantsClassEngineBase {
      * @param assoc array $data depending on the situation, some data can be passed
      * on to generate the files desired.
      */
-    abstract public function Run($data = NULL);
+    abstract public function Run($data = null);
 
     /**
      * Generate the FrameworkControllers.php class.

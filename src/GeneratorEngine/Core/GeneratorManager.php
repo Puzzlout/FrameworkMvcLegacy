@@ -33,7 +33,7 @@ class GeneratorManager extends \Puzzlout\Framework\Core\ApplicationComponent {
                 $dao->ClassEnd();
             }
         } else {
-            throw new \Exception("No tables in database!", 0, NULL);
+            throw new \Exception("No tables in database!", 0, null);
         }
     }
 

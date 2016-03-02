@@ -23,21 +23,21 @@ class Context extends ApplicationComponent {
 
     public function GetCultureLang() {
         if (is_null($this->defaultLang)) {
-            throw new Exception("Member defaultLang should not be null!", 0, NULL);
+            throw new Exception("Member defaultLang should not be null!", 0, null);
         }
         return $this->defaultLang[F_culture::F_CULTURE_LANGUAGE];
     }
 
     public function GetCultureRegion() {
         if (is_null($this->defaultLang)) {
-            throw new Exception("Member defaultLang should not be null!", 0, NULL);
+            throw new Exception("Member defaultLang should not be null!", 0, null);
         }
         return $this->defaultLang[F_culture::F_CULTURE_REGION];
     }
 
     public function GetCultureID() {
         if (is_null($this->defaultLang)) {
-            throw new Exception("Member defaultLang should not be null!", 0, NULL);
+            throw new Exception("Member defaultLang should not be null!", 0, null);
         }
         return $this->defaultLang[F_culture::F_CULTURE_ID];
     }

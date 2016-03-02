@@ -48,7 +48,7 @@ class CommonHelper {
     public static function GetListObjectsInSessionByKey($user, $key) {
         $objects = array();
         $projects = $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserSessionProjects);
-        if ($projects === NULL) {
+        if ($projects === null) {
             $projects = array();
         }
         foreach ($projects as $project) {
@@ -67,7 +67,7 @@ class CommonHelper {
     public static function PrepareUserObject($data_sent, $object) {
         foreach ($data_sent as $key => $value) {
             $method = "set" . ucfirst($key);
-            $object->$method(!array_key_exists($key, $data_sent) ? NULL : $value);
+            $object->$method(!array_key_exists($key, $data_sent) ? null : $value);
         }
         return $object;
     }
@@ -110,9 +110,9 @@ class CommonHelper {
      * @return mixed{boolean,object}
      * The object if found or false otherwise. 
      */
-    public static function FindObjectByStringValue($filter, $propName, $listOfObjects, $key = NULL) {
+    public static function FindObjectByStringValue($filter, $propName, $listOfObjects, $key = null) {
         $match = false;
-        if ($key === NULL) {
+        if ($key === null) {
             foreach ($listOfObjects as $obj) {
                 if ($obj->$propName() === $filter) {
                     $match = $obj;
@@ -145,7 +145,7 @@ class CommonHelper {
     }
 
     public static function FindIndexInIdListById($valueToFind, $idList) {
-        $match = NULL;
+        $match = null;
         foreach (array_keys($idList) as $index => $key) {
             if ($idList[$key] === $valueToFind) {
                 $match = $index;
@@ -266,7 +266,7 @@ class CommonHelper {
      * @param string $filePath
      * @param string $fileName
      */
-    public static function GetXmlReaderInstanceForSourceFile($filePath, $fileName = NULL) {
+    public static function GetXmlReaderInstanceForSourceFile($filePath, $fileName = null) {
         if (!isset($fileName)) {
             $fileName = substr($filePath, strrpos($filePath, "/") + 1);
         }
@@ -275,7 +275,7 @@ class CommonHelper {
             $this->xmlReader = $xmlFilesLoaded[$fileName];
         } else {
             $this->xmlReader = isset($fileName) ?
-                    new \Puzzlout\Framework\Core\XmlReader(NULL, $configFileName) :
+                    new \Puzzlout\Framework\Core\XmlReader(null, $configFileName) :
                     new \Puzzlout\Framework\Core\XmlReader($filePath);
             $xmlFilesLoaded[$configFileName] = $this->xmlReader;
             apc_add(\Puzzlout\Framework\Enums\CacheKeys::XmlFilesLoaded, $xmlFilesLoaded);

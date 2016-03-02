@@ -13,6 +13,8 @@
 
 namespace Puzzlout\Framework\Core;
 
+use Puzzlout\Exceptions\Codes;
+
 class Page extends ApplicationComponent {
 
     /**
@@ -38,16 +40,18 @@ class Page extends ApplicationComponent {
      * @param mixed $value The value that will be used to generate the html output.
      * It can be a bool, a int, a string, an array, a list of objects.
      * @throws \InvalidArgumentException Throws if the $key paramater is not valid
-     * (not a string or empty).
-     * @todo create a error code for each case
+     * (not a string or empty or null).
      */
     public function addVar($key, $value) {
         if (!is_string($key)) {
-            throw new \InvalidArgumentException('Key name must be a string or be not null', 0, NULL);
+            $errMsg = 'Key name must be a string or be not null';
+            throw new \InvalidArgumentException($errMsg, Codes\GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE, null);
         } elseif (empty($key)) {
-            throw new \InvalidArgumentException('Key name must not be empty', 0, NULL);
+            $errMsg = 'Key name must not be empty';
+            throw new \InvalidArgumentException($errMsg, Codes\GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE, null);
         } elseif (is_null($key)) {
-            throw new \InvalidArgumentException('Key name must not be null', 0, NULL);
+            $errMsg = 'Key name must not be null';
+            throw new \InvalidArgumentException($errMsg, Codes\GeneralErrors::VALUE_IS_NOT_OF_EXPECTED_TYPE, null);
         }
         $this->variablesList[$key] = $value;
     }
@@ -59,12 +63,12 @@ class Page extends ApplicationComponent {
      * @return string The output generated.
      * @throws \Exception Throws if the number of variables extracted if different
      * to the number of variables given to extract.
-     * @todo create an error code.
      */
     public function GetOutput() {
         $numberOfVarsExtracted = extract($this->variablesList);
         if (count($this->variablesList) !== $numberOfVarsExtracted) {
-            throw new \Exception("Number of variables extracted different from the $vars array", 0, NULL);
+            $errMsg = "Number of variables extracted different from the $vars array";
+            throw new \Exception($errMsg, Codes\LogicErrors::UNEXPECTED_VALUE, null);
         }
         ob_start();
         include_once $this->contentFile;

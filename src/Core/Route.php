@@ -105,9 +105,9 @@ class Route {
      */
     public function setAction($action) {
         if (empty($action)) {
-            throw new \Exception("Action cannot be empty", 0, NULL); //todo: create error code
+            throw new \Exception("Action cannot be empty", 0, null); //todo: create error code
         } else if (!is_string($action)) {
-            throw new \Exception("Action must be a string", 0, NULL); //todo: create error code
+            throw new \Exception("Action must be a string", 0, null); //todo: create error code
         } else {
             $this->action = $action;
         }
@@ -119,9 +119,9 @@ class Route {
      */
     public function setModule($module) {
         if (empty($module)) {
-            throw new \Exception("Module cannot be empty", 0, NULL); //todo: create error code
+            throw new \Exception("Module cannot be empty", 0, null); //todo: create error code
         } else if (!is_string($module)) {
-            throw new \Exception("Module must be a string", 0, NULL); //todo: create error code
+            throw new \Exception("Module must be a string", 0, null); //todo: create error code
         } else {
             $this->module = $module;
         }

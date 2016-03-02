@@ -13,6 +13,9 @@
 
 namespace Puzzlout\Framework\Core;
 
+use Puzzlout\Exceptions\Classes\ViewNotFoundException;
+use Puzzlout\Exceptions\Codes\MvcErrors;
+
 class ViewLoader implements \Puzzlout\Framework\Interfaces\IViewLoader {
 
     /**
@@ -50,7 +53,6 @@ class ViewLoader implements \Puzzlout\Framework\Interfaces\IViewLoader {
      * @throws \Puzzlout\Framework\Exceptions\ViewNotFoundException Throws an exception if the view is not found 
      * @see \Puzzlout\Framework\Core\ViewLoader::GetFrameworkRootDir()
      * @see \Puzzlout\Framework\Core\ViewLoader::GetApplicationRootDir()
-     * @todo create error code.
      */
     public function GetView() {
         $FrameworkView = $this->GetPathForView(DirectoryManager::GetFrameworkRootDir());
@@ -63,7 +65,8 @@ class ViewLoader implements \Puzzlout\Framework\Interfaces\IViewLoader {
             return $ApplicationView;
         }
 
-        throw new \Puzzlout\Framework\Exceptions\ViewNotFoundException("View " . $FrameworkView . " or " . $ApplicationView . " doesn't exists", 0, NULL);
+        $errMsg = "View " . $FrameworkView . " nor " . $ApplicationView . " exists";
+        throw new ViewNotFoundException($errMsg, MvcErrors::VIEW_NOT_FOUND, null);
     }
 
     /**
@@ -87,7 +90,8 @@ class ViewLoader implements \Puzzlout\Framework\Interfaces\IViewLoader {
                 return $fileToCheck;
             }
         }
-        throw new \Puzzlout\Framework\Exceptions\ViewNotFoundException("Partial view \"" . $viewName . "\" not found in " . var_dump($ListOfPathToCheck));
+        $errMsg = "Partial view \"" . $viewName . "\" not found in list." . var_dump($ListOfPathToCheck);
+        throw new ViewNotFoundException($errMsg, MvcErrors::PARTIAL_VIEW_NOT_FOUND, null);
     }
 
     /**

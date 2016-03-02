@@ -99,7 +99,7 @@ class Managers {
      * @throws \InvalidArgumentException
      * Thrown if the module isn't given in $module parameter. 
      */
-    public function getDalInstance($module = NULL, $isCoreModule = false) {
+    public function getDalInstance($module = null, $isCoreModule = false) {
         if (is_null($module)) {
             $module = "Common";
             $isCoreModule = true;

@@ -34,7 +34,7 @@ class Router extends ApplicationComponent {
      */
     public function __construct(Application $app) {
         if (is_null($app)) {
-            throw new \Exception('$app cannot be null!', 0, NULL);
+            throw new \Exception('$app cannot be null!', 0, null);
         }
         parent::__construct($app);
         $request = new Request($app);

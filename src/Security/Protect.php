@@ -48,7 +48,7 @@ class Protect extends \Puzzlout\Framework\Core\ApplicationComponent {
      * The value to hash using sha1 method and the $publicKey. 
      * @return string
      */
-    public function HashValue($dynamicSalt, $data, $hashLength = NULL) {
+    public function HashValue($dynamicSalt, $data, $hashLength = null) {
         $separator = "$%*{//}*%$";
         return
                 is_null($hashLength) && is_int($hashLength) ?

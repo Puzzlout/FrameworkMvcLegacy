@@ -66,7 +66,7 @@ class ResourceBase {
             $this->ActionValue = $params[self::ActionKey];
             $this->IsCommon = false;
         } else {
-            throw new Exception("You must specify either the group or the couple module/action.", 0, NULL); //todo: create error code
+            throw new Exception("You must specify either the group or the couple module/action.", 0, null); //todo: create error code
         }
         return $this;
     }

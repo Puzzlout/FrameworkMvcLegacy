@@ -65,7 +65,7 @@ class Request {
     public function requestURI() {
         $key = 'REQUEST_URI';
         if (filter_input(INPUT_SERVER, $key)) {
-            throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, NULL);
+            throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, null);
         }
         return strtok($_SERVER[$key], '?');
     }
@@ -73,7 +73,7 @@ class Request {
     protected function requestType() {
         $key = 'REQUEST_METHOD';
         if (filter_input(INPUT_SERVER, $key)) {
-            throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, NULL);
+            throw new \Exception($key . ' is not set in $_SERVER. See dump above.' . var_dump(filter_input_array(INPUT_SERVER)), 0, null);
         }
         return $_SERVER[$key];
     }

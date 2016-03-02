@@ -32,7 +32,7 @@ class Response extends ApplicationComponent {
         }
 
         if (!($ControllerVm instanceof \Puzzlout\Framework\ViewModels\BaseJsonVm)) {
-            throw new \InvalidArgumentException('$ControllerVm must be a valid \Puzzlout\Framework\ViewModels\BaseJsonVm object. See above dump.' . var_dump($ControllerVm), 0, NULL);
+            throw new \InvalidArgumentException('$ControllerVm must be a valid \Puzzlout\Framework\ViewModels\BaseJsonVm object. See above dump.' . var_dump($ControllerVm), 0, null);
         }
 
         $VmJson = new \Puzzlout\Framework\ViewModels\BaseJsonVm($this->app());

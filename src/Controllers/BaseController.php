@@ -128,7 +128,7 @@ abstract class BaseController extends \Puzzlout\Framework\Core\ApplicationCompon
                     '</b> is not defined for the module <b>' .
                     ucfirst($this->module) .
                     '</b>';
-            throw new \RuntimeException($errorMessage, MvcErrors::ACTION_NOT_FOUND_FOR_CONTROLLER, NULL);
+            throw new \RuntimeException($errorMessage, MvcErrors::ACTION_NOT_FOUND_FOR_CONTROLLER, null);
         }
         $logGuid = \Puzzlout\Framework\Utility\TimeLogger::StartLogInfo(
                 $this->app(), 

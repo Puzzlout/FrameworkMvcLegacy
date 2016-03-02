@@ -15,9 +15,9 @@ class TimeLogger extends Logger {
         Logger::StoreLogs($user, $logs);
     }
 
-    public static function StartLog(\Puzzlout\Framework\Core\Application $app, $source, $type = NULL) {
+    public static function StartLog(\Puzzlout\Framework\Core\Application $app, $source, $type = null) {
         if (is_null($source)) {
-            throw new \Exception("Log must have a source, e.g. __CLASSNAME__.__METHOD__", 0, NULL); //todo: create the error code.
+            throw new \Exception("Log must have a source, e.g. __CLASSNAME__.__METHOD__", 0, null); //todo: create the error code.
         }
         $log = new \Puzzlout\Framework\BO\F_log();
         $log->setF_log_guid(UUID::v4());
@@ -42,23 +42,23 @@ class TimeLogger extends Logger {
         Logger::StoreLogs($app->user(), $logs);
     }
 
-    public static function StartLogInfo(\Puzzlout\Framework\Core\Application $app, $source = NULL) {
+    public static function StartLogInfo(\Puzzlout\Framework\Core\Application $app, $source = null) {
         return self::StartLog($app, $source, \Puzzlout\Framework\BO\F_log_extension::LEVEL_INFO);
     }
 
-    public static function StartLogDebug(\Puzzlout\Framework\Core\Application $app, $source = NULL) {
+    public static function StartLogDebug(\Puzzlout\Framework\Core\Application $app, $source = null) {
         return self::StartLog($app, $source, \Puzzlout\Framework\BO\F_log_extension::LEVEL_DEBUG);
     }
 
-    public static function StartLogWarning(\Puzzlout\Framework\Core\Application $app, $source = NULL) {
+    public static function StartLogWarning(\Puzzlout\Framework\Core\Application $app, $source = null) {
         return self::StartLog($app, $source, \Puzzlout\Framework\BO\F_log_extension::LEVEL_WARNING);
     }
 
-    public static function StartLogError(\Puzzlout\Framework\Core\Application $app, $source = NULL) {
+    public static function StartLogError(\Puzzlout\Framework\Core\Application $app, $source = null) {
         return self::StartLog($app, $source, \Puzzlout\Framework\BO\F_log_extension::LEVEL_ERROR);
     }
 
-    public static function StartLogFatal(\Puzzlout\Framework\Core\Application $app, $source = NULL) {
+    public static function StartLogFatal(\Puzzlout\Framework\Core\Application $app, $source = null) {
         return self::StartLog($app, $source, \Puzzlout\Framework\BO\F_log_extension::LEVEL_FATAL);
     }
 

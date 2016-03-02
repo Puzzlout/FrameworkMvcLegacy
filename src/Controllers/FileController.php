@@ -116,7 +116,7 @@ class FileController extends \Puzzlout\Framework\Controllers\BaseController {
         $document = $manager->selectOne($document);
 
         $result['dataOut'] = -1;
-        if ($document !== NULL) {
+        if ($document !== null) {
             $result['dataOut'] = $manager->deleteWithFile($document, 'document_id');
         }
 

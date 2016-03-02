@@ -41,7 +41,7 @@ class CommonResxBase extends ResourceBase implements \Puzzlout\Framework\Interfa
             return $resources[$key][\Puzzlout\Framework\BO\F_common_resource::F_COMMON_RESOURCE_VALUE];
         } else {
 //      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-//      "The resource value doesn't exist for Group => " . $this->GroupValue . " and Key => " . $key, 0, NULL);
+//      "The resource value doesn't exist for Group => " . $this->GroupValue . " and Key => " . $key, 0, null);
             return "???";
         }
     }
@@ -59,7 +59,7 @@ class CommonResxBase extends ResourceBase implements \Puzzlout\Framework\Interfa
             return $resources[$key][\Puzzlout\Framework\BO\F_common_resource::F_COMMON_RESOURCE_COMMENT];
         } else {
 //      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-//      "The resource comment doesn't exist for Group => " . $this->GroupValue . " and Key => " . $key, 0, NULL);
+//      "The resource comment doesn't exist for Group => " . $this->GroupValue . " and Key => " . $key, 0, null);
             return "???";
         }
     }

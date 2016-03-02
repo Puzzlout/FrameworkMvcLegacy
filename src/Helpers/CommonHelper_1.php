@@ -57,7 +57,7 @@ class CommonHelper_1 {
     public static function GetListObjectsInSessionByKey($user, $key) {
         $objects = array();
         $projects = $user->getAttribute(\Puzzlout\Framework\Enums\SessionKeys::UserSessionProjects);
-        if ($projects === NULL) {
+        if ($projects === null) {
             $projects = array();
         }
         foreach ($projects as $project) {
@@ -76,7 +76,7 @@ class CommonHelper_1 {
     public static function PrepareUserObject($data_sent, $object) {
         foreach ($data_sent as $key => $value) {
             $method = "set" . ucfirst($key);
-            $object->$method(!array_key_exists($key, $data_sent) ? NULL : $value);
+            $object->$method(!array_key_exists($key, $data_sent) ? null : $value);
         }
         return $object;
     }
@@ -119,9 +119,9 @@ class CommonHelper_1 {
      * @return mixed{boolean,object}
      * The object if found or false otherwise. 
      */
-    public static function FindObjectByStringValue($filter, $propName, $listOfObjects, $key = NULL) {
+    public static function FindObjectByStringValue($filter, $propName, $listOfObjects, $key = null) {
         $match = false;
-        if ($key === NULL) {
+        if ($key === null) {
             foreach ($listOfObjects as $obj) {
                 if ($obj->$propName() === $filter) {
                     $match = $obj;
@@ -154,7 +154,7 @@ class CommonHelper_1 {
     }
 
     public static function FindIndexInIdListById($valueToFind, $idList) {
-        $match = NULL;
+        $match = null;
         foreach (array_keys($idList) as $index => $key) {
             if ($idList[$key] === $valueToFind) {
                 $match = $index;

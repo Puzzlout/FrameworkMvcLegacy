@@ -23,7 +23,7 @@ class ViewnameConstantsEngine extends ConstantsClassEngineBase {
      * Generate the Classes that list the Dal Modules names available in the
      * solution.
      */
-    public function Run($data = NULL) {
+    public function Run($data = null) {
         $FrameworkList = DirectoryManager::GetFilesNamesRecursively(
                         "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::ViewsFolderName);
         $ApplicationList = DirectoryManager::GetFilesNamesRecursively(

@@ -13,15 +13,20 @@
 
 namespace Puzzlout\Framework\Core\Cache;
 
-class ApcCache extends \Puzzlout\Framework\Core\ApplicationComponent implements \Puzzlout\Framework\Interfaces\ICache {
+use Puzzlout\Exceptions\Codes;
+use Puzzlout\Framework\Core\Application;
+use Puzzlout\Framework\Core\ApplicationComponent;
+use Puzzlout\Framework\Interfaces\ICache;
+
+class ApcCache extends ApplicationComponent implements ICache {
 
     protected $config;
 
-    public function __construct(\Puzzlout\Framework\Core\Application $app) {
+    public function __construct(Application $app) {
         parent::__construct($app);
     }
 
-    public static function Init(\Puzzlout\Framework\Core\Application $app) {
+    public static function Init(Application $app) {
         $cacher = new ApcCache($app);
         return $cacher;
     }
@@ -44,12 +49,12 @@ class ApcCache extends \Puzzlout\Framework\Core\ApplicationComponent implements 
      * @return bool The result storing $value with $key. If $key is already in the
      * cache, the result is false.
      * @throws \Exception
-     * @todo Create exception and error code
      */
     public function Create($key, $value) {
         $doesKeyExist = $this->KeyExists($key);
         if ($doesKeyExist) {
-            throw new \Exception("key is already found the store. You need to use the Update method.", 0, NULL);
+            $errMsg = "Key is already found the store. You need to use the Update method.";
+            throw new \Exception($errMsg, Codes\CacheErrors::KEY_FOUND_ON_CREATE, null);
         }
 
         $isValueCached = apc_add($key, $value, \Puzzlout\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));
@@ -79,12 +84,12 @@ class ApcCache extends \Puzzlout\Framework\Core\ApplicationComponent implements 
      * @param mixed $value
      * @return bool
      * @throws \Exception
-     * @todo Create exception and error code
      */
     public function Update($key, $value) {
         $doesKeyExist = $this->KeyExists($key);
         if (!$doesKeyExist) {
-            throw new \Exception("key is not found the store. You need to use the Create method.", 0, NULL);
+            $errMsg = "Key wasn't found in the store. You need to use the Create method.";
+            throw new \Exception($errMsg, Codes\CacheErrors::KEY_NOT_FOUND_ON_UPDATE, null);
         }
 
         $isValueCached = apc_store($key, $value, \Puzzlout\Framework\Core\Config::Init($this->app)->Get("CacheTtl"));

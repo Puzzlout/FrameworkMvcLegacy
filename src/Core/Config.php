@@ -51,12 +51,12 @@ class Config extends ApplicationComponent {
      * @param string $appName Optional parameter when we need to access another Application settings
      * @return boolean|string : The value associated to the key given. Otherwise false
      */
-    public function Get($key, $appName = NULL) {
+    public function Get($key, $appName = null) {
         if (!is_null($appName) && (!$this->settings || !isset($this->settings[$appName]) || !isset($this->settings[$appName][$key]))) {
-            throw new \RuntimeException("$key was not found in the Settings for " . $appName . ". See above array. " . var_dump($this->settings), 0, NULL);
+            throw new \RuntimeException("$key was not found in the Settings for " . $appName . ". See above array. " . var_dump($this->settings), 0, null);
         }
         if ((!$this->settings || !isset($this->settings[$this->app->name]) || !isset($this->settings[$this->app->name][$key]))) {
-            throw new \RuntimeException("$key was not found in the Settings for " . $this->app->name . ". See above array. " . var_dump($this->settings), 0, NULL);
+            throw new \RuntimeException("$key was not found in the Settings for " . $this->app->name . ". See above array. " . var_dump($this->settings), 0, null);
         } else {
             $appName = $this->app->name;
         }

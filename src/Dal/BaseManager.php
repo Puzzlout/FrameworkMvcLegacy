@@ -116,7 +116,7 @@ class BaseManager extends \Puzzlout\Framework\Dal\Manager {
         } else {
             $this->BuildAddDbConfig($objects);
         }
-        return $this->BindParametersAndExecute(NULL);
+        return $this->BindParametersAndExecute(null);
     }
 
     public function BuildAddDbConfig($object) {
@@ -185,7 +185,7 @@ class BaseManager extends \Puzzlout\Framework\Dal\Manager {
                 }
             }
         }
-        //$this->setDbConfigList(NULL);
+        //$this->setDbConfigList(null);
         return $this->ExecuteQuery($dbStatement);
     }
 

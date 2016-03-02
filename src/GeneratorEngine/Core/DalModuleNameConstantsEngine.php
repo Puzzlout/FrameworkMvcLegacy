@@ -26,7 +26,7 @@ class DalModuleNameConstantsEngine extends ConstantsClassEngineBase {
      * @param assoc array $data depending on the situation, some data can be passed
      * on to generate the files desired.
      */
-    public function Run($data = NULL) {
+    public function Run($data = null) {
         $FrameworkDalModules = DirectoryManager::GetFileNames(
                         "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::DalModulesFolderName);
 

@@ -13,6 +13,10 @@
 
 namespace Puzzlout\Framework\Core\ResourceManagers;
 
+use Puzzlout\Framework\BO\F_controller_resource;
+use Puzzlout\Exceptions\Codes\ResourceErrors;
+use Puzzlout\Exceptions\Classes;
+
 class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Interfaces\IResource {
 
     /**
@@ -34,7 +38,7 @@ class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Int
      * 
      * @param string $key the resource key to find
      * @return string the resource value
-     * @todo create a error code for exception
+     * @todo activate the exception?
      */
     public function GetValue($key) {
         $resources = $this->GetList();
@@ -45,14 +49,15 @@ class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Int
                 array_key_exists($keyLower, $resources[$actionLower]) :
                 false;
         if ($keyExist) {
-            return $resources[$actionLower][$keyLower][\Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
-        } else if (!$actionExists) {
-//      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-//      "The resource value doesn't exist for Module => " . $this->ModuleValue . " and Action => " . $this->ActionValue, 0, NULL);
-            return "???";
+            return $resources[$actionLower][$keyLower][F_controller_resource::F_CONTROLLER_RESOURCE_VALUE];
         } else {
-//      throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-//      "The resource value doesn't exist for Module => " . $this->ModuleValue . ", Action => " . $this->ActionValue . " and Key => " . $key, 0, NULL);
+//            $errMsg = 
+//                    "The resource value doesn't exist. Module => " . 
+//                    $this->ModuleValue . 
+//                    " ; Action => " . 
+//                    $this->ActionValue .
+//                    "; Key => " . $key;
+//            throw new Classes\ResourceNotFoundException($errMsg, ResourceErrors::RESOURCE_VALUE_NOT_FOUND, null);
             return "???";
         }
     }
@@ -62,7 +67,7 @@ class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Int
      * 
      * @param string $key the resource key to find
      * @return string the resource comment
-     * @todo create a error code for exception
+     * @todo activate the exception?
      */
     public function GetComment($key) {
         $resources = $this->GetList();
@@ -71,13 +76,16 @@ class ControllerResxBase extends ResourceBase implements \Puzzlout\Framework\Int
                 array_key_exists($key, $resources[$this->ActionValue]) :
                 false;
         if ($keyExist) {
-            return $resources[$this->ActionValue][$key][\Puzzlout\Framework\BO\F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT];
-        } else if (!$actionExists) {
-            throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-            "The resource comment doesn't exist for Module => " . $this->ModuleValue . " and Action => " . $this->ActionValue, 0, NULL);
+            return $resources[$this->ActionValue][$key][F_controller_resource::F_CONTROLLER_RESOURCE_COMMENT];
         } else {
-            throw new \Puzzlout\Framework\Exceptions\ResourceNotFoundException(
-            "The resource comment doesn't exist for Module => " . $this->ModuleValue . ", Action => " . $this->ActionValue . " and Key => " . $key, 0, NULL);
+//            $errMsg = 
+//                    "The resource comment doesn't exist. Module => " . 
+//                    $this->ModuleValue . 
+//                    " ; Action => " . 
+//                    $this->ActionValue .
+//                    "; Key => " . $key;
+//            throw new Classes\ResourceNotFoundException($errMsg, ResourceErrors::RESOURCE_COMMENT_NOT_FOUND, null);
+            return "???";
         }
     }
 

@@ -33,7 +33,7 @@ class NewFileItem implements \JsonSerializable {
     public function Fill($dataAssocArray) {
         foreach ($dataAssocArray as $key => $value) {
             if (!property_exists($this, $key)) {
-                throw new \Exception("Property $key doesn't exist in the class " . __CLASS__, 0, NULL);
+                throw new \Exception("Property $key doesn't exist in the class " . __CLASS__, 0, null);
             }
             $this->$key = $value;
         }

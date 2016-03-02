@@ -38,7 +38,7 @@ class CreateFileHelper extends \Puzzlout\Framework\Helpers\WebIdeAjaxHelper {
     public function GetFileType($dataPost) {
         $templateTypeKey = "templateType";
         if (!array_key_exists($templateTypeKey, $dataPost)) {
-            throw new \Exception("The POST data doesn't contain the value $templateTypeKey. See dump" . var_dump($dataPost), 0, NULL);
+            throw new \Exception("The POST data doesn't contain the value $templateTypeKey. See dump" . var_dump($dataPost), 0, null);
         }
 
         $this->templateType = $dataPost[$templateTypeKey];
@@ -62,11 +62,11 @@ class CreateFileHelper extends \Puzzlout\Framework\Helpers\WebIdeAjaxHelper {
     public function GetTemplateContents() {
         $templateFileName = "APP_ROOT_DIR" . \Puzzlout\Framework\Enums\FrameworkFolderName::TEMPLATES_DIR . $this->templateType . "Template.tt";
         if (!file_exists($templateFileName)) {
-            throw new Exception("The template $templateFileName was not found. Please the template type" . $this->templateType . " or add a new template.", 0, NULL);
+            throw new Exception("The template $templateFileName was not found. Please the template type" . $this->templateType . " or add a new template.", 0, null);
         }
         $contents = file_get_contents($templateFileName);
         if (!$contents) {
-            throw new Exception("Failed to get contents from $templateFileName", 0, NULL);
+            throw new Exception("Failed to get contents from $templateFileName", 0, null);
         }
         return $contents;
     }
@@ -74,7 +74,7 @@ class CreateFileHelper extends \Puzzlout\Framework\Helpers\WebIdeAjaxHelper {
     public function SaveFile(\Puzzlout\Framework\Controllers\BaseController $controller) {
         $result = JsonResult::Init()->SetDefault();
         if (count($controller->dataPost()) === 0) {
-            throw new Exception("dataPost is empty! Please the form submission", 0, NULL);
+            throw new Exception("dataPost is empty! Please the form submission", 0, null);
         }
         $newFile = NewFileItem::Init()->Fill($controller->dataPost());
 

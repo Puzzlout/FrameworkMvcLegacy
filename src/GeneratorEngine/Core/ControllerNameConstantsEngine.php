@@ -26,7 +26,7 @@ class ControllerNameConstantsEngine extends ConstantsClassEngineBase {
      * @param assoc array $data depending on the situation, some data can be passed
      * on to generate the files desired.
      */
-    public function Run($data = NULL) {
+    public function Run($data = null) {
         $this->ProcessFrameworkData();
 
         $ApplicationList = \Puzzlout\Framework\GeneratorEngine\Constants\ApplicationList::Init()->GetList();

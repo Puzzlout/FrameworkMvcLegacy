@@ -26,7 +26,7 @@ class ResourceEngine extends \Puzzlout\Framework\GeneratorEngine\Core\ResourceCo
         $this->app = $app;
     }
 
-    public function Run($data = NULL) {
+    public function Run($data = null) {
         $this->PrepareTheDefaultParametersForGeneration(); //todo: put method in Interface.
         $this->GenerateCommonResxFiles($data[\Puzzlout\Framework\Core\Globalization::COMMON_RESX_ARRAY_KEY]);
         $this->GenerateControllerResxFiles($data[\Puzzlout\Framework\Core\Globalization::CONTROLLER_RESX_ARRAY_KEY]);
@@ -37,12 +37,12 @@ class ResourceEngine extends \Puzzlout\Framework\GeneratorEngine\Core\ResourceCo
      */
     public function PrepareTheDefaultParametersForGeneration() {
         $this->params = array(
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey => NULL,
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey => NULL,
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey => NULL,
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey => NULL,
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey => NULL,
-            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation => NULL,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::NameSpaceKey => null,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey => null,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey => null,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDescriptionKey => null,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey => null,
+            \Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation => null,
             \Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey => true,
             \Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateGetListMethodKey => true,
         );
@@ -59,7 +59,7 @@ class ResourceEngine extends \Puzzlout\Framework\GeneratorEngine\Core\ResourceCo
         $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassNameKey] = ucfirst($key) . $this->GeneratedClassPrefix;
         $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::DestinationDirKey] = $this->DestinationFolder;
         $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::CultureKey] = is_null($culture) ?
-                NULL :
+                null :
                 $culture[\Puzzlout\Framework\BO\F_culture::F_CULTURE_LANGUAGE] . "_" . $culture[\Puzzlout\Framework\BO\F_culture::F_CULTURE_REGION];
         if ($this->IsGeneratingBaseClass) {
             $this->params[\Puzzlout\Framework\GeneratorEngine\Core\ConstantsClassGeneratorBase::DoGenerateConstantKeysKey] = true;
@@ -111,14 +111,14 @@ class ResourceEngine extends \Puzzlout\Framework\GeneratorEngine\Core\ResourceCo
     }
 
     private function GenerateCommonBaseClass($groupKey, $cultureArray) {
-        $this->UpdateTheParametersForGeneration($groupKey, NULL);
-        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::CommonClassDerivationNamespace;
+        $this->UpdateTheParametersForGeneration($groupKey, null);
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = null; //self::CommonClassDerivationNamespace;
         return $this->GenerateApplicationFile($cultureArray);
     }
 
     private function GenerateControllerBaseClass($moduleKey, $cultureArray) {
-        $this->UpdateTheParametersForGeneration($moduleKey, NULL);
-        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = NULL; //self::ControllerClassDerivationNamespace;
+        $this->UpdateTheParametersForGeneration($moduleKey, null);
+        $this->params[\Puzzlout\Framework\GeneratorEngine\Core\BaseClassGenerator::ClassDerivation] = null; //self::ControllerClassDerivationNamespace;
         return $this->GenerateApplicationFile($cultureArray);
     }
 

@@ -21,7 +21,7 @@ class CommonDal extends \Puzzlout\Framework\Dal\BaseManager {
      * @return array The list of table names.
      */
     public function GetListOfTablesInDatabase() {
-        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::SHOWTABLES, new \Puzzlout\Framework\Dal\DbQueryFilters());
+        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(null, \Puzzlout\Framework\Dal\DbExecutionType::SHOWTABLES, new \Puzzlout\Framework\Dal\DbQueryFilters());
         $dbConfig->setQuery("SHOW TABLES;");
         $this->addDbConfigItem($dbConfig);
         return $this->BindParametersAndExecute();
@@ -38,7 +38,7 @@ class CommonDal extends \Puzzlout\Framework\Dal\BaseManager {
         $tableColumnsMetadata = array();
         foreach ($columnNames as $columnName) {
             $this->setDbConfigList(array());
-            $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNMETAS, new \Puzzlout\Framework\Dal\DbQueryFilters());
+            $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(null, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNMETAS, new \Puzzlout\Framework\Dal\DbQueryFilters());
             $dbConfig->setQuery("SHOW COLUMNS FROM `$tableName` WHERE `Field` = '$columnName';");
             $this->addDbConfigItem($dbConfig);
             $tableColumnsMetadata[$columnName] = $this->BindParametersAndExecute();
@@ -54,7 +54,7 @@ class CommonDal extends \Puzzlout\Framework\Dal\BaseManager {
      */
     public function GetTableColumnNames($tableName) {
         $this->setDbConfigList(array());
-        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(NULL, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNNAMES, new \Puzzlout\Framework\Dal\DbQueryFilters());
+        $dbConfig = new \Puzzlout\Framework\Dal\DbStatementConfig(null, \Puzzlout\Framework\Dal\DbExecutionType::COLUMNNAMES, new \Puzzlout\Framework\Dal\DbQueryFilters());
         $dbConfig->setQuery("DESCRIBE `$tableName`;");
         $this->addDbConfigItem($dbConfig);
         return $this->BindParametersAndExecute();
