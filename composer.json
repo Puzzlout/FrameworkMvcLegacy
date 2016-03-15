@@ -1,5 +1,5 @@
 {
-    "name": "puzzlout/framework-mvc",
+    "name": "puzzlout/framework-mvc-legacy",
     "description": "The Puzzlout framework to be used to build MVC websites",
     "license": "MIT",
     "keywords": ["Puzzlout", "web", "dev", "jl", "easymvc"],
